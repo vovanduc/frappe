@@ -1,0 +1,999 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/database/utils.py",
+      "type": "file",
+      "name": "utils.py",
+      "filePath": "frappe/database/utils.py",
+      "summary": "Database utility functions including query type detection, filter value conversion, lazy string evaluation, and post-response commit management. Provides helpers for safe reconnection and index management.",
+      "tags": ["database", "utilities", "query", "lazy-evaluation", "callbacks"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/utils/__init__.py",
+      "summary": "Central utility module that re-exports functions from frappe.utils.data and provides email validation, URL handling, shell execution, file/path helpers, site info, callback management, and many common utility functions used throughout the framework.",
+      "tags": ["utilities", "email", "validation", "path-helpers", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/background_jobs.py",
+      "type": "file",
+      "name": "background_jobs.py",
+      "filePath": "frappe/utils/background_jobs.py",
+      "summary": "Manages RQ (Redis Queue) background workers for asynchronous job execution. Handles job enqueuing, deduplication, worker lifecycle, queue management, retry logic, and Sentry integration for background processes.",
+      "tags": ["background-jobs", "redis-queue", "workers", "async", "rq"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/backups.py",
+      "type": "file",
+      "name": "backups.py",
+      "filePath": "frappe/utils/backups.py",
+      "summary": "Database and file backup system providing the BackupGenerator class for creating, encrypting, and managing site backups including database dumps, public/private files, and site configuration.",
+      "tags": ["backup", "database", "encryption", "files", "scheduled-tasks"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/bench_helper.py",
+      "type": "file",
+      "name": "bench_helper.py",
+      "filePath": "frappe/utils/bench_helper.py",
+      "summary": "CLI helper that integrates Frappe app commands with the Bench CLI using Click. Discovers and wraps app command groups, handles site resolution, and provides exception handling for CLI commands.",
+      "tags": ["cli", "bench", "click", "commands", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/boilerplate.py",
+      "type": "file",
+      "name": "boilerplate.py",
+      "filePath": "frappe/utils/boilerplate.py",
+      "summary": "App scaffolding module that generates boilerplate code for new Frappe apps including directory structure, hooks.py, pyproject.toml, GitHub workflows, pre-commit config, and patch creation utilities.",
+      "tags": ["boilerplate", "scaffolding", "app-creation", "templates", "code-generation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/caching.py",
+      "type": "file",
+      "name": "caching.py",
+      "filePath": "frappe/utils/caching.py",
+      "summary": "Provides multiple caching decorators: request_cache for per-request memoization, site_cache for cross-request in-process caching with TTL, redis_cache for Redis-backed caching, and http_cache for HTTP Cache-Control headers.",
+      "tags": ["caching", "decorators", "redis", "memoization", "performance"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/change_log.py",
+      "type": "file",
+      "name": "change_log.py",
+      "filePath": "frappe/utils/change_log.py",
+      "summary": "Manages application change logs and version update notifications. Checks GitHub for new releases, compares versions, tracks security advisories, and displays update popups to system managers.",
+      "tags": ["changelog", "versioning", "updates", "github-api", "notifications"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/commands.py",
+      "type": "file",
+      "name": "commands.py",
+      "filePath": "frappe/utils/commands.py",
+      "summary": "Small utility module providing helper functions for CLI output including colored logging, table rendering, line decoration for stdout, and first-party app discovery from GitHub.",
+      "tags": ["cli", "logging", "output", "utilities", "terminal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/connections.py",
+      "type": "file",
+      "name": "connections.py",
+      "filePath": "frappe/utils/connections.py",
+      "summary": "Connection health check utilities for verifying availability of database (MariaDB/PostgreSQL/SQLite) and Redis services via socket connections, supporting both TCP and Unix socket schemes.",
+      "tags": ["connections", "health-check", "socket", "database", "redis"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/utils.py:LazyString",
+      "type": "class",
+      "name": "LazyString",
+      "lineRange": [83, 95],
+      "summary": "Abstract base class for lazy string evaluation with cached_property-based value resolution and string representation methods.",
+      "tags": ["lazy-evaluation", "string", "abstract"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/database/utils.py:LazyDecode",
+      "type": "class",
+      "name": "LazyDecode",
+      "lineRange": [98, 105],
+      "summary": "LazyString subclass that lazily decodes byte strings to unicode on first access.",
+      "tags": ["lazy-evaluation", "decoding", "string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/database/utils.py:LazyMogrify",
+      "type": "class",
+      "name": "LazyMogrify",
+      "lineRange": [108, 116],
+      "summary": "LazyString subclass that lazily mogrifies SQL queries with parameter values on first access.",
+      "tags": ["lazy-evaluation", "sql", "mogrify"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/database/utils.py:CommitAfterResponseManager",
+      "type": "class",
+      "name": "CommitAfterResponseManager",
+      "lineRange": [142, 163],
+      "summary": "CallbackManager subclass that executes queued database operations after the HTTP response is sent, using savepoints for error isolation.",
+      "tags": ["callbacks", "database", "commit", "response"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/utils.py:dangerously_reconnect_on_connection_abort",
+      "type": "function",
+      "name": "dangerously_reconnect_on_connection_abort",
+      "lineRange": [119, 139],
+      "summary": "Decorator that reconnects to the database on connection failure, intended only for logging or final steps in background jobs to avoid transaction corruption.",
+      "tags": ["decorator", "database", "reconnect", "error-handling"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/utils.py:commit_after_response",
+      "type": "function",
+      "name": "commit_after_response",
+      "lineRange": [166, 185],
+      "summary": "Schedules a function to run and commit after the HTTP response is sent; executes immediately if not in request context or during tests.",
+      "tags": ["database", "commit", "response", "callbacks"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/utils.py:drop_index_if_exists",
+      "type": "function",
+      "name": "drop_index_if_exists",
+      "lineRange": [188, 207],
+      "summary": "Safely drops a database index if it exists, handling both MariaDB and PostgreSQL syntax differences.",
+      "tags": ["database", "index", "migration", "ddl"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/__init__.py:CallbackManager",
+      "type": "class",
+      "name": "CallbackManager",
+      "lineRange": [1128, 1167],
+      "summary": "Queue-based callback manager using deque to add, execute, and reset ordered function callbacks. Used throughout the framework for deferred execution patterns like frappe.db.after_commit.",
+      "tags": ["callbacks", "queue", "deferred-execution", "core"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/__init__.py:execute_in_shell",
+      "type": "function",
+      "name": "execute_in_shell",
+      "lineRange": [483, 526],
+      "summary": "Executes a shell command using subprocess.Popen with optional low priority, verbose output, and exit code checking. Returns stderr and stdout.",
+      "tags": ["shell", "subprocess", "execution", "utilities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/__init__.py:validate_email_address",
+      "type": "function",
+      "name": "validate_email_address",
+      "lineRange": [172, 211],
+      "summary": "Validates one or more email addresses in a string, parsing display names and checking format against a regex pattern, with optional exception throwing.",
+      "tags": ["email", "validation", "parsing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/__init__.py:get_site_info",
+      "type": "function",
+      "name": "get_site_info",
+      "lineRange": [817, 866],
+      "summary": "Collects comprehensive site information including installed apps, users, system settings, space usage, and recent logins. Extensible via hooks.",
+      "tags": ["site-info", "diagnostics", "system"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/__init__.py:get_traceback",
+      "type": "function",
+      "name": "get_traceback",
+      "lineRange": [340, 357],
+      "summary": "Returns formatted traceback string of the current exception, optionally with variable context and sensitive data sanitization.",
+      "tags": ["error-handling", "traceback", "debugging"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/__init__.py:create_batch",
+      "type": "function",
+      "name": "create_batch",
+      "lineRange": [920, 932],
+      "summary": "Generator that converts an iterable into multiple batches of a specified maximum size for batch processing.",
+      "tags": ["batching", "iterator", "utilities"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:enqueue",
+      "type": "function",
+      "name": "enqueue",
+      "lineRange": [76, 209],
+      "summary": "Primary method to enqueue background jobs via RQ with support for deduplication, priority queuing, timeouts, success/failure callbacks, and queue starvation detection.",
+      "tags": ["background-jobs", "enqueue", "rq", "async", "deduplication"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:execute_job",
+      "type": "function",
+      "name": "execute_job",
+      "lineRange": [239, 317],
+      "summary": "Executes a background job within a worker context, handling site initialization, user context, commit/rollback, deadlock retry logic, and before/after job hooks.",
+      "tags": ["job-execution", "worker", "error-handling", "retry"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:start_worker",
+      "type": "function",
+      "name": "start_worker",
+      "lineRange": [320, 360],
+      "summary": "Wrapper to start an RQ worker that connects to Redis, configures logging and process niceness, and monitors specified queues.",
+      "tags": ["worker", "rq", "redis", "startup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/background_jobs.py:FrappeWorker",
+      "type": "class",
+      "name": "FrappeWorker",
+      "lineRange": [363, 378],
+      "summary": "Custom RQ Worker subclass that integrates Frappe's scheduler, starting it as a daemon thread alongside the worker process.",
+      "tags": ["worker", "rq", "scheduler", "custom"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/background_jobs.py:FrappeWorkerNoFork",
+      "type": "class",
+      "name": "FrappeWorkerNoFork",
+      "lineRange": [381, 410],
+      "summary": "FrappeWorker subclass that executes jobs in the same process without forking, with max job limits and heartbeat management for long-running workers.",
+      "tags": ["worker", "no-fork", "rq", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:start_worker_pool",
+      "type": "function",
+      "name": "start_worker_pool",
+      "lineRange": [413, 465],
+      "summary": "Starts an experimental RQ worker pool with configurable number of workers, supporting both fork and no-fork modes with module pre-loading for memory sharing.",
+      "tags": ["worker-pool", "experimental", "multiprocessing", "rq"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:get_redis_conn",
+      "type": "function",
+      "name": "get_redis_conn",
+      "lineRange": [565, 610],
+      "summary": "Establishes Redis connection for RQ with retry logic, authentication support, and error handling. Cached globally for reuse.",
+      "tags": ["redis", "connection", "authentication", "retry"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/background_jobs.py:truncate_failed_registry",
+      "type": "function",
+      "name": "truncate_failed_registry",
+      "lineRange": [708, 720],
+      "summary": "Cleanup callback that ensures the number of failed jobs in RQ registries does not exceed configured limits by removing oldest entries.",
+      "tags": ["cleanup", "failed-jobs", "rq", "registry"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/backups.py:BackupGenerator",
+      "type": "class",
+      "name": "BackupGenerator",
+      "lineRange": [34, 531],
+      "summary": "Comprehensive backup management class that handles database dumps (MariaDB/PostgreSQL/SQLite), file archiving, site config backup, GPG encryption, backup scheduling, email notifications, and rollback support.",
+      "tags": ["backup", "database", "encryption", "files", "generator"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/backups.py:scheduled_backup",
+      "type": "function",
+      "name": "scheduled_backup",
+      "lineRange": [569, 605],
+      "summary": "Scheduler-invoked function that deletes old backups and creates new ones by delegating to new_backup with full configuration options.",
+      "tags": ["backup", "scheduler", "cleanup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/backups.py:new_backup",
+      "type": "function",
+      "name": "new_backup",
+      "lineRange": [608, 648],
+      "summary": "Creates a new site backup after cleaning temporary files, instantiating BackupGenerator with database credentials and configuration options.",
+      "tags": ["backup", "creation", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/backups.py:fetch_latest_backups",
+      "type": "function",
+      "name": "fetch_latest_backups",
+      "lineRange": [545, 566],
+      "summary": "Whitelisted API endpoint that fetches paths of the latest backup files taken within the last 30 days, restricted to System Managers.",
+      "tags": ["backup", "api", "whitelist", "system-manager"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/bench_helper.py:main",
+      "type": "function",
+      "name": "main",
+      "lineRange": [74, 77],
+      "summary": "Entry point for the Bench CLI that assembles app command groups and launches the Click-based command interface.",
+      "tags": ["cli", "entry-point", "bench"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/bench_helper.py:get_app_groups",
+      "type": "function",
+      "name": "get_app_groups",
+      "lineRange": [80, 91],
+      "summary": "Discovers and aggregates Click command groups from all installed Frappe apps into a unified CLI structure.",
+      "tags": ["cli", "commands", "discovery"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/bench_helper.py:FrappeClickWrapper",
+      "type": "function",
+      "name": "FrappeClickWrapper",
+      "lineRange": [20, 56],
+      "summary": "Factory function that creates a Click Group/Command wrapper class with enhanced error handling, fuzzy command matching, and exception routing.",
+      "tags": ["cli", "click", "error-handling", "wrapper"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/boilerplate.py:PatchCreator",
+      "type": "class",
+      "name": "PatchCreator",
+      "lineRange": [242, 334],
+      "summary": "Interactive CLI tool for creating new patch files within a Frappe app, prompting for app, doctype, and patch details, then generating the patch file and updating patches.txt.",
+      "tags": ["patches", "cli", "code-generation", "interactive"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/boilerplate.py:make_boilerplate",
+      "type": "function",
+      "name": "make_boilerplate",
+      "lineRange": [23, 31],
+      "summary": "Top-level function to create a new Frappe app by gathering user inputs and generating the complete boilerplate directory structure.",
+      "tags": ["boilerplate", "app-creation", "scaffolding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/boilerplate.py:_create_app_boilerplate",
+      "type": "function",
+      "name": "_create_app_boilerplate",
+      "lineRange": [136, 213],
+      "summary": "Creates the full directory structure and files for a new Frappe app including hooks, pyproject.toml, license, gitignore, README, and optionally initializes a git repository.",
+      "tags": ["boilerplate", "directory-structure", "file-generation", "git"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/caching.py:request_cache",
+      "type": "function",
+      "name": "request_cache",
+      "lineRange": [26, 75],
+      "summary": "Decorator that caches function return values for the duration of a single HTTP request using frappe.local.request_cache, preventing redundant computations within the same request.",
+      "tags": ["caching", "decorator", "request-scope", "memoization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/caching.py:site_cache",
+      "type": "function",
+      "name": "site_cache",
+      "lineRange": [78, 167],
+      "summary": "Decorator for cross-request in-process caching with optional TTL and maxsize, providing lightweight per-site caching without Redis serialization overhead.",
+      "tags": ["caching", "decorator", "ttl", "process-level", "site-scoped"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/caching.py:redis_cache",
+      "type": "function",
+      "name": "redis_cache",
+      "lineRange": [170, 209],
+      "summary": "Decorator for Redis-backed caching with configurable TTL, user-specific or shared caching, supporting cross-worker cache sharing.",
+      "tags": ["caching", "decorator", "redis", "ttl", "shared"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/caching.py:http_cache",
+      "type": "function",
+      "name": "http_cache",
+      "lineRange": [212, 255],
+      "summary": "Decorator that adds HTTP Cache-Control response headers to whitelisted endpoints with configurable public/private, max-age, and stale-while-revalidate directives.",
+      "tags": ["caching", "http", "cache-control", "decorator", "headers"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/change_log.py:get_change_log",
+      "type": "function",
+      "name": "get_change_log",
+      "lineRange": [18, 57],
+      "summary": "Retrieves change log entries for all installed apps by comparing current versions against the user's last known versions.",
+      "tags": ["changelog", "versioning", "user-state"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/change_log.py:check_for_update",
+      "type": "function",
+      "name": "check_for_update",
+      "lineRange": [167, 214],
+      "summary": "Checks GitHub for new major/minor/patch releases of installed apps and stores update notifications in Redis for system managers.",
+      "tags": ["updates", "github", "version-check", "notifications"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/change_log.py:show_update_popup",
+      "type": "function",
+      "name": "show_update_popup",
+      "lineRange": [338, 393],
+      "summary": "Whitelisted endpoint that displays update notification popups to system managers with release links and security advisory information.",
+      "tags": ["ui", "notifications", "updates", "whitelist"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/change_log.py:get_app_branch",
+      "type": "function",
+      "name": "get_app_branch",
+      "lineRange": [134, 148],
+      "summary": "Returns the current git branch of an installed app by running git rev-parse in the app directory.",
+      "tags": ["git", "branch", "app-info"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/commands.py:log",
+      "type": "function",
+      "name": "log",
+      "lineRange": [45, 57],
+      "summary": "Outputs colored log messages to stdout using ANSI escape codes for terminal-based CLI feedback.",
+      "tags": ["cli", "logging", "terminal", "ansi"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/connections.py:check_connection",
+      "type": "function",
+      "name": "check_connection",
+      "lineRange": [104, 108],
+      "summary": "Performs health checks on all required services (database and Redis) and returns a combined status dictionary.",
+      "tags": ["health-check", "connections", "diagnostics"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/connections.py:is_open",
+      "type": "function",
+      "name": "is_open",
+      "lineRange": [36, 78],
+      "summary": "Checks if a service is reachable via socket connection, supporting TCP (redis, postgres, mariadb) and Unix socket schemes.",
+      "tags": ["socket", "connection", "health-check", "network"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "class:frappe/database/utils.py:LazyString",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "class:frappe/database/utils.py:LazyDecode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "class:frappe/database/utils.py:LazyMogrify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "class:frappe/database/utils.py:CommitAfterResponseManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "func:frappe/database/utils.py:dangerously_reconnect_on_connection_abort",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "func:frappe/database/utils.py:commit_after_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "func:frappe/database/utils.py:drop_index_if_exists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "class:frappe/utils/__init__.py:CallbackManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "func:frappe/utils/__init__.py:execute_in_shell",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "func:frappe/utils/__init__.py:validate_email_address",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "func:frappe/utils/__init__.py:get_site_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "func:frappe/utils/__init__.py:get_traceback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/__init__.py",
+      "target": "func:frappe/utils/__init__.py:create_batch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:enqueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:execute_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:start_worker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "class:frappe/utils/background_jobs.py:FrappeWorker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "class:frappe/utils/background_jobs.py:FrappeWorkerNoFork",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:start_worker_pool",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:get_redis_conn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "func:frappe/utils/background_jobs.py:truncate_failed_registry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "class:frappe/utils/backups.py:BackupGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "func:frappe/utils/backups.py:scheduled_backup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "func:frappe/utils/backups.py:new_backup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "func:frappe/utils/backups.py:fetch_latest_backups",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/bench_helper.py",
+      "target": "func:frappe/utils/bench_helper.py:main",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/bench_helper.py",
+      "target": "func:frappe/utils/bench_helper.py:get_app_groups",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/bench_helper.py",
+      "target": "func:frappe/utils/bench_helper.py:FrappeClickWrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/boilerplate.py",
+      "target": "class:frappe/utils/boilerplate.py:PatchCreator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/boilerplate.py",
+      "target": "func:frappe/utils/boilerplate.py:make_boilerplate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/boilerplate.py",
+      "target": "func:frappe/utils/boilerplate.py:_create_app_boilerplate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/caching.py",
+      "target": "func:frappe/utils/caching.py:request_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/caching.py",
+      "target": "func:frappe/utils/caching.py:site_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/caching.py",
+      "target": "func:frappe/utils/caching.py:redis_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/caching.py",
+      "target": "func:frappe/utils/caching.py:http_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "func:frappe/utils/change_log.py:get_change_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "func:frappe/utils/change_log.py:check_for_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "func:frappe/utils/change_log.py:show_update_popup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "func:frappe/utils/change_log.py:get_app_branch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/commands.py",
+      "target": "func:frappe/utils/commands.py:log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/connections.py",
+      "target": "func:frappe/utils/connections.py:check_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/connections.py",
+      "target": "func:frappe/utils/connections.py:is_open",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/utils.py:LazyDecode",
+      "target": "class:frappe/database/utils.py:LazyString",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/utils.py:LazyMogrify",
+      "target": "class:frappe/database/utils.py:LazyString",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/utils.py:CommitAfterResponseManager",
+      "target": "class:frappe/utils/__init__.py:CallbackManager",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/utils/background_jobs.py:FrappeWorkerNoFork",
+      "target": "class:frappe/utils/background_jobs.py:FrappeWorker",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "file:frappe/utils/caching.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "file:frappe/utils/commands.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "file:frappe/utils/change_log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/bench_helper.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/boilerplate.py",
+      "target": "file:frappe/utils/change_log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/change_log.py",
+      "target": "file:frappe/utils/caching.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/connections.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:enqueue",
+      "target": "func:frappe/utils/background_jobs.py:execute_job",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:enqueue",
+      "target": "func:frappe/utils/background_jobs.py:truncate_failed_registry",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:enqueue",
+      "target": "func:frappe/utils/background_jobs.py:get_redis_conn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:start_worker",
+      "target": "func:frappe/utils/background_jobs.py:get_redis_conn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:start_worker_pool",
+      "target": "func:frappe/utils/background_jobs.py:get_redis_conn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/backups.py:scheduled_backup",
+      "target": "func:frappe/utils/backups.py:new_backup",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/backups.py:new_backup",
+      "target": "class:frappe/utils/backups.py:BackupGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/backups.py:fetch_latest_backups",
+      "target": "class:frappe/utils/backups.py:BackupGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/bench_helper.py:main",
+      "target": "func:frappe/utils/bench_helper.py:get_app_groups",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/bench_helper.py:main",
+      "target": "func:frappe/utils/bench_helper.py:FrappeClickWrapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/boilerplate.py:make_boilerplate",
+      "target": "func:frappe/utils/boilerplate.py:_create_app_boilerplate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/change_log.py:check_for_update",
+      "target": "func:frappe/utils/change_log.py:get_app_branch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/__init__.py:get_site_info",
+      "target": "file:frappe/utils/change_log.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/database/utils.py:commit_after_response",
+      "target": "class:frappe/database/utils.py:CommitAfterResponseManager",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/background_jobs.py:truncate_failed_registry",
+      "target": "func:frappe/utils/__init__.py:create_batch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/background_jobs.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/utils/backups.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/utils.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

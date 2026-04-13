@@ -1,0 +1,739 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/user/user.py",
+      "type": "file",
+      "name": "user.py",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "summary": "Core User DocType controller handling user lifecycle, authentication, password management, role management, API key generation, impersonation, session management, and contact creation. One of the most critical files in the framework.",
+      "tags": ["core", "authentication", "user-management", "security", "doctype-controller"],
+      "complexity": 5
+    },
+    {
+      "id": "class:User",
+      "type": "class",
+      "name": "User",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [58, 862],
+      "summary": "Document controller for the User DocType. Manages the full user lifecycle including validation, password handling, role/permission management, email notifications, social logins, session tracking, username management, and rename/trash cleanup. Extends frappe.model.document.Document.",
+      "tags": ["doctype-controller", "authentication", "roles", "password", "lifecycle"],
+      "complexity": 5
+    },
+    {
+      "id": "func:User.validate",
+      "type": "function",
+      "name": "User.validate",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [213, 251],
+      "summary": "Central validation hook that orchestrates password strength testing, email validation, role profile population, system user type setting, username validation, IP restriction validation, and various cleanup/normalization steps.",
+      "tags": ["lifecycle-hook", "validation"],
+      "complexity": 4
+    },
+    {
+      "id": "func:User.on_update",
+      "type": "function",
+      "name": "User.on_update",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [309, 352],
+      "summary": "Post-save hook that shares the doc with the user, clears notifications/cache, sends password notification, enqueues contact creation and gravatar update, sets timezone/language defaults, and invalidates mention/enabled user caches.",
+      "tags": ["lifecycle-hook", "cache", "background-jobs"],
+      "complexity": 4
+    },
+    {
+      "id": "func:User.on_trash",
+      "type": "function",
+      "name": "User.on_trash",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [570, 633],
+      "summary": "Deletion hook that cleans up all user-related data: ToDos, private events, shares, contacts, notification settings, user permissions, OAuth data, workflow actions, list filters, note seen-by entries, and user invitations.",
+      "tags": ["lifecycle-hook", "cleanup", "data-integrity"],
+      "complexity": 4
+    },
+    {
+      "id": "func:User.find_by_credentials",
+      "type": "function",
+      "name": "User.find_by_credentials",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [805, 836],
+      "summary": "Class method login utility that finds a user by email, mobile number, or username based on system settings, and optionally validates the password. Returns user dict with is_authenticated flag.",
+      "tags": ["authentication", "login", "classmethod"],
+      "complexity": 3
+    },
+    {
+      "id": "func:User.reset_password",
+      "type": "function",
+      "name": "User.reset_password",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [468, 484],
+      "summary": "Generates a SHA256-hashed password reset key, stores it on the user doc with timestamp, constructs the reset URL, and optionally sends the reset email.",
+      "tags": ["password", "security", "email"],
+      "complexity": 2
+    },
+    {
+      "id": "func:User.populate_role_profile_roles",
+      "type": "function",
+      "name": "User.populate_role_profile_roles",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [258, 274],
+      "summary": "Whitelisted method that syncs user roles from assigned role profiles. Collects all roles from role profiles, removes roles not in the set, and appends new ones.",
+      "tags": ["roles", "role-profiles", "whitelisted"],
+      "complexity": 3
+    },
+    {
+      "id": "func:User.set_system_user",
+      "type": "function",
+      "name": "User.set_system_user",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [383, 397],
+      "summary": "Determines and sets the user_type (System User vs Website User) based on assigned roles' desk_access or user type configuration. Clears sessions on user type change.",
+      "tags": ["user-type", "roles", "sessions"],
+      "complexity": 3
+    },
+    {
+      "id": "func:User.send_password_notification",
+      "type": "function",
+      "name": "User.send_password_notification",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [433, 462],
+      "summary": "Handles password notification logic during insert and update. On insert, updates password and optionally sends welcome email. On update, emails the new password.",
+      "tags": ["email", "password", "notification"],
+      "complexity": 3
+    },
+    {
+      "id": "func:User.after_rename",
+      "type": "function",
+      "name": "User.after_rename",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [655, 675],
+      "summary": "Updates all owner/modified_by references across all database tables when a user is renamed. Also renames notification settings and clears sessions for both old and new names.",
+      "tags": ["rename", "data-migration", "lifecycle-hook"],
+      "complexity": 3
+    },
+    {
+      "id": "func:User.password_strength_test",
+      "type": "function",
+      "name": "User.password_strength_test",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [740, 751],
+      "summary": "Tests new password strength against policy using user data (name, email, birth date) as inputs. Throws if password policy validation fails.",
+      "tags": ["password", "security", "validation"],
+      "complexity": 2
+    },
+    {
+      "id": "func:User.active_sessions",
+      "type": "function",
+      "name": "User.active_sessions",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [152, 185],
+      "summary": "Cached property that queries Sessions table for the current user's active sessions. Returns masked session IDs, IP addresses, user agents, and timestamps. Only allows users to see their own sessions.",
+      "tags": ["sessions", "security", "cached-property"],
+      "complexity": 3
+    },
+    {
+      "id": "func:update_password",
+      "type": "function",
+      "name": "update_password",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [903, 961],
+      "summary": "Whitelisted guest-accessible endpoint for updating passwords via reset key or old password verification. Tests strength, checks reuse, updates password, logs user in, and returns redirect URL.",
+      "tags": ["whitelisted", "password", "authentication", "api-endpoint"],
+      "complexity": 4
+    },
+    {
+      "id": "func:test_password_strength",
+      "type": "function",
+      "name": "test_password_strength",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [964, 1000],
+      "summary": "Whitelisted guest-accessible function that evaluates password strength against configurable minimum score policy. Returns scoring result with validation pass/fail flag.",
+      "tags": ["whitelisted", "password", "security"],
+      "complexity": 2
+    },
+    {
+      "id": "func:sign_up",
+      "type": "function",
+      "name": "sign_up",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1074, 1124],
+      "summary": "Whitelisted guest-accessible self-registration endpoint. Creates a Website User with random password, assigns default role from Portal Settings, handles rate limiting, and caches redirect URL.",
+      "tags": ["whitelisted", "registration", "website", "api-endpoint"],
+      "complexity": 3
+    },
+    {
+      "id": "func:reset_password_endpoint",
+      "type": "function",
+      "name": "reset_password",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1127, 1147],
+      "summary": "Rate-limited whitelisted guest-accessible endpoint that triggers the password reset flow for a user, sending a reset email. Blocks reset for Administrator.",
+      "tags": ["whitelisted", "password", "rate-limited", "api-endpoint"],
+      "complexity": 2
+    },
+    {
+      "id": "func:generate_keys",
+      "type": "function",
+      "name": "generate_keys",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1406, 1423],
+      "summary": "Whitelisted endpoint restricted to System Manager that generates API key and secret for a user. Only generates a new API key if one doesn't exist; always regenerates the secret.",
+      "tags": ["whitelisted", "api-keys", "security"],
+      "complexity": 2
+    },
+    {
+      "id": "func:impersonate",
+      "type": "function",
+      "name": "impersonate",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1440, 1476],
+      "summary": "Whitelisted endpoint for user impersonation. Requires impersonate permission, logs activity, sends notification and email to the target user, then switches the session to the target user.",
+      "tags": ["whitelisted", "security", "impersonation", "audit"],
+      "complexity": 3
+    },
+    {
+      "id": "func:clear_session",
+      "type": "function",
+      "name": "clear_session",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1479, 1493],
+      "summary": "Rate-limited whitelisted endpoint that allows a user to force-logout a specific session by its SHA256-hashed session ID. Only operates on the current user's sessions.",
+      "tags": ["whitelisted", "sessions", "security", "rate-limited"],
+      "complexity": 2
+    },
+    {
+      "id": "func:create_contact",
+      "type": "function",
+      "name": "create_contact",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1332, 1396],
+      "summary": "Creates or updates a Contact document linked to a user, syncing first/last name, gender, email, phone, and mobile number. Handles duplicate entries and timestamp mismatches for background job retry.",
+      "tags": ["contact", "background-job", "data-sync"],
+      "complexity": 3
+    },
+    {
+      "id": "func:user_query",
+      "type": "function",
+      "name": "user_query",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1150, 1181],
+      "summary": "Whitelisted search query function for User link fields. Filters enabled users, supports search by name/first/middle/last name, and optionally filters by user type.",
+      "tags": ["whitelisted", "search", "link-field"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_total_users",
+      "type": "function",
+      "name": "get_total_users",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1184, 1195],
+      "summary": "Returns total simultaneous session count for all enabled system users excluding standard users.",
+      "tags": ["utility", "users"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_system_users",
+      "type": "function",
+      "name": "get_system_users",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1198, 1214],
+      "summary": "Returns list of enabled system user names, excluding standard users and optionally other specified users.",
+      "tags": ["utility", "users"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_permission_query_conditions",
+      "type": "function",
+      "name": "get_permission_query_conditions",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1242, 1248],
+      "summary": "Permission query condition that hides standard users (Administrator, Guest) from non-Administrator users in list views.",
+      "tags": ["permissions", "security"],
+      "complexity": 1
+    },
+    {
+      "id": "func:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1251, 1255],
+      "summary": "Document-level permission check that prevents non-Administrator users from viewing/editing Administrator and Guest user records.",
+      "tags": ["permissions", "security"],
+      "complexity": 1
+    },
+    {
+      "id": "func:notify_admin_access_to_system_manager",
+      "type": "function",
+      "name": "notify_admin_access_to_system_manager",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1258, 1278],
+      "summary": "Sends email notification to all system managers when Administrator logs in, including site URL, timestamp, and IP address.",
+      "tags": ["security", "notification", "audit"],
+      "complexity": 2
+    },
+    {
+      "id": "func:handle_password_test_fail",
+      "type": "function",
+      "name": "handle_password_test_fail",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1281, 1309],
+      "summary": "Formats password strength test failure feedback (warnings and suggestions) into HTML and throws an error with the formatted message.",
+      "tags": ["password", "ui", "error-handling"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_enabled_users",
+      "type": "function",
+      "name": "get_enabled_users",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1432, 1437],
+      "summary": "Returns cached list of all enabled user names.",
+      "tags": ["utility", "cache", "users"],
+      "complexity": 1
+    },
+    {
+      "id": "func:switch_theme",
+      "type": "function",
+      "name": "switch_theme",
+      "filePath": "frappe/core/doctype/user/user.py",
+      "lineRange": [1426, 1429],
+      "summary": "Whitelisted endpoint to switch the current user's desk theme between Dark, Light, and Automatic.",
+      "tags": ["whitelisted", "ui", "preferences"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user/user_list.js",
+      "type": "file",
+      "name": "user_list.js",
+      "filePath": "frappe/core/doctype/user/user_list.js",
+      "summary": "Client-side list view settings for User DocType. Adds enabled/user_type/user_image fields, sets default filter to enabled users, and shows Active/Disabled indicator.",
+      "tags": ["frontend", "list-view", "ui"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_document_type/user_document_type.py",
+      "type": "file",
+      "name": "user_document_type.py",
+      "filePath": "frappe/core/doctype/user_document_type/user_document_type.py",
+      "summary": "Child DocType controller for UserDocumentType, a child table defining per-document-type permissions (CRUD, submit, amend, email, print, share) used in User Type configuration.",
+      "tags": ["doctype-controller", "permissions", "child-table"],
+      "complexity": 1
+    },
+    {
+      "id": "class:UserDocumentType",
+      "type": "class",
+      "name": "UserDocumentType",
+      "filePath": "frappe/core/doctype/user_document_type/user_document_type.py",
+      "lineRange": [8, 34],
+      "summary": "Pass-through Document subclass for UserDocumentType child table. Defines typed fields for document_type link and CRUD permission flags (create, read, write, delete, submit, cancel, amend, email, print, share).",
+      "tags": ["doctype-controller", "child-table", "permissions"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_email/user_email.py",
+      "type": "file",
+      "name": "user_email.py",
+      "filePath": "frappe/core/doctype/user_email/user_email.py",
+      "summary": "Child DocType controller for UserEmail, a child table linking email accounts to users with flags for outgoing email, awaiting password, and OAuth status.",
+      "tags": ["doctype-controller", "email", "child-table"],
+      "complexity": 1
+    },
+    {
+      "id": "class:UserEmail",
+      "type": "class",
+      "name": "UserEmail",
+      "filePath": "frappe/core/doctype/user_email/user_email.py",
+      "lineRange": [7, 26],
+      "summary": "Pass-through Document subclass for UserEmail child table. Defines typed fields for email_account link, email_id, enable_outgoing, awaiting_password, and used_oauth flags.",
+      "tags": ["doctype-controller", "child-table", "email"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group/user_group.py",
+      "type": "file",
+      "name": "user_group.py",
+      "filePath": "frappe/core/doctype/user_group/user_group.py",
+      "summary": "DocType controller for UserGroup. Manages groups of users with cache invalidation on insert and deletion.",
+      "tags": ["doctype-controller", "user-groups", "cache"],
+      "complexity": 1
+    },
+    {
+      "id": "class:UserGroup",
+      "type": "class",
+      "name": "UserGroup",
+      "filePath": "frappe/core/doctype/user_group/user_group.py",
+      "lineRange": [10, 27],
+      "summary": "Document controller for UserGroup DocType with TableMultiSelect of UserGroupMember. Invalidates 'user_groups' cache key on after_insert and on_trash.",
+      "tags": ["doctype-controller", "user-groups", "cache"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group/test_user_group.py",
+      "type": "file",
+      "name": "test_user_group.py",
+      "filePath": "frappe/core/doctype/user_group/test_user_group.py",
+      "summary": "Empty integration test case placeholder for UserGroup DocType.",
+      "tags": ["test", "placeholder"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group/user_group.js",
+      "type": "file",
+      "name": "user_group.js",
+      "filePath": "frappe/core/doctype/user_group/user_group.js",
+      "summary": "Empty client-side form controller placeholder for UserGroup DocType.",
+      "tags": ["frontend", "placeholder"],
+      "complexity": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "class:User",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.on_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.on_trash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.find_by_credentials",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.reset_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.populate_role_profile_roles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.set_system_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.send_password_notification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.after_rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.password_strength_test",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:User",
+      "target": "func:User.active_sessions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:update_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:test_password_strength",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:sign_up",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:reset_password_endpoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:generate_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:impersonate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:clear_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:create_contact",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:user_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:get_total_users",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:get_system_users",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:get_permission_query_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:has_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:notify_admin_access_to_system_manager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:handle_password_test_fail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:get_enabled_users",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.py",
+      "target": "func:switch_theme",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.4
+    },
+    {
+      "source": "file:frappe/core/doctype/user_document_type/user_document_type.py",
+      "target": "class:UserDocumentType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/user_email/user_email.py",
+      "target": "class:UserEmail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/user_group/user_group.py",
+      "target": "class:UserGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:User",
+      "target": "class:UserEmail",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:User.validate",
+      "target": "func:User.populate_role_profile_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:User.validate",
+      "target": "func:User.set_system_user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:User.validate",
+      "target": "func:User.password_strength_test",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:User.on_update",
+      "target": "func:User.send_password_notification",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:User.on_update",
+      "target": "func:create_contact",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:update_password",
+      "target": "func:test_password_strength",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:update_password",
+      "target": "func:handle_password_test_fail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:sign_up",
+      "target": "class:User",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:reset_password_endpoint",
+      "target": "func:User.reset_password",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:generate_keys",
+      "target": "class:User",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:impersonate",
+      "target": "class:User",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:User.send_password_notification",
+      "target": "func:User.reset_password",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user_list.js",
+      "target": "class:User",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:UserDocumentType",
+      "target": "class:User",
+      "type": "supports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:UserGroup",
+      "target": "class:User",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:User.password_strength_test",
+      "target": "func:test_password_strength",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:test_password_strength",
+      "target": "func:handle_password_test_fail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

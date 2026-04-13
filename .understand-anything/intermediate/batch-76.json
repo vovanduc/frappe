@@ -1,0 +1,75 @@
+{
+  "nodes": [
+    {"id": "file:ui/group_by/group_by.js", "type": "file", "name": "group_by.js", "summary": "List view group-by aggregation controls with field/function/value selectors", "tags": ["ui", "list", "group-by"], "complexity": "medium", "filePath": "frappe/public/js/frappe/ui/group_by/group_by.js"},
+    {"id": "class:frappe.ui.GroupBy", "type": "class", "name": "frappe.ui.GroupBy", "summary": "Group-by UI component for list views; builds dropdown controls and applies aggregate filters", "tags": ["class", "list"], "complexity": "medium", "lineRange": "3-453"},
+
+    {"id": "file:ui/iconbar.js", "type": "file", "name": "iconbar.js", "summary": "Simple icon bar widget rendering a row of icon buttons", "tags": ["ui", "widget"], "complexity": "low", "filePath": "frappe/public/js/frappe/ui/iconbar.js"},
+    {"id": "class:frappe.ui.IconBar", "type": "class", "name": "frappe.ui.IconBar", "summary": "Renders configurable icon buttons into a parent element", "tags": ["class"], "complexity": "low", "lineRange": "4-72"},
+
+    {"id": "file:ui/keyboard.js", "type": "file", "name": "keyboard.js", "summary": "Global keyboard shortcut registry, dispatcher, and help dialog for desk", "tags": ["ui", "keyboard", "shortcuts"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/keyboard.js"},
+    {"id": "func:keyboard.setup", "type": "function", "name": "frappe.ui.keys.setup", "summary": "Installs global keydown handler and binds default shortcuts", "tags": ["init"], "complexity": "medium", "lineRange": "6-60"},
+    {"id": "func:keyboard.add_shortcut", "type": "function", "name": "frappe.ui.keys.add_shortcut", "summary": "Registers a keyboard shortcut with action, description, and scope", "tags": ["api"], "complexity": "medium", "lineRange": "60-180"},
+    {"id": "func:keyboard.show_keyboard_shortcut_dialog", "type": "function", "name": "frappe.ui.keys.show_keyboard_shortcut_dialog", "summary": "Displays the keyboard shortcuts cheat-sheet dialog", "tags": ["dialog"], "complexity": "medium", "lineRange": "180-260"},
+
+    {"id": "file:ui/like.js", "type": "file", "name": "like.js", "summary": "Like/unlike toggle widget and liked-by popper list for documents", "tags": ["ui", "social"], "complexity": "medium", "filePath": "frappe/public/js/frappe/ui/like.js"},
+    {"id": "func:like.toggle_like", "type": "function", "name": "frappe.ui.toggle_like", "summary": "Toggles like state on a document and updates the DOM heart icon", "tags": ["api"], "complexity": "medium", "lineRange": "10-120"},
+
+    {"id": "file:ui/link_preview.js", "type": "file", "name": "link_preview.js", "summary": "Hover popover showing preview cards for link fields", "tags": ["ui", "preview"], "complexity": "medium", "filePath": "frappe/public/js/frappe/ui/link_preview.js"},
+    {"id": "class:frappe.ui.LinkPreview", "type": "class", "name": "frappe.ui.LinkPreview", "summary": "Attaches hover handlers and renders preview cards for Link/Dynamic Link fields", "tags": ["class"], "complexity": "medium", "lineRange": "1-241"},
+
+    {"id": "file:ui/menu.js", "type": "file", "name": "menu.js", "summary": "Context menu component for desk UI", "tags": ["ui", "menu"], "complexity": "medium", "filePath": "frappe/public/js/frappe/ui/menu.js"},
+    {"id": "class:frappe.ui.menu.ContextMenu", "type": "class", "name": "ContextMenu", "summary": "Right-click context menu with dynamic items and positioning", "tags": ["class"], "complexity": "medium", "lineRange": "4-310"},
+
+    {"id": "file:ui/messages.js", "type": "file", "name": "messages.js", "summary": "Core user-facing messaging: msgprint, confirm, prompt, throw, show_alert", "tags": ["ui", "messages", "dialog"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/messages.js"},
+    {"id": "func:messages.msgprint", "type": "function", "name": "frappe.msgprint", "summary": "Displays a modal message dialog with title, message, and indicator", "tags": ["api", "dialog"], "complexity": "high", "lineRange": "20-200"},
+    {"id": "func:messages.show_alert", "type": "function", "name": "frappe.show_alert", "summary": "Renders a transient toast notification in the top-right corner", "tags": ["api", "toast"], "complexity": "medium", "lineRange": "300-400"},
+    {"id": "func:messages.confirm", "type": "function", "name": "frappe.confirm", "summary": "Shows a Yes/No confirmation dialog and invokes callback", "tags": ["api"], "complexity": "low", "lineRange": "200-260"},
+    {"id": "func:messages.prompt", "type": "function", "name": "frappe.prompt", "summary": "Shows a dynamic field prompt dialog collecting user input", "tags": ["api"], "complexity": "medium", "lineRange": "260-300"},
+
+    {"id": "file:ui/notifications/notifications.js", "type": "file", "name": "notifications.js", "summary": "Notification bell UI: dropdown with notifications, events, and changelog tabs", "tags": ["ui", "notifications"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/notifications/notifications.js"},
+    {"id": "class:frappe.ui.Notifications", "type": "class", "name": "frappe.ui.Notifications", "summary": "Navbar notifications dropdown controller managing views and realtime updates", "tags": ["class", "navbar"], "complexity": "high", "lineRange": "3-198"},
+    {"id": "class:BaseNotificationsView", "type": "class", "name": "BaseNotificationsView", "summary": "Abstract base for notification dropdown tabs (rendering, state)", "tags": ["class", "base"], "complexity": "medium", "lineRange": "199-218"},
+    {"id": "class:NotificationsView", "type": "class", "name": "NotificationsView", "summary": "Shows unread notifications list with mark-as-read and navigation", "tags": ["class", "view"], "complexity": "high", "lineRange": "219-421"},
+    {"id": "class:EventsView", "type": "class", "name": "EventsView", "summary": "Shows upcoming calendar events for the user", "tags": ["class", "view"], "complexity": "medium", "lineRange": "422-492"},
+    {"id": "class:ChangelogFeedView", "type": "class", "name": "ChangelogFeedView", "summary": "Shows changelog / release feed entries in notifications dropdown", "tags": ["class", "view"], "complexity": "medium", "lineRange": "493-540"},
+
+    {"id": "file:ui/page.js", "type": "file", "name": "page.js", "summary": "Base Page class for desk: title, menu, actions, sidebar, indicator, fields toolbar", "tags": ["ui", "page", "core"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/page.js"},
+    {"id": "class:frappe.ui.Page", "type": "class", "name": "frappe.ui.Page", "summary": "Base desk page with header, menu, actions, sidebar, indicator, and layout helpers; used by lists, forms, reports", "tags": ["class", "core"], "complexity": "high", "lineRange": "29-944"},
+
+    {"id": "file:ui/sidebar/sidebar.js", "type": "file", "name": "sidebar.js", "summary": "Desk sidebar navigation with workspace tree, pinned, and editor integration", "tags": ["ui", "sidebar", "navigation"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/sidebar/sidebar.js"},
+    {"id": "class:frappe.ui.Sidebar", "type": "class", "name": "frappe.ui.Sidebar", "summary": "Desk sidebar controller rendering workspace hierarchy and handling navigation", "tags": ["class", "core"], "complexity": "high", "lineRange": "3-747"}
+  ],
+  "edges": [
+    {"source": "file:ui/group_by/group_by.js", "target": "class:frappe.ui.GroupBy", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/iconbar.js", "target": "class:frappe.ui.IconBar", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/keyboard.js", "target": "func:keyboard.setup", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/keyboard.js", "target": "func:keyboard.add_shortcut", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/keyboard.js", "target": "func:keyboard.show_keyboard_shortcut_dialog", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/keyboard.js", "target": "file:ui/alt_keyboard_shortcuts.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/keyboard.js", "target": "file:ui/dropdown_console.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/like.js", "target": "func:like.toggle_like", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/like.js", "target": "pkg:@popperjs/core", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/link_preview.js", "target": "class:frappe.ui.LinkPreview", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/menu.js", "target": "class:frappe.ui.menu.ContextMenu", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/menu.js", "target": "file:ui/dom.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/messages.js", "target": "func:messages.msgprint", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/messages.js", "target": "func:messages.show_alert", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/messages.js", "target": "func:messages.confirm", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/messages.js", "target": "func:messages.prompt", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/messages.js", "target": "file:ui/dialog.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/notifications/notifications.js", "target": "class:frappe.ui.Notifications", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/notifications/notifications.js", "target": "class:BaseNotificationsView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/notifications/notifications.js", "target": "class:NotificationsView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/notifications/notifications.js", "target": "class:EventsView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/notifications/notifications.js", "target": "class:ChangelogFeedView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:NotificationsView", "target": "class:BaseNotificationsView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:EventsView", "target": "class:BaseNotificationsView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:ChangelogFeedView", "target": "class:BaseNotificationsView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "file:ui/page.js", "target": "class:frappe.ui.Page", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/sidebar/sidebar.js", "target": "class:frappe.ui.Sidebar", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:ui/sidebar/sidebar.js", "target": "file:ui/sidebar/sidebar_item.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:ui/sidebar/sidebar.js", "target": "file:ui/sidebar/sidebar_editor.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.ui.GroupBy", "target": "func:messages.show_alert", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.ui.Notifications", "target": "class:frappe.ui.Page", "type": "calls", "direction": "forward", "weight": 1}
+  ]
+}

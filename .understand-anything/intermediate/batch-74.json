@@ -1,0 +1,84 @@
+{
+  "nodes": [
+    {"id": "file:frappe/public/js/frappe/router.js", "type": "file", "name": "router.js", "summary": "Client-side Desk router mapping URLs to views; handles history, route parsing, and link interception.", "tags": ["routing", "desk", "navigation"], "complexity": "high", "filePath": "frappe/public/js/frappe/router.js"},
+    {"id": "obj:frappe.router", "type": "class", "name": "frappe.router", "summary": "Global router object with factory/list view mappings, setup, route, parse, and URL/history utilities.", "tags": ["router", "singleton"], "complexity": "high", "lineRange": "73-690"},
+    {"id": "func:frappe.router.setup", "type": "func", "name": "setup", "summary": "Initializes popstate listener and binds route events.", "tags": ["init"], "complexity": "low", "lineRange": "114-128"},
+    {"id": "func:frappe.router.route", "type": "func", "name": "route", "summary": "Main async entry point; parses URL and dispatches to render.", "tags": ["routing"], "complexity": "medium", "lineRange": "129-153"},
+    {"id": "func:frappe.router.parse", "type": "func", "name": "parse", "summary": "Parses sub-path into a standardized route array.", "tags": ["parser"], "complexity": "medium", "lineRange": "154-161"},
+    {"id": "func:frappe.router.convert_to_standard_route", "type": "func", "name": "convert_to_standard_route", "summary": "Maps user-friendly URL segments to internal factory view route.", "tags": ["parser"], "complexity": "high", "lineRange": "162-193"},
+    {"id": "func:frappe.router.set_route", "type": "func", "name": "set_route", "summary": "Public API to change route; pushes to history and renders.", "tags": ["navigation"], "complexity": "medium", "lineRange": "349-387"},
+    {"id": "func:frappe.router.make_url", "type": "func", "name": "make_url", "summary": "Builds URL string from route params object.", "tags": ["url"], "complexity": "medium", "lineRange": "459-510"},
+    {"id": "func:frappe.router.push_state", "type": "func", "name": "push_state", "summary": "Wraps history.pushState and updates current_route.", "tags": ["history"], "complexity": "low", "lineRange": "511-521"},
+    {"id": "func:frappe.router.render", "type": "func", "name": "render", "summary": "Renders appropriate page for current route.", "tags": ["render"], "complexity": "low", "lineRange": "292-323"},
+    {"id": "func:frappe.router.show_external_link_warning_if_needed", "type": "func", "name": "show_external_link_warning_if_needed", "summary": "Intercepts anchor clicks to warn about external URLs.", "tags": ["security"], "complexity": "medium", "lineRange": "584-688"},
+
+    {"id": "file:frappe/public/js/frappe/router_history.js", "type": "file", "name": "router_history.js", "summary": "Debounced queue that persists recent user routes to the server.", "tags": ["history", "persistence"], "complexity": "low", "filePath": "frappe/public/js/frappe/router_history.js"},
+
+    {"id": "file:frappe/public/js/frappe/scanner/index.js", "type": "file", "name": "scanner/index.js", "summary": "QR/barcode scanner dialog using html5-qrcode library.", "tags": ["scanner", "qr"], "complexity": "medium", "filePath": "frappe/public/js/frappe/scanner/index.js"},
+    {"id": "class:frappe.ui.Scanner", "type": "class", "name": "frappe.ui.Scanner", "summary": "Wraps html5-qrcode to provide a scan dialog; returns scanned code via callback.", "tags": ["scanner"], "complexity": "medium", "lineRange": "3-101"},
+
+    {"id": "file:frappe/public/js/frappe/socketio_client.js", "type": "file", "name": "socketio_client.js", "summary": "Socket.IO client for realtime doc events, task progress, and pub/sub.", "tags": ["realtime", "socketio"], "complexity": "medium", "filePath": "frappe/public/js/frappe/socketio_client.js"},
+    {"id": "class:RealTimeClient", "type": "class", "name": "RealTimeClient", "summary": "Lazy-connecting Socket.IO wrapper exposing subscribe/publish, doc/task/doctype channels.", "tags": ["realtime"], "complexity": "medium", "lineRange": "5-222"},
+    {"id": "func:RealTimeClient.init", "type": "func", "name": "init", "summary": "Creates Socket.IO connection with reconnect and auth.", "tags": ["init"], "complexity": "medium", "lineRange": "39-119"},
+    {"id": "func:RealTimeClient.setup_listeners", "type": "func", "name": "setup_listeners", "summary": "Registers server event handlers for progress, messages, doc updates.", "tags": ["events"], "complexity": "medium", "lineRange": "180-187"},
+    {"id": "func:RealTimeClient.process_response", "type": "func", "name": "process_response", "summary": "Dispatches server realtime messages to UI handlers.", "tags": ["dispatch"], "complexity": "medium", "lineRange": "188-215"},
+    {"id": "func:RealTimeClient.doc_subscribe", "type": "func", "name": "doc_subscribe", "summary": "Subscribes to a specific doctype/docname realtime channel.", "tags": ["subscribe"], "complexity": "low", "lineRange": "151-169"},
+
+    {"id": "file:frappe/public/js/frappe/translate.js", "type": "file", "name": "translate.js", "summary": "Defines global __() translator (frappe._) for i18n string lookup with placeholders.", "tags": ["i18n"], "complexity": "low", "filePath": "frappe/public/js/frappe/translate.js"},
+
+    {"id": "file:frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js", "type": "file", "name": "autocomplete_dialog.js", "summary": "Dialog offering geocoded address autocomplete suggestions.", "tags": ["address", "dialog"], "complexity": "low", "filePath": "frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js"},
+    {"id": "class:frappe.ui.AddressAutocompleteDialog", "type": "class", "name": "AddressAutocompleteDialog", "summary": "Wraps a Dialog to pick autocomplete suggestions for an address field.", "tags": ["dialog"], "complexity": "low", "lineRange": "3-84"},
+
+    {"id": "file:frappe/public/js/frappe/ui/alt_keyboard_shortcuts.js", "type": "file", "name": "alt_keyboard_shortcuts.js", "summary": "Alt-key based keyboard shortcut registry and visual hint overlay.", "tags": ["keyboard", "shortcuts"], "complexity": "medium", "filePath": "frappe/public/js/frappe/ui/alt_keyboard_shortcuts.js"},
+
+    {"id": "file:frappe/public/js/frappe/ui/app_icon.js", "type": "file", "name": "app_icon.js", "summary": "Generates colored module icons (svg/text) for app/module tiles.", "tags": ["icon", "module"], "complexity": "low", "filePath": "frappe/public/js/frappe/ui/app_icon.js"},
+
+    {"id": "file:frappe/public/js/frappe/ui/capture.js", "type": "file", "name": "capture.js", "summary": "Webcam image capture dialog using getUserMedia with mobile fallback.", "tags": ["camera", "webrtc"], "complexity": "high", "filePath": "frappe/public/js/frappe/ui/capture.js"},
+    {"id": "class:frappe.ui.Capture", "type": "class", "name": "frappe.ui.Capture", "summary": "Dialog-based webcam capture supporting mobile file input and desktop MediaStream.", "tags": ["camera"], "complexity": "high", "lineRange": "64-348"},
+    {"id": "func:Capture.render_stream", "type": "func", "name": "render_stream", "summary": "Requests getUserMedia and attaches video stream.", "tags": ["webrtc"], "complexity": "medium", "lineRange": "160-184"},
+    {"id": "func:Capture.setup_take_photo_action", "type": "func", "name": "setup_take_photo_action", "summary": "Draws video frame to canvas and stores data URI.", "tags": ["capture"], "complexity": "medium", "lineRange": "218-229"},
+    {"id": "func:Capture.stop_media_stream", "type": "func", "name": "stop_media_stream", "summary": "Stops all active media tracks.", "tags": ["cleanup"], "complexity": "low", "lineRange": "322-329"},
+
+    {"id": "file:frappe/public/js/frappe/ui/chart.js", "type": "file", "name": "chart.js", "summary": "Re-exports frappe-charts Chart as frappe.Chart.", "tags": ["chart", "reexport"], "complexity": "low", "filePath": "frappe/public/js/frappe/ui/chart.js"}
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/router.js", "target": "obj:frappe.router", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.setup", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.route", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.parse", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.convert_to_standard_route", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.set_route", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.make_url", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.push_state", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.render", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "obj:frappe.router", "target": "func:frappe.router.show_external_link_warning_if_needed", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:frappe.router.route", "target": "func:frappe.router.parse", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:frappe.router.parse", "target": "func:frappe.router.convert_to_standard_route", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:frappe.router.route", "target": "func:frappe.router.render", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:frappe.router.set_route", "target": "func:frappe.router.push_state", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:frappe.router.set_route", "target": "func:frappe.router.make_url", "type": "calls", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/router_history.js", "target": "file:frappe/public/js/frappe/router.js", "type": "calls", "direction": "forward", "weight": 0.6},
+
+    {"source": "file:frappe/public/js/frappe/scanner/index.js", "target": "class:frappe.ui.Scanner", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/socketio_client.js", "target": "class:RealTimeClient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:RealTimeClient", "target": "func:RealTimeClient.init", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:RealTimeClient", "target": "func:RealTimeClient.setup_listeners", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:RealTimeClient", "target": "func:RealTimeClient.process_response", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:RealTimeClient", "target": "func:RealTimeClient.doc_subscribe", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:RealTimeClient.init", "target": "func:RealTimeClient.setup_listeners", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:RealTimeClient.setup_listeners", "target": "func:RealTimeClient.process_response", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/socketio_client.js", "target": "class:RealTimeClient", "type": "exports", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js", "target": "class:frappe.ui.AddressAutocompleteDialog", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/capture.js", "target": "class:frappe.ui.Capture", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.ui.Capture", "target": "func:Capture.render_stream", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.ui.Capture", "target": "func:Capture.setup_take_photo_action", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.ui.Capture", "target": "func:Capture.stop_media_stream", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:Capture.setup_take_photo_action", "target": "func:Capture.render_stream", "type": "calls", "direction": "forward", "weight": 0.5},
+
+    {"source": "file:frappe/public/js/frappe/ui/chart.js", "target": "file:frappe/public/js/frappe/ui/chart.js", "type": "imports", "direction": "forward", "weight": 0.5}
+  ]
+}

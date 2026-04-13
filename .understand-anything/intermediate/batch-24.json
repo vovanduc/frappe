@@ -1,0 +1,504 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/recorder_query/recorder_query.js",
+      "type": "file",
+      "name": "recorder_query.js",
+      "filePath": "frappe/core/doctype/recorder_query/recorder_query.js",
+      "summary": "Client-side stub for Recorder Query DocType. Contains only commented-out boilerplate code with no active logic.",
+      "tags": ["javascript", "doctype", "recorder", "stub"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder_query/recorder_query.py",
+      "type": "file",
+      "name": "recorder_query.py",
+      "filePath": "frappe/core/doctype/recorder_query/recorder_query.py",
+      "summary": "Virtual DocType controller for Recorder Query. Overrides all CRUD methods (db_insert, load_from_db, db_update, delete, get_list, get_count, get_stats) with no-op implementations, indicating data is managed externally (not stored in database tables).",
+      "tags": ["python", "doctype", "recorder", "virtual-doctype"],
+      "complexity": 2
+    },
+    {
+      "id": "class:RecorderQuery",
+      "type": "class",
+      "name": "RecorderQuery",
+      "filePath": "frappe/core/doctype/recorder_query/recorder_query.py",
+      "lineRange": [8, 54],
+      "summary": "Virtual Document class for Recorder Query. All database operations are stubbed out (pass/no-op), meaning this DocType stores no persistent data in standard database tables. Tracks query details like duration, exact/normalized copies, explain results, and stack traces.",
+      "tags": ["virtual-doctype", "recorder", "document"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder_query/test_recorder_query.py",
+      "type": "file",
+      "name": "test_recorder_query.py",
+      "filePath": "frappe/core/doctype/recorder_query/test_recorder_query.py",
+      "summary": "Empty test class for RecorderQuery DocType, extending IntegrationTestCase with no test methods defined.",
+      "tags": ["python", "test", "recorder"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestRecorderQuery",
+      "type": "class",
+      "name": "TestRecorderQuery",
+      "filePath": "frappe/core/doctype/recorder_query/test_recorder_query.py",
+      "lineRange": [8, 9],
+      "summary": "Empty integration test class for RecorderQuery.",
+      "tags": ["test", "integration-test"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder_suggested_index/recorder_suggested_index.py",
+      "type": "file",
+      "name": "recorder_suggested_index.py",
+      "filePath": "frappe/core/doctype/recorder_suggested_index/recorder_suggested_index.py",
+      "summary": "Virtual DocType controller for Recorder Suggested Index. All CRUD operations raise NotImplementedError, while list/count/stats methods are no-ops. Tracks suggested database index columns and tables.",
+      "tags": ["python", "doctype", "recorder", "virtual-doctype", "index-suggestion"],
+      "complexity": 2
+    },
+    {
+      "id": "class:RecorderSuggestedIndex",
+      "type": "class",
+      "name": "RecorderSuggestedIndex",
+      "filePath": "frappe/core/doctype/recorder_suggested_index/recorder_suggested_index.py",
+      "lineRange": [8, 46],
+      "summary": "Virtual Document class for Recorder Suggested Index. CRUD operations raise NotImplementedError (stricter than RecorderQuery). Stores column and table fields for suggested database indices.",
+      "tags": ["virtual-doctype", "recorder", "document", "index-suggestion"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/report/report.py",
+      "type": "file",
+      "name": "report.py",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "summary": "Core Report DocType controller handling four report types: Report Builder, Query Report, Script Report, and Custom Report. Manages report lifecycle (validate, export, trash), permission checks, query execution with SQL safety checks, script execution via safe_exec, standard report building with group-by/order-by, and prepared report auto-enablement via threading.",
+      "tags": ["python", "doctype", "report", "core", "query", "script-execution"],
+      "complexity": 8
+    },
+    {
+      "id": "class:Report",
+      "type": "class",
+      "name": "Report",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [20, 417],
+      "summary": "Document controller for Report DocType. Supports four report types (Report Builder, Query Report, Script Report, Custom Report). Implements validation with role-based access control, query execution with SQL safety checks, script execution via safe_exec sandbox, standard report building with group-by/aggregate support, prepared report auto-enablement, and export to files for standard reports.",
+      "tags": ["document", "report", "query-execution", "rbac", "safe-exec"],
+      "complexity": 8
+    },
+    {
+      "id": "func:Report.validate",
+      "type": "function",
+      "name": "Report.validate",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [53, 83],
+      "summary": "Validates report settings: auto-sets module from ref_doctype, enforces standard report rules (only Administrator can save standard reports), restricts Script Manager role for non-standard script reports, prevents editing standard reports, and initializes Report Builder JSON.",
+      "tags": ["validation", "permissions", "lifecycle-hook"],
+      "complexity": 5
+    },
+    {
+      "id": "func:Report.execute_query_report",
+      "type": "function",
+      "name": "Report.execute_query_report",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [170, 181],
+      "summary": "Executes a Query Report by running the stored SQL query in a read-only transaction with SQL safety checks. Returns columns (from report definition or DB description) and result rows.",
+      "tags": ["query", "sql", "read-only", "safety"],
+      "complexity": 4
+    },
+    {
+      "id": "func:Report.execute_script_report",
+      "type": "function",
+      "name": "Report.execute_script_report",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [183, 210],
+      "summary": "Executes a Script Report with a threading-based watcher that auto-enables prepared reports if execution exceeds 15 seconds. Delegates to execute_module (standard) or execute_script (custom). Caches execution time in Redis.",
+      "tags": ["script", "threading", "prepared-report", "performance"],
+      "complexity": 6
+    },
+    {
+      "id": "func:Report.execute_module",
+      "type": "function",
+      "name": "Report.execute_module",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [212, 216],
+      "summary": "Executes a standard Script Report by importing and calling the execute() function from the report's Python module.",
+      "tags": ["module", "dynamic-import"],
+      "complexity": 3
+    },
+    {
+      "id": "func:Report.execute_script",
+      "type": "function",
+      "name": "Report.execute_script",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [218, 225],
+      "summary": "Executes a custom (non-standard) Script Report using safe_exec sandbox. The script can set either 'data' (columns+result) or 'result' (result only, columns from definition).",
+      "tags": ["safe-exec", "sandbox", "script"],
+      "complexity": 4
+    },
+    {
+      "id": "func:Report.get_data",
+      "type": "function",
+      "name": "Report.get_data",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [227, 246],
+      "summary": "Main entry point for fetching report data. Routes to run_query_report or run_standard_report based on report type, with optional dict conversion of results.",
+      "tags": ["data-retrieval", "api"],
+      "complexity": 3
+    },
+    {
+      "id": "func:Report.run_standard_report",
+      "type": "function",
+      "name": "Report.run_standard_report",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [283, 312],
+      "summary": "Builds and executes a Report Builder report from JSON configuration. Handles field selection, filtering, ordering, group-by with aggregate functions, and optional totals row.",
+      "tags": ["report-builder", "group-by", "aggregate", "query-building"],
+      "complexity": 6
+    },
+    {
+      "id": "func:Report.is_permitted",
+      "type": "function",
+      "name": "Report.is_permitted",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [135, 150],
+      "summary": "Checks if current user has permission to view the report based on Has Role entries and custom roles.",
+      "tags": ["permissions", "rbac"],
+      "complexity": 3
+    },
+    {
+      "id": "func:enable_prepared_report",
+      "type": "function",
+      "name": "enable_prepared_report",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [455, 460],
+      "summary": "Standalone function called from a background thread to enable prepared_report flag on a Report document. Initializes a fresh frappe context for the site, sets the value, and destroys the context.",
+      "tags": ["prepared-report", "threading", "background"],
+      "complexity": 3
+    },
+    {
+      "id": "func:get_report_module_dotted_path",
+      "type": "function",
+      "name": "get_report_module_dotted_path",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [423, 432],
+      "summary": "Constructs the dotted Python module path for a standard report's execute function (e.g., 'erpnext.accounts.report.trial_balance.trial_balance').",
+      "tags": ["module-path", "utility"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_group_by_field",
+      "type": "function",
+      "name": "get_group_by_field",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [435, 442],
+      "summary": "Builds the aggregate field dict for group-by queries (COUNT(*) or other aggregate functions like SUM, AVG).",
+      "tags": ["aggregate", "group-by", "utility"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_group_by_column_label",
+      "type": "function",
+      "name": "get_group_by_column_label",
+      "filePath": "frappe/core/doctype/report/report.py",
+      "lineRange": [445, 452],
+      "summary": "Generates a human-readable label for aggregate columns (e.g., 'Sum of Amount', 'Average of Quantity').",
+      "tags": ["label", "aggregate", "utility"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/report/report.js",
+      "type": "file",
+      "name": "report.js",
+      "filePath": "frappe/core/doctype/report/report.js",
+      "summary": "Client-side controller for the Report DocType form. Provides 'Show Report' button routing to appropriate view based on report type, enable/disable toggle for standard reports, and auto-setting of roles from ref_doctype.",
+      "tags": ["javascript", "doctype", "report", "form-controller"],
+      "complexity": 4
+    },
+    {
+      "id": "file:frappe/core/doctype/report/boilerplate/controller.py",
+      "type": "file",
+      "name": "controller.py (boilerplate)",
+      "filePath": "frappe/core/doctype/report/boilerplate/controller.py",
+      "summary": "Python boilerplate template for new Script Reports. Defines the standard execute(filters) entry point pattern with get_columns() and get_data() helper functions. Used by make_boilerplate when creating new reports.",
+      "tags": ["python", "boilerplate", "template", "script-report"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/report/boilerplate/controller.js",
+      "type": "file",
+      "name": "controller.js (boilerplate)",
+      "filePath": "frappe/core/doctype/report/boilerplate/controller.js",
+      "summary": "JavaScript boilerplate template for new Script Reports. Defines the frappe.query_reports filter configuration structure with commented-out example filter.",
+      "tags": ["javascript", "boilerplate", "template", "script-report"],
+      "complexity": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:RecorderQuery",
+      "target": "file:frappe/core/doctype/recorder_query/recorder_query.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:RecorderQuery",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestRecorderQuery",
+      "target": "file:frappe/core/doctype/recorder_query/test_recorder_query.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestRecorderQuery",
+      "target": "class:RecorderQuery",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:RecorderSuggestedIndex",
+      "target": "file:frappe/core/doctype/recorder_suggested_index/recorder_suggested_index.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:RecorderSuggestedIndex",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:RecorderSuggestedIndex",
+      "target": "class:RecorderQuery",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:Report",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Report",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:Report.validate",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.execute_query_report",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.execute_script_report",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.execute_module",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.execute_script",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.get_data",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.run_standard_report",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.is_permitted",
+      "target": "class:Report",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Report.execute_script_report",
+      "target": "func:Report.execute_module",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Report.execute_script_report",
+      "target": "func:Report.execute_script",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Report.execute_script_report",
+      "target": "func:enable_prepared_report",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:Report.execute_module",
+      "target": "func:get_report_module_dotted_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Report.get_data",
+      "target": "func:Report.run_standard_report",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Report.run_standard_report",
+      "target": "func:get_group_by_field",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:Report.run_standard_report",
+      "target": "func:get_group_by_column_label",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:Report.execute_query_report",
+      "target": "func:check_safe_sql_query",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Report.execute_script",
+      "target": "func:safe_exec",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:Report",
+      "target": "func:get_custom_allowed_roles",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:Report",
+      "target": "func:delete_custom_role",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:Report",
+      "target": "func:append_totals_row",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:Report",
+      "target": "func:make_boilerplate",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:Report",
+      "target": "func:export_to_files",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/report/report.js",
+      "target": "class:Report",
+      "type": "client_for",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/report/boilerplate/controller.py",
+      "target": "class:Report",
+      "type": "template_for",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/report/boilerplate/controller.js",
+      "target": "class:Report",
+      "type": "template_for",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:enable_prepared_report",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_report_module_dotted_path",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_group_by_field",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_group_by_column_label",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

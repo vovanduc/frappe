@@ -1,0 +1,445 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Package initializer for the frappe.core module. Contains only license header comments.",
+      "tags": ["core", "package", "init", "python"],
+      "complexity": "simple",
+      "filePath": "frappe/core/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/api/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Package initializer for the frappe.core.api module. Empty file serving as package marker.",
+      "tags": ["core", "api", "package", "python"],
+      "complexity": "simple",
+      "filePath": "frappe/core/api/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/api/file.py",
+      "type": "file",
+      "name": "file.py",
+      "summary": "API endpoints for file management operations including unzipping, folder navigation, file search, folder creation, file moving, and zipping. All functions are whitelisted for RPC access.",
+      "tags": ["api", "file-management", "whitelist", "rest", "python"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/api/file.py"
+    },
+    {
+      "id": "func:frappe/core/api/file.py:unzip_file",
+      "type": "function",
+      "name": "unzip_file",
+      "summary": "Whitelisted API to unzip a file record and create file records for each extracted file.",
+      "tags": ["api", "whitelist", "file-operations", "unzip"],
+      "complexity": "simple",
+      "lineRange": [10, 13]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:get_attached_images",
+      "type": "function",
+      "name": "get_attached_images",
+      "summary": "Whitelisted API that returns a dictionary mapping document names to lists of attached image URLs for a given doctype.",
+      "tags": ["api", "whitelist", "images", "attachments"],
+      "complexity": "moderate",
+      "lineRange": [17, 38]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:get_files_in_folder",
+      "type": "function",
+      "name": "get_files_in_folder",
+      "summary": "Whitelisted API to retrieve paginated files within a folder, including the Attachments folder when browsing Home.",
+      "tags": ["api", "whitelist", "folder", "pagination"],
+      "complexity": "moderate",
+      "lineRange": [42, 61]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:get_files_by_search_text",
+      "type": "function",
+      "name": "get_files_by_search_text",
+      "summary": "Whitelisted API to search files by name or URL using a text query with LIKE matching.",
+      "tags": ["api", "whitelist", "search", "files"],
+      "complexity": "simple",
+      "lineRange": [65, 81]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:get_max_file_size",
+      "type": "function",
+      "name": "get_max_file_size",
+      "summary": "Whitelisted guest-accessible API that returns the maximum allowed file upload size in bytes from system settings or config.",
+      "tags": ["api", "whitelist", "config", "file-size"],
+      "complexity": "simple",
+      "lineRange": [85, 90]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:create_new_folder",
+      "type": "function",
+      "name": "create_new_folder",
+      "summary": "Whitelisted API to create a new folder under a specified parent folder, ignoring duplicates.",
+      "tags": ["api", "whitelist", "folder", "create"],
+      "complexity": "simple",
+      "lineRange": [98, 105]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:move_file",
+      "type": "function",
+      "name": "move_file",
+      "summary": "Whitelisted API to move files between folders, updating parent paths and recalculating folder sizes.",
+      "tags": ["api", "whitelist", "file-operations", "move"],
+      "complexity": "moderate",
+      "lineRange": [109, 119]
+    },
+    {
+      "id": "func:frappe/core/api/file.py:zip_files",
+      "type": "function",
+      "name": "zip_files",
+      "summary": "Whitelisted API to zip multiple files and return the archive as a download response.",
+      "tags": ["api", "whitelist", "zip", "download"],
+      "complexity": "simple",
+      "lineRange": [123, 127]
+    },
+    {
+      "id": "file:frappe/core/api/user_invitation.py",
+      "type": "file",
+      "name": "user_invitation.py",
+      "summary": "API endpoints for user invitation management including sending invitations by email, accepting, cancelling, and listing pending invitations. Handles deduplication against disabled users and existing invites.",
+      "tags": ["api", "user-invitation", "email", "authentication", "python"],
+      "complexity": "complex",
+      "filePath": "frappe/core/api/user_invitation.py"
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:invite_by_email",
+      "type": "function",
+      "name": "invite_by_email",
+      "summary": "Whitelisted POST API that sends user invitations by email, filtering out disabled users and existing invitations, and supports app-specific extra parameters via hooks.",
+      "tags": ["api", "whitelist", "invitation", "email", "roles"],
+      "complexity": "complex",
+      "lineRange": [8, 63]
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:accept_invitation",
+      "type": "function",
+      "name": "accept_invitation",
+      "summary": "Whitelisted guest-accessible GET endpoint that accepts a user invitation using a secret key, logs the user in, and redirects.",
+      "tags": ["api", "whitelist", "invitation", "accept"],
+      "complexity": "simple",
+      "lineRange": [80, 81]
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:cancel_invitation",
+      "type": "function",
+      "name": "cancel_invitation",
+      "summary": "Whitelisted API to cancel a pending user invitation with app-level permission validation and status checking.",
+      "tags": ["api", "whitelist", "invitation", "cancel"],
+      "complexity": "moderate",
+      "lineRange": [86, 104]
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:get_pending_invitations",
+      "type": "function",
+      "name": "get_pending_invitations",
+      "summary": "Whitelisted GET API that retrieves all pending user invitations for a given app, including their associated roles.",
+      "tags": ["api", "whitelist", "invitation", "list"],
+      "complexity": "moderate",
+      "lineRange": [108, 124]
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:_accept_invitation",
+      "type": "function",
+      "name": "_accept_invitation",
+      "summary": "Internal function that processes invitation acceptance: validates the key, accepts the invitation, handles password reset flow, and sets up login/redirect response.",
+      "tags": ["invitation", "accept", "login", "redirect", "internal"],
+      "complexity": "complex",
+      "lineRange": [127, 157]
+    },
+    {
+      "id": "func:frappe/core/api/user_invitation.py:get_allowed_invite_params",
+      "type": "function",
+      "name": "get_allowed_invite_params",
+      "summary": "Helper function that extracts allowed extra invitation parameters based on app-specific hooks configuration.",
+      "tags": ["invitation", "hooks", "params", "helper"],
+      "complexity": "simple",
+      "lineRange": [66, 76]
+    },
+    {
+      "id": "file:frappe/core/doctype/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Package initializer for the frappe.core.doctype module. Contains only license header comments.",
+      "tags": ["core", "doctype", "package", "python"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/access_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Package initializer for the Access Log doctype module. Empty file serving as package marker.",
+      "tags": ["access-log", "package", "init", "python"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/access_log/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/access_log/access_log.js",
+      "type": "file",
+      "name": "access_log.js",
+      "summary": "Client-side form controller for the Access Log DocType. Provides navigation buttons to view the source document or report referenced in the log entry.",
+      "tags": ["access-log", "form-controller", "javascript", "navigation"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/access_log/access_log.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/access_log/access_log.py",
+      "type": "file",
+      "name": "access_log.py",
+      "summary": "Python controller for the Access Log DocType. Defines the AccessLog document class with log cleanup functionality and provides a whitelisted make_access_log function with retry logic for creating access log entries.",
+      "tags": ["access-log", "doctype", "controller", "logging", "python"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/access_log/access_log.py"
+    },
+    {
+      "id": "class:frappe/core/doctype/access_log/access_log.py:AccessLog",
+      "type": "class",
+      "name": "AccessLog",
+      "summary": "Document controller for Access Log DocType that extends frappe.model.document.Document. Provides a static method to clear old log entries using query builder.",
+      "tags": ["doctype", "document", "access-log", "controller"],
+      "complexity": "simple",
+      "lineRange": [12, 39]
+    },
+    {
+      "id": "func:frappe/core/doctype/access_log/access_log.py:make_access_log",
+      "type": "function",
+      "name": "make_access_log",
+      "summary": "Whitelisted write-only function to create access log entries with retry logic for duplicate entry errors. Uses deferred insert in production and direct db_insert in tests.",
+      "tags": ["access-log", "whitelist", "logging", "retry", "write-only"],
+      "complexity": "moderate",
+      "lineRange": [42, 77]
+    },
+    {
+      "id": "file:frappe/core/doctype/access_log/access_log_list.js",
+      "type": "file",
+      "name": "access_log_list.js",
+      "summary": "List view settings for the Access Log DocType. Shows log retention message on load using the logtypes bundle.",
+      "tags": ["access-log", "list-view", "javascript", "log-retention"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/access_log/access_log_list.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "type": "file",
+      "name": "test_access_log.py",
+      "summary": "Integration tests for the Access Log DocType. Tests full access log creation, CSV export logging, and private file download logging with API key authentication.",
+      "tags": ["access-log", "test", "integration", "python", "api-key"],
+      "complexity": "complex",
+      "filePath": "frappe/core/doctype/access_log/test_access_log.py"
+    },
+    {
+      "id": "class:frappe/core/doctype/access_log/test_access_log.py:TestAccessLog",
+      "type": "class",
+      "name": "TestAccessLog",
+      "summary": "Integration test class for Access Log functionality. Sets up API key authentication and tests log creation for document access, CSV export, and private file downloads.",
+      "tags": ["test", "integration", "access-log", "api-key"],
+      "complexity": "complex",
+      "lineRange": [21, 175]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:unzip_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:get_attached_images",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:get_files_in_folder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:get_files_by_search_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:get_max_file_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:create_new_folder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:move_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "func:frappe/core/api/file.py:zip_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "file:frappe/core/doctype/file/file.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/api/file.py",
+      "target": "file:frappe/core/doctype/file/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:invite_by_email",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:accept_invitation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:cancel_invitation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:get_pending_invitations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:_accept_invitation",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "func:frappe/core/api/user_invitation.py:get_allowed_invite_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/api/user_invitation.py",
+      "target": "file:frappe/core/doctype/user_invitation/user_invitation.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/core/api/user_invitation.py:accept_invitation",
+      "target": "func:frappe/core/api/user_invitation.py:_accept_invitation",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/api/user_invitation.py:invite_by_email",
+      "target": "func:frappe/core/api/user_invitation.py:get_allowed_invite_params",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/access_log.py",
+      "target": "class:frappe/core/doctype/access_log/access_log.py:AccessLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/access_log.py",
+      "target": "func:frappe/core/doctype/access_log/access_log.py:make_access_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/access_log/access_log.py:AccessLog",
+      "target": "file:frappe/model/document.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "target": "class:frappe/core/doctype/access_log/test_access_log.py:TestAccessLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "target": "file:frappe/core/doctype/access_log/access_log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "target": "file:frappe/core/doctype/data_import/data_import.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "target": "file:frappe/core/doctype/user/user.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/access_log/test_access_log.py",
+      "target": "file:frappe/core/doctype/access_log/access_log.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:frappe/core/doctype/access_log/test_access_log.py:TestAccessLog",
+      "target": "func:frappe/core/doctype/access_log/access_log.py:make_access_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

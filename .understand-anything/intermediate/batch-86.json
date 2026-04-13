@@ -1,0 +1,2079 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/widgets/shortcut_widget.js",
+      "type": "file",
+      "name": "shortcut_widget.js",
+      "summary": "1 class(es): ShortcutWidget; 121 lines",
+      "tags": [
+        "javascript",
+        "widget"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/widgets/shortcut_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "type": "class",
+      "name": "ShortcutWidget",
+      "summary": "Class ShortcutWidget extends Widget",
+      "tags": [
+        "javascript",
+        "widget",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        4,
+        121
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.constructor",
+      "type": "function",
+      "name": "ShortcutWidget.constructor",
+      "summary": "Method constructor of ShortcutWidget",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.get_config",
+      "type": "function",
+      "name": "ShortcutWidget.get_config",
+      "summary": "Method get_config of ShortcutWidget",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.setup_events",
+      "type": "function",
+      "name": "ShortcutWidget.setup_events",
+      "summary": "Method setup_events of ShortcutWidget",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        27,
+        27
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.set_actions",
+      "type": "function",
+      "name": "ShortcutWidget.set_actions",
+      "summary": "Method set_actions of ShortcutWidget",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        69,
+        69
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.set_count",
+      "type": "function",
+      "name": "ShortcutWidget.set_count",
+      "summary": "Method set_count of ShortcutWidget",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        101,
+        101
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "type": "file",
+      "name": "widget_dialog.js",
+      "summary": "8 class(es): WidgetDialog, ChartDialog, QuickListDialog, OnboardingDialog, CardDialog, ShortcutDialog, NumberCardDialog, CustomBlockDialog; 1 top-level function(s); 820 lines",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/widgets/widget_dialog.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "type": "class",
+      "name": "WidgetDialog",
+      "summary": "Class WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        125
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.constructor",
+      "type": "function",
+      "name": "WidgetDialog.constructor",
+      "summary": "Method constructor of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.make",
+      "type": "function",
+      "name": "WidgetDialog.make",
+      "summary": "Method make of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.make_dialog",
+      "type": "function",
+      "name": "WidgetDialog.make_dialog",
+      "summary": "Method make_dialog of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        16,
+        16
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.get_title",
+      "type": "function",
+      "name": "WidgetDialog.get_title",
+      "summary": "Method get_title of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        34,
+        34
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.get_fields",
+      "type": "function",
+      "name": "WidgetDialog.get_fields",
+      "summary": "Method get_fields of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        76,
+        76
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.set_default_values",
+      "type": "function",
+      "name": "WidgetDialog.set_default_values",
+      "summary": "Method set_default_values of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        80,
+        80
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.process_data",
+      "type": "function",
+      "name": "WidgetDialog.process_data",
+      "summary": "Method process_data of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        84,
+        84
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.setup_dialog_events",
+      "type": "function",
+      "name": "WidgetDialog.setup_dialog_events",
+      "summary": "Method setup_dialog_events of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        88,
+        88
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.hide_field",
+      "type": "function",
+      "name": "WidgetDialog.hide_field",
+      "summary": "Method hide_field of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        92,
+        92
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.show_field",
+      "type": "function",
+      "name": "WidgetDialog.show_field",
+      "summary": "Method show_field of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.setup_filter",
+      "type": "function",
+      "name": "WidgetDialog.setup_filter",
+      "summary": "Method setup_filter of WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        100,
+        100
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "type": "class",
+      "name": "ChartDialog",
+      "summary": "Class ChartDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        126,
+        153
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.constructor",
+      "type": "function",
+      "name": "ChartDialog.constructor",
+      "summary": "Method constructor of ChartDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        127,
+        127
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.get_fields",
+      "type": "function",
+      "name": "ChartDialog.get_fields",
+      "summary": "Method get_fields of ChartDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        131,
+        131
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.process_data",
+      "type": "function",
+      "name": "ChartDialog.process_data",
+      "summary": "Method process_data of ChartDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        148,
+        148
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "type": "class",
+      "name": "QuickListDialog",
+      "summary": "Class QuickListDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        154,
+        220
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.constructor",
+      "type": "function",
+      "name": "QuickListDialog.constructor",
+      "summary": "Method constructor of QuickListDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        155,
+        155
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.get_fields",
+      "type": "function",
+      "name": "QuickListDialog.get_fields",
+      "summary": "Method get_fields of QuickListDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        159,
+        159
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.generate_filter_from_json",
+      "type": "function",
+      "name": "QuickListDialog.generate_filter_from_json",
+      "summary": "Method generate_filter_from_json of QuickListDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        202,
+        202
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.process_data",
+      "type": "function",
+      "name": "QuickListDialog.process_data",
+      "summary": "Method process_data of QuickListDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        211,
+        211
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog",
+      "type": "class",
+      "name": "OnboardingDialog",
+      "summary": "Class OnboardingDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        221,
+        238
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog.constructor",
+      "type": "function",
+      "name": "OnboardingDialog.constructor",
+      "summary": "Method constructor of OnboardingDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        222,
+        222
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog.get_fields",
+      "type": "function",
+      "name": "OnboardingDialog.get_fields",
+      "summary": "Method get_fields of OnboardingDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        226,
+        226
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "type": "class",
+      "name": "CardDialog",
+      "summary": "Class CardDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        239,
+        382
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.constructor",
+      "type": "function",
+      "name": "CardDialog.constructor",
+      "summary": "Method constructor of CardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        240,
+        240
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.get_fields",
+      "type": "function",
+      "name": "CardDialog.get_fields",
+      "summary": "Method get_fields of CardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        244,
+        244
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.process_data",
+      "type": "function",
+      "name": "CardDialog.process_data",
+      "summary": "Method process_data of CardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        347,
+        347
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "type": "class",
+      "name": "ShortcutDialog",
+      "summary": "Class ShortcutDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "high",
+      "lineRange": [
+        383,
+        613
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.constructor",
+      "type": "function",
+      "name": "ShortcutDialog.constructor",
+      "summary": "Method constructor of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        384,
+        384
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.hide_filters",
+      "type": "function",
+      "name": "ShortcutDialog.hide_filters",
+      "summary": "Method hide_filters of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        388,
+        388
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.show_filters",
+      "type": "function",
+      "name": "ShortcutDialog.show_filters",
+      "summary": "Method show_filters of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        393,
+        393
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.get_fields",
+      "type": "function",
+      "name": "ShortcutDialog.get_fields",
+      "summary": "Method get_fields of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        398,
+        398
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.set_default_values",
+      "type": "function",
+      "name": "ShortcutDialog.set_default_values",
+      "summary": "Method set_default_values of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        570,
+        570
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.generate_filter_from_json",
+      "type": "function",
+      "name": "ShortcutDialog.generate_filter_from_json",
+      "summary": "Method generate_filter_from_json of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        576,
+        576
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.process_data",
+      "type": "function",
+      "name": "ShortcutDialog.process_data",
+      "summary": "Method process_data of ShortcutDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        585,
+        585
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "type": "class",
+      "name": "NumberCardDialog",
+      "summary": "Class NumberCardDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        614,
+        783
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.constructor",
+      "type": "function",
+      "name": "NumberCardDialog.constructor",
+      "summary": "Method constructor of NumberCardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        615,
+        615
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.get_fields",
+      "type": "function",
+      "name": "NumberCardDialog.get_fields",
+      "summary": "Method get_fields of NumberCardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        619,
+        619
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.setup_dialog_events",
+      "type": "function",
+      "name": "NumberCardDialog.setup_dialog_events",
+      "summary": "Method setup_dialog_events of NumberCardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        736,
+        736
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.set_aggregate_function_fields",
+      "type": "function",
+      "name": "NumberCardDialog.set_aggregate_function_fields",
+      "summary": "Method set_aggregate_function_fields of NumberCardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        748,
+        748
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.process_data",
+      "type": "function",
+      "name": "NumberCardDialog.process_data",
+      "summary": "Method process_data of NumberCardDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        769,
+        769
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog",
+      "type": "class",
+      "name": "CustomBlockDialog",
+      "summary": "Class CustomBlockDialog extends WidgetDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        784,
+        806
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog.constructor",
+      "type": "function",
+      "name": "CustomBlockDialog.constructor",
+      "summary": "Method constructor of CustomBlockDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        785,
+        785
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog.get_fields",
+      "type": "function",
+      "name": "CustomBlockDialog.get_fields",
+      "summary": "Method get_fields of CustomBlockDialog",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        789,
+        789
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/widgets/widget_dialog.js:get_dialog_constructor",
+      "type": "function",
+      "name": "get_dialog_constructor",
+      "summary": "Top-level function get_dialog_constructor",
+      "tags": [
+        "javascript",
+        "widget",
+        "dialog",
+        "function"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        808,
+        808
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/widget_group.js",
+      "type": "file",
+      "name": "widget_group.js",
+      "summary": "2 class(es): WidgetGroup, SingleWidgetGroup; 238 lines",
+      "tags": [
+        "javascript",
+        "widget"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/widgets/widget_group.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "type": "class",
+      "name": "WidgetGroup",
+      "summary": "Class WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        32,
+        190
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.constructor",
+      "type": "function",
+      "name": "WidgetGroup.constructor",
+      "summary": "Method constructor of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        33,
+        33
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make",
+      "type": "function",
+      "name": "WidgetGroup.make",
+      "summary": "Method make of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        41,
+        41
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make_container",
+      "type": "function",
+      "name": "WidgetGroup.make_container",
+      "summary": "Method make_container of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        51,
+        51
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.set_title",
+      "type": "function",
+      "name": "WidgetGroup.set_title",
+      "summary": "Method set_title of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        69,
+        69
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make_widgets",
+      "type": "function",
+      "name": "WidgetGroup.make_widgets",
+      "summary": "Method make_widgets of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        73,
+        73
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.add_widget",
+      "type": "function",
+      "name": "WidgetGroup.add_widget",
+      "summary": "Method add_widget of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        80,
+        80
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.remove_widget",
+      "type": "function",
+      "name": "WidgetGroup.remove_widget",
+      "summary": "Method remove_widget of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        98,
+        98
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.customize",
+      "type": "function",
+      "name": "WidgetGroup.customize",
+      "summary": "Method customize of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        106,
+        106
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.setup_new_widget",
+      "type": "function",
+      "name": "WidgetGroup.setup_new_widget",
+      "summary": "Method setup_new_widget of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        116,
+        116
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.on_delete",
+      "type": "function",
+      "name": "WidgetGroup.on_delete",
+      "summary": "Method on_delete of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        147,
+        147
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.update_widget_order",
+      "type": "function",
+      "name": "WidgetGroup.update_widget_order",
+      "summary": "Method update_widget_order of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        155,
+        155
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.setup_sortable",
+      "type": "function",
+      "name": "WidgetGroup.setup_sortable",
+      "summary": "Method setup_sortable of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        165,
+        165
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.get_widget_config",
+      "type": "function",
+      "name": "WidgetGroup.get_widget_config",
+      "summary": "Method get_widget_config of WidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        174,
+        174
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "type": "class",
+      "name": "SingleWidgetGroup",
+      "summary": "Class SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        191,
+        235
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.constructor",
+      "type": "function",
+      "name": "SingleWidgetGroup.constructor",
+      "summary": "Method constructor of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        192,
+        192
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.make",
+      "type": "function",
+      "name": "SingleWidgetGroup.make",
+      "summary": "Method make of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        199,
+        199
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.add_widget",
+      "type": "function",
+      "name": "SingleWidgetGroup.add_widget",
+      "summary": "Method add_widget of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        203,
+        203
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.on_delete",
+      "type": "function",
+      "name": "SingleWidgetGroup.on_delete",
+      "summary": "Method on_delete of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        221,
+        221
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.on_edit",
+      "type": "function",
+      "name": "SingleWidgetGroup.on_edit",
+      "summary": "Method on_edit of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        225,
+        225
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.customize",
+      "type": "function",
+      "name": "SingleWidgetGroup.customize",
+      "summary": "Method customize of SingleWidgetGroup",
+      "tags": [
+        "javascript",
+        "widget",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        229,
+        229
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/integrations/google_drive_picker.js",
+      "type": "file",
+      "name": "google_drive_picker.js",
+      "summary": "1 class(es): GoogleDrivePicker; 1 top-level function(s); 85 lines",
+      "tags": [
+        "javascript",
+        "integration"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/integrations/google_drive_picker.js"
+    },
+    {
+      "id": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "type": "class",
+      "name": "GoogleDrivePicker",
+      "summary": "Class GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        70
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.constructor",
+      "type": "function",
+      "name": "GoogleDrivePicker.constructor",
+      "summary": "Method constructor of GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        3,
+        3
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.loadPicker",
+      "type": "function",
+      "name": "GoogleDrivePicker.loadPicker",
+      "summary": "Method loadPicker of GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        12,
+        12
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.authenticate",
+      "type": "function",
+      "name": "GoogleDrivePicker.authenticate",
+      "summary": "Method authenticate of GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        26,
+        26
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.createPicker",
+      "type": "function",
+      "name": "GoogleDrivePicker.createPicker",
+      "summary": "Method createPicker of GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.setupHide",
+      "type": "function",
+      "name": "GoogleDrivePicker.setupHide",
+      "summary": "Method setupHide of GoogleDrivePicker",
+      "tags": [
+        "javascript",
+        "integration",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        61,
+        61
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/integrations/google_drive_picker.js:inject_script",
+      "type": "function",
+      "name": "inject_script",
+      "summary": "Top-level function inject_script",
+      "tags": [
+        "javascript",
+        "integration",
+        "function"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        72,
+        72
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/jquery-bootstrap.js",
+      "type": "file",
+      "name": "jquery-bootstrap.js",
+      "summary": "31 lines",
+      "tags": [
+        "javascript",
+        "shim",
+        "compat"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/jquery-bootstrap.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/fingerprintjs.js",
+      "type": "file",
+      "name": "fingerprintjs.js",
+      "summary": "Vendored third-party library (8 lines)",
+      "tags": [
+        "javascript",
+        "vendored",
+        "lib"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/lib/fingerprintjs.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/fullcalendar/locale-all.js",
+      "type": "file",
+      "name": "locale-all.js",
+      "summary": "Vendored third-party library (5 lines)",
+      "tags": [
+        "javascript",
+        "vendored",
+        "lib",
+        "fullcalendar"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/lib/fullcalendar/locale-all.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/leaflet/leaflet.js",
+      "type": "file",
+      "name": "leaflet.js",
+      "summary": "Vendored third-party library (4 lines)",
+      "tags": [
+        "javascript",
+        "vendored",
+        "lib",
+        "leaflet"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/lib/leaflet/leaflet.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/leaflet_control_locate/L.Control.Locate.js",
+      "type": "file",
+      "name": "L.Control.Locate.js",
+      "summary": "Vendored third-party library (591 lines)",
+      "tags": [
+        "javascript",
+        "vendored",
+        "lib",
+        "leaflet"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/lib/leaflet_control_locate/L.Control.Locate.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/leaflet_draw/leaflet.draw.js",
+      "type": "file",
+      "name": "leaflet.draw.js",
+      "summary": "Vendored third-party library (1702 lines)",
+      "tags": [
+        "javascript",
+        "vendored",
+        "lib",
+        "leaflet"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/lib/leaflet_draw/leaflet.draw.js"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/widgets/shortcut_widget.js",
+      "target": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "class:Widget",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.get_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.setup_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.set_actions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget",
+      "target": "method:frappe/public/js/frappe/widgets/shortcut_widget.js:ShortcutWidget.set_count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.make_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.get_title",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.set_default_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.setup_dialog_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.hide_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.show_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:WidgetDialog.setup_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ChartDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.generate_filter_from_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:QuickListDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:OnboardingDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CardDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.hide_filters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.show_filters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.set_default_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.generate_filter_from_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:ShortcutDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.setup_dialog_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.set_aggregate_function_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:NumberCardDialog.process_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog",
+      "target": "class:WidgetDialog",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog",
+      "target": "method:frappe/public/js/frappe/widgets/widget_dialog.js:CustomBlockDialog.get_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_dialog.js",
+      "target": "func:frappe/public/js/frappe/widgets/widget_dialog.js:get_dialog_constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_group.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make_container",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.set_title",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.make_widgets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.add_widget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.remove_widget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.customize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.setup_new_widget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.on_delete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.update_widget_order",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.setup_sortable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:WidgetGroup.get_widget_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/widgets/widget_group.js",
+      "target": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.add_widget",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.on_delete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.on_edit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup",
+      "target": "method:frappe/public/js/frappe/widgets/widget_group.js:SingleWidgetGroup.customize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/integrations/google_drive_picker.js",
+      "target": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "target": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "target": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.loadPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "target": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.authenticate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "target": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.createPicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker",
+      "target": "method:frappe/public/js/integrations/google_drive_picker.js:GoogleDrivePicker.setupHide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/integrations/google_drive_picker.js",
+      "target": "func:frappe/public/js/integrations/google_drive_picker.js:inject_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

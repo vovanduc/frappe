@@ -1,0 +1,326 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/page/test_page.py",
+      "type": "file",
+      "name": "test_page.py",
+      "filePath": "frappe/core/doctype/page/test_page.py",
+      "summary": "Integration tests for the Page DocType, covering naming validation and trashing behavior including filesystem cleanup.",
+      "tags": ["test", "core", "page", "doctype"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestPage",
+      "type": "class",
+      "name": "TestPage",
+      "filePath": "frappe/core/doctype/page/test_page.py",
+      "lineRange": [11, 31],
+      "summary": "Integration test case for the Page DocType. Tests that reserved page names raise NameError and that deleting a page removes its directory from the filesystem.",
+      "tags": ["test", "integration", "page"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:TestPage.test_naming",
+      "type": "function",
+      "name": "test_naming",
+      "filePath": "frappe/core/doctype/page/test_page.py",
+      "lineRange": [12, 16],
+      "summary": "Tests that inserting a Page with a reserved name ('DocType') raises frappe.NameError.",
+      "tags": ["test", "naming", "validation"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:TestPage.test_trashing",
+      "type": "function",
+      "name": "test_trashing",
+      "filePath": "frappe/core/doctype/page/test_page.py",
+      "lineRange": [18, 31],
+      "summary": "Tests that deleting a Page also removes its directory from the filesystem. Only runs in writable environments with developer_mode enabled.",
+      "tags": ["test", "deletion", "filesystem"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/patch_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/patch_log/__init__.py",
+      "summary": "Empty init file for the Patch Log DocType module.",
+      "tags": ["init", "patch_log"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/patch_log/patch_log.js",
+      "type": "file",
+      "name": "patch_log.js",
+      "filePath": "frappe/core/doctype/patch_log/patch_log.js",
+      "summary": "Client-side controller for Patch Log DocType that disables the save button on refresh since patch logs are system-managed records.",
+      "tags": ["javascript", "client", "patch_log", "form"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/patch_log/patch_log.py",
+      "type": "file",
+      "name": "patch_log.py",
+      "filePath": "frappe/core/doctype/patch_log/patch_log.py",
+      "summary": "Python controller for Patch Log DocType. Records migration patches that have been applied. Includes a before_migrate hook to reload its own DocType definition before migrations run.",
+      "tags": ["python", "core", "patch_log", "migration"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:PatchLog",
+      "type": "class",
+      "name": "PatchLog",
+      "filePath": "frappe/core/doctype/patch_log/patch_log.py",
+      "lineRange": [10, 24],
+      "summary": "Document controller for Patch Log. Has fields for patch code, skipped status, and traceback. No custom logic (pass-through).",
+      "tags": ["document", "model", "patch_log"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:patch_log.before_migrate",
+      "type": "function",
+      "name": "before_migrate",
+      "filePath": "frappe/core/doctype/patch_log/patch_log.py",
+      "lineRange": [27, 28],
+      "summary": "Hook that reloads the Patch Log DocType definition before migrations run, ensuring the schema is up to date.",
+      "tags": ["hook", "migration", "reload"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/patch_log/test_patch_log.py",
+      "type": "file",
+      "name": "test_patch_log.py",
+      "filePath": "frappe/core/doctype/patch_log/test_patch_log.py",
+      "summary": "Empty integration test case for Patch Log DocType.",
+      "tags": ["test", "patch_log"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_inspector/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/permission_inspector/__init__.py",
+      "summary": "Empty init file for the Permission Inspector DocType module.",
+      "tags": ["init", "permission_inspector"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_inspector/permission_inspector.js",
+      "type": "file",
+      "name": "permission_inspector.js",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.js",
+      "summary": "Client-side controller for Permission Inspector. Triggers debug calls when user, doctype, docname, or permission_type changes. Dynamically adds custom permission types based on the selected DocType.",
+      "tags": ["javascript", "client", "permissions", "form", "debugging"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "type": "file",
+      "name": "permission_inspector.py",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "summary": "Python controller for Permission Inspector, a virtual DocType (no database storage) that debugs permission checks by calling has_permission with debug mode and displaying the debug log output.",
+      "tags": ["python", "core", "permissions", "debugging", "virtual"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:PermissionInspector",
+      "type": "class",
+      "name": "PermissionInspector",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "lineRange": [9, 74],
+      "summary": "Virtual Document controller for Permission Inspector. Overrides DB operations (insert, update, list, count, stats, delete) to no-ops since it has no database table. Provides a debug() method that runs has_permission with debug=True and captures the debug log for display.",
+      "tags": ["document", "virtual", "permissions", "debugging"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:PermissionInspector.onload",
+      "type": "function",
+      "name": "onload",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "lineRange": [40, 43],
+      "summary": "Loads custom permission type mappings from PermissionType and sets them on the document's onload data for client-side use.",
+      "tags": ["lifecycle", "permissions", "onload"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:PermissionInspector.debug",
+      "type": "function",
+      "name": "debug",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "lineRange": [45, 55],
+      "summary": "Whitelisted method that runs has_permission with debug=True for the specified doctype, user, permission type, and optional docname, then captures and formats the debug log output.",
+      "tags": ["api", "whitelist", "permissions", "debugging"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:PermissionInspector.load_from_db",
+      "type": "function",
+      "name": "load_from_db",
+      "filePath": "frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "lineRange": [58, 59],
+      "summary": "Overrides load_from_db to initialize with default values instead of querying database, since this is a virtual DocType.",
+      "tags": ["virtual", "override"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_inspector/test_permission_inspector.py",
+      "type": "file",
+      "name": "test_permission_inspector.py",
+      "filePath": "frappe/core/doctype/permission_inspector/test_permission_inspector.py",
+      "summary": "Empty integration test case for Permission Inspector DocType.",
+      "tags": ["test", "permission_inspector"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/permission_log/__init__.py",
+      "summary": "Empty init file for the Permission Log DocType module.",
+      "tags": ["init", "permission_log"],
+      "complexity": "trivial"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:TestPage",
+      "target": "file:frappe/core/doctype/page/test_page.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:TestPage.test_naming",
+      "target": "class:TestPage",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:TestPage.test_trashing",
+      "target": "class:TestPage",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPage",
+      "target": "module:frappe.tests",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:PatchLog",
+      "target": "file:frappe/core/doctype/patch_log/patch_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:PatchLog",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:patch_log.before_migrate",
+      "target": "file:frappe/core/doctype/patch_log/patch_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:patch_log.before_migrate",
+      "target": "module:frappe",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:PermissionInspector",
+      "target": "file:frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:PermissionInspector",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:PermissionInspector.onload",
+      "target": "class:PermissionInspector",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:PermissionInspector.debug",
+      "target": "class:PermissionInspector",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:PermissionInspector.load_from_db",
+      "target": "class:PermissionInspector",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:PermissionInspector.debug",
+      "target": "module:frappe.permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:PermissionInspector.onload",
+      "target": "module:frappe.core.doctype.permission_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_inspector/permission_inspector.js",
+      "target": "file:frappe/core/doctype/permission_inspector/permission_inspector.py",
+      "type": "client_server_pair",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/patch_log/patch_log.js",
+      "target": "file:frappe/core/doctype/patch_log/patch_log.py",
+      "type": "client_server_pair",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/patch_log/test_patch_log.py",
+      "target": "class:PatchLog",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_inspector/test_permission_inspector.py",
+      "target": "class:PermissionInspector",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/page/test_page.py",
+      "target": "module:frappe.core.doctype.page",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

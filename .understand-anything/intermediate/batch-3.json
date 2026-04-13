@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/api_request_log/api_request_log.py",
+      "type": "file",
+      "name": "api_request_log.py",
+      "filePath": "frappe/core/doctype/api_request_log/api_request_log.py",
+      "summary": "Python controller for the API Request Log DocType. Provides a Document subclass with a static method to clear old log entries based on age.",
+      "tags": ["doctype", "logging", "api", "cleanup", "core"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/core/doctype/api_request_log/api_request_log.py:APIRequestLog",
+      "type": "class",
+      "name": "APIRequestLog",
+      "summary": "Document controller for API Request Log DocType. Tracks API requests and provides automated cleanup of logs older than a configurable number of days using query builder.",
+      "tags": ["doctype-controller", "document", "logging", "cleanup"],
+      "complexity": "simple",
+      "lineRange": [8, 28]
+    },
+    {
+      "id": "file:frappe/core/doctype/api_request_log/test_api_request_log.py",
+      "type": "file",
+      "name": "test_api_request_log.py",
+      "filePath": "frappe/core/doctype/api_request_log/test_api_request_log.py",
+      "summary": "Integration test stub for the API Request Log DocType. Currently empty with no test methods defined.",
+      "tags": ["test", "integration-test", "api-request-log", "core"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/core/doctype/api_request_log/test_api_request_log.py:IntegrationTestAPIRequestLog",
+      "type": "class",
+      "name": "IntegrationTestAPIRequestLog",
+      "summary": "Empty integration test class for APIRequestLog DocType, extending IntegrationTestCase.",
+      "tags": ["test-class", "integration-test", "stub"],
+      "complexity": "simple",
+      "lineRange": [14, 20]
+    },
+    {
+      "id": "file:frappe/core/doctype/audit_trail/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/audit_trail/__init__.py",
+      "summary": "Empty init file for the audit_trail DocType module package.",
+      "tags": ["init", "package", "audit-trail"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/audit_trail/audit_trail.js",
+      "type": "file",
+      "name": "audit_trail.js",
+      "filePath": "frappe/core/doctype/audit_trail/audit_trail.js",
+      "summary": "Client-side controller for the Audit Trail form. Handles UI interactions for comparing document versions including date filtering, document selection, and rendering diff grids for changed, added, and removed rows.",
+      "tags": ["javascript", "form-controller", "audit-trail", "ui", "diff-view"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "type": "file",
+      "name": "audit_trail.py",
+      "filePath": "frappe/core/doctype/audit_trail/audit_trail.py",
+      "summary": "Python controller for the Audit Trail DocType. Compares amended versions of submittable documents, detecting field changes, row additions, removals, and updates across document amendment chains.",
+      "tags": ["doctype", "audit-trail", "document-comparison", "versioning", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/core/doctype/audit_trail/audit_trail.py:AuditTrail",
+      "type": "class",
+      "name": "AuditTrail",
+      "summary": "Document controller that compares sequential amended versions of submittable documents. Validates inputs, retrieves amendment chains, and computes diffs for field changes, row updates, additions, and removals.",
+      "tags": ["doctype-controller", "document", "versioning", "diff", "audit"],
+      "complexity": "complex",
+      "lineRange": [13, 124]
+    },
+    {
+      "id": "func:frappe/core/doctype/audit_trail/audit_trail.py:get_field_label",
+      "type": "function",
+      "name": "get_field_label",
+      "summary": "Resolves a human-readable field label from a fieldname using DocType metadata. Handles child table fields by looking up the child DocType via the parent field options.",
+      "tags": ["utility", "metadata", "label-resolution"],
+      "complexity": "simple",
+      "lineRange": [127, 138]
+    },
+    {
+      "id": "func:frappe/core/doctype/audit_trail/audit_trail.py:filter_fields_for_gridview",
+      "type": "function",
+      "name": "filter_fields_for_gridview",
+      "summary": "Filters a child table row to only include fields marked as in_list_view, returning a dict with field labels as keys for grid display.",
+      "tags": ["utility", "grid-view", "filtering"],
+      "complexity": "simple",
+      "lineRange": [141, 149]
+    },
+    {
+      "id": "file:frappe/core/doctype/audit_trail/test_audit_trail.py",
+      "type": "file",
+      "name": "test_audit_trail.py",
+      "filePath": "frappe/core/doctype/audit_trail/test_audit_trail.py",
+      "summary": "Integration tests for the Audit Trail DocType. Tests document comparison for changed fields and row modifications across amendment chains using custom test DocTypes.",
+      "tags": ["test", "integration-test", "audit-trail", "document-comparison", "core"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/core/doctype/audit_trail/test_audit_trail.py:TestAuditTrail",
+      "type": "class",
+      "name": "TestAuditTrail",
+      "summary": "Integration test class for AuditTrail that creates custom submittable DocTypes, performs amendments, and verifies that the compare_document method correctly identifies field changes, row additions, and row updates.",
+      "tags": ["test-class", "integration-test", "audit-trail", "amendment"],
+      "complexity": "moderate",
+      "lineRange": [9, 69]
+    },
+    {
+      "id": "file:frappe/core/doctype/block_module/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/block_module/__init__.py",
+      "summary": "Empty init file for the block_module DocType module package.",
+      "tags": ["init", "package", "block-module"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/block_module/block_module.py",
+      "type": "file",
+      "name": "block_module.py",
+      "filePath": "frappe/core/doctype/block_module/block_module.py",
+      "summary": "Python controller for the Block Module DocType. A simple child table DocType used to store which modules a user has blocked/hidden.",
+      "tags": ["doctype", "block-module", "child-table", "user-settings", "core"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/core/doctype/block_module/block_module.py:BlockModule",
+      "type": "class",
+      "name": "BlockModule",
+      "summary": "Simple Document subclass for the Block Module child DocType. Stores module name as a child table entry for user module blocking configuration.",
+      "tags": ["doctype-controller", "document", "child-table"],
+      "complexity": "simple",
+      "lineRange": [7, 22]
+    },
+    {
+      "id": "file:frappe/core/doctype/comment/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/comment/__init__.py",
+      "summary": "Empty init file for the comment DocType module package.",
+      "tags": ["init", "package", "comment"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/comment/comment.js",
+      "type": "file",
+      "name": "comment.js",
+      "filePath": "frappe/core/doctype/comment/comment.js",
+      "summary": "Empty client-side controller stub for the Comment DocType form with no active event handlers.",
+      "tags": ["javascript", "form-controller", "comment", "stub"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/api_request_log/api_request_log.py",
+      "target": "class:frappe/core/doctype/api_request_log/api_request_log.py:APIRequestLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/api_request_log/api_request_log.py:APIRequestLog",
+      "target": "file:frappe/model/document.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/api_request_log/api_request_log.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/api_request_log/test_api_request_log.py",
+      "target": "class:frappe/core/doctype/api_request_log/test_api_request_log.py:IntegrationTestAPIRequestLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/api_request_log/test_api_request_log.py:IntegrationTestAPIRequestLog",
+      "target": "file:frappe/tests/__init__.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/api_request_log/test_api_request_log.py",
+      "target": "file:frappe/core/doctype/api_request_log/api_request_log.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "class:frappe/core/doctype/audit_trail/audit_trail.py:AuditTrail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "func:frappe/core/doctype/audit_trail/audit_trail.py:get_field_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "func:frappe/core/doctype/audit_trail/audit_trail.py:filter_fields_for_gridview",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/audit_trail/audit_trail.py:AuditTrail",
+      "target": "file:frappe/model/document.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/core/doctype/audit_trail/audit_trail.py:AuditTrail",
+      "target": "func:frappe/core/doctype/audit_trail/audit_trail.py:get_field_label",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/core/doctype/audit_trail/audit_trail.py:AuditTrail",
+      "target": "func:frappe/core/doctype/audit_trail/audit_trail.py:filter_fields_for_gridview",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/audit_trail.js",
+      "target": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/test_audit_trail.py",
+      "target": "class:frappe/core/doctype/audit_trail/test_audit_trail.py:TestAuditTrail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/audit_trail/test_audit_trail.py:TestAuditTrail",
+      "target": "file:frappe/tests/__init__.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/test_audit_trail.py",
+      "target": "file:frappe/core/doctype/audit_trail/audit_trail.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/audit_trail/test_audit_trail.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/block_module/block_module.py",
+      "target": "class:frappe/core/doctype/block_module/block_module.py:BlockModule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/block_module/block_module.py:BlockModule",
+      "target": "file:frappe/model/document.py",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/block_module/block_module.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

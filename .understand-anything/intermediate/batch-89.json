@@ -1,0 +1,79 @@
+{
+  "nodes": [
+    {"id": "file:frappe/public/js/print_format_builder/utils.js", "type": "file", "name": "print_format_builder/utils.js", "summary": "Utilities for print format builder: default layout creation, table column extraction, image dimensions, pluck helper.", "tags": ["print-format", "utils", "layout"], "complexity": "medium", "filePath": "frappe/public/js/print_format_builder/utils.js"},
+    {"id": "func:print_format_builder/utils.js:create_default_layout", "type": "function", "name": "create_default_layout", "summary": "Builds a default print layout from a DocType meta, organizing fields into sections/columns and handling field templates and table columns.", "tags": ["export", "layout"], "complexity": "high", "lineRange": "1-89"},
+    {"id": "func:print_format_builder/utils.js:get_table_columns", "type": "function", "name": "get_table_columns", "summary": "Returns printable table column descriptors for a Table fieldtype, capping total width at 100.", "tags": ["export", "table"], "complexity": "medium", "lineRange": "91-114"},
+    {"id": "func:print_format_builder/utils.js:get_field_template", "type": "function", "name": "get_field_template", "summary": "Finds a matching print template for a given fieldname from print_format __onload.", "tags": ["internal"], "complexity": "low", "lineRange": "116-124"},
+    {"id": "func:print_format_builder/utils.js:get_default_header", "type": "function", "name": "get_default_header", "summary": "Returns default HTML header snippet for a print format.", "tags": ["internal"], "complexity": "low", "lineRange": "126-131"},
+    {"id": "func:print_format_builder/utils.js:pluck", "type": "function", "name": "pluck", "summary": "Returns a new object with only the specified keys plucked from the source.", "tags": ["export", "helper"], "complexity": "low", "lineRange": "133-141"},
+    {"id": "func:print_format_builder/utils.js:get_image_dimensions", "type": "function", "name": "get_image_dimensions", "summary": "Loads an image and resolves a Promise with its natural width/height.", "tags": ["export", "image", "async"], "complexity": "low", "lineRange": "143-151"},
+
+    {"id": "file:frappe/public/js/report.bundle.js", "type": "file", "name": "report.bundle.js", "summary": "Aggregator bundle importing report views (report_view, query_report, factory), group_by UI, and report utils.", "tags": ["bundle", "aggregator", "reports"], "complexity": "low", "filePath": "frappe/public/js/report.bundle.js"},
+
+    {"id": "file:frappe/public/js/sentry.bundle.js", "type": "file", "name": "sentry.bundle.js", "summary": "Initializes @sentry/browser with site DSN, release, user scope, and a beforeSend filter that drops errors originating from frappe.throw.", "tags": ["bundle", "sentry", "error-tracking"], "complexity": "low", "filePath": "frappe/public/js/sentry.bundle.js"},
+
+    {"id": "file:frappe/public/js/syntax_highlighting.bundle.js", "type": "file", "name": "syntax_highlighting.bundle.js", "summary": "Registers highlight.js core with javascript, python, xml, and sql language modules; exposes hljs on window.", "tags": ["bundle", "hljs", "syntax"], "complexity": "low", "filePath": "frappe/public/js/syntax_highlighting.bundle.js"},
+
+    {"id": "file:frappe/public/js/telemetry.bundle.js", "type": "file", "name": "telemetry.bundle.js", "summary": "Entry bundle that re-exports the telemetry index module.", "tags": ["bundle", "aggregator", "telemetry"], "complexity": "low", "filePath": "frappe/public/js/telemetry.bundle.js"},
+
+    {"id": "file:frappe/public/js/telemetry/index.js", "type": "file", "name": "telemetry/index.js", "summary": "Telemetry manager that initializes posthog and pulse providers and dispatches capture calls; attaches instance to frappe.telemetry.", "tags": ["telemetry", "manager"], "complexity": "medium", "filePath": "frappe/public/js/telemetry/index.js"},
+    {"id": "class:telemetry/index.js:TelemetryManager", "type": "class", "name": "TelemetryManager", "summary": "Coordinator for telemetry providers (posthog, pulse). Checks boot flags, initializes enabled providers, and fans out capture events.", "tags": ["class", "telemetry"], "complexity": "medium", "lineRange": "4-47"},
+
+    {"id": "file:frappe/public/js/telemetry/posthog.js", "type": "file", "name": "telemetry/posthog.js", "summary": "PostHog telemetry provider: init, capture, heartbeat, pageview tracking, and optional session recording.", "tags": ["telemetry", "posthog"], "complexity": "medium", "filePath": "frappe/public/js/telemetry/posthog.js"},
+    {"id": "class:telemetry/posthog.js:PosthogProvider", "type": "class", "name": "PosthogProvider", "summary": "Provider wrapping posthog-js: initializes client, identifies site, registers router pageview handler, sends 12h heartbeat, and gates session recording to a 2 hour window.", "tags": ["class", "posthog"], "complexity": "high", "lineRange": "3-80"},
+
+    {"id": "file:frappe/public/js/telemetry/pulse.js", "type": "file", "name": "telemetry/pulse.js", "summary": "Client-side Pulse heartbeat sender with buffered QueueManager; flushes events via frappe.call or navigator.sendBeacon on unload.", "tags": ["telemetry", "pulse", "queue"], "complexity": "high", "filePath": "frappe/public/js/telemetry/pulse.js"},
+    {"id": "class:telemetry/pulse.js:PulseProvider", "type": "class", "name": "PulseProvider", "summary": "Telemetry provider that queues events and ships them to frappe.utils.telemetry.pulse.client.bulk_capture, using sendBeacon on beforeunload.", "tags": ["class", "pulse"], "complexity": "high", "lineRange": "1-76"},
+    {"id": "class:telemetry/pulse.js:QueueManager", "type": "class", "name": "QueueManager", "summary": "Async queue with interval flushing, batch size cap, retry-on-failure (max 3), and getBufferedEvents drain for unload.", "tags": ["class", "queue", "retry"], "complexity": "high", "lineRange": "78-146"},
+
+    {"id": "file:frappe/public/js/video_player.bundle.js", "type": "file", "name": "video_player.bundle.js", "summary": "Imports Plyr polyfilled build and attaches it as frappe.Plyr for in-app video playback.", "tags": ["bundle", "video", "plyr"], "complexity": "low", "filePath": "frappe/public/js/video_player.bundle.js"},
+
+    {"id": "file:frappe/public/js/web_form.bundle.js", "type": "file", "name": "web_form.bundle.js", "summary": "Aggregator bundle for the public Web Form runtime: controls, dialogs, moment, keyboard, datetime utils, webform_script, bootstrap.", "tags": ["bundle", "aggregator", "web-form"], "complexity": "low", "filePath": "frappe/public/js/web_form.bundle.js"}
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:create_default_layout", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_table_columns", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_field_template", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_default_header", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:pluck", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_image_dimensions", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:create_default_layout", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_table_columns", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:pluck", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/utils.js", "target": "func:print_format_builder/utils.js:get_image_dimensions", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/report.bundle.js", "target": "file:frappe/public/js/frappe/views/reports/report_factory.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/report.bundle.js", "target": "file:frappe/public/js/frappe/views/reports/report_view.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/report.bundle.js", "target": "file:frappe/public/js/frappe/views/reports/query_report.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/report.bundle.js", "target": "file:frappe/public/js/frappe/ui/group_by/group_by.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/report.bundle.js", "target": "file:frappe/public/js/frappe/views/reports/report_utils.js", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/sentry.bundle.js", "target": "@sentry/browser", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/syntax_highlighting.bundle.js", "target": "highlight.js", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/telemetry.bundle.js", "target": "file:frappe/public/js/telemetry/index.js", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/telemetry/index.js", "target": "file:frappe/public/js/telemetry/posthog.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/index.js", "target": "file:frappe/public/js/telemetry/pulse.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/index.js", "target": "class:telemetry/index.js:TelemetryManager", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/telemetry/posthog.js", "target": "file:frappe/public/js/lib/posthog.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/posthog.js", "target": "class:telemetry/posthog.js:PosthogProvider", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/posthog.js", "target": "class:telemetry/posthog.js:PosthogProvider", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/telemetry/pulse.js", "target": "class:telemetry/pulse.js:PulseProvider", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/pulse.js", "target": "class:telemetry/pulse.js:QueueManager", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/telemetry/pulse.js", "target": "class:telemetry/pulse.js:PulseProvider", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/video_player.bundle.js", "target": "plyr", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/controls.bundle.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/dialog.bundle.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/lib/moment.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/frappe/ui/keyboard.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/frappe/utils/datetime.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/frappe/web_form/webform_script.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/web_form.bundle.js", "target": "file:frappe/public/js/bootstrap-4-web.bundle.js", "type": "imports", "direction": "forward", "weight": 1}
+  ]
+}

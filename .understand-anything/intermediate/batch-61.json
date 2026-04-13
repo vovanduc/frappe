@@ -1,0 +1,377 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/data_import/index.js",
+      "type": "file",
+      "name": "index.js",
+      "summary": "Entry point for the data_import module. Imports import_preview and data_exporter submodules for side-effects.",
+      "tags": ["data-import", "entry", "module-index", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/data_import/index.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/db.js",
+      "type": "file",
+      "name": "db.js",
+      "summary": "Client-side frappe.db namespace providing REST wrappers for CRUD and query operations: get_list, exists, get_value, set_value, get_doc, insert, delete_doc, count, get_link_options.",
+      "tags": ["client", "database", "rest", "crud", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/db.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/defaults.js",
+      "type": "file",
+      "name": "defaults.js",
+      "summary": "Client-side frappe.defaults namespace managing user and global default values, user-permission-aware default lookup, and user-permission cache loading from boot.",
+      "tags": ["client", "defaults", "user-permissions", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/defaults.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/desk.js",
+      "type": "file",
+      "name": "desk.js",
+      "summary": "Desk bootstrap file. Defines frappe.Application class that initializes the Desk UI: realtime, model, nav bar, sidebar, theme, routing, keyboard shortcuts, notices, tours, broadcast listeners, and copy-doc handler. Instantiated via frappe.start_app on DOM ready.",
+      "tags": ["desk", "bootstrap", "application", "ui", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/desk.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/doctype/index.js",
+      "type": "file",
+      "name": "index.js",
+      "summary": "DocTypeController base class extending frappe.ui.form.Controller. Handles shared client logic for DocType form and Customize Form: field-type formatters, DB row-size utilization warning, naming_rule/autoname synchronization, max_attachments validation, and fetch_from UI with linked doctype/field selects.",
+      "tags": ["doctype", "controller", "form", "naming-rule", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/doctype/index.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/dom.js",
+      "type": "file",
+      "name": "dom.js",
+      "summary": "frappe.dom utility namespace: unique id generation, DOM sanitization (remove script/style tags), freeze/unfreeze overlay, CSS injection, element visibility, scroll, pixel measurements, and other DOM helpers used across the Desk.",
+      "tags": ["client", "dom", "utilities", "sanitization", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/dom.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/event_emitter.js",
+      "type": "file",
+      "name": "event_emitter.js",
+      "summary": "EventEmitterMixin using jQuery's event system. Provides trigger/on/once/off methods and frappe.utils.make_event_emitter to mix into any object. Default export for ES module consumers.",
+      "tags": ["events", "mixin", "jquery", "utility", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/event_emitter.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/FileBrowser.vue",
+      "type": "file",
+      "name": "FileBrowser.vue",
+      "summary": "Vue 3 component for browsing server-side files within the file uploader dialog. Supports folder navigation, search, tree view, and selecting existing files to attach.",
+      "tags": ["vue", "file-uploader", "browser", "component", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/file_uploader/FileBrowser.vue"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/FilePreview.vue",
+      "type": "file",
+      "name": "FilePreview.vue",
+      "summary": "Vue 3 component showing a preview row for a queued file: thumbnail/icon, name, size, optimize/private/public toggles, progress bar, and error/remove controls.",
+      "tags": ["vue", "file-uploader", "preview", "component", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/file_uploader/FilePreview.vue"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/FileUploader.vue",
+      "type": "file",
+      "name": "FileUploader.vue",
+      "summary": "Main Vue 3 file uploader component. Orchestrates drag-and-drop, URL/web-link input, Google Drive picker, image cropper, camera capture, file browser, chunked upload with progress, optimization, and integration with frappe.call for file attachment APIs.",
+      "tags": ["vue", "file-uploader", "upload", "chunked", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/file_uploader/FileUploader.vue"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/desk.js:Application",
+      "type": "class",
+      "name": "frappe.Application",
+      "summary": "Top-level Desk application class. Orchestrates startup sequence: bootinfo, user permissions, nav bar, sidebar, theme, router, keyboard shortcuts, tours, notices, broadcast listeners and copy-doc handler.",
+      "tags": ["desk", "application", "bootstrap", "class"],
+      "complexity": "[28, 608]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/desk.js:start_app",
+      "type": "function",
+      "name": "frappe.start_app",
+      "summary": "Entry point invoked on DOM ready. Ensures frappe.Application is defined, checks assets, provides namespaces, and instantiates the Application.",
+      "tags": ["bootstrap", "entry"],
+      "complexity": "[7, 13]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/desk.js:Application.startup",
+      "type": "function",
+      "name": "Application.startup",
+      "summary": "Async Desk initialization: waits for translations, initializes realtime and model, loads boot, sets up UI, sets route, triggers startup events, shows notices and setup dialog, emits boot broadcast.",
+      "tags": ["async", "startup", "desk"],
+      "complexity": "[33, 89]"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "type": "class",
+      "name": "frappe.model.DocTypeController",
+      "summary": "Shared controller for DocType and Customize Form client-side logic: fieldtype formatting, naming rule/autoname bidirectional sync, attachment limits, and fetch_from dropdowns.",
+      "tags": ["doctype", "controller", "form", "class"],
+      "complexity": "[7, 232]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/doctype/index.js:setup_fetch_from_fields",
+      "type": "function",
+      "name": "DocTypeController.setup_fetch_from_fields",
+      "summary": "Renders two linked select fields (linked doctype and its field) to let users configure fetch_from on a child row, replacing the default Small Text input.",
+      "tags": ["form", "fetch-from", "ui"],
+      "complexity": "[147, 231]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/doctype/index.js:naming_rule",
+      "type": "function",
+      "name": "DocTypeController.naming_rule",
+      "summary": "Handler invoked when naming_rule field changes; maps the chosen rule to a default autoname expression and updates the description helper text.",
+      "tags": ["form", "naming", "autoname"],
+      "complexity": "[74, 99]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/doctype/index.js:autoname",
+      "type": "function",
+      "name": "DocTypeController.autoname",
+      "summary": "Handler invoked when autoname changes; reverse-derives the naming_rule field value from the autoname pattern (prompt, autoincrement, field:, naming_series:, format:, hash, etc.).",
+      "tags": ["form", "naming", "autoname"],
+      "complexity": "[124, 145]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/db.js:get_list",
+      "type": "function",
+      "name": "frappe.db.get_list",
+      "summary": "Fetches a list of documents via frappe.desk.reportview.get_list with defaults for fields and limit, returning a Promise.",
+      "tags": ["client", "list", "api"],
+      "complexity": "[5, 26]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/db.js:count",
+      "type": "function",
+      "name": "frappe.db.count",
+      "summary": "Counts documents matching filters via frappe.desk.reportview.get_count, handling child-table filter distinct detection and optional caching.",
+      "tags": ["client", "count", "api"],
+      "complexity": "[105, 130]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/defaults.js:get_user_default",
+      "type": "function",
+      "name": "frappe.defaults.get_user_default",
+      "summary": "Returns a single user default value for key, resolving user permissions and user-permission default doc when applicable.",
+      "tags": ["defaults", "user", "permissions"],
+      "complexity": "[5, 21]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/defaults.js:get_user_permission_default",
+      "type": "function",
+      "name": "frappe.defaults.get_user_permission_default",
+      "summary": "Picks the active user-permission default for a key: matches current default and overrides with any permission flagged is_default.",
+      "tags": ["defaults", "user", "permissions"],
+      "complexity": "[23, 41]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/defaults.js:get_user_defaults",
+      "type": "function",
+      "name": "frappe.defaults.get_user_defaults",
+      "summary": "Returns list of user default values for a key, honoring user-permission scrubbed keys and filtering out values not permitted to the user.",
+      "tags": ["defaults", "user"],
+      "complexity": "[43, 64]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/defaults.js:get_default",
+      "type": "function",
+      "name": "frappe.defaults.get_default",
+      "summary": "Returns a default value (JSON-parsed when possible) for a key from user defaults, respecting user permissions.",
+      "tags": ["defaults", "json"],
+      "complexity": "[78, 100]"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/dom.js:remove_script_and_style",
+      "type": "function",
+      "name": "frappe.dom.remove_script_and_style",
+      "summary": "Sanitizes HTML text by stripping evil tags (script, style, noscript, title, meta, base, head) and unsafe link tags using DOMParser.",
+      "tags": ["dom", "sanitize", "security"],
+      "complexity": "[33, 70]"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/event_emitter.js:EventEmitterMixin",
+      "type": "class",
+      "name": "EventEmitterMixin",
+      "summary": "Mixin providing init/trigger/once/on/off methods backed by a hidden jQuery object; default ES module export.",
+      "tags": ["events", "mixin", "jquery"],
+      "complexity": "[5, 29]"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/data_import/index.js",
+      "target": "file:frappe/public/js/frappe/data_import/import_preview",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/data_import/index.js",
+      "target": "file:frappe/public/js/frappe/data_import/data_exporter",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/desk.js",
+      "target": "class:frappe/public/js/frappe/desk.js:Application",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/desk.js",
+      "target": "func:frappe/public/js/frappe/desk.js:start_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/desk.js:Application",
+      "target": "func:frappe/public/js/frappe/desk.js:Application.startup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "func:frappe/public/js/frappe/desk.js:start_app",
+      "target": "class:frappe/public/js/frappe/desk.js:Application",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/doctype/index.js",
+      "target": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "target": "func:frappe/public/js/frappe/doctype/index.js:setup_fetch_from_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "target": "func:frappe/public/js/frappe/doctype/index.js:naming_rule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "target": "func:frappe/public/js/frappe/doctype/index.js:autoname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/db.js",
+      "target": "func:frappe/public/js/frappe/db.js:get_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/db.js",
+      "target": "func:frappe/public/js/frappe/db.js:count",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/defaults.js",
+      "target": "func:frappe/public/js/frappe/defaults.js:get_user_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/defaults.js",
+      "target": "func:frappe/public/js/frappe/defaults.js:get_user_permission_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/defaults.js",
+      "target": "func:frappe/public/js/frappe/defaults.js:get_user_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/defaults.js",
+      "target": "func:frappe/public/js/frappe/defaults.js:get_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "func:frappe/public/js/frappe/defaults.js:get_user_default",
+      "target": "func:frappe/public/js/frappe/defaults.js:get_user_permission_default",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/dom.js",
+      "target": "func:frappe/public/js/frappe/dom.js:remove_script_and_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/event_emitter.js",
+      "target": "class:frappe/public/js/frappe/event_emitter.js:EventEmitterMixin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/event_emitter.js",
+      "target": "class:frappe/public/js/frappe/event_emitter.js:EventEmitterMixin",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/file_uploader/FileUploader.vue",
+      "target": "file:frappe/public/js/frappe/file_uploader/FileBrowser.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/file_uploader/FileUploader.vue",
+      "target": "file:frappe/public/js/frappe/file_uploader/FilePreview.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/doctype/index.js:DocTypeController",
+      "target": "class:frappe.ui.form.Controller",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

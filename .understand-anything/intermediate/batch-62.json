@@ -1,0 +1,304 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/ImageCropper.vue",
+      "type": "file",
+      "name": "ImageCropper.vue",
+      "filePath": "frappe/public/js/frappe/file_uploader/ImageCropper.vue",
+      "summary": "Vue 3 SFC (script setup) component that crops images using Cropper.js. Supports fixed or user-selectable aspect ratios (1:1, 4:3, 16:9, free) and returns a cropped File back via the parent file object.",
+      "tags": ["vue", "file-uploader", "image", "cropper", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/ProgressRing.vue",
+      "type": "file",
+      "name": "ProgressRing.vue",
+      "filePath": "frappe/public/js/frappe/file_uploader/ProgressRing.vue",
+      "summary": "Vue 3 SFC that renders an SVG circular progress ring with primary/secondary stroke colors and a percentage label. Used to show upload progress.",
+      "tags": ["vue", "file-uploader", "progress", "svg", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/TreeNode.vue",
+      "type": "file",
+      "name": "TreeNode.vue",
+      "filePath": "frappe/public/js/frappe/file_uploader/TreeNode.vue",
+      "summary": "Recursive Vue 3 SFC rendering a folder tree node for the file browser. Supports expand/collapse, lazy load-more, image hover previews via Popper.js, and emits node-click/load-more events.",
+      "tags": ["vue", "file-uploader", "tree", "recursive", "popper"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/WebLink.vue",
+      "type": "file",
+      "name": "WebLink.vue",
+      "filePath": "frappe/public/js/frappe/file_uploader/WebLink.vue",
+      "summary": "Vue 3 SFC allowing the user to attach a file by pasting a URL. Exposes url and invalid_input to the parent via defineExpose and emits hide-web-link.",
+      "tags": ["vue", "file-uploader", "web-link", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js",
+      "type": "file",
+      "name": "file_uploader.bundle.js",
+      "filePath": "frappe/public/js/frappe/file_uploader/file_uploader.bundle.js",
+      "summary": "Entry bundle that exposes frappe.ui.FileUploader. Mounts the FileUploader.vue root component into a dialog or wrapper, wires watches for private/public toggle, trigger_upload, close_dialog, and footer visibility, and integrates with form attachments.",
+      "tags": ["vue", "file-uploader", "bundle", "dialog", "entry-point"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/column.js",
+      "type": "file",
+      "name": "column.js",
+      "filePath": "frappe/public/js/frappe/form/column.js",
+      "summary": "Form Column class that represents a column inside a form Section. Renders label/description and redistributes Bootstrap colspans among visible sibling columns on refresh.",
+      "tags": ["form", "layout", "column", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/attach.js",
+      "type": "file",
+      "name": "attach.js",
+      "filePath": "frappe/public/js/frappe/form/controls/attach.js",
+      "summary": "ControlAttach field control extending ControlData. Renders an Attach button that opens frappe.ui.FileUploader, displays the attached file link, supports clearing attachments, and updates the document on upload complete.",
+      "tags": ["form-control", "attach", "file-uploader", "field"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/attach_image.js",
+      "type": "file",
+      "name": "attach_image.js",
+      "filePath": "frappe/public/js/frappe/form/controls/attach_image.js",
+      "summary": "ControlAttachImage extends ControlAttach, restricting uploads to image mime types and showing a popover preview of the attached image on hover.",
+      "tags": ["form-control", "attach", "image", "field"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/autocomplete.js",
+      "type": "file",
+      "name": "autocomplete.js",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "summary": "ControlAutocomplete field control built on Awesomplete. Supports static and dynamic option lists, server-side get_query execution, label/value translation, installed-apps loader, and validates against the available list.",
+      "tags": ["form-control", "autocomplete", "awesomplete", "field"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/barcode.js",
+      "type": "file",
+      "name": "barcode.js",
+      "filePath": "frappe/public/js/frappe/form/controls/barcode.js",
+      "summary": "ControlBarcode field control that renders a barcode SVG using JsBarcode. Accepts JSON options from df.options (including EAN8/EAN13 auto-detection) and can mirror the value to a companion field.",
+      "tags": ["form-control", "barcode", "jsbarcode", "field"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader",
+      "type": "class",
+      "name": "FileUploader",
+      "filePath": "frappe/public/js/frappe/file_uploader/file_uploader.bundle.js",
+      "lineRange": "5-178",
+      "summary": "Host class that creates a Vue app around FileUploader.vue, optionally wraps it in a frappe.ui.Dialog, and proxies upload/close/privacy actions to the mounted uploader instance. Registered as frappe.ui.FileUploader.",
+      "tags": ["class", "vue-host", "dialog", "file-uploader"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader.constructor",
+      "type": "function",
+      "name": "FileUploader.constructor",
+      "filePath": "frappe/public/js/frappe/file_uploader/file_uploader.bundle.js",
+      "lineRange": "7-144",
+      "summary": "Initializes options, creates the Vue app with FileUploaderComponent, mounts it into a wrapper or dialog, and sets up watchers on uploader reactive state (files privacy, trigger_upload, close_dialog, hide_dialog_footer).",
+      "tags": ["constructor", "vue-mount", "watchers"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader.make_dialog",
+      "type": "function",
+      "name": "FileUploader.make_dialog",
+      "filePath": "frappe/public/js/frappe/file_uploader/file_uploader.bundle.js",
+      "lineRange": "150-177",
+      "summary": "Creates a frappe.ui.Dialog with primary Upload action and optional secondary Set all private/public action, shows it and cleans up on hide.",
+      "tags": ["dialog", "ui"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/form/column.js:Column",
+      "type": "class",
+      "name": "Column",
+      "filePath": "frappe/public/js/frappe/form/column.js",
+      "lineRange": "1-71",
+      "summary": "Form Column building block: builds the .form-column wrapper, renders optional label/description, and recomputes Bootstrap col-sm-* widths for visible siblings.",
+      "tags": ["class", "form", "layout"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/column.js:Column.resize_all_columns",
+      "type": "function",
+      "name": "Column.resize_all_columns",
+      "filePath": "frappe/public/js/frappe/form/column.js",
+      "lineRange": "39-60",
+      "summary": "Distributes visible columns equally across 12 Bootstrap units (20 for 5 columns), preserving hide-control state on each column element.",
+      "tags": ["layout", "responsive"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach",
+      "type": "class",
+      "name": "ControlAttach",
+      "filePath": "frappe/public/js/frappe/form/controls/attach.js",
+      "lineRange": "1-146",
+      "summary": "Attach field control. Renders Attach button + attached-file display, opens frappe.ui.FileUploader on click, supports clear_attachment confirmation, and wires on_upload_complete to update the form document.",
+      "tags": ["class", "form-control", "attach"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.make_input",
+      "type": "function",
+      "name": "ControlAttach.make_input",
+      "filePath": "frappe/public/js/frappe/form/controls/attach.js",
+      "lineRange": "2-33",
+      "summary": "Builds the Attach button, attached-file link row, and binds click handlers for attach, clear, and attach_doc_image events.",
+      "tags": ["ui-build", "attach"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.clear_attachment",
+      "type": "function",
+      "name": "ControlAttach.clear_attachment",
+      "filePath": "frappe/public/js/frappe/form/controls/attach.js",
+      "lineRange": "34-53",
+      "summary": "Confirms with user, then removes the attachment from the form via frm.attachments.remove_attachment_by_filename or clears local-only state, re-saving the form afterwards.",
+      "tags": ["attach", "confirm", "save"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.set_input",
+      "type": "function",
+      "name": "ControlAttach.set_input",
+      "filePath": "frappe/public/js/frappe/form/controls/attach.js",
+      "lineRange": "96-132",
+      "summary": "Updates internal value and toggles the attach button vs attached-file link, parsing FILENAME,DATA_URL encoded values for display.",
+      "tags": ["state", "display"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/attach_image.js:ControlAttachImage",
+      "type": "class",
+      "name": "ControlAttachImage",
+      "filePath": "frappe/public/js/frappe/form/controls/attach_image.js",
+      "lineRange": "1-34",
+      "summary": "Image-only Attach control: adds a hover popover preview and restricts upload mime types to images.",
+      "tags": ["class", "form-control", "attach", "image"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete",
+      "type": "class",
+      "name": "ControlAutocomplete",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "lineRange": "3-260",
+      "summary": "Autocomplete field control using Awesomplete. Parses options strings/JSON, supports dynamic get_query fetches via frappe.call, translates label/value, and validates against the current option list.",
+      "tags": ["class", "form-control", "autocomplete", "awesomplete"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/autocomplete.js:get_awesomplete_settings",
+      "type": "function",
+      "name": "get_awesomplete_settings",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "lineRange": "40-90",
+      "summary": "Returns the Awesomplete config: tabSelect, maxItems, custom data/filter/item/sort callbacks for rendering label + optional description items with translation.",
+      "tags": ["config", "awesomplete"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/autocomplete.js:setup_awesomplete",
+      "type": "function",
+      "name": "setup_awesomplete",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "lineRange": "92-134",
+      "summary": "Instantiates Awesomplete on the input, hooks input/focus/blur events to drive dynamic data or parse_validate_and_set_in_model, and tracks open/close state.",
+      "tags": ["init", "events"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/autocomplete.js:parse_options",
+      "type": "function",
+      "name": "parse_options",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "lineRange": "151-171",
+      "summary": "Normalizes options from JSON string, newline-separated string, or array into an array of {label, value} pairs applying translation.",
+      "tags": ["parse", "options"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/autocomplete.js:execute_query_if_exists",
+      "type": "function",
+      "name": "execute_query_if_exists",
+      "filePath": "frappe/public/js/frappe/form/controls/autocomplete.js",
+      "lineRange": "173-235",
+      "summary": "Resolves get_query (object/string/function), builds args, and calls the server via frappe.call to populate the autocomplete list dynamically.",
+      "tags": ["server-call", "dynamic"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/barcode.js:ControlBarcode",
+      "type": "class",
+      "name": "ControlBarcode",
+      "filePath": "frappe/public/js/frappe/form/controls/barcode.js",
+      "lineRange": "3-79",
+      "summary": "Barcode field control rendering SVG via JsBarcode. Auto-switches EAN8/EAN13, supports custom options, and can mirror value to a companion field.",
+      "tags": ["class", "form-control", "barcode"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/barcode.js:get_barcode_html",
+      "type": "function",
+      "name": "get_barcode_html",
+      "filePath": "frappe/public/js/frappe/form/controls/barcode.js",
+      "lineRange": "44-57",
+      "summary": "Runs JsBarcode on the barcode SVG element with computed options; catches exceptions and reports invalid barcodes via set_description.",
+      "tags": ["barcode", "render"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    { "source": "file:frappe/public/js/frappe/file_uploader/ImageCropper.vue", "target": "file:frappe/public/js/frappe/file_uploader/ImageCropper.vue", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/file_uploader/TreeNode.vue", "target": "file:frappe/public/js/frappe/file_uploader/TreeNode.vue", "type": "imports", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js", "target": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader", "target": "func:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader.constructor", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader", "target": "func:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader.make_dialog", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js", "target": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader", "type": "exports", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/form/column.js", "target": "class:frappe/public/js/frappe/form/column.js:Column", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/column.js:Column", "target": "func:frappe/public/js/frappe/form/column.js:Column.resize_all_columns", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/form/column.js", "target": "class:frappe/public/js/frappe/form/column.js:Column", "type": "exports", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/form/controls/attach.js", "target": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "target": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.make_input", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "target": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.clear_attachment", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "target": "func:frappe/public/js/frappe/form/controls/attach.js:ControlAttach.set_input", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "target": "class:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js:FileUploader", "type": "depends_on", "direction": "forward", "weight": 2 },
+    { "source": "file:frappe/public/js/frappe/form/controls/attach.js", "target": "file:frappe/public/js/frappe/file_uploader/file_uploader.bundle.js", "type": "depends_on", "direction": "forward", "weight": 2 },
+
+    { "source": "file:frappe/public/js/frappe/form/controls/attach_image.js", "target": "class:frappe/public/js/frappe/form/controls/attach_image.js:ControlAttachImage", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/attach_image.js:ControlAttachImage", "target": "class:frappe/public/js/frappe/form/controls/attach.js:ControlAttach", "type": "inherits", "direction": "forward", "weight": 2 },
+    { "source": "file:frappe/public/js/frappe/form/controls/attach_image.js", "target": "file:frappe/public/js/frappe/form/controls/attach.js", "type": "depends_on", "direction": "forward", "weight": 2 },
+
+    { "source": "file:frappe/public/js/frappe/form/controls/autocomplete.js", "target": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete", "target": "func:frappe/public/js/frappe/form/controls/autocomplete.js:get_awesomplete_settings", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete", "target": "func:frappe/public/js/frappe/form/controls/autocomplete.js:setup_awesomplete", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete", "target": "func:frappe/public/js/frappe/form/controls/autocomplete.js:parse_options", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/autocomplete.js:ControlAutocomplete", "target": "func:frappe/public/js/frappe/form/controls/autocomplete.js:execute_query_if_exists", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/form/controls/barcode.js", "target": "class:frappe/public/js/frappe/form/controls/barcode.js:ControlBarcode", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "class:frappe/public/js/frappe/form/controls/barcode.js:ControlBarcode", "target": "func:frappe/public/js/frappe/form/controls/barcode.js:get_barcode_html", "type": "contains", "direction": "forward", "weight": 1 }
+  ]
+}

@@ -1,0 +1,662 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "file",
+      "name": "prepared_report.py",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "summary": "PreparedReport DocType controller that manages asynchronous background report generation. Handles queueing, execution via RQ workers, result storage as gzip-compressed JSON attachments, CSV conversion, permission checks, and lifecycle management including stale report expiration.",
+      "tags": ["doctype", "controller", "background-jobs", "reports", "gzip", "rq"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:PreparedReport",
+      "type": "class",
+      "name": "PreparedReport",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [28, 101],
+      "summary": "Document controller for the Prepared Report DocType. Manages report lifecycle from queueing through completion, including job management (start/stop), data retrieval from gzip-compressed attachments, and cleanup of old reports.",
+      "tags": ["doctype", "document", "controller", "background-jobs"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:generate_report",
+      "type": "function",
+      "name": "generate_report",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [104, 155],
+      "summary": "Background job function that generates a report result, handles custom report columns, creates gzip-compressed JSON output, sends notification on completion, and tracks peak memory usage. Includes error handling with reconnection support.",
+      "tags": ["background-job", "report-generation", "rq"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:make_prepared_report",
+      "type": "function",
+      "name": "make_prepared_report",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [180, 191],
+      "summary": "Whitelisted API endpoint to create a new Prepared Report document, which triggers background report generation via after_insert hook.",
+      "tags": ["api", "whitelisted"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:stop_prepared_report",
+      "type": "function",
+      "name": "stop_prepared_report",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [194, 213],
+      "summary": "Whitelisted API to stop a running Prepared Report by sending a stop command to the RQ job, with site-level validation on the job_id.",
+      "tags": ["api", "whitelisted", "rq"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:create_json_gz_file",
+      "type": "function",
+      "name": "create_json_gz_file",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [276, 296],
+      "summary": "Creates a gzip-compressed JSON file from report data and attaches it to the Prepared Report document as a private file.",
+      "tags": ["file-attachment", "gzip", "compression"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:convert_json_to_csv",
+      "type": "function",
+      "name": "convert_json_to_csv",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [351, 406],
+      "summary": "Background job that converts a Prepared Report's JSON attachment to CSV format, attaches the CSV file, and sends a notification to the user.",
+      "tags": ["background-job", "csv", "conversion"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:prepared_report:get_permission_query_condition",
+      "type": "function",
+      "name": "get_permission_query_condition",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [311, 326],
+      "summary": "Returns SQL condition to restrict Prepared Report listing based on user's accessible reports. Administrators and System Managers bypass restrictions.",
+      "tags": ["permissions", "query-condition"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:prepared_report:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [329, 342],
+      "summary": "Document-level permission check for Prepared Report based on user's accessible reports.",
+      "tags": ["permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:expire_stalled_report",
+      "type": "function",
+      "name": "expire_stalled_report",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.py",
+      "lineRange": [252, 264],
+      "summary": "Marks Prepared Reports stuck in 'Started' status beyond FAILURE_THRESHOLD (6 hours) as 'Failed' with a timeout message.",
+      "tags": ["maintenance", "scheduled-task"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/prepared_report/prepared_report_list.js",
+      "type": "file",
+      "name": "prepared_report_list.js",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report_list.js",
+      "summary": "List view settings for Prepared Report that shows log retention message on load.",
+      "tags": ["frontend", "listview", "javascript"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/prepared_report/test_prepared_report.py",
+      "type": "file",
+      "name": "test_prepared_report.py",
+      "filePath": "frappe/core/doctype/prepared_report/test_prepared_report.py",
+      "summary": "Integration tests for PreparedReport covering queueing, status transitions, data verification against live report generation, and job lifecycle (start/stop/kill).",
+      "tags": ["test", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestPreparedReport",
+      "type": "class",
+      "name": "TestPreparedReport",
+      "filePath": "frappe/core/doctype/prepared_report/test_prepared_report.py",
+      "lineRange": [14, 79],
+      "summary": "Integration test class for PreparedReport with tests for queueing, data integrity, and job management including stopping running jobs.",
+      "tags": ["test", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "file",
+      "name": "db_optimizer.py",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "summary": "Database query optimizer module using heuristics to suggest indexes. Parses SQL queries, analyzes table schema/cardinality, scores potential indexes, and recommends the best single index to add for query performance improvement.",
+      "tags": ["database", "optimization", "indexing", "heuristics"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:DBColumn",
+      "type": "class",
+      "name": "DBColumn",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "lineRange": [23, 40],
+      "summary": "Dataclass representing a database column with name, cardinality, nullability, default value, and data type.",
+      "tags": ["dataclass", "database", "schema"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:DBIndex",
+      "type": "class",
+      "name": "DBIndex",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "lineRange": [43, 71],
+      "summary": "Dataclass representing a database index with name, column, table, uniqueness, cardinality, sequence, and a scoring field for optimization ranking.",
+      "tags": ["dataclass", "database", "indexing"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ColumnStat",
+      "type": "class",
+      "name": "ColumnStat",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "lineRange": [74, 94],
+      "summary": "Dataclass for column statistics including average frequency, average length, nulls ratio, and histogram data used for cardinality estimation.",
+      "tags": ["dataclass", "database", "statistics"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:DBTable",
+      "type": "class",
+      "name": "DBTable",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "lineRange": [97, 135],
+      "summary": "Dataclass representing a database table with schema columns, indexes, and row count. Includes cardinality estimation from column statistics and factory method from frappe output.",
+      "tags": ["dataclass", "database", "schema"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:DBOptimizer",
+      "type": "class",
+      "name": "DBOptimizer",
+      "filePath": "frappe/core/doctype/recorder/db_optimizer.py",
+      "lineRange": [138, 283],
+      "summary": "Core optimizer class that parses SQL queries using sql_metadata, identifies columns used in WHERE/JOIN/ORDER BY clauses, removes already-indexed columns (including multi-column index awareness), scores remaining candidates by estimated selectivity, and suggests the single best index to create.",
+      "tags": ["database", "optimization", "sql-parsing", "indexing"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/recorder.js",
+      "type": "file",
+      "name": "recorder.js",
+      "filePath": "frappe/core/doctype/recorder/recorder.js",
+      "summary": "Form view JavaScript for the Recorder DocType. Provides sortable SQL query grid with duration heatmap, 'Suggest Optimizations' button triggering background analysis, and UI for selecting and adding suggested indexes.",
+      "tags": ["frontend", "form", "javascript", "ui"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "file",
+      "name": "recorder.py",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "summary": "Recorder DocType controller implementing a virtual document (no database storage) backed by Redis. Provides SQL query recording, serialization, filtering, and automatic index optimization suggestions by analyzing captured queries using DBOptimizer.",
+      "tags": ["doctype", "controller", "virtual-document", "redis", "performance"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:Recorder",
+      "type": "class",
+      "name": "Recorder",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [18, 95],
+      "summary": "Virtual Document controller for Recorder DocType. Loads data from Redis (not database), implements custom list/count/filter methods, and stubs out database operations. Stores captured HTTP request metadata and SQL queries.",
+      "tags": ["doctype", "virtual-document", "redis", "controller"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:recorder:optimize",
+      "type": "function",
+      "name": "optimize",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [138, 188],
+      "summary": "Whitelisted API that enqueues background optimization analysis. Iterates captured SQL queries, uses DBOptimizer to suggest indexes, filters by duration thresholds, and stores top 3 suggestions in Redis cache.",
+      "tags": ["api", "whitelisted", "optimization", "background-job"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:_optimize_query",
+      "type": "function",
+      "name": "_optimize_query",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [191, 218],
+      "summary": "Analyzes a single SQL query using DBOptimizer with two-pass table inspection: first for basic schema, then for accurate cardinality on potential index columns. Returns the best suggested index.",
+      "tags": ["optimization", "database", "sql-analysis"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:_fetch_table_stats",
+      "type": "function",
+      "name": "_fetch_table_stats",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [221, 281],
+      "summary": "Fetches database table statistics including schema (via DESCRIBE), indexes (via SHOW INDEX), row count (from information_schema), and per-column cardinality for specified columns.",
+      "tags": ["database", "statistics", "introspection"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:recorder:add_indexes",
+      "type": "function",
+      "name": "add_indexes",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [118, 125],
+      "summary": "Whitelisted API (Administrator only) that enqueues background jobs to create database indexes on specified table/column pairs.",
+      "tags": ["api", "whitelisted", "database", "indexing"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:serialize_request",
+      "type": "function",
+      "name": "serialize_request",
+      "filePath": "frappe/core/doctype/recorder/recorder.py",
+      "lineRange": [97, 115],
+      "summary": "Transforms raw recorder request data into a format compatible with Document display, mapping fields like uuid->name, queries->number_of_queries, and serializing headers/form_dict/SQL calls as JSON.",
+      "tags": ["serialization", "data-transformation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/recorder_list.js",
+      "type": "file",
+      "name": "recorder_list.js",
+      "filePath": "frappe/core/doctype/recorder/recorder_list.js",
+      "summary": "List view settings for Recorder DocType with start/stop controls, auto-refresh every 5 seconds, import/export functionality, and a detailed configuration dialog for recording options (requests, background jobs, SQL, cProfile).",
+      "tags": ["frontend", "listview", "javascript", "ui"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/test_recorder.py",
+      "type": "file",
+      "name": "test_recorder.py",
+      "filePath": "frappe/core/doctype/recorder/test_recorder.py",
+      "summary": "Integration tests for Recorder covering basic recording, list filtering (path, method, ordering), serialization, and MariaDB-specific query optimization suggesting correct indexes.",
+      "tags": ["test", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestRecorder",
+      "type": "class",
+      "name": "TestRecorder",
+      "filePath": "frappe/core/doctype/recorder/test_recorder.py",
+      "lineRange": [16, 79],
+      "summary": "Integration test class for Recorder DocType testing query recording, list filtering by path/method/ordering, and serialization of captured requests.",
+      "tags": ["test", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestQueryOptimization",
+      "type": "class",
+      "name": "TestQueryOptimization",
+      "filePath": "frappe/core/doctype/recorder/test_recorder.py",
+      "lineRange": [82, 96],
+      "summary": "MariaDB-only integration test that verifies the DB optimizer correctly suggests indexing the 'email' column on tabUser for a JOIN+WHERE query.",
+      "tags": ["test", "integration-test", "mariadb-only"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder/__init__.py",
+      "type": "file",
+      "name": "recorder/__init__.py",
+      "filePath": "frappe/core/doctype/recorder/__init__.py",
+      "summary": "Empty init file for the recorder doctype package.",
+      "tags": ["init", "package"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/recorder_query/__init__.py",
+      "type": "file",
+      "name": "recorder_query/__init__.py",
+      "filePath": "frappe/core/doctype/recorder_query/__init__.py",
+      "summary": "Empty init file for the recorder_query doctype package.",
+      "tags": ["init", "package"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:PreparedReport",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:generate_report",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_prepared_report",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:stop_prepared_report",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:create_json_gz_file",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:convert_json_to_csv",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:expire_stalled_report",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:prepared_report:get_permission_query_condition",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:prepared_report:has_permission",
+      "target": "file:frappe/core/doctype/prepared_report/prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:PreparedReport",
+      "target": "func:generate_report",
+      "type": "invokes",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:generate_report",
+      "target": "func:create_json_gz_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:make_prepared_report",
+      "target": "class:PreparedReport",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:stop_prepared_report",
+      "target": "class:PreparedReport",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:generate_report",
+      "target": "func:generate_report_result",
+      "type": "calls_external",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPreparedReport",
+      "target": "class:PreparedReport",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestPreparedReport",
+      "target": "file:frappe/core/doctype/prepared_report/test_prepared_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/prepared_report/prepared_report_list.js",
+      "target": "class:PreparedReport",
+      "type": "configures_view",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:DBOptimizer",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DBColumn",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DBIndex",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ColumnStat",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DBTable",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DBOptimizer",
+      "target": "class:DBIndex",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DBOptimizer",
+      "target": "class:DBTable",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DBTable",
+      "target": "class:DBColumn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DBTable",
+      "target": "class:DBIndex",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DBTable",
+      "target": "class:ColumnStat",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:Recorder",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:recorder:optimize",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_optimize_query",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_fetch_table_stats",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:recorder:add_indexes",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:serialize_request",
+      "target": "file:frappe/core/doctype/recorder/recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:recorder:optimize",
+      "target": "func:_optimize_query",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:_optimize_query",
+      "target": "class:DBOptimizer",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:_optimize_query",
+      "target": "class:DBTable",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:_optimize_query",
+      "target": "func:_fetch_table_stats",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Recorder",
+      "target": "func:serialize_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/recorder/recorder.js",
+      "target": "class:Recorder",
+      "type": "configures_view",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/recorder/recorder.js",
+      "target": "func:recorder:optimize",
+      "type": "calls_api",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/recorder/recorder.js",
+      "target": "func:recorder:add_indexes",
+      "type": "calls_api",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/recorder/recorder_list.js",
+      "target": "class:Recorder",
+      "type": "configures_view",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestRecorder",
+      "target": "class:Recorder",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestRecorder",
+      "target": "file:frappe/core/doctype/recorder/test_recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestQueryOptimization",
+      "target": "func:_optimize_query",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestQueryOptimization",
+      "target": "file:frappe/core/doctype/recorder/test_recorder.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/recorder/recorder.py",
+      "target": "file:frappe/core/doctype/recorder/db_optimizer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:convert_json_to_csv",
+      "target": "class:PreparedReport",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

@@ -1,0 +1,343 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/utils/help_links.js",
+      "type": "file",
+      "name": "help_links.js",
+      "filePath": "frappe/public/js/frappe/utils/help_links.js",
+      "summary": "Static map of contextual help links (frappe.help.help_links) keyed by route/DocType form pointing to external docs. Consumed by the Desk help menu.",
+      "tags": ["help", "docs", "config"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/logout.js",
+      "type": "file",
+      "name": "logout.js",
+      "filePath": "frappe/public/js/frappe/utils/logout.js",
+      "summary": "Tiny module exposing frappe.app.logout() which calls /api/method/logout and reloads the page.",
+      "tags": ["auth", "logout"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/number_format.js",
+      "type": "file",
+      "name": "number_format.js",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "summary": "Locale aware numeric/currency formatting and parsing. Implements flt, fmt_money, format_number, get_number_format_info, _round with multiple rounding methods (banker's, commercial), precision lookup against cur_frm, and currency-fraction aware rounding.",
+      "tags": ["numbers", "currency", "i18n", "rounding"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:flt",
+      "type": "function",
+      "name": "flt",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "8-29",
+      "summary": "Coerces arbitrary value to float, strips locale number-format group/decimal separators, optionally rounds to given precision and rounding method.",
+      "tags": ["parse", "float"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:strip_number_groups",
+      "type": "function",
+      "name": "strip_number_groups",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "31-46",
+      "summary": "Removes thousands group separators and converts the locale decimal marker to '.'.",
+      "tags": ["parse", "locale"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:format_number",
+      "type": "function",
+      "name": "format_number",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "85-143",
+      "summary": "Formats number with locale-specific thousand groups (including Indian lakh grouping), decimal separator and precision.",
+      "tags": ["format", "locale"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:format_currency",
+      "type": "function",
+      "name": "format_currency",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "145-163",
+      "summary": "Formats currency value with symbol placement on left/right depending on boot settings.",
+      "tags": ["currency", "format"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:_round",
+      "type": "function",
+      "name": "_round",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "205-260",
+      "summary": "Precision rounding supporting Banker's Rounding and Commercial Rounding with sign handling and epsilon adjustments.",
+      "tags": ["math", "rounding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:round_based_on_smallest_currency_fraction",
+      "type": "function",
+      "name": "round_based_on_smallest_currency_fraction",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "294-310",
+      "summary": "Rounds monetary value to nearest multiple of currency smallest fraction (e.g., 0.05).",
+      "tags": ["currency", "rounding"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:fmt_money",
+      "type": "function",
+      "name": "fmt_money",
+      "filePath": "frappe/public/js/frappe/utils/number_format.js",
+      "lineRange": "312-334",
+      "summary": "High-level money formatter used by reports/forms; combines format_number with currency symbol and negative-sign handling.",
+      "tags": ["money", "format"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/number_systems.js",
+      "type": "file",
+      "name": "number_systems.js",
+      "filePath": "frappe/public/js/frappe/utils/number_systems.js",
+      "summary": "Defines named large-number scales (default: thousand/million/billion/trillion; indian: lakh/crore) used by format_number to render abbreviated values.",
+      "tags": ["numbers", "i18n", "config"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/pretty_date.js",
+      "type": "file",
+      "name": "pretty_date.js",
+      "filePath": "frappe/public/js/frappe/utils/pretty_date.js",
+      "summary": "Human readable relative time strings ('3 minutes ago', 'in 2 days'). Exposes comment_when and prettyDate; uses moment internally and is translation aware.",
+      "tags": ["date", "i18n", "format"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:prettyDate",
+      "type": "function",
+      "name": "prettyDate",
+      "filePath": "frappe/public/js/frappe/utils/pretty_date.js",
+      "lineRange": "20-106",
+      "summary": "Converts ISO timestamp to localized relative 'x ago' / 'in x' string based on diff buckets.",
+      "tags": ["date", "relative"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/preview_email.js",
+      "type": "file",
+      "name": "preview_email.js",
+      "filePath": "frappe/public/js/frappe/utils/preview_email.js",
+      "summary": "frappe.utils.get_email_preview: renders a server-supplied email template preview in a dialog so users can validate communications before sending.",
+      "tags": ["email", "preview", "dialog"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/tools.js",
+      "type": "file",
+      "name": "tools.js",
+      "filePath": "frappe/public/js/frappe/utils/tools.js",
+      "summary": "Misc dev tools helpers: profilers, timers, object-size, and small globals exposed under frappe.tools for debugging in the browser console.",
+      "tags": ["debug", "tools"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/urllib.js",
+      "type": "file",
+      "name": "urllib.js",
+      "filePath": "frappe/public/js/frappe/utils/urllib.js",
+      "summary": "URL helpers: get_url, get_url_arg, get_query_params, url_for_list/form, decode helpers. Used widely by routing and request code.",
+      "tags": ["url", "routing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/user.js",
+      "type": "file",
+      "name": "user.js",
+      "filePath": "frappe/public/js/frappe/utils/user.js",
+      "summary": "frappe.user singleton: cached access to user profile, roles, permissions, image, full name, abbreviations, and has_role helper used across the desk to gate UI by role.",
+      "tags": ["user", "permissions", "session"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.user.has_role",
+      "type": "function",
+      "name": "has_role",
+      "filePath": "frappe/public/js/frappe/utils/user.js",
+      "lineRange": "40-60",
+      "summary": "Returns true if the current (or supplied) user has any of the given roles. Accepts string or array.",
+      "tags": ["rbac", "roles"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/utils/utils.js",
+      "type": "file",
+      "name": "utils.js",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "summary": "The largest client-side utility module. Defines dozens of helpers on frappe.utils: HTML escaping, URL parsing, filter_dict, guess_style/guess_colour, scroll helpers, debounce/throttle, deep_equal, copy_to_clipboard, play_sound, get_form_link/get_route_label, setup_timer, build_summary_item, sleep, eval_expression for the calculator, and many UI helpers used throughout the Desk.",
+      "tags": ["utils", "core", "ui", "helpers"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe.utils.filter_dict",
+      "type": "function",
+      "name": "filter_dict",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "397-425",
+      "summary": "Filters an array/dict of objects by a filter map supporting in/not in/</<=/>/>= operators.",
+      "tags": ["filter", "query"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.guess_style",
+      "type": "function",
+      "name": "guess_style",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "513-554",
+      "summary": "Heuristically maps a status-like text to a Bootstrap style (success, warning, danger, info) based on keyword matching. Used for list indicators.",
+      "tags": ["ui", "indicators"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.play_sound",
+      "type": "function",
+      "name": "play_sound",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "846-870",
+      "summary": "Plays a named UI sound (error, success, chime, etc.) respecting user sound-mute setting.",
+      "tags": ["sound", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.throttle",
+      "type": "function",
+      "name": "throttle",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "888-920",
+      "summary": "Underscore-style throttle: limits function invocation to once per wait ms with leading/trailing options.",
+      "tags": ["perf", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.debounce",
+      "type": "function",
+      "name": "debounce",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "921-955",
+      "summary": "Debounces a function with optional immediate invocation and flush/cancel control methods.",
+      "tags": ["perf", "async"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.get_form_link",
+      "type": "function",
+      "name": "get_form_link",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "957-976",
+      "summary": "Builds a desk form URL for a given doctype/name with optional query params, wrapping behavior and html/text output.",
+      "tags": ["url", "routing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.get_route_label",
+      "type": "function",
+      "name": "get_route_label",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "977-1068",
+      "summary": "Computes a human-readable label for a Desk route string ('List/Sales Invoice' -> 'Sales Invoice List').",
+      "tags": ["routing", "label"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.setup_timer",
+      "type": "function",
+      "name": "setup_timer",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "1069-1082",
+      "summary": "Starts a live countdown/up timer writing to a DOM element.",
+      "tags": ["timer", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.deep_equal",
+      "type": "function",
+      "name": "deep_equal",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "1083-1114",
+      "summary": "Recursive structural equality check for arrays/objects/primitives used by form dirty detection.",
+      "tags": ["compare"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe.utils.copy_to_clipboard",
+      "type": "function",
+      "name": "copy_to_clipboard",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "1115-1140",
+      "summary": "Writes a string to clipboard via navigator.clipboard or fallback textarea, shows a toast.",
+      "tags": ["clipboard", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.build_summary_item",
+      "type": "function",
+      "name": "build_summary_item",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "1689-1720",
+      "summary": "Builds the HTML for a report/dashboard summary card (label, value, indicator color).",
+      "tags": ["ui", "dashboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.sleep",
+      "type": "function",
+      "name": "sleep",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "1822-1825",
+      "summary": "Returns a promise that resolves after N milliseconds.",
+      "tags": ["async"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.utils.eval_expression",
+      "type": "function",
+      "name": "eval_expression",
+      "filePath": "frappe/public/js/frappe/utils/utils.js",
+      "lineRange": "2226-2260",
+      "summary": "Safely evaluates arithmetic expression strings for the AwesomeBar calculator, rejecting non-math characters.",
+      "tags": ["calculator", "eval", "security"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:flt", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:strip_number_groups", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:format_number", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:format_currency", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:_round", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:round_based_on_smallest_currency_fraction", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "func:fmt_money", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:flt", "target": "func:strip_number_groups", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:flt", "target": "func:_round", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:fmt_money", "target": "func:format_number", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:format_currency", "target": "func:format_number", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/number_format.js", "target": "file:frappe/public/js/frappe/utils/number_systems.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/pretty_date.js", "target": "func:prettyDate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/user.js", "target": "func:frappe.user.has_role", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.filter_dict", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.guess_style", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.play_sound", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.throttle", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.debounce", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.get_form_link", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.get_route_label", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.setup_timer", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.deep_equal", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.copy_to_clipboard", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.build_summary_item", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.sleep", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/utils.js", "target": "func:frappe.utils.eval_expression", "type": "contains", "direction": "forward", "weight": 1}
+  ]
+}

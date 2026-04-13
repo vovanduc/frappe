@@ -1,0 +1,963 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/form_builder/components/controls/SelectControl.vue",
+      "type": "file",
+      "name": "SelectControl.vue",
+      "summary": "Vue control for Select fieldtype in form builder; builds options textarea",
+      "tags": [
+        "form-builder",
+        "vue",
+        "control"
+      ],
+      "complexity": 142,
+      "filePath": "frappe/public/js/form_builder/components/controls/SelectControl.vue"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/controls/SelectControl.vue::get_options",
+      "type": "function",
+      "name": "get_options",
+      "summary": "Function get_options in SelectControl.vue",
+      "tags": [],
+      "complexity": 33,
+      "lineRange": [
+        10,
+        42
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/controls/SignatureControl.vue",
+      "type": "file",
+      "name": "SignatureControl.vue",
+      "summary": "Vue control placeholder for Signature fieldtype",
+      "tags": [
+        "form-builder",
+        "vue",
+        "control"
+      ],
+      "complexity": 32,
+      "filePath": "frappe/public/js/form_builder/components/controls/SignatureControl.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/controls/TableControl.vue",
+      "type": "file",
+      "name": "TableControl.vue",
+      "summary": "Vue control for Table fieldtype showing child-table columns",
+      "tags": [
+        "form-builder",
+        "vue",
+        "control",
+        "table"
+      ],
+      "complexity": 104,
+      "filePath": "frappe/public/js/form_builder/components/controls/TableControl.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/controls/TextControl.vue",
+      "type": "file",
+      "name": "TextControl.vue",
+      "summary": "Vue control for long Text fieldtype",
+      "tags": [
+        "form-builder",
+        "vue",
+        "control"
+      ],
+      "complexity": 48,
+      "filePath": "frappe/public/js/form_builder/components/controls/TextControl.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/controls/TextEditorControl.vue",
+      "type": "file",
+      "name": "TextEditorControl.vue",
+      "summary": "Vue control for rich TextEditor fieldtype",
+      "tags": [
+        "form-builder",
+        "vue",
+        "control"
+      ],
+      "complexity": 50,
+      "filePath": "frappe/public/js/form_builder/components/controls/TextEditorControl.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/form_builder.bundle.js",
+      "type": "file",
+      "name": "form_builder.bundle.js",
+      "summary": "Entry bundle wiring FormBuilder Vue app, Pinia store, globals",
+      "tags": [
+        "form-builder",
+        "bundle",
+        "entry"
+      ],
+      "complexity": 93,
+      "filePath": "frappe/public/js/form_builder/form_builder.bundle.js"
+    },
+    {
+      "id": "class:frappe/public/js/form_builder/form_builder.bundle.js::FormBuilder",
+      "type": "class",
+      "name": "FormBuilder",
+      "summary": "Class FormBuilder in form_builder.bundle.js",
+      "tags": [],
+      "complexity": 83,
+      "lineRange": [
+        6,
+        88
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/globals.js",
+      "type": "file",
+      "name": "globals.js",
+      "summary": "Registers all Vue control components globally for form builder",
+      "tags": [
+        "form-builder",
+        "globals",
+        "registration"
+      ],
+      "complexity": 59,
+      "filePath": "frappe/public/js/form_builder/globals.js"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/globals.js::registerGlobalComponents",
+      "type": "function",
+      "name": "registerGlobalComponents",
+      "summary": "Function registerGlobalComponents in globals.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 43,
+      "lineRange": [
+        16,
+        58
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/store.js",
+      "type": "file",
+      "name": "store.js",
+      "summary": "Pinia store: central state for form designer, field manipulation, save/fetch",
+      "tags": [
+        "form-builder",
+        "store",
+        "pinia",
+        "state"
+      ],
+      "complexity": 411,
+      "filePath": "frappe/public/js/form_builder/store.js"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::get_df",
+      "type": "function",
+      "name": "get_df",
+      "summary": "Function get_df in store.js",
+      "tags": [],
+      "complexity": 11,
+      "lineRange": [
+        52,
+        62
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::has_standard_field",
+      "type": "function",
+      "name": "has_standard_field",
+      "summary": "Function has_standard_field in store.js",
+      "tags": [],
+      "complexity": 18,
+      "lineRange": [
+        63,
+        80
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::fetch",
+      "type": "function",
+      "name": "fetch",
+      "summary": "Function fetch in store.js",
+      "tags": [],
+      "complexity": 65,
+      "lineRange": [
+        85,
+        149
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::validate_fields",
+      "type": "function",
+      "name": "validate_fields",
+      "summary": "Function validate_fields in store.js",
+      "tags": [],
+      "complexity": 85,
+      "lineRange": [
+        167,
+        251
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::update_fields",
+      "type": "function",
+      "name": "update_fields",
+      "summary": "Function update_fields in store.js",
+      "tags": [],
+      "complexity": 18,
+      "lineRange": [
+        252,
+        269
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::get_updated_fields",
+      "type": "function",
+      "name": "get_updated_fields",
+      "summary": "Function get_updated_fields in store.js",
+      "tags": [],
+      "complexity": 75,
+      "lineRange": [
+        270,
+        344
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/store.js::activate_tab",
+      "type": "function",
+      "name": "activate_tab",
+      "summary": "Function activate_tab in store.js",
+      "tags": [],
+      "complexity": 14,
+      "lineRange": [
+        368,
+        381
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/utils.js",
+      "type": "file",
+      "name": "utils.js",
+      "summary": "Layout helpers: build layout tree, column sizing, field scrubbing, dialogs",
+      "tags": [
+        "form-builder",
+        "utils",
+        "layout"
+      ],
+      "complexity": 351,
+      "filePath": "frappe/public/js/form_builder/utils.js"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::create_layout",
+      "type": "function",
+      "name": "create_layout",
+      "summary": "Function create_layout in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 96,
+      "lineRange": [
+        2,
+        97
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::load_doctype_model",
+      "type": "function",
+      "name": "load_doctype_model",
+      "summary": "Function load_doctype_model in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        98,
+        101
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::get_table_columns",
+      "type": "function",
+      "name": "get_table_columns",
+      "summary": "Function get_table_columns in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 100,
+      "lineRange": [
+        102,
+        201
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::adjust_column_size",
+      "type": "function",
+      "name": "adjust_column_size",
+      "summary": "Function adjust_column_size in utils.js",
+      "tags": [],
+      "complexity": 34,
+      "lineRange": [
+        152,
+        185
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::update_default_colsize",
+      "type": "function",
+      "name": "update_default_colsize",
+      "summary": "Function update_default_colsize in utils.js",
+      "tags": [],
+      "complexity": 14,
+      "lineRange": [
+        186,
+        199
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::evaluate_depends_on_value",
+      "type": "function",
+      "name": "evaluate_depends_on_value",
+      "summary": "Function evaluate_depends_on_value in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 29,
+      "lineRange": [
+        202,
+        230
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::section_boilerplate",
+      "type": "function",
+      "name": "section_boilerplate",
+      "summary": "Function section_boilerplate in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 14,
+      "lineRange": [
+        231,
+        244
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::move_children_to_parent",
+      "type": "function",
+      "name": "move_children_to_parent",
+      "summary": "Function move_children_to_parent in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 26,
+      "lineRange": [
+        245,
+        270
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::scrub_field_names",
+      "type": "function",
+      "name": "scrub_field_names",
+      "summary": "Function scrub_field_names in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 45,
+      "lineRange": [
+        271,
+        315
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::clone_field",
+      "type": "function",
+      "name": "clone_field",
+      "summary": "Function clone_field in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 6,
+      "lineRange": [
+        316,
+        321
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::confirm_dialog",
+      "type": "function",
+      "name": "confirm_dialog",
+      "summary": "Function confirm_dialog in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 25,
+      "lineRange": [
+        322,
+        346
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/utils.js::is_touch_screen_device",
+      "type": "function",
+      "name": "is_touch_screen_device",
+      "summary": "Function is_touch_screen_device in utils.js",
+      "tags": [
+        "exported"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        347,
+        350
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe-web.bundle.js",
+      "type": "file",
+      "name": "frappe-web.bundle.js",
+      "summary": "Frappe public/website bundle entry importing core runtime modules",
+      "tags": [
+        "bundle",
+        "website",
+        "entry"
+      ],
+      "complexity": 28,
+      "filePath": "frappe/public/js/frappe-web.bundle.js"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/form_builder/components/controls/SelectControl.vue",
+      "target": "func:frappe/public/js/form_builder/components/controls/SelectControl.vue::get_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/controls/TableControl.vue",
+      "target": "file:frappe/public/js/form_builder/utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/form_builder.bundle.js",
+      "target": "file:frappe/public/js/form_builder/store.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/form_builder.bundle.js",
+      "target": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/form_builder.bundle.js",
+      "target": "file:frappe/public/js/form_builder/globals.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/form_builder.bundle.js",
+      "target": "class:frappe/public/js/form_builder/form_builder.bundle.js::FormBuilder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/AttachControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/ButtonControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/CheckControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/CodeControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/DataControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/GeolocationControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/ImageControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/LinkControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/RatingControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/SelectControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/SignatureControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/TableControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/TextControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/TextEditorControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "file:frappe/public/js/form_builder/components/controls/FetchFromControl.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "func:frappe/public/js/form_builder/globals.js::registerGlobalComponents",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/globals.js",
+      "target": "func:frappe/public/js/form_builder/globals.js::registerGlobalComponents",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "file:frappe/public/js/form_builder/utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::get_df",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::has_standard_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::fetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::validate_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::update_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::get_updated_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/store.js",
+      "target": "func:frappe/public/js/form_builder/store.js::activate_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "file:frappe/public/js/form_builder/store.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::create_layout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::create_layout",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::load_doctype_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::load_doctype_model",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::get_table_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::get_table_columns",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::adjust_column_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::update_default_colsize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::evaluate_depends_on_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::evaluate_depends_on_value",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::section_boilerplate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::section_boilerplate",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::move_children_to_parent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::move_children_to_parent",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::scrub_field_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::scrub_field_names",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::clone_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::clone_field",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::confirm_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::confirm_dialog",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::is_touch_screen_device",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/utils.js",
+      "target": "func:frappe/public/js/form_builder/utils.js::is_touch_screen_device",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/libs.bundle.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/class.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/polyfill.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/translate.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/formatters.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/format.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/number_format.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/common.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/messages.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/pretty_date.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/datetime.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/microtemplate.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/query_string.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/upload.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/meta.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/model.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/perm.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/bootstrap-4-web.bundle.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/website/js/website.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/socketio_client.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe-web.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/logout.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

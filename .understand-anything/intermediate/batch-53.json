@@ -1,0 +1,934 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/pdf_generator/pdf_merge.py",
+      "type": "file",
+      "name": "pdf_merge.py",
+      "filePath": "frappe/utils/pdf_generator/pdf_merge.py",
+      "summary": "Handles merging of header, footer, and body PDFs into a single output using pypdf. Supports dynamic headers/footers and print designer page variants.",
+      "tags": ["pdf", "merge", "print", "pypdf", "transform"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/pdf_merge.py:PDFTransformer",
+      "type": "class",
+      "name": "PDFTransformer",
+      "lineRange": [1, 117],
+      "summary": "Transforms and merges header, body, and footer PDF pages with translation offsets. Handles dynamic vs static headers/footers and print designer multi-page layouts.",
+      "tags": ["pdf", "merge", "transform", "layout", "pypdf"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/print_format.py",
+      "type": "file",
+      "name": "print_format.py",
+      "filePath": "frappe/utils/print_format.py",
+      "summary": "Provides whitelisted endpoints for downloading PDFs (single and multi-document), rendering letterheads, reporting to PDF, and server-side printing via CUPS.",
+      "tags": ["pdf", "print", "download", "letterhead", "api"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:download_multi_pdf",
+      "type": "function",
+      "name": "download_multi_pdf",
+      "lineRange": [28, 42],
+      "summary": "Whitelisted endpoint that validates bulk action permission and delegates to _download_multi_pdf for synchronous multi-document PDF generation.",
+      "tags": ["api", "pdf", "bulk", "download"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:download_multi_pdf_async",
+      "type": "function",
+      "name": "download_multi_pdf_async",
+      "lineRange": [45, 79],
+      "summary": "Whitelisted endpoint that enqueues multi-document PDF generation as a background job with progress tracking and returns a task ID.",
+      "tags": ["api", "pdf", "async", "background-job", "bulk"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:_download_multi_pdf",
+      "type": "function",
+      "name": "_download_multi_pdf",
+      "lineRange": [82, 225],
+      "summary": "Core implementation for concatenating multiple document PDFs into a single file, supporting both single and multi-doctype modes with progress publishing.",
+      "tags": ["pdf", "merge", "multi-document", "progress"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:download_pdf",
+      "type": "function",
+      "name": "download_pdf",
+      "lineRange": [230, 261],
+      "summary": "Whitelisted guest-accessible endpoint to download a single document as PDF with optional letterhead and language settings.",
+      "tags": ["api", "pdf", "download", "guest"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:report_to_pdf",
+      "type": "function",
+      "name": "report_to_pdf",
+      "lineRange": [264, 277],
+      "summary": "Whitelisted endpoint to convert report HTML to a PDF with orientation and proxy settings.",
+      "tags": ["api", "pdf", "report"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:render_letterhead_for_print",
+      "type": "function",
+      "name": "render_letterhead_for_print",
+      "lineRange": [280, 318],
+      "summary": "Renders letterhead header and footer HTML with Jinja templating for report printing, including optional script injection.",
+      "tags": ["letterhead", "jinja", "rendering", "api"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/print_format.py:print_by_server",
+      "type": "function",
+      "name": "print_by_server",
+      "lineRange": [321, 358],
+      "summary": "Whitelisted endpoint to print a document directly to a network printer via CUPS using pycups.",
+      "tags": ["printing", "cups", "network-printer", "api"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/print_utils.py",
+      "type": "file",
+      "name": "print_utils.py",
+      "filePath": "frappe/utils/print_utils.py",
+      "summary": "Core print utilities: get_print generates print format HTML/PDF, attach_print creates email attachments, and Chromium setup/download functions manage headless browser for PDF generation.",
+      "tags": ["print", "pdf", "chromium", "attachment", "browser"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:get_print",
+      "type": "function",
+      "name": "get_print",
+      "lineRange": [17, 103],
+      "summary": "Generates a print format for a document as HTML or PDF, supporting multiple PDF generators via hooks and custom print format settings.",
+      "tags": ["print", "pdf", "html", "hooks", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:attach_print",
+      "type": "function",
+      "name": "attach_print",
+      "lineRange": [106, 172],
+      "summary": "Creates a print attachment (PDF or HTML) for email sending, supporting weasyprint, standard, and custom print formats with letterhead options.",
+      "tags": ["print", "attachment", "email", "pdf", "weasyprint"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:setup_chromium",
+      "type": "function",
+      "name": "setup_chromium",
+      "lineRange": [175, 185],
+      "summary": "Entry point for setting up Chromium at the bench level for headless PDF generation.",
+      "tags": ["chromium", "setup", "browser"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:download_chromium",
+      "type": "function",
+      "name": "download_chromium",
+      "lineRange": [220, 298],
+      "summary": "Downloads, extracts, and configures Chromium headless shell binary for the bench, handling platform-specific paths and executable permissions.",
+      "tags": ["chromium", "download", "platform", "setup"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:get_chromium_download_url",
+      "type": "function",
+      "name": "get_chromium_download_url",
+      "lineRange": [301, 369],
+      "summary": "Determines the correct Chromium download URL based on platform detection, supporting Chrome-for-Testing and Playwright fallback builds for Linux ARM.",
+      "tags": ["chromium", "url", "platform", "download"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/print_utils.py:calculate_platform",
+      "type": "function",
+      "name": "calculate_platform",
+      "lineRange": [386, 437],
+      "summary": "Detects the host platform and architecture, returning a platform key string for Chromium download URL selection including Linux ARM distro detection.",
+      "tags": ["platform", "detection", "linux", "architecture"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/redis_queue.py",
+      "type": "file",
+      "name": "redis_queue.py",
+      "filePath": "frappe/utils/redis_queue.py",
+      "summary": "Manages Redis Queue ACL users and connections with support for Redis Sentinel, providing user creation, password management, and ACL rule generation.",
+      "tags": ["redis", "queue", "acl", "sentinel", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/redis_queue.py:RedisQueue",
+      "type": "class",
+      "name": "RedisQueue",
+      "lineRange": [7, 95],
+      "summary": "Manages Redis Queue connections and ACL configuration, supporting Sentinel-based high availability and per-bench user access control rules.",
+      "tags": ["redis", "queue", "acl", "sentinel", "connection"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/redis_wrapper.py",
+      "type": "file",
+      "name": "redis_wrapper.py",
+      "filePath": "frappe/utils/redis_wrapper.py",
+      "summary": "Core Redis cache wrapper that auto-prefixes keys with db_name, provides pickle-based serialization, and implements client-side caching with Redis tracking for cross-process invalidation.",
+      "tags": ["redis", "cache", "wrapper", "invalidation", "client-side-caching"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/redis_wrapper.py:RedisearchWrapper",
+      "type": "class",
+      "name": "RedisearchWrapper",
+      "lineRange": [24, 35],
+      "summary": "Thin wrapper around Redis Search that auto-prefixes key names for RediSearch suggestion operations.",
+      "tags": ["redis", "search", "redisearch", "wrapper"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/redis_wrapper.py:RedisWrapper",
+      "type": "class",
+      "name": "RedisWrapper",
+      "lineRange": [38, 363],
+      "summary": "Main Redis client extending redis.Redis with automatic key prefixing, pickle serialization, local cache layer, and wrapped hash/set/list operations for the Frappe framework.",
+      "tags": ["redis", "cache", "wrapper", "serialization", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/redis_wrapper.py:ClientCache",
+      "type": "class",
+      "name": "ClientCache",
+      "lineRange": [437, 666],
+      "summary": "Long-lived client-side cache implementing Redis client tracking for automatic invalidation across processes, with FIFO eviction, TTL, and thread-safe operations.",
+      "tags": ["cache", "client-side", "invalidation", "redis-tracking", "persistent"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/redis_wrapper.py:setup_cache",
+      "type": "function",
+      "name": "setup_cache",
+      "lineRange": [366, 381],
+      "summary": "Creates and returns a RedisWrapper instance, supporting both direct Redis URL and Sentinel-based connections for cache setup.",
+      "tags": ["redis", "cache", "setup", "sentinel"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/redis_wrapper.py:get_sentinel_connection",
+      "type": "function",
+      "name": "get_sentinel_connection",
+      "lineRange": [384, 405],
+      "summary": "Establishes a Redis Sentinel connection with optional authentication for both sentinels and masters.",
+      "tags": ["redis", "sentinel", "connection", "auth"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/response.py",
+      "type": "file",
+      "name": "response.py",
+      "filePath": "frappe/utils/response.py",
+      "summary": "Builds HTTP responses for the Frappe framework, handling JSON, CSV, PDF, binary, page rendering, redirects, error reporting, and private file downloads with X-Accel-Redirect support.",
+      "tags": ["http", "response", "json", "pdf", "download"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/response.py:report_error",
+      "type": "function",
+      "name": "report_error",
+      "lineRange": [38, 64],
+      "summary": "Builds an error response with traceback info, supporting both V1 and V2 API response formats with permission-based traceback visibility.",
+      "tags": ["error", "response", "traceback", "api"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/response.py:build_response",
+      "type": "function",
+      "name": "build_response",
+      "lineRange": [90, 105],
+      "summary": "Central dispatcher that routes response building to the appropriate handler (JSON, CSV, PDF, binary, page, redirect) based on response type.",
+      "tags": ["response", "dispatcher", "http", "core"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/response.py:json_handler",
+      "type": "function",
+      "name": "json_handler",
+      "lineRange": [221, 260],
+      "summary": "Custom JSON serializer for non-standard Python types including datetime, timedelta, Decimal, Path, UUID, LocalProxy, and callable objects.",
+      "tags": ["json", "serialization", "handler", "types"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/response.py:download_private_file",
+      "type": "function",
+      "name": "download_private_file",
+      "lineRange": [286, 298],
+      "summary": "Validates permissions and serves private files with access logging, delegating to send_private_file for actual file delivery.",
+      "tags": ["file", "download", "permissions", "private"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/response.py:send_private_file",
+      "type": "function",
+      "name": "send_private_file",
+      "lineRange": [304, 335],
+      "summary": "Serves private files using either X-Accel-Redirect (nginx) or Werkzeug's send_file, with forced download for certain extensions like SVG and HTML.",
+      "tags": ["file", "serve", "nginx", "x-accel-redirect", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/safe_exec.py",
+      "type": "file",
+      "name": "safe_exec.py",
+      "filePath": "frappe/utils/safe_exec.py",
+      "summary": "Provides sandboxed Python execution via RestrictedPython for Server Scripts, with a carefully curated namespace of safe frappe APIs, guarded attribute access, and SQL read-only enforcement.",
+      "tags": ["sandbox", "security", "server-script", "restricted-python", "execution"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/safe_exec.py:NamespaceDict",
+      "type": "class",
+      "name": "NamespaceDict",
+      "lineRange": [52, 63],
+      "summary": "Extended frappe._dict that raises AttributeError for missing attributes instead of returning None, used as the namespace container for safe execution.",
+      "tags": ["namespace", "dict", "sandbox", "attribute-error"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/safe_exec.py:FrappeTransformer",
+      "type": "class",
+      "name": "FrappeTransformer",
+      "lineRange": [66, 71],
+      "summary": "Custom RestrictedPython AST transformer that allows the '_dict' name which would normally be blocked by the underscore prefix rule.",
+      "tags": ["ast", "transformer", "restricted-python", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/safe_exec.py:safe_exec",
+      "type": "function",
+      "name": "safe_exec",
+      "lineRange": [89, 122],
+      "summary": "Main entry point for sandboxed Python script execution, compiling code with RestrictedPython and running it within a curated safe namespace with optional commit/rollback restrictions.",
+      "tags": ["sandbox", "execution", "restricted-python", "security", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/safe_exec.py:safe_eval",
+      "type": "function",
+      "name": "safe_eval",
+      "lineRange": [130, 143],
+      "summary": "Evaluates a Python expression in a restricted context with minimal builtins and guarded attribute access.",
+      "tags": ["eval", "sandbox", "security", "expression"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/safe_exec.py:get_safe_globals",
+      "type": "function",
+      "name": "get_safe_globals",
+      "lineRange": [169, 322],
+      "summary": "Constructs the safe global namespace for server scripts, exposing curated frappe APIs including db operations, HTTP methods, utilities, and RestrictedPython guards.",
+      "tags": ["namespace", "globals", "sandbox", "api-surface", "security"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/safe_exec.py:check_safe_sql_query",
+      "type": "function",
+      "name": "check_safe_sql_query",
+      "lineRange": [479, 499],
+      "summary": "Validates that SQL queries in the safe exec context are read-only (SELECT or EXPLAIN statements only).",
+      "tags": ["sql", "security", "validation", "read-only"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/safe_exec.py:get_keys_for_autocomplete",
+      "type": "function",
+      "name": "get_keys_for_autocomplete",
+      "lineRange": [325, 368],
+      "summary": "Recursively generates autocomplete suggestions from the safe namespace, yielding key-value pairs with scores based on type (function, class, module, etc.).",
+      "tags": ["autocomplete", "ide", "namespace", "suggestions"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/scheduler.py",
+      "type": "file",
+      "name": "scheduler.py",
+      "filePath": "frappe/utils/scheduler.py",
+      "summary": "Manages the periodic background job scheduler that loops through all sites, enqueuing Scheduled Job Types based on activity, dormancy detection, and system settings.",
+      "tags": ["scheduler", "background-jobs", "cron", "periodic", "sites"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/scheduler.py:start_scheduler",
+      "type": "function",
+      "name": "start_scheduler",
+      "lineRange": [38, 56],
+      "summary": "Main scheduler loop that acquires a file lock, then repeatedly sleeps and enqueues events for all sites at configurable tick intervals.",
+      "tags": ["scheduler", "loop", "filelock", "daemon"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/scheduler.py:enqueue_events_for_all_sites",
+      "type": "function",
+      "name": "enqueue_events_for_all_sites",
+      "lineRange": [94, 107],
+      "summary": "Iterates through all bench sites in random order and enqueues scheduled events for each, catching and logging per-site failures.",
+      "tags": ["scheduler", "sites", "enqueue", "events"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/scheduler.py:enqueue_events",
+      "type": "function",
+      "name": "enqueue_events",
+      "lineRange": [132, 147],
+      "summary": "Fetches all active Scheduled Job Types for the current site, shuffles them, and enqueues any that are due based on their cron schedule.",
+      "tags": ["scheduler", "jobs", "enqueue", "cron"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/scheduler.py:schedule_jobs_based_on_activity",
+      "type": "function",
+      "name": "schedule_jobs_based_on_activity",
+      "lineRange": [192, 210],
+      "summary": "Determines whether to run scheduled jobs based on site activity, allowing dormant sites to run jobs only once every 24 hours.",
+      "tags": ["scheduler", "activity", "dormancy", "optimization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/scheduler.py:activate_scheduler",
+      "type": "function",
+      "name": "activate_scheduler",
+      "lineRange": [240, 252],
+      "summary": "Whitelisted admin-only endpoint to re-enable the scheduler by updating system settings and site config.",
+      "tags": ["scheduler", "admin", "api", "activation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/sentry.py",
+      "type": "file",
+      "name": "sentry.py",
+      "filePath": "frappe/utils/sentry.py",
+      "summary": "Integrates Sentry error tracking with Frappe, instrumenting database queries, setting request/job context, and filtering validation/permission errors from reporting.",
+      "tags": ["sentry", "monitoring", "error-tracking", "integration", "telemetry"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/sentry.py:FrappeIntegration",
+      "type": "class",
+      "name": "FrappeIntegration",
+      "lineRange": [19, 48],
+      "summary": "Sentry Integration that monkey-patches Database.connect and Database.sql to add breadcrumbs and query spans for performance monitoring.",
+      "tags": ["sentry", "integration", "database", "instrumentation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/sentry.py:set_scope",
+      "type": "function",
+      "name": "set_scope",
+      "lineRange": [50, 83],
+      "summary": "Configures Sentry scope with transaction name, user/site context, and trace ID from either the current RQ job or HTTP request.",
+      "tags": ["sentry", "scope", "context", "tracing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/sentry.py:capture_exception",
+      "type": "function",
+      "name": "capture_exception",
+      "lineRange": [100, 143],
+      "summary": "Captures and uploads exceptions to Sentry with request context, filtering out ValidationError and PermissionError and respecting telemetry opt-in settings.",
+      "tags": ["sentry", "exception", "capture", "telemetry", "filtering"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/synchronization.py",
+      "type": "file",
+      "name": "synchronization.py",
+      "filePath": "frappe/utils/synchronization.py",
+      "summary": "Provides a file-based locking context manager for cross-process synchronization, supporting both site-local and bench-global locks.",
+      "tags": ["synchronization", "filelock", "concurrency", "context-manager"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/synchronization.py:filelock",
+      "type": "function",
+      "name": "filelock",
+      "lineRange": [17, 49],
+      "summary": "Context manager that creates a file lock for preventing concurrent operations across processes, with configurable timeout and site/global scope.",
+      "tags": ["filelock", "synchronization", "context-manager", "concurrency"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/pdf_generator/pdf_merge.py",
+      "target": "class:frappe/utils/pdf_generator/pdf_merge.py:PDFTransformer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:download_multi_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:download_multi_pdf_async",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:_download_multi_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:download_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:report_to_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:render_letterhead_for_print",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "func:frappe/utils/print_format.py:print_by_server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:get_print",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:attach_print",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:setup_chromium",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:download_chromium",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:get_chromium_download_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_utils.py",
+      "target": "func:frappe/utils/print_utils.py:calculate_platform",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_queue.py",
+      "target": "class:frappe/utils/redis_queue.py:RedisQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_wrapper.py",
+      "target": "class:frappe/utils/redis_wrapper.py:RedisearchWrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_wrapper.py",
+      "target": "class:frappe/utils/redis_wrapper.py:RedisWrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_wrapper.py",
+      "target": "class:frappe/utils/redis_wrapper.py:ClientCache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_wrapper.py",
+      "target": "func:frappe/utils/redis_wrapper.py:setup_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/redis_wrapper.py",
+      "target": "func:frappe/utils/redis_wrapper.py:get_sentinel_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/response.py",
+      "target": "func:frappe/utils/response.py:report_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/response.py",
+      "target": "func:frappe/utils/response.py:build_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/response.py",
+      "target": "func:frappe/utils/response.py:json_handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/response.py",
+      "target": "func:frappe/utils/response.py:download_private_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/response.py",
+      "target": "func:frappe/utils/response.py:send_private_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "class:frappe/utils/safe_exec.py:NamespaceDict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "class:frappe/utils/safe_exec.py:FrappeTransformer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "func:frappe/utils/safe_exec.py:safe_exec",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "func:frappe/utils/safe_exec.py:safe_eval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "func:frappe/utils/safe_exec.py:get_safe_globals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "func:frappe/utils/safe_exec.py:check_safe_sql_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "func:frappe/utils/safe_exec.py:get_keys_for_autocomplete",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/scheduler.py",
+      "target": "func:frappe/utils/scheduler.py:start_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/scheduler.py",
+      "target": "func:frappe/utils/scheduler.py:enqueue_events_for_all_sites",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/scheduler.py",
+      "target": "func:frappe/utils/scheduler.py:enqueue_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/scheduler.py",
+      "target": "func:frappe/utils/scheduler.py:schedule_jobs_based_on_activity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/scheduler.py",
+      "target": "func:frappe/utils/scheduler.py:activate_scheduler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/sentry.py",
+      "target": "class:frappe/utils/sentry.py:FrappeIntegration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/sentry.py",
+      "target": "func:frappe/utils/sentry.py:set_scope",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/sentry.py",
+      "target": "func:frappe/utils/sentry.py:capture_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/synchronization.py",
+      "target": "func:frappe/utils/synchronization.py:filelock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/print_format.py",
+      "target": "file:frappe/utils/print_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/print_format.py:download_pdf",
+      "target": "func:frappe/utils/print_utils.py:get_print",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_format.py:_download_multi_pdf",
+      "target": "func:frappe/utils/print_utils.py:get_print",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_utils.py:attach_print",
+      "target": "func:frappe/utils/print_utils.py:get_print",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_utils.py:setup_chromium",
+      "target": "func:frappe/utils/print_utils.py:download_chromium",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_utils.py:download_chromium",
+      "target": "func:frappe/utils/print_utils.py:get_chromium_download_url",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_utils.py:get_chromium_download_url",
+      "target": "func:frappe/utils/print_utils.py:calculate_platform",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/redis_queue.py:RedisQueue",
+      "target": "func:frappe/utils/redis_wrapper.py:get_sentinel_connection",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/redis_queue.py",
+      "target": "file:frappe/utils/redis_wrapper.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/utils/redis_wrapper.py:ClientCache",
+      "target": "class:frappe/utils/redis_wrapper.py:RedisWrapper",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/redis_wrapper.py:setup_cache",
+      "target": "class:frappe/utils/redis_wrapper.py:RedisWrapper",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/redis_wrapper.py:setup_cache",
+      "target": "func:frappe/utils/redis_wrapper.py:get_sentinel_connection",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/response.py:report_error",
+      "target": "func:frappe/utils/response.py:build_response",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/response.py:download_private_file",
+      "target": "func:frappe/utils/response.py:send_private_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/safe_exec.py:safe_exec",
+      "target": "func:frappe/utils/safe_exec.py:get_safe_globals",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/safe_exec.py",
+      "target": "file:frappe/utils/response.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/scheduler.py:start_scheduler",
+      "target": "func:frappe/utils/scheduler.py:enqueue_events_for_all_sites",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/scheduler.py:enqueue_events_for_all_sites",
+      "target": "func:frappe/utils/scheduler.py:enqueue_events",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/scheduler.py:enqueue_events",
+      "target": "func:frappe/utils/scheduler.py:schedule_jobs_based_on_activity",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/sentry.py:FrappeIntegration",
+      "target": "file:frappe/database/database.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/sentry.py:capture_exception",
+      "target": "func:frappe/utils/sentry.py:set_scope",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/synchronization.py",
+      "target": "file:frappe/utils/file_lock.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/print_format.py:download_multi_pdf",
+      "target": "func:frappe/utils/print_format.py:_download_multi_pdf",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/print_format.py:download_multi_pdf_async",
+      "target": "func:frappe/utils/print_format.py:_download_multi_pdf",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/safe_exec.py:NamespaceDict",
+      "target": "class:frappe/utils/safe_exec.py:NamespaceDict",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/utils/safe_exec.py:FrappeTransformer",
+      "target": "class:frappe/utils/safe_exec.py:FrappeTransformer",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

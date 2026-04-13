@@ -1,0 +1,278 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "type": "file",
+      "name": "session_default_settings.py",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "summary": "DocType controller for Session Default Settings, a singleton that manages per-user session defaults. Provides whitelisted API endpoints to get, set, and clear session default values for configurable reference DocTypes.",
+      "tags": ["doctype", "session", "defaults", "settings", "whitelisted-api"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:SessionDefaultSettings",
+      "type": "class",
+      "name": "SessionDefaultSettings",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "lineRange": [12, 25],
+      "summary": "Document controller for Session Default Settings DocType. Contains a child table of session defaults referencing other DocTypes. No custom logic beyond auto-generated type hints.",
+      "tags": ["doctype-controller", "singleton"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_session_default_values",
+      "type": "function",
+      "name": "get_session_default_values",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "lineRange": [28, 43],
+      "summary": "Whitelisted function that reads Session Default Settings and returns a JSON array of Link field definitions populated with the current user's default values for each configured reference DocType.",
+      "tags": ["whitelisted", "api", "session-defaults"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:set_session_default_values",
+      "type": "function",
+      "name": "set_session_default_values",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "lineRange": [46, 54],
+      "summary": "Whitelisted function that accepts a JSON dict of default values and sets them as user defaults via frappe.defaults.set_user_default.",
+      "tags": ["whitelisted", "api", "session-defaults"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:clear_session_defaults",
+      "type": "function",
+      "name": "clear_session_defaults",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "lineRange": [58, 61],
+      "summary": "Hook function called on user logout (on_logout hook) that clears all session default values for the configured reference DocTypes.",
+      "tags": ["hook", "on_logout", "session-defaults"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/session_default_settings/test_session_default_settings.py",
+      "type": "file",
+      "name": "test_session_default_settings.py",
+      "filePath": "frappe/core/doctype/session_default_settings/test_session_default_settings.py",
+      "summary": "Integration tests for Session Default Settings, verifying that session defaults can be set (applied to new documents) and cleared on logout.",
+      "tags": ["test", "integration-test", "session-defaults"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestSessionDefaultSettings",
+      "type": "class",
+      "name": "TestSessionDefaultSettings",
+      "filePath": "frappe/core/doctype/session_default_settings/test_session_default_settings.py",
+      "lineRange": [11, 31],
+      "summary": "Integration test case with two tests: verifying session defaults are applied to new ToDo documents and verifying defaults are cleared after logout hook.",
+      "tags": ["test-class", "integration-test"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_log/sms_log.py",
+      "type": "file",
+      "name": "sms_log.py",
+      "filePath": "frappe/core/doctype/sms_log/sms_log.py",
+      "summary": "DocType controller for SMS Log, a record of sent SMS messages with fields for message content, requested/sent counts, recipient numbers, sender name, and sent date.",
+      "tags": ["doctype", "sms", "logging"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:SMSLog",
+      "type": "class",
+      "name": "SMSLog",
+      "filePath": "frappe/core/doctype/sms_log/sms_log.py",
+      "lineRange": [8, 26],
+      "summary": "Document controller for SMS Log DocType. Stores SMS send records including message text, requested/sent counts, recipient numbers, sender name, and sent date. No custom logic.",
+      "tags": ["doctype-controller", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_log/sms_log.js",
+      "type": "file",
+      "name": "sms_log.js",
+      "filePath": "frappe/core/doctype/sms_log/sms_log.js",
+      "summary": "Client-side controller for SMS Log form view. Contains an empty refresh handler with no custom logic.",
+      "tags": ["javascript", "doctype-client", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_log/test_sms_log.py",
+      "type": "file",
+      "name": "test_sms_log.py",
+      "filePath": "frappe/core/doctype/sms_log/test_sms_log.py",
+      "summary": "Empty test placeholder for SMS Log DocType with no test cases implemented.",
+      "tags": ["test", "sms", "placeholder"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_parameter/sms_parameter.py",
+      "type": "file",
+      "name": "sms_parameter.py",
+      "filePath": "frappe/core/doctype/sms_parameter/sms_parameter.py",
+      "summary": "DocType controller for SMS Parameter, a child table DocType used in SMS Settings to define key-value parameters (and headers) for SMS gateway API requests.",
+      "tags": ["doctype", "sms", "child-table", "configuration"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:SMSParameter",
+      "type": "class",
+      "name": "SMSParameter",
+      "filePath": "frappe/core/doctype/sms_parameter/sms_parameter.py",
+      "lineRange": [7, 24],
+      "summary": "Document controller for SMS Parameter child table DocType. Fields: header (checkbox), parameter name, and value. Used as a child of SMS Settings to configure SMS gateway API parameters.",
+      "tags": ["doctype-controller", "child-table", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/sms_log/__init__.py",
+      "summary": "Empty init file for sms_log module.",
+      "tags": ["init", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_parameter/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/sms_parameter/__init__.py",
+      "summary": "Empty init file for sms_parameter module.",
+      "tags": ["init", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/sms_settings/__init__.py",
+      "summary": "Empty init file for sms_settings module.",
+      "tags": ["init", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_settings/sms_settings.js",
+      "type": "file",
+      "name": "sms_settings.js",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.js",
+      "summary": "Empty client-side controller for SMS Settings form view.",
+      "tags": ["javascript", "doctype-client", "sms", "placeholder"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:SessionDefaultSettings",
+      "target": "file:frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_session_default_values",
+      "target": "file:frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:set_session_default_values",
+      "target": "file:frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:clear_session_defaults",
+      "target": "file:frappe/core/doctype/session_default_settings/session_default_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SessionDefaultSettings",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_session_default_values",
+      "target": "class:SessionDefaultSettings",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:clear_session_defaults",
+      "target": "class:SessionDefaultSettings",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestSessionDefaultSettings",
+      "target": "file:frappe/core/doctype/session_default_settings/test_session_default_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestSessionDefaultSettings",
+      "target": "func:set_session_default_values",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestSessionDefaultSettings",
+      "target": "func:clear_session_defaults",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:SMSLog",
+      "target": "file:frappe/core/doctype/sms_log/sms_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SMSLog",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:SMSParameter",
+      "target": "file:frappe/core/doctype/sms_parameter/sms_parameter.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SMSParameter",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/sms_log/sms_log.js",
+      "target": "class:SMSLog",
+      "type": "client_controller_for",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:SMSParameter",
+      "target": "class:SMSLog",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

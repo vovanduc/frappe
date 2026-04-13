@@ -1,0 +1,787 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/model/document.py",
+      "type": "file",
+      "name": "document.py",
+      "filePath": "frappe/model/document.py",
+      "summary": "Core Document class (2412 lines) that all DocType controllers inherit from. Provides the complete document lifecycle: load_from_db, insert, save, submit, cancel, delete, plus validation, permissions, naming, workflow, versioning, caching, and notification. Also defines get_doc() factory function, LazyDocument for deferred loading, copy_doc, new_doc, get_cached_doc, and bulk_insert utilities.",
+      "tags": ["model", "document", "lifecycle", "orm", "core"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "class:frappe/model/document.py::Document",
+      "type": "class",
+      "name": "Document",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [175, 2062],
+      "summary": "Base class for all DocType controllers (99 methods). Inherits from BaseDocument. Implements the full document lifecycle: loading from DB, CRUD operations (insert/save/submit/cancel/delete), validation pipeline (_validate, _validate_mandatory, _validate_links, validate_set_only_once), permission checking (check_permission, has_permission, validate_higher_perm_levels), naming (set_new_name), workflow integration, version tracking, field masking, locking, comment/assignment management, and real-time notifications.",
+      "tags": ["model", "document", "base-class", "lifecycle", "validation", "permissions"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/document.py::get_doc",
+      "type": "function",
+      "name": "get_doc",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [83, 113],
+      "summary": "Factory function to create or load a Document. Supports multiple call signatures: get_doc(doctype, name) to load from DB, get_doc(dict) to create from dict, get_doc(**kwargs) to create from keyword args. Uses singledispatch to route by argument type. This is frappe's primary document retrieval API (frappe.get_doc).",
+      "tags": ["factory", "api", "document-loading"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/document.py::Document.insert",
+      "type": "function",
+      "name": "Document.insert",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [399, 488],
+      "summary": "Inserts a new document into the database. Handles permission checks, naming (set_new_name), deduplication, validation pipeline (run_before_save_methods), database insertion (db_insert), post-save methods, amendment handling, and notification. Returns self for chaining.",
+      "tags": ["document", "insert", "crud", "lifecycle"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/document.py::Document._save",
+      "type": "function",
+      "name": "Document._save",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [520, 578],
+      "summary": "Internal save implementation. Checks if document is latest (optimistic locking), runs before_save_methods (validate, before_save hooks), performs db_update, runs post_save_methods (on_update, on_change hooks), and handles workflow state transitions. Called by both save() and submit().",
+      "tags": ["document", "save", "crud", "lifecycle"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/document.py::Document.run_before_save_methods",
+      "type": "function",
+      "name": "Document.run_before_save_methods",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [1452, 1482],
+      "summary": "Executes the pre-save validation pipeline: loads doc_before_save for change tracking, sets defaults, deduplicates children, validates mandatory fields, validates links, runs 'validate' hook, validates workflow, checks set_only_once fields, and validates higher permission levels.",
+      "tags": ["validation", "lifecycle", "hooks"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/document.py::Document.run_post_save_methods",
+      "type": "function",
+      "name": "Document.run_post_save_methods",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [1506, 1538],
+      "summary": "Executes post-save hooks: on_update/after_insert/on_submit/on_cancel/on_change, updates global search, saves version, runs notifications (email alerts, webhooks), follow_document, and clears document cache.",
+      "tags": ["lifecycle", "hooks", "notifications"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/document.py::Document.load_from_db",
+      "type": "function",
+      "name": "Document.load_from_db",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [233, 293],
+      "summary": "Loads document data from the database. Handles single doctypes (from Singles table) and regular doctypes (direct table query with optional FOR UPDATE). Uses raw SQL for performance on regular docs. Loads child tables via load_children_from_db. Applies field masking for sensitive fields.",
+      "tags": ["database", "loading", "orm"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:frappe/model/document.py::LazyDocument",
+      "type": "class",
+      "name": "LazyDocument",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [2173, 2211],
+      "summary": "Document subclass that defers loading child tables until they are accessed. Overrides get() to lazily load child table data on first access, reducing initial query overhead for documents with many child tables.",
+      "tags": ["lazy-loading", "performance", "document"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/document.py::new_doc",
+      "type": "function",
+      "name": "new_doc",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [2279, 2300],
+      "summary": "Creates a new document with default values set. Delegates to get_new_doc from create_new module. Supports parent_doc and parentfield for child documents. This is frappe.new_doc().",
+      "tags": ["factory", "api", "document-creation"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:frappe/model/document.py::bulk_insert",
+      "type": "function",
+      "name": "bulk_insert",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [2084, 2130],
+      "summary": "Efficiently inserts multiple documents at once using bulk SQL inserts. Handles naming, deduplication, child tables, and chunked insertion. Bypasses normal document lifecycle hooks for performance.",
+      "tags": ["bulk", "performance", "insert"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/document.py::copy_doc",
+      "type": "function",
+      "name": "copy_doc",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [2235, 2276],
+      "summary": "Creates a copy of a document, stripping identity fields (name, creation, modified, owner, etc.) and no_copy fields. Resets docstatus to Draft. Used for document amendment and duplication.",
+      "tags": ["document", "copy", "utility"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/document.py::get_cached_doc",
+      "type": "function",
+      "name": "get_cached_doc",
+      "filePath": "frappe/model/document.py",
+      "lineRange": [2303, 2317],
+      "summary": "Retrieves a document from Redis cache if available, otherwise loads from DB and caches it. Uses document cache key based on doctype and name. This is frappe.get_cached_doc().",
+      "tags": ["caching", "performance", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/model/db_query.py",
+      "type": "file",
+      "name": "db_query.py",
+      "filePath": "frappe/model/db_query.py",
+      "summary": "Database query builder (1515 lines) for list views and report queries. Contains the DatabaseQuery class that builds SQL SELECT queries with permission-based filtering, field-level access control, user settings, virtual doctype support, and result masking. Heavily used by frappe.get_list() and frappe.get_all().",
+      "tags": ["database", "query", "permissions", "list-view"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "class:frappe/model/db_query.py::DatabaseQuery",
+      "type": "class",
+      "name": "DatabaseQuery",
+      "filePath": "frappe/model/db_query.py",
+      "lineRange": [74, 1317],
+      "summary": "Builds and executes SQL queries for document list retrieval (35 methods). Handles: table extraction from fields/filters, automatic JOINs for linked tables, permission-based WHERE conditions (role permissions, user permissions, sharing), field-level read permissions, docstatus filtering, order by/group by, pagination, virtual doctype delegation, SQL injection prevention, and user settings persistence.",
+      "tags": ["database", "query-builder", "permissions", "security"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/db_query.py::DatabaseQuery.execute",
+      "type": "function",
+      "name": "DatabaseQuery.execute",
+      "filePath": "frappe/model/db_query.py",
+      "lineRange": [106, 246],
+      "summary": "Main entry point for query execution. Accepts filters, fields, ordering, pagination, permissions, and various options. Handles virtual doctypes by delegating to controller.get_list(). For regular doctypes, builds SQL via prepare_args/build_and_run, applies field masking, comment counts, and user settings. Returns list of dicts or lists.",
+      "tags": ["query", "api", "permissions", "execution"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/db_query.py::DatabaseQuery.build_match_conditions",
+      "type": "function",
+      "name": "DatabaseQuery.build_match_conditions",
+      "filePath": "frappe/model/db_query.py",
+      "lineRange": [900, 1000],
+      "summary": "Builds permission-based WHERE conditions. Checks role permissions, adds user permission constraints on Link fields, handles document sharing, owner-only access, and If Owner permission rules. Central to frappe's row-level security model.",
+      "tags": ["permissions", "security", "query-conditions"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "file:frappe/model/meta.py",
+      "type": "file",
+      "name": "meta.py",
+      "filePath": "frappe/model/meta.py",
+      "summary": "DocType metadata class (1068 lines). Contains the Meta class that loads, processes, and caches DocType definitions. Provides field introspection (get_field, get_link_fields, get_table_fields), permission management, custom field/property setter application, naming series options, workflow detection, dashboard data, and large table optimization.",
+      "tags": ["metadata", "doctype", "schema", "introspection"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "class:frappe/model/meta.py::Meta",
+      "type": "class",
+      "name": "Meta",
+      "filePath": "frappe/model/meta.py",
+      "lineRange": [130, 839],
+      "summary": "DocType metadata class (61 methods). Extends Document to represent DocType schema. On initialization, loads DocType definition and processes it: adds custom fields, applies property setters, initializes field caches, sorts fields, computes valid columns, sets custom permissions, and adds custom links/actions. Provides comprehensive field introspection API and permission helpers.",
+      "tags": ["metadata", "schema", "doctype", "introspection", "permissions"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/meta.py::get_meta",
+      "type": "function",
+      "name": "get_meta",
+      "filePath": "frappe/model/meta.py",
+      "lineRange": [72, 93],
+      "summary": "Returns Meta object for a doctype, using client cache for performance. This is frappe.get_meta() - the primary way to access DocType metadata throughout the framework.",
+      "tags": ["api", "metadata", "caching"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:frappe/model/meta.py::Meta.process",
+      "type": "function",
+      "name": "Meta.process",
+      "filePath": "frappe/model/meta.py",
+      "lineRange": [166, 182],
+      "summary": "Post-initialization processing pipeline for Meta. Adds custom fields, applies property setters, initializes field caches, sorts fields, computes valid columns, sets custom permissions, adds custom links/actions, and checks if the table is large. Skips processing for special bootstrap doctypes to avoid circular dependencies.",
+      "tags": ["metadata", "initialization", "customization"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/meta.py::Meta.get_naming_series_options",
+      "type": "function",
+      "name": "Meta.get_naming_series_options",
+      "filePath": "frappe/model/meta.py",
+      "lineRange": [450, 470],
+      "summary": "Returns available naming series options for the DocType by reading the naming_series field's options property. Used by the naming system to determine valid series prefixes.",
+      "tags": ["naming", "metadata"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/model/naming.py",
+      "type": "file",
+      "name": "naming.py",
+      "filePath": "frappe/model/naming.py",
+      "summary": "Document naming system (626 lines). Handles automatic name generation for documents via multiple strategies: naming series (NamingSeries class with counter management), field-based, format strings, hash, UUID, autoincrement, prompt, and Document Naming Rules. Also handles amended document naming, name validation, and series counter management.",
+      "tags": ["naming", "autoname", "series", "identity"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:frappe/model/naming.py::NamingSeries",
+      "type": "class",
+      "name": "NamingSeries",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [47, 139],
+      "summary": "Manages naming series for documents. Validates series format, generates next name by parsing series parts (prefix, date components, counters), manages DB-backed counters in the Series table, provides prefix extraction and preview generation. Core class for the naming_series autoname strategy.",
+      "tags": ["naming", "series", "counter"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/naming.py::set_new_name",
+      "type": "function",
+      "name": "set_new_name",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [141, 198],
+      "summary": "Main naming orchestrator. Sets the 'name' property on a document by trying strategies in order: autoincrement, UUID, amended_from suffix, single doctype, Document Naming Rules, autoname method on controller, autoname property from meta (field:, naming_series:, prompt, format:, hash, series expressions). Falls back to hash if no name is set.",
+      "tags": ["naming", "orchestrator", "lifecycle"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/naming.py::make_autoname",
+      "type": "function",
+      "name": "make_autoname",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [286, 308],
+      "summary": "Creates an autoname from a key pattern. For 'hash' key, generates a timestamp+random string. Otherwise delegates to NamingSeries for series-based name generation. This is frappe.model.naming.make_autoname() used throughout the framework.",
+      "tags": ["naming", "api", "utility"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/naming.py::parse_naming_series",
+      "type": "function",
+      "name": "parse_naming_series",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [341, 402],
+      "summary": "Parses naming series parts and generates the next name. Handles date components (YY, YYYY, MM, DD, WW, JJJ), hash counters (#####), document field references, timestamp, and custom parsers from hooks. Central to the naming series name generation pipeline.",
+      "tags": ["naming", "parsing", "series"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/naming.py::getseries",
+      "type": "function",
+      "name": "getseries",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [423, 438],
+      "summary": "Atomically gets and increments the counter for a naming series prefix in the Series table. Uses SELECT FOR UPDATE to prevent race conditions. Creates the series entry if it doesn't exist.",
+      "tags": ["naming", "counter", "database", "concurrency"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/naming.py::validate_name",
+      "type": "function",
+      "name": "validate_name",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [500, 527],
+      "summary": "Validates a document name: checks for empty names, handles autoincrement integers, rejects 'New DocType' placeholder names, strips whitespace, prevents doctype==name conflicts, and blocks special characters (<>).",
+      "tags": ["naming", "validation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/model/delete_doc.py",
+      "type": "file",
+      "name": "delete_doc.py",
+      "filePath": "frappe/model/delete_doc.py",
+      "summary": "Document deletion system (509 lines). Handles safe document deletion with permission checks, submitted document validation, link existence checks (both static and dynamic links), cascade deletion of child tables, naming series reversion, attachment cleanup, global search cleanup, soft-delete to Deleted Document table, and real-time notification.",
+      "tags": ["deletion", "cascade", "links", "lifecycle"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/delete_doc.py::delete_doc",
+      "type": "function",
+      "name": "delete_doc",
+      "filePath": "frappe/model/delete_doc.py",
+      "lineRange": [23, 222],
+      "summary": "Main document deletion function (200 lines). Handles DocType deletion (with controller file cleanup) and regular document deletion. Performs: permission checks, submitted-doc validation, on_trash hook, link existence checks (static and dynamic), row locking, naming series reversion, child table cleanup, attachment removal, dynamic link cleanup, password deletion, cache clearing, global search cleanup, soft-delete to Deleted Document, and notification.",
+      "tags": ["deletion", "api", "lifecycle", "permissions"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/delete_doc.py::check_if_doc_is_linked",
+      "type": "function",
+      "name": "check_if_doc_is_linked",
+      "filePath": "frappe/model/delete_doc.py",
+      "lineRange": [300, 355],
+      "summary": "Checks if a document is referenced by Link fields in other documents. Iterates through all Link fields pointing to the document's doctype, queries for references, and raises LinkExistsError if found. Respects cancel-on-delete and allows-on-submit flags.",
+      "tags": ["deletion", "link-check", "referential-integrity"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/delete_doc.py::check_if_doc_is_dynamically_linked",
+      "type": "function",
+      "name": "check_if_doc_is_dynamically_linked",
+      "filePath": "frappe/model/delete_doc.py",
+      "lineRange": [358, 409],
+      "summary": "Checks if a document is referenced via Dynamic Link fields. Uses the dynamic link map to find all doctypes that could reference this document type, then queries each for actual references. Raises LinkExistsError if found.",
+      "tags": ["deletion", "dynamic-links", "referential-integrity"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/delete_doc.py::delete_dynamic_links",
+      "type": "function",
+      "name": "delete_dynamic_links",
+      "filePath": "frappe/model/delete_doc.py",
+      "lineRange": [428, 443],
+      "summary": "Deletes or clears references to a deleted document from Dynamic Link fields across all doctypes. Enqueued as a background job after document deletion commit.",
+      "tags": ["deletion", "dynamic-links", "cleanup"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/model/create_new.py",
+      "type": "file",
+      "name": "create_new.py",
+      "filePath": "frappe/model/create_new.py",
+      "summary": "New document creation with defaults (182 lines). Creates new documents with user-specific and static default values applied. Handles user permissions filtering for Link field defaults, dynamic defaults based on other documents, and special defaults (__user, Today, Now). Caches new doc templates for performance.",
+      "tags": ["document-creation", "defaults", "user-permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/create_new.py::get_new_doc",
+      "type": "function",
+      "name": "get_new_doc",
+      "filePath": "frappe/model/create_new.py",
+      "lineRange": [18, 31],
+      "summary": "Creates a new document with defaults. Uses a cached template (make_new_doc) for the static portion, then applies dynamic defaults. Returns Document object or dict based on as_dict parameter. Called by frappe.new_doc().",
+      "tags": ["document-creation", "defaults", "caching"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:frappe/model/create_new.py::set_user_and_static_default_values",
+      "type": "function",
+      "name": "set_user_and_static_default_values",
+      "filePath": "frappe/model/create_new.py",
+      "lineRange": [50, 77],
+      "summary": "Sets default values on a new document from user permissions, user defaults, and field-level defaults. Validates Link field defaults against user permissions. Handles special defaults like __user, Today, and Select field first-option.",
+      "tags": ["defaults", "user-permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/model/docfield.py",
+      "type": "file",
+      "name": "docfield.py",
+      "filePath": "frappe/model/docfield.py",
+      "summary": "Minimal docfield utilities (10 lines). Contains a single function supports_translation() that checks if a fieldtype supports translation.",
+      "tags": ["docfield", "translation", "utility"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:frappe/model/docfield.py::supports_translation",
+      "type": "function",
+      "name": "supports_translation",
+      "filePath": "frappe/model/docfield.py",
+      "lineRange": [9, 10],
+      "summary": "Returns True if the given fieldtype supports translation (Data, Select, Text, Small Text, Text Editor).",
+      "tags": ["translation", "fieldtype"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/model/docstatus.py",
+      "type": "file",
+      "name": "docstatus.py",
+      "filePath": "frappe/model/docstatus.py",
+      "summary": "DocStatus enum-like class (32 lines). Defines the three document states: DRAFT (0), SUBMITTED (1), CANCELLED (2). Extends int for direct comparison. Provides is_draft(), is_submitted(), is_cancelled() convenience methods.",
+      "tags": ["docstatus", "enum", "document-state"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:frappe/model/docstatus.py::DocStatus",
+      "type": "class",
+      "name": "DocStatus",
+      "filePath": "frappe/model/docstatus.py",
+      "lineRange": [5, 32],
+      "summary": "Integer subclass representing document status. Three constants: DRAFT=0, SUBMITTED=1, CANCELLED=2. Methods is_draft(), is_submitted(), is_cancelled() for readable status checks. Used throughout the framework for docstatus comparisons.",
+      "tags": ["enum", "document-state", "constants"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/model/dynamic_links.py",
+      "type": "file",
+      "name": "dynamic_links.py",
+      "filePath": "frappe/model/dynamic_links.py",
+      "summary": "Dynamic link discovery system (99 lines). Builds a map of all Dynamic Link field relationships across doctypes. Queries DocField and Custom Field tables for Dynamic Link fieldtypes, fetches distinct linked doctypes from each table, and caches the results. Used by delete_doc to check for dynamic references.",
+      "tags": ["dynamic-links", "link-map", "caching"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/dynamic_links.py::get_dynamic_link_map",
+      "type": "function",
+      "name": "get_dynamic_link_map",
+      "filePath": "frappe/model/dynamic_links.py",
+      "lineRange": [28, 52],
+      "summary": "Builds and caches a map of doctype -> list of Dynamic Link field definitions. For each Dynamic Link field, queries the parent table to find all distinct doctypes it links to. Returns {linked_doctype: [dynamic_link_df, ...]}. Used primarily by delete_doc for referential integrity checks.",
+      "tags": ["dynamic-links", "link-map", "caching"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/model/mapper.py",
+      "type": "file",
+      "name": "mapper.py",
+      "filePath": "frappe/model/mapper.py",
+      "summary": "Document mapping/copying system (272 lines). Maps fields from one document to another based on configurable table_maps. Used for creating related documents (e.g., Sales Invoice from Sales Order). Handles parent and child table mapping, field validation, no_copy fields, fetch_from fields, and post-processing hooks.",
+      "tags": ["mapper", "document-mapping", "conversion"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:frappe/model/mapper.py::get_mapped_doc",
+      "type": "function",
+      "name": "get_mapped_doc",
+      "filePath": "frappe/model/mapper.py",
+      "lineRange": [53, 170],
+      "summary": "Core document mapping function. Creates a new target document from a source document using field mapping rules (table_maps). Handles permission checks, parent/child table mapping with conditions and filters, before_mapping/after_mapping hooks, and strict user permissions. Used for document conversion workflows (e.g., Quotation -> Sales Order).",
+      "tags": ["mapper", "document-conversion", "api"],
+      "complexity": "very_high"
+    },
+    {
+      "id": "func:frappe/model/mapper.py::make_mapped_doc",
+      "type": "function",
+      "name": "make_mapped_doc",
+      "filePath": "frappe/model/mapper.py",
+      "lineRange": [13, 32],
+      "summary": "Whitelisted API endpoint for creating mapped documents from the client. Calls the specified mapper method with source document name and selected children. Called from create_new.js when user clicks 'Get Items From' or similar conversion buttons.",
+      "tags": ["api", "whitelisted", "mapper"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:frappe/model/mapper.py::map_fields",
+      "type": "function",
+      "name": "map_fields",
+      "filePath": "frappe/model/mapper.py",
+      "lineRange": [187, 238],
+      "summary": "Maps fields between source and target documents. Copies matching field values, handles Link field auto-linking to source doctype, applies field_map overrides, preserves idx, and triggers fetch_from field resolution on Link fields.",
+      "tags": ["mapper", "field-mapping"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:frappe/model/naming.py::revert_series_if_last",
+      "type": "function",
+      "name": "revert_series_if_last",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [441, 486],
+      "summary": "Reverts a naming series counter if the deleted document was the last in the series. Parses the naming series to extract prefix and count, compares with current counter, and decrements if it matches. Called during document deletion to prevent counter gaps.",
+      "tags": ["naming", "deletion", "counter"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:frappe/model/naming.py::InvalidNamingSeriesError",
+      "type": "class",
+      "name": "InvalidNamingSeriesError",
+      "filePath": "frappe/model/naming.py",
+      "lineRange": [39, 40],
+      "summary": "ValidationError subclass raised when a naming series format is invalid.",
+      "tags": ["naming", "error"],
+      "complexity": "trivial"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:frappe/model/meta.py::Meta",
+      "target": "class:frappe/model/document.py::Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/model/document.py::Document",
+      "target": "class:frappe/model/docstatus.py::DocStatus",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/document.py::Document.insert",
+      "target": "func:frappe/model/naming.py::set_new_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::Document.insert",
+      "target": "func:frappe/model/document.py::Document.run_before_save_methods",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::Document.insert",
+      "target": "func:frappe/model/document.py::Document.run_post_save_methods",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::Document._save",
+      "target": "func:frappe/model/document.py::Document.run_before_save_methods",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::Document._save",
+      "target": "func:frappe/model/document.py::Document.run_post_save_methods",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::get_doc",
+      "target": "class:frappe/model/document.py::Document",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:frappe/model/document.py::new_doc",
+      "target": "func:frappe/model/create_new.py::get_new_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/create_new.py::get_new_doc",
+      "target": "func:frappe/model/create_new.py::set_user_and_static_default_values",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/naming.py::set_new_name",
+      "target": "class:frappe/model/naming.py::NamingSeries",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/naming.py::set_new_name",
+      "target": "func:frappe/model/naming.py::validate_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/naming.py::set_new_name",
+      "target": "func:frappe/model/naming.py::make_autoname",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/naming.py::make_autoname",
+      "target": "class:frappe/model/naming.py::NamingSeries",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/model/naming.py::NamingSeries",
+      "target": "func:frappe/model/naming.py::parse_naming_series",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/naming.py::parse_naming_series",
+      "target": "func:frappe/model/naming.py::getseries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::delete_doc",
+      "target": "func:frappe/model/delete_doc.py::check_if_doc_is_linked",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::delete_doc",
+      "target": "func:frappe/model/delete_doc.py::check_if_doc_is_dynamically_linked",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::delete_doc",
+      "target": "func:frappe/model/delete_doc.py::delete_dynamic_links",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::delete_doc",
+      "target": "func:frappe/model/naming.py::revert_series_if_last",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::delete_doc",
+      "target": "func:frappe/model/delete_doc.py::check_permission_and_not_submitted",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::check_if_doc_is_dynamically_linked",
+      "target": "func:frappe/model/dynamic_links.py::get_dynamic_link_map",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/model/document.py::Document",
+      "target": "class:frappe/model/meta.py::Meta",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::Document.load_from_db",
+      "target": "class:frappe/model/meta.py::Meta",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/model/db_query.py::DatabaseQuery",
+      "target": "class:frappe/model/meta.py::Meta",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/mapper.py::get_mapped_doc",
+      "target": "class:frappe/model/document.py::Document",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/mapper.py::get_mapped_doc",
+      "target": "func:frappe/model/mapper.py::map_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/model/mapper.py::make_mapped_doc",
+      "target": "func:frappe/model/mapper.py::get_mapped_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/document.py::Document.run_before_save_methods",
+      "target": "class:frappe/model/meta.py::Meta",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/model/document.py::LazyDocument",
+      "target": "class:frappe/model/document.py::Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:frappe/model/document.py::copy_doc",
+      "target": "class:frappe/model/document.py::Document",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/document.py::bulk_insert",
+      "target": "func:frappe/model/naming.py::set_new_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/document.py::get_cached_doc",
+      "target": "func:frappe/model/document.py::get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/model/delete_doc.py::check_permission_and_not_submitted",
+      "target": "class:frappe/model/docstatus.py::DocStatus",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/model/document.py",
+      "target": "file:frappe/model/naming.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/model/document.py",
+      "target": "file:frappe/model/docstatus.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/model/meta.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/model/delete_doc.py",
+      "target": "file:frappe/model/dynamic_links.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/model/delete_doc.py",
+      "target": "file:frappe/model/naming.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/model/delete_doc.py",
+      "target": "file:frappe/model/docstatus.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/model/mapper.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/model/create_new.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/model/db_query.py",
+      "target": "file:frappe/model/meta.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

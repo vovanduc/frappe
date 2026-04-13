@@ -1,0 +1,65 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js",
+      "type": "file",
+      "name": "workflow_builder.bundle.js",
+      "summary": "Legacy JS bootstrap that mounts the WorkflowBuilder.vue app into a Frappe desk page with Pinia store and page actions.",
+      "tags": ["bundle", "vue", "pinia", "workflow", "bootstrap"],
+      "complexity": "frappe/public/js/workflow_builder/workflow_builder.bundle.js"
+    },
+    {
+      "id": "class:WorkflowBuilder",
+      "type": "class",
+      "name": "WorkflowBuilder",
+      "summary": "Class that wires a Frappe page to a Vue WorkflowBuilder app: sets title, primary/reset/menu actions, creates Pinia store, and mounts the Vue component. Registered on frappe.ui.WorkflowBuilder.",
+      "tags": ["class", "vue-host", "page-controller"],
+      "complexity": "7-65"
+    },
+    {
+      "id": "method:WorkflowBuilder.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Stores wrapper/page/workflow, sets Beta indicator, calls init().",
+      "tags": ["constructor"],
+      "complexity": "8-16"
+    },
+    {
+      "id": "method:WorkflowBuilder.init",
+      "type": "function",
+      "name": "init",
+      "summary": "Sets page title and invokes setup_page_actions and setup_app.",
+      "tags": ["init"],
+      "complexity": "18-24"
+    },
+    {
+      "id": "method:WorkflowBuilder.setup_page_actions",
+      "type": "function",
+      "name": "setup_page_actions",
+      "summary": "Clears page actions/menu and registers Save primary, Reset Changes button, and Go to Workflow menu item.",
+      "tags": ["page-actions", "ui"],
+      "complexity": "26-44"
+    },
+    {
+      "id": "method:WorkflowBuilder.setup_app",
+      "type": "function",
+      "name": "setup_app",
+      "summary": "Creates Pinia instance, Vue app from WorkflowBuilderComponent, applies SetVueGlobals and global components, initializes store with workflow_name, then mounts into wrapper.",
+      "tags": ["vue", "mount", "pinia"],
+      "complexity": "46-64"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "class:WorkflowBuilder", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:WorkflowBuilder", "target": "method:WorkflowBuilder.constructor", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:WorkflowBuilder", "target": "method:WorkflowBuilder.init", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:WorkflowBuilder", "target": "method:WorkflowBuilder.setup_page_actions", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:WorkflowBuilder", "target": "method:WorkflowBuilder.setup_app", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "vue", "type": "imports", "direction": "forward", "weight": 0.8},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "pinia", "type": "imports", "direction": "forward", "weight": 0.8},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "frappe/public/js/workflow_builder/WorkflowBuilder.vue", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "frappe/public/js/workflow_builder/globals.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/workflow_builder/workflow_builder.bundle.js", "target": "class:WorkflowBuilder", "type": "exports", "direction": "forward", "weight": 1.0}
+  ]
+}

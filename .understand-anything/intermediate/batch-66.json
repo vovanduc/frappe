@@ -1,0 +1,68 @@
+{
+  "nodes": [
+    {"id": "file:frappe/public/js/frappe/form/controls/multiselect_pills.js", "type": "file", "name": "multiselect_pills.js", "summary": "ControlMultiSelectPills form control using Awesomplete autocomplete. Displays selected values as removable pill tags and persists them as JSON array.", "tags": ["form-control", "multiselect", "awesomplete", "javascript"], "complexity": "moderate", "filePath": "frappe/public/js/frappe/form/controls/multiselect_pills.js"},
+    {"id": "class:ControlMultiSelectPills", "type": "class", "name": "ControlMultiSelectPills", "summary": "Multi-select control with pill UI. Sets up Awesomplete autocomplete, handles pill add/remove, formats value as JSON array.", "tags": ["class", "control", "multiselect"], "complexity": "L3-L162", "filePath": "frappe/public/js/frappe/form/controls/multiselect_pills.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/password.js", "type": "file", "name": "password.js", "summary": "ControlPassword extending ControlData. Masks input as password type and provides a toggle button to show/hide plain text.", "tags": ["form-control", "password", "javascript"], "complexity": "simple", "filePath": "frappe/public/js/frappe/form/controls/password.js"},
+    {"id": "class:ControlPassword", "type": "class", "name": "ControlPassword", "summary": "Password input control with show/hide toggle icon and copy button.", "tags": ["class", "control", "password"], "complexity": "L1-L109", "filePath": "frappe/public/js/frappe/form/controls/password.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/percent.js", "type": "file", "name": "percent.js", "summary": "ControlPercent trivial subclass of ControlFloat used for percentage fields.", "tags": ["form-control", "percent", "javascript"], "complexity": "simple", "filePath": "frappe/public/js/frappe/form/controls/percent.js"},
+    {"id": "class:ControlPercent", "type": "class", "name": "ControlPercent", "summary": "Percent control extending ControlFloat without additional behavior.", "tags": ["class", "control", "percent"], "complexity": "L1-L13", "filePath": "frappe/public/js/frappe/form/controls/percent.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/phone.js", "type": "file", "name": "phone.js", "summary": "ControlPhone with country code picker. Uses PhonePicker component and localforage to cache country dial-codes, formats phone numbers with dial prefix.", "tags": ["form-control", "phone", "localforage", "javascript"], "complexity": "complex", "filePath": "frappe/public/js/frappe/form/controls/phone.js"},
+    {"id": "class:ControlPhone", "type": "class", "name": "ControlPhone", "summary": "Phone input with country dial-code selector, caches country list via localforage, parses and formats phone numbers.", "tags": ["class", "control", "phone"], "complexity": "L4-L237", "filePath": "frappe/public/js/frappe/form/controls/phone.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js", "type": "file", "name": "mention.js", "summary": "Quill Embed blot for @mention tokens storing id/value as data attributes and rendering as inline span.", "tags": ["quill", "blot", "mention", "javascript"], "complexity": "simple", "filePath": "frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js"},
+    {"id": "class:MentionBlot", "type": "class", "name": "MentionBlot", "summary": "Quill Embed blot for mention tokens; serializes id/value/denotationChar to data-* attributes.", "tags": ["class", "quill", "blot"], "complexity": "L5-L36", "filePath": "frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/quill-mention/constants/keys.js", "type": "file", "name": "keys.js", "summary": "Keyboard key-code constants (TAB, ENTER, ESCAPE, UP, DOWN) for quill-mention navigation.", "tags": ["constants", "keys", "javascript"], "complexity": "simple", "filePath": "frappe/public/js/frappe/form/controls/quill-mention/constants/keys.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "type": "file", "name": "quill.mention.js", "summary": "Quill mention module implementing @-mention autocomplete: triggers on denotation char, renders suggestion list, handles keyboard navigation, inserts MentionBlot on selection.", "tags": ["quill", "mention", "autocomplete", "javascript"], "complexity": "complex", "filePath": "frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js"},
+    {"id": "class:Mention", "type": "class", "name": "Mention", "summary": "Quill module providing @-mention popup. Listens to text-change, filters source via user callback, positions suggestion list, handles key bindings and inserts mention blots.", "tags": ["class", "quill", "mention"], "complexity": "L5-L391", "filePath": "frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/rating.js", "type": "file", "name": "rating.js", "summary": "ControlRating rendering a star-rating widget with configurable number of stars, supports fractional values and read-only mode.", "tags": ["form-control", "rating", "stars", "javascript"], "complexity": "moderate", "filePath": "frappe/public/js/frappe/form/controls/rating.js"},
+    {"id": "class:ControlRating", "type": "class", "name": "ControlRating", "summary": "Star-rating control extending ControlFloat; renders SVG stars, handles click-to-rate with half-star support.", "tags": ["class", "control", "rating"], "complexity": "L1-L117", "filePath": "frappe/public/js/frappe/form/controls/rating.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/select.js", "type": "file", "name": "select.js", "summary": "ControlSelect native <select> control. Parses options from string/array, supports dynamic option loading and translation of labels.", "tags": ["form-control", "select", "javascript"], "complexity": "moderate", "filePath": "frappe/public/js/frappe/form/controls/select.js"},
+    {"id": "class:ControlSelect", "type": "class", "name": "ControlSelect", "summary": "Dropdown select control with option parsing helpers (set_options, get_options), value translation and change handling.", "tags": ["class", "control", "select"], "complexity": "L1-L185", "filePath": "frappe/public/js/frappe/form/controls/select.js"},
+
+    {"id": "file:frappe/public/js/frappe/form/controls/signature.js", "type": "file", "name": "signature.js", "summary": "ControlSignature using signature_pad to capture handwritten signatures as base64 PNG stored in field value.", "tags": ["form-control", "signature", "canvas", "javascript"], "complexity": "moderate", "filePath": "frappe/public/js/frappe/form/controls/signature.js"},
+    {"id": "class:ControlSignature", "type": "class", "name": "ControlSignature", "summary": "Signature pad control rendering canvas, supports clear/save, stores drawn signature as data URL.", "tags": ["class", "control", "signature"], "complexity": "L1-L138", "filePath": "frappe/public/js/frappe/form/controls/signature.js"}
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/form/controls/multiselect_pills.js", "target": "class:ControlMultiSelectPills", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/multiselect_pills.js", "target": "ext:awesomplete", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlMultiSelectPills", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/password.js", "target": "class:ControlPassword", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlPassword", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/percent.js", "target": "class:ControlPercent", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlPercent", "target": "class:ControlFloat", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/phone.js", "target": "class:ControlPhone", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/phone.js", "target": "ext:localforage", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/phone.js", "target": "file:frappe/public/js/frappe/phone_picker/phone_picker.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlPhone", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js", "target": "class:MentionBlot", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js", "target": "ext:quill", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "class:MentionBlot", "target": "ext:quill.Embed", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "target": "class:Mention", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "target": "ext:quill", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "target": "file:frappe/public/js/frappe/form/controls/quill-mention/constants/keys.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "target": "file:frappe/public/js/frappe/form/controls/quill-mention/blots/mention.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js", "target": "class:Mention", "type": "exports", "direction": "forward", "weight": 1.0},
+    {"source": "class:Mention", "target": "class:MentionBlot", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/rating.js", "target": "class:ControlRating", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlRating", "target": "class:ControlFloat", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/select.js", "target": "class:ControlSelect", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlSelect", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/signature.js", "target": "class:ControlSignature", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:ControlSignature", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1.0}
+  ]
+}

@@ -1,0 +1,366 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/system_settings/system_settings.js",
+      "type": "file",
+      "name": "system_settings.js",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.js",
+      "summary": "Client-side controller for System Settings DocType. Handles timezone loading, password policy toggles, two-factor auth UI, rounding method warnings, and page reload on effective setting changes.",
+      "tags": ["javascript", "client-controller", "system-settings", "form-events"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "file",
+      "name": "system_settings.py",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "summary": "Server-side controller for System Settings DocType. Validates password policy, session expiry, 2FA config, backup limits, file extensions, and OTP SMS templates. On update, sets system defaults and clears caches. Provides whitelisted load() for timezones/defaults and get_system_settings() for cached setting retrieval.",
+      "tags": ["python", "doctype-controller", "system-settings", "validation", "cache", "defaults"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/system_settings/test_system_settings.py",
+      "type": "file",
+      "name": "test_system_settings.py",
+      "filePath": "frappe/core/doctype/system_settings/test_system_settings.py",
+      "summary": "Empty test stub for System Settings DocType. Contains only the test class definition with no test methods.",
+      "tags": ["python", "test", "system-settings"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/translation/test_translation.py",
+      "type": "file",
+      "name": "test_translation.py",
+      "filePath": "frappe/core/doctype/translation/test_translation.py",
+      "summary": "Integration tests for Translation DocType. Tests CRUD operations on translations, parent language fallback (e.g., es-MX falling back to es), multi-language translations, HTML content stripping, and HTML message translation fallback.",
+      "tags": ["python", "test", "translation", "i18n", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/translation/translation.js",
+      "type": "file",
+      "name": "translation.js",
+      "filePath": "frappe/core/doctype/translation/translation.js",
+      "summary": "Minimal client-side controller for Translation DocType. Shows an intro message warning that translations are visible to guests.",
+      "tags": ["javascript", "client-controller", "translation"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/translation/translation.py",
+      "type": "file",
+      "name": "translation.py",
+      "filePath": "frappe/core/doctype/translation/translation.py",
+      "summary": "Server-side controller for Translation DocType. Strips HTML from source text during validation, clears user and merged translation caches on update/trash, and triggers translation version change.",
+      "tags": ["python", "doctype-controller", "translation", "i18n", "cache"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/user/test_user.py",
+      "type": "file",
+      "name": "test_user.py",
+      "filePath": "frappe/core/doctype/user/test_user.py",
+      "summary": "Comprehensive integration tests for User DocType. Tests user type assignment (System/Website), deletion with linked records, get_value operations, permlevel validations, password strength policy, comment mention extraction, rate-limited password reset, user rename, signup flow with throttling, reset password lifecycle with key expiry, onload modules, and user impersonation.",
+      "tags": ["python", "test", "user", "integration-test", "authentication", "permissions"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/user/user.js",
+      "type": "file",
+      "name": "user.js",
+      "filePath": "frappe/core/doctype/user/user.js",
+      "summary": "Client-side controller for User DocType. Manages role editor and module editor initialization, timezone selection, module profile handling, permission management buttons, password reset/LDAP reset dialogs, OTP secret reset, API key generation with download/copy dialog, user email account creation, impersonation flow, role profile add/remove handling, and session sign-out.",
+      "tags": ["javascript", "client-controller", "user", "roles", "permissions", "authentication", "api-keys"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:SystemSettings",
+      "type": "class",
+      "name": "SystemSettings",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [12, 216],
+      "summary": "Document controller for System Settings. Validates password policy, session expiry format, 2FA prerequisites (SMS gateway), backup limits, file extensions, OTP SMS templates, and link field result limits. On update, sets system defaults and clears settings cache.",
+      "tags": ["python", "document-controller", "validation", "system-settings"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:SystemSettings.validate",
+      "type": "function",
+      "name": "validate",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [112, 160],
+      "summary": "Validates password policy score, session expiry format, 2FA settings with SMS gateway check, force password reset flag, user pass login prerequisites, backup limits, file extensions, OTP SMS template, and link field results limit (capped at 50).",
+      "tags": ["python", "lifecycle-hook", "validation"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:SystemSettings.on_update",
+      "type": "function",
+      "name": "on_update",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [200, 205],
+      "summary": "Sets system defaults from changed fields, clears system settings cache, and optionally updates last reset password date for all users.",
+      "tags": ["python", "lifecycle-hook", "cache"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:load",
+      "type": "function",
+      "name": "load",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [229, 243],
+      "summary": "Whitelisted API endpoint that returns all timezones and system defaults for Select/Data fields. Restricted to System Manager role.",
+      "tags": ["python", "whitelisted", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_system_settings",
+      "type": "function",
+      "name": "get_system_settings",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [246, 256],
+      "summary": "Retrieves a single system setting value by key using client cache with request-level local caching. Handles DoesNotExistError for new installs gracefully.",
+      "tags": ["python", "utility", "cache", "system-settings"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:clear_system_settings_cache",
+      "type": "function",
+      "name": "clear_system_settings_cache",
+      "filePath": "frappe/core/doctype/system_settings/system_settings.py",
+      "lineRange": [259, 262],
+      "summary": "Clears system settings from document cache, system_settings key, and time_zone key in Redis.",
+      "tags": ["python", "cache", "utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:Translation",
+      "type": "class",
+      "name": "Translation",
+      "filePath": "frappe/core/doctype/translation/translation.py",
+      "lineRange": [12, 43],
+      "summary": "Document controller for Translation DocType. Strips HTML tags from source text during validation. Clears user and merged translation caches on update and trash, including when language changes.",
+      "tags": ["python", "document-controller", "translation", "i18n"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:clear_user_translation_cache",
+      "type": "function",
+      "name": "clear_user_translation_cache",
+      "filePath": "frappe/core/doctype/translation/translation.py",
+      "lineRange": [46, 49],
+      "summary": "Clears user translation and merged translation Redis hash caches for a given language, and bumps the translation version.",
+      "tags": ["python", "cache", "translation", "utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestTranslation",
+      "type": "class",
+      "name": "TestTranslation",
+      "filePath": "frappe/core/doctype/translation/test_translation.py",
+      "lineRange": [8, 101],
+      "summary": "Integration test class for Translation DocType. Tests creation/deletion of translations across multiple languages, parent language fallback, multi-language isolation, HTML content stripping, and HTML message translation.",
+      "tags": ["python", "test-class", "translation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestUser",
+      "type": "class",
+      "name": "TestUser",
+      "filePath": "frappe/core/doctype/user/test_user.py",
+      "lineRange": [35, 461],
+      "summary": "Comprehensive integration test class for User DocType covering user type assignment, deletion, get_value operations, permlevel validations, password strength, comment mentions, rate limiting, rename, signup, password reset lifecycle, onload modules, and reset password link expiry.",
+      "tags": ["python", "test-class", "user", "integration-test"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:TestImpersonation",
+      "type": "class",
+      "name": "TestImpersonation",
+      "filePath": "frappe/core/doctype/user/test_user.py",
+      "lineRange": [464, 472],
+      "summary": "API test class for user impersonation feature. Tests that a System Manager can impersonate another user via the API endpoint.",
+      "tags": ["python", "test-class", "user", "impersonation", "api-test"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:test_user_context_manager",
+      "type": "function",
+      "name": "test_user",
+      "filePath": "frappe/core/doctype/user/test_user.py",
+      "lineRange": [475, 495],
+      "summary": "Context manager that creates a temporary test user with specified roles, yields it for testing, then deletes it. Supports optional commit for API tests requiring database persistence.",
+      "tags": ["python", "test-utility", "context-manager", "user"],
+      "complexity": "medium"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:SystemSettings",
+      "target": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:SystemSettings.validate",
+      "target": "class:SystemSettings",
+      "type": "methodOf",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:SystemSettings.on_update",
+      "target": "class:SystemSettings",
+      "type": "methodOf",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:load",
+      "target": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_system_settings",
+      "target": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:clear_system_settings_cache",
+      "target": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:SystemSettings.on_update",
+      "target": "func:clear_system_settings_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/system_settings/system_settings.js",
+      "target": "func:load",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/system_settings/system_settings.js",
+      "target": "class:SystemSettings",
+      "type": "clientFor",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/system_settings/test_system_settings.py",
+      "target": "class:SystemSettings",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Translation",
+      "target": "file:frappe/core/doctype/translation/translation.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:clear_user_translation_cache",
+      "target": "file:frappe/core/doctype/translation/translation.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:Translation",
+      "target": "func:clear_user_translation_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/translation/translation.js",
+      "target": "class:Translation",
+      "type": "clientFor",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestTranslation",
+      "target": "file:frappe/core/doctype/translation/test_translation.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestTranslation",
+      "target": "class:Translation",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestUser",
+      "target": "file:frappe/core/doctype/user/test_user.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestImpersonation",
+      "target": "file:frappe/core/doctype/user/test_user.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:test_user_context_manager",
+      "target": "file:frappe/core/doctype/user/test_user.py",
+      "type": "definedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.js",
+      "target": "file:frappe/core/doctype/user/test_user.py",
+      "type": "testedBy",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:TestUser",
+      "target": "class:SystemSettings",
+      "type": "dependsOn",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:SystemSettings.validate",
+      "target": "class:Translation",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "class:TestImpersonation",
+      "target": "func:test_user_context_manager",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user/user.js",
+      "target": "file:frappe/core/doctype/system_settings/system_settings.py",
+      "type": "dependsOn",
+      "direction": "forward",
+      "weight": 0.4
+    }
+  ]
+}

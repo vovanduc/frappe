@@ -1,0 +1,625 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/database/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/database/__init__.py",
+      "summary": "Database module entry point that dispatches to the correct backend (MariaDB, PostgreSQL, or SQLite) based on site configuration. Provides factory functions for database setup, bootstrapping, dropping, connection creation, and CLI command generation.",
+      "tags": ["database", "factory", "backend-dispatch", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/database.py",
+      "type": "file",
+      "name": "database.py",
+      "filePath": "frappe/database/database.py",
+      "summary": "Core abstract Database class that provides the full database abstraction layer including SQL execution, CRUD operations, transaction management (commit/rollback/savepoint), value caching, and query logging. This is the base class all database backends inherit from.",
+      "tags": ["database", "abstraction", "ORM", "transactions", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/db_manager.py",
+      "type": "file",
+      "name": "db_manager.py",
+      "filePath": "frappe/database/db_manager.py",
+      "summary": "Database administration manager for creating/dropping databases, managing users and privileges, and restoring database backups. Used primarily during site setup and maintenance.",
+      "tags": ["database", "administration", "setup", "backup-restore"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/mariadb/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/database/mariadb/__init__.py",
+      "summary": "Empty init file for the MariaDB database backend package.",
+      "tags": ["database", "mariadb", "package"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/database/mariadb/database.py",
+      "type": "file",
+      "name": "database.py (mariadb/pymysql)",
+      "filePath": "frappe/database/mariadb/database.py",
+      "summary": "MariaDB database backend implementation using pymysql driver. Provides MariaDB-specific connection handling, error classification, type mapping, schema operations (table creation, index management, column operations), and SQL escaping.",
+      "tags": ["database", "mariadb", "pymysql", "backend-implementation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/mariadb/mysqlclient.py",
+      "type": "file",
+      "name": "mysqlclient.py",
+      "filePath": "frappe/database/mariadb/mysqlclient.py",
+      "summary": "Alternative MariaDB database backend implementation using the mysqlclient (MySQLdb) driver instead of pymysql. Provides the same interface as the pymysql variant with driver-specific connection settings and converters.",
+      "tags": ["database", "mariadb", "mysqlclient", "backend-implementation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/mariadb/schema.py",
+      "type": "file",
+      "name": "schema.py (mariadb)",
+      "filePath": "frappe/database/mariadb/schema.py",
+      "summary": "MariaDB-specific schema management via the MariaDBTable class, handling table creation with proper engine/charset settings, ALTER TABLE operations for columns/indexes/unique constraints, and primary key migration between varchar and UUID types.",
+      "tags": ["database", "mariadb", "schema", "DDL", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/mariadb/setup_db.py",
+      "type": "file",
+      "name": "setup_db.py (mariadb)",
+      "filePath": "frappe/database/mariadb/setup_db.py",
+      "summary": "MariaDB site database setup procedures including creating users and databases, bootstrapping from SQL dumps, version compatibility checks, and managing root database connections.",
+      "tags": ["database", "mariadb", "setup", "bootstrap", "administration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/operator_map.py",
+      "type": "file",
+      "name": "operator_map.py",
+      "filePath": "frappe/database/operator_map.py",
+      "summary": "Defines the OPERATOR_MAP dictionary mapping filter operator strings (like, in, not in, between, regex, is, timespan) to query builder functions using PyPika Field operations.",
+      "tags": ["database", "query-builder", "operators", "filters"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/postgres/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/database/postgres/__init__.py",
+      "summary": "Empty init file for the PostgreSQL database backend package.",
+      "tags": ["database", "postgres", "package"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/database/database.py:Database",
+      "type": "class",
+      "name": "Database",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [84, 1557],
+      "summary": "Core abstract database class providing the complete database API including SQL execution, CRUD operations (get_value, set_value, delete, bulk_insert), transaction control (commit, rollback, savepoint), value caching, and query logging. All database backends inherit from this class.",
+      "tags": ["database", "abstraction", "ORM", "transactions", "base-class"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/database/db_manager.py:DbManager",
+      "type": "class",
+      "name": "DbManager",
+      "filePath": "frappe/database/db_manager.py",
+      "lineRange": [5, 106],
+      "summary": "Database administration manager handling user creation/deletion, database creation/dropping, privilege granting, and backup restoration. Works with root-level database connections for administrative operations.",
+      "tags": ["database", "administration", "users", "privileges", "restore"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/mariadb/database.py:MariaDBExceptionUtil",
+      "type": "class",
+      "name": "MariaDBExceptionUtil (pymysql)",
+      "filePath": "frappe/database/mariadb/database.py",
+      "lineRange": [13, 101],
+      "summary": "Mixin class that classifies pymysql database errors into semantic categories (deadlock, timeout, missing table/column, duplicate entry, access denied, etc.) using MySQL error codes.",
+      "tags": ["database", "mariadb", "error-handling", "pymysql"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/mariadb/database.py:MariaDBConnectionUtil",
+      "type": "class",
+      "name": "MariaDBConnectionUtil (pymysql)",
+      "filePath": "frappe/database/mariadb/database.py",
+      "lineRange": [104, 156],
+      "summary": "Mixin class for pymysql-based MariaDB connections, providing connection creation with SSL support, charset configuration, and execution timeout settings.",
+      "tags": ["database", "mariadb", "connection", "pymysql", "SSL"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "type": "class",
+      "name": "MariaDBDatabase (pymysql)",
+      "filePath": "frappe/database/mariadb/database.py",
+      "lineRange": [159, 576],
+      "summary": "Complete MariaDB database backend using pymysql driver. Inherits from MariaDBConnectionUtil, MariaDBExceptionUtil, and Database to provide MariaDB-specific type mapping, schema operations, index management, table introspection, and row size estimation.",
+      "tags": ["database", "mariadb", "pymysql", "backend", "schema"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/database/mariadb/mysqlclient.py:MariaDBExceptionUtil",
+      "type": "class",
+      "name": "MariaDBExceptionUtil (mysqlclient)",
+      "filePath": "frappe/database/mariadb/mysqlclient.py",
+      "lineRange": [17, 104],
+      "summary": "Mixin class that classifies MySQLdb database errors into semantic categories using MySQL error codes. Parallel implementation to the pymysql variant.",
+      "tags": ["database", "mariadb", "error-handling", "mysqlclient"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/mariadb/mysqlclient.py:MariaDBConnectionUtil",
+      "type": "class",
+      "name": "MariaDBConnectionUtil (mysqlclient)",
+      "filePath": "frappe/database/mariadb/mysqlclient.py",
+      "lineRange": [107, 158],
+      "summary": "Mixin class for MySQLdb-based MariaDB connections, providing connection creation with SSL support and multi_statements disabled for safety.",
+      "tags": ["database", "mariadb", "connection", "mysqlclient", "SSL"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "type": "class",
+      "name": "MariaDBDatabase (mysqlclient)",
+      "filePath": "frappe/database/mariadb/mysqlclient.py",
+      "lineRange": [189, 603],
+      "summary": "Complete MariaDB database backend using mysqlclient (MySQLdb) driver. Provides the same interface as the pymysql variant with driver-specific type conversions and connection handling.",
+      "tags": ["database", "mariadb", "mysqlclient", "backend", "schema"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/database/mariadb/schema.py:MariaDBTable",
+      "type": "class",
+      "name": "MariaDBTable",
+      "filePath": "frappe/database/mariadb/schema.py",
+      "lineRange": [9, 194],
+      "summary": "MariaDB-specific table schema management class that handles CREATE TABLE with proper engine/charset/row format settings, and ALTER TABLE operations for adding/modifying/dropping columns, indexes, unique constraints, and primary key migration.",
+      "tags": ["database", "mariadb", "schema", "DDL", "table-management"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/database/__init__.py:get_db",
+      "type": "function",
+      "name": "get_db",
+      "filePath": "frappe/database/__init__.py",
+      "lineRange": [63, 89],
+      "summary": "Factory function that creates and returns the appropriate database connection object based on site configuration (PostgreSQL, SQLite, or MariaDB with mysqlclient or pymysql driver).",
+      "tags": ["database", "factory", "connection", "dispatch"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/__init__.py:setup_database",
+      "type": "function",
+      "name": "setup_database",
+      "filePath": "frappe/database/__init__.py",
+      "lineRange": [12, 27],
+      "summary": "Dispatches database setup to the appropriate backend (MariaDB, SQLite, or PostgreSQL) based on the db_type configuration.",
+      "tags": ["database", "setup", "dispatch"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/database/__init__.py:get_command",
+      "type": "function",
+      "name": "get_command",
+      "filePath": "frappe/database/__init__.py",
+      "lineRange": [92, 162],
+      "summary": "Constructs the CLI command and arguments for interacting with the database (mariadb/mysql, psql/pg_dump, or sqlite3) based on configuration, supporting both interactive and dump modes.",
+      "tags": ["database", "CLI", "backup", "command-builder"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/database.py:Database.sql",
+      "type": "function",
+      "name": "Database.sql",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [183, 349],
+      "summary": "Core SQL execution method that handles query transformation, error classification (deadlock, timeout, read-only mode), logging, result formatting (as_dict, as_list, pluck, as_iterator), and auto-commit functionality.",
+      "tags": ["database", "SQL", "query-execution", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/database/database.py:Database.get_value",
+      "type": "function",
+      "name": "Database.get_value",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [516, 592],
+      "summary": "Retrieves a single document property or list of properties with support for caching, locking (for_update/skip_locked), and flexible filter formats. One of the most frequently called database methods in the framework.",
+      "tags": ["database", "query", "CRUD", "caching"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/database.py:Database.set_value",
+      "type": "function",
+      "name": "Database.set_value",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [933, 1000],
+      "summary": "Sets a single value in the database without triggering ORM hooks, automatically updating the modified timestamp unless specified otherwise. Bypasses the Document lifecycle.",
+      "tags": ["database", "update", "CRUD", "direct-write"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/database.py:Database.commit",
+      "type": "function",
+      "name": "Database.commit",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [1175, 1193],
+      "summary": "Commits the current transaction, running before_commit and after_commit callback managers, clearing the value cache, and optionally chaining to start a new transaction immediately.",
+      "tags": ["database", "transaction", "commit", "callbacks"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/database.py:Database.rollback",
+      "type": "function",
+      "name": "Database.rollback",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [1195, 1216],
+      "summary": "Rolls back the current transaction or to a named savepoint, running before_rollback and after_rollback callbacks for full rollbacks.",
+      "tags": ["database", "transaction", "rollback", "savepoint"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/database.py:savepoint",
+      "type": "function",
+      "name": "savepoint",
+      "filePath": "frappe/database/database.py",
+      "lineRange": [1560, 1583],
+      "summary": "Context manager for wrapping database operations in a savepoint that can be selectively rolled back on specific exception types, enabling partial transaction recovery.",
+      "tags": ["database", "transaction", "savepoint", "context-manager"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/mariadb/setup_db.py:setup_database",
+      "type": "function",
+      "name": "setup_database (mariadb)",
+      "filePath": "frappe/database/mariadb/setup_db.py",
+      "lineRange": [22, 55],
+      "summary": "Creates a MariaDB database user and database for a new site, grants privileges, and handles force-recreation of existing databases.",
+      "tags": ["database", "mariadb", "setup", "site-creation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/database/mariadb/setup_db.py:get_root_connection",
+      "type": "function",
+      "name": "get_root_connection",
+      "filePath": "frappe/database/mariadb/setup_db.py",
+      "lineRange": [124, 152],
+      "summary": "Obtains a root-level MariaDB connection for administrative operations, prompting for credentials interactively if not configured.",
+      "tags": ["database", "mariadb", "root-connection", "authentication"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "file:frappe/database/database.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "file:frappe/database/mariadb/setup_db.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "file:frappe/database/mariadb/mysqlclient.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "file:frappe/database/mariadb/database.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "func:frappe/database/__init__.py:get_db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "func:frappe/database/__init__.py:setup_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/__init__.py",
+      "target": "func:frappe/database/__init__.py:get_command",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/database.py",
+      "target": "class:frappe/database/database.py:Database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/database.py",
+      "target": "func:frappe/database/database.py:savepoint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/database.py",
+      "target": "file:frappe/database/operator_map.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/database/database.py:Database",
+      "target": "func:frappe/database/database.py:Database.sql",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/database.py:Database",
+      "target": "func:frappe/database/database.py:Database.get_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/database.py:Database",
+      "target": "func:frappe/database/database.py:Database.set_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/database.py:Database",
+      "target": "func:frappe/database/database.py:Database.commit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/database.py:Database",
+      "target": "func:frappe/database/database.py:Database.rollback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/db_manager.py",
+      "target": "class:frappe/database/db_manager.py:DbManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/db_manager.py",
+      "target": "file:frappe/database/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/database/db_manager.py:DbManager",
+      "target": "class:frappe/database/database.py:Database",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/mariadb/database.py",
+      "target": "file:frappe/database/database.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/mariadb/database.py",
+      "target": "file:frappe/database/mariadb/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/mariadb/database.py",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBExceptionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/mariadb/database.py",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBConnectionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/mariadb/database.py",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "target": "class:frappe/database/database.py:Database",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBExceptionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBConnectionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/schema.py:MariaDBTable",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/mariadb/mysqlclient.py",
+      "target": "file:frappe/database/database.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/mariadb/mysqlclient.py",
+      "target": "file:frappe/database/mariadb/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/mariadb/mysqlclient.py",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBExceptionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/mariadb/mysqlclient.py",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBConnectionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/mariadb/mysqlclient.py",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "target": "class:frappe/database/database.py:Database",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBExceptionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBConnectionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "target": "class:frappe/database/mariadb/schema.py:MariaDBTable",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/mariadb/schema.py",
+      "target": "class:frappe/database/mariadb/schema.py:MariaDBTable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/mariadb/schema.py:MariaDBTable",
+      "target": "file:frappe/database/database.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/mariadb/setup_db.py",
+      "target": "file:frappe/database/db_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/mariadb/setup_db.py",
+      "target": "func:frappe/database/mariadb/setup_db.py:setup_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/mariadb/setup_db.py",
+      "target": "func:frappe/database/mariadb/setup_db.py:get_root_connection",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:frappe/database/mariadb/setup_db.py:setup_database",
+      "target": "class:frappe/database/db_manager.py:DbManager",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/database/mariadb/setup_db.py:get_root_connection",
+      "target": "func:frappe/database/__init__.py:get_db",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/database/operator_map.py",
+      "target": "file:frappe/database/database.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/database/__init__.py:setup_database",
+      "target": "func:frappe/database/mariadb/setup_db.py:setup_database",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/database/__init__.py:get_db",
+      "target": "class:frappe/database/mariadb/mysqlclient.py:MariaDBDatabase",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/database/__init__.py:get_db",
+      "target": "class:frappe/database/mariadb/database.py:MariaDBDatabase",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

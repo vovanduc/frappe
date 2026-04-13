@@ -1,0 +1,712 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/report/test_report.py",
+      "type": "file",
+      "name": "test_report.py",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "summary": "Integration tests for the Report DocType covering report builder, query reports, script reports, permissions, custom reports, cache invalidation, and total row calculations for tree reports.",
+      "tags": ["test", "report", "integration-test", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:TestReport",
+      "type": "class",
+      "name": "TestReport",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [19, 437],
+      "summary": "Integration test class for Report DocType with 12 test methods covering report builder, query reports, script reports, permissions, custom reports, toggle disabled, tree total rows, and cache invalidation.",
+      "tags": ["test", "report", "integration-test"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:TestReport.test_report_builder",
+      "type": "function",
+      "name": "test_report_builder",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [25, 36],
+      "summary": "Tests that a Report Builder type report correctly loads columns and data from a JSON fixture file.",
+      "tags": ["test", "report-builder"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:TestReport.test_query_report",
+      "type": "function",
+      "name": "test_query_report",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [38, 43],
+      "summary": "Tests query report execution with filters, verifying columns and data output.",
+      "tags": ["test", "query-report"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:TestReport.test_save_or_delete_report",
+      "type": "function",
+      "name": "test_save_or_delete_report",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [45, 102],
+      "summary": "Tests permission and validation checks when saving or deleting Report Builder reports, including ownership and report type validation.",
+      "tags": ["test", "permissions", "report-builder"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_custom_report",
+      "type": "function",
+      "name": "test_custom_report",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [104, 139],
+      "summary": "Tests saving and running a custom report with custom columns and filters, verifying result data correctness.",
+      "tags": ["test", "custom-report"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_report_permissions",
+      "type": "function",
+      "name": "test_report_permissions",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [177, 200],
+      "summary": "Tests that report access is denied when user lacks the required role.",
+      "tags": ["test", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_report_custom_permissions",
+      "type": "function",
+      "name": "test_report_custom_permissions",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [202, 237],
+      "summary": "Tests custom role-based permissions on reports, verifying that Custom Role overrides default report roles.",
+      "tags": ["test", "permissions", "custom-role"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_non_standard_script_report",
+      "type": "function",
+      "name": "test_non_standard_script_report",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [254, 293],
+      "summary": "Tests non-standard script reports that use safe exec to run inline Python report scripts.",
+      "tags": ["test", "script-report"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_add_total_row_for_tree_reports",
+      "type": "function",
+      "name": "test_add_total_row_for_tree_reports",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [359, 408],
+      "summary": "Tests the add_total_row function for tree-structured reports, ensuring only root-level values are summed.",
+      "tags": ["test", "tree-report", "total-row"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestReport.test_report_cache_invalidation",
+      "type": "function",
+      "name": "test_report_cache_invalidation",
+      "filePath": "frappe/core/doctype/report/test_report.py",
+      "lineRange": [410, 437],
+      "summary": "Tests that creating/deleting a report properly invalidates session cache so boot info reflects current reports.",
+      "tags": ["test", "cache", "session"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/report_column/report_column.py",
+      "type": "file",
+      "name": "report_column.py",
+      "filePath": "frappe/core/doctype/report_column/report_column.py",
+      "summary": "Document controller for ReportColumn child DocType, defining column metadata fields (fieldname, fieldtype, label, options, width) used in Report definitions.",
+      "tags": ["doctype", "child-table", "report", "core"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ReportColumn",
+      "type": "class",
+      "name": "ReportColumn",
+      "filePath": "frappe/core/doctype/report_column/report_column.py",
+      "lineRange": [8, 41],
+      "summary": "Child document class for report columns with typed fields for fieldname, fieldtype (supporting Check, Currency, Data, Date, etc.), label, options, and width.",
+      "tags": ["doctype", "child-table", "report"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/report_filter/report_filter.py",
+      "type": "file",
+      "name": "report_filter.py",
+      "filePath": "frappe/core/doctype/report_filter/report_filter.py",
+      "summary": "Document controller for ReportFilter child DocType, defining filter metadata fields (fieldname, fieldtype, label, default, mandatory, wildcard_filter) used in Report definitions.",
+      "tags": ["doctype", "child-table", "report", "core"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ReportFilter",
+      "type": "class",
+      "name": "ReportFilter",
+      "filePath": "frappe/core/doctype/report_filter/report_filter.py",
+      "lineRange": [8, 42],
+      "summary": "Child document class for report filters with typed fields for fieldname, fieldtype, label, default, mandatory, options, and wildcard_filter.",
+      "tags": ["doctype", "child-table", "report"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role/role.py",
+      "type": "file",
+      "name": "role.py",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "summary": "Document controller for the Role DocType implementing role lifecycle management including validation, disabling, renaming protection for standard roles, desk access toggling, role replication, and utility functions for querying users by role.",
+      "tags": ["doctype", "role", "permissions", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:Role",
+      "type": "class",
+      "name": "Role",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [13, 114],
+      "summary": "Document controller for Role DocType with lifecycle hooks for validation, rename/disable protection of standard roles (Administrator, System Manager, etc.), desk access management that cascades to user types, homepage validation, and role replication with permissions.",
+      "tags": ["doctype", "role", "permissions", "lifecycle-hooks"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:Role.before_rename",
+      "type": "function",
+      "name": "before_rename",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [31, 33],
+      "summary": "Prevents renaming of standard roles (Administrator, System Manager, Script Manager, All, Guest).",
+      "tags": ["lifecycle-hook", "validation"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:Role.validate",
+      "type": "function",
+      "name": "validate",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [38, 43],
+      "summary": "Validation hook that disables role or sets desk properties based on disabled flag, and validates homepage path.",
+      "tags": ["lifecycle-hook", "validation"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:Role.disable_role",
+      "type": "function",
+      "name": "disable_role",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [45, 49],
+      "summary": "Disables a role by removing all Has Role assignments; throws error for standard roles.",
+      "tags": ["role-management"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:Role.on_update",
+      "type": "function",
+      "name": "on_update",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [67, 72],
+      "summary": "After-save hook that triggers user type re-evaluation when desk_access changes.",
+      "tags": ["lifecycle-hook", "desk-access"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:Role.update_user_type_on_change",
+      "type": "function",
+      "name": "update_user_type_on_change",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [74, 88],
+      "summary": "Re-evaluates and updates user_type (System User vs Website User) for all users with this role when desk_access changes, with performance optimization to skip users already matching.",
+      "tags": ["desk-access", "user-type", "performance"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Role.replicate_role",
+      "type": "function",
+      "name": "replicate_role",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [90, 114],
+      "summary": "Whitelisted method to clone a role and all its Custom DocPerm entries to a new role name. Restricted to System Manager.",
+      "tags": ["api", "whitelisted", "role-management"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_info_based_on_role",
+      "type": "function",
+      "name": "get_info_based_on_role",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [117, 133],
+      "summary": "Returns a list of user field values (e.g., email) for all users assigned a given role, with special handling for the Administrator role.",
+      "tags": ["utility", "role-query"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_user_info",
+      "type": "function",
+      "name": "get_user_info",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [136, 143],
+      "summary": "Fetches a specific field for a list of users, filtering out disabled users and example accounts.",
+      "tags": ["utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_users",
+      "type": "function",
+      "name": "get_users",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [146, 150],
+      "summary": "Returns list of user names that have a specific role via Has Role table.",
+      "tags": ["utility", "role-query"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:role_query",
+      "type": "function",
+      "name": "role_query",
+      "filePath": "frappe/core/doctype/role/role.py",
+      "lineRange": [154, 169],
+      "summary": "Whitelisted search function for Role link fields, filtering to non-custom roles excluding 'All'.",
+      "tags": ["api", "whitelisted", "search"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role/role.js",
+      "type": "file",
+      "name": "role.js",
+      "filePath": "frappe/core/doctype/role/role.js",
+      "summary": "Client-side controller for Role form providing dashboard comments for special roles (All, Desk User), custom buttons for Role Permissions Manager, Show Users, and Replicate Role action with a dialog.",
+      "tags": ["frontend", "form-controller", "role", "core"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/role/test_role.py",
+      "type": "file",
+      "name": "test_role.py",
+      "filePath": "frappe/core/doctype/role/test_role.py",
+      "summary": "Integration tests for Role DocType covering role disabling, desk access changes cascading to user type, and querying users by role.",
+      "tags": ["test", "role", "integration-test", "core"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestUser:role",
+      "type": "class",
+      "name": "TestUser (Role)",
+      "filePath": "frappe/core/doctype/role/test_role.py",
+      "lineRange": [9, 51],
+      "summary": "Integration test class for Role DocType with tests for disabling roles, desk access changes affecting user type, and get_info_based_on_role utility.",
+      "tags": ["test", "role", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestUser.test_disable_role",
+      "type": "function",
+      "name": "test_disable_role",
+      "filePath": "frappe/core/doctype/role/test_role.py",
+      "lineRange": [10, 24],
+      "summary": "Tests that disabling a role removes it from users and re-enabling allows re-assignment.",
+      "tags": ["test", "role-disable"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:TestUser.test_change_desk_access",
+      "type": "function",
+      "name": "test_change_desk_access",
+      "filePath": "frappe/core/doctype/role/test_role.py",
+      "lineRange": [26, 43],
+      "summary": "Tests that toggling desk_access on a role cascades to change user_type between System User and Website User.",
+      "tags": ["test", "desk-access", "user-type"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:TestUser.test_get_users_by_role",
+      "type": "function",
+      "name": "test_get_users_by_role",
+      "filePath": "frappe/core/doctype/role/test_role.py",
+      "lineRange": [46, 51],
+      "summary": "Tests get_info_based_on_role utility to verify returned users actually have the specified role.",
+      "tags": ["test", "role-query"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role/patches/v13_set_default_desk_properties.py",
+      "type": "file",
+      "name": "v13_set_default_desk_properties.py",
+      "filePath": "frappe/core/doctype/role/patches/v13_set_default_desk_properties.py",
+      "summary": "Migration patch that sets default desk properties on all existing roles based on their desk_access flag, introduced in v13.",
+      "tags": ["patch", "migration", "role", "v13"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role/__init__.py",
+      "type": "file",
+      "name": "__init__.py (role)",
+      "filePath": "frappe/core/doctype/role/__init__.py",
+      "summary": "Empty init file for the role doctype module.",
+      "tags": ["init", "core"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:TestReport",
+      "target": "file:frappe/core/doctype/report/test_report.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:TestReport.test_report_builder",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_query_report",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_save_or_delete_report",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_custom_report",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_report_permissions",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_report_custom_permissions",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_non_standard_script_report",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_add_total_row_for_tree_reports",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestReport.test_report_cache_invalidation",
+      "target": "class:TestReport",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:ReportColumn",
+      "target": "file:frappe/core/doctype/report_column/report_column.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ReportFilter",
+      "target": "file:frappe/core/doctype/report_filter/report_filter.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Role",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Role.before_rename",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:Role.validate",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:Role.disable_role",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:Role.on_update",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:Role.update_user_type_on_change",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:Role.replicate_role",
+      "target": "class:Role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:get_info_based_on_role",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_user_info",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_users",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:role_query",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestUser:role",
+      "target": "file:frappe/core/doctype/role/test_role.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:TestUser.test_disable_role",
+      "target": "class:TestUser:role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestUser.test_change_desk_access",
+      "target": "class:TestUser:role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:TestUser.test_get_users_by_role",
+      "target": "class:TestUser:role",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:ReportColumn",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ReportFilter",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Role",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestReport",
+      "target": "class:IntegrationTestCase",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestUser:role",
+      "target": "class:IntegrationTestCase",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/report/test_report.py",
+      "target": "file:frappe/core/doctype/report_column/report_column.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/report/test_report.py",
+      "target": "file:frappe/core/doctype/report_filter/report_filter.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:TestReport.test_report_permissions",
+      "target": "class:Role",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:TestReport.test_report_custom_permissions",
+      "target": "class:Role",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/role/test_role.py",
+      "target": "file:frappe/core/doctype/role/role.py",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:TestUser.test_disable_role",
+      "target": "func:Role.disable_role",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:TestUser.test_change_desk_access",
+      "target": "func:Role.update_user_type_on_change",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:TestUser.test_get_users_by_role",
+      "target": "func:get_info_based_on_role",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_info_based_on_role",
+      "target": "func:get_user_info",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:Role.update_user_type_on_change",
+      "target": "func:get_users",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:Role.validate",
+      "target": "func:Role.disable_role",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Role.on_update",
+      "target": "func:Role.update_user_type_on_change",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/role/role.js",
+      "target": "func:Role.replicate_role",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/role/patches/v13_set_default_desk_properties.py",
+      "target": "class:Role",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:Role.replicate_role",
+      "target": "class:CustomDocPerm",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/report/test_report.py",
+      "target": "file:frappe/desk/query_report.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/report/test_report.py",
+      "target": "file:frappe/desk/reportview.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/role/role.py",
+      "target": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/role/role.py",
+      "target": "file:frappe/website/path_resolver.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/role/role.py",
+      "target": "file:frappe/website/router.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

@@ -1,0 +1,439 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/navbar_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/navbar_settings/__init__.py",
+      "summary": "Empty init file for the navbar_settings DocType module.",
+      "tags": ["init", "navbar", "settings"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/navbar_settings/navbar_settings.js",
+      "type": "file",
+      "name": "navbar_settings.js",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.js",
+      "summary": "Client-side controller for Navbar Settings DocType. Clears the toolbar cache after saving settings.",
+      "tags": ["javascript", "client", "navbar", "settings", "ui"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "file",
+      "name": "navbar_settings.py",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "summary": "Server-side controller for Navbar Settings DocType. Manages navigation bar configuration including app logo, help dropdown, and settings dropdown items. Provides sync functionality to merge standard items from hooks during migrations.",
+      "tags": ["python", "doctype", "navbar", "settings", "hooks", "migration"],
+      "complexity": 2
+    },
+    {
+      "id": "class:NavbarSettings",
+      "type": "class",
+      "name": "NavbarSettings",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "lineRange": [9, 25],
+      "summary": "Document controller for Navbar Settings. Defines typed fields for announcement widget, app logo, help dropdown, and settings dropdown items.",
+      "tags": ["doctype", "document", "navbar", "settings"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_app_logo",
+      "type": "function",
+      "name": "get_app_logo",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "lineRange": [28, 41],
+      "summary": "Retrieves the application logo URL. Checks website settings first, then Navbar Settings, and falls back to app_logo_url hooks.",
+      "tags": ["logo", "navbar", "settings", "hooks"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_navbar_settings",
+      "type": "function",
+      "name": "get_navbar_settings",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "lineRange": [44, 45],
+      "summary": "Returns the Navbar Settings singleton document.",
+      "tags": ["navbar", "settings", "singleton"],
+      "complexity": 1
+    },
+    {
+      "id": "func:sync_standard_items",
+      "type": "function",
+      "name": "sync_standard_items",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "lineRange": [48, 52],
+      "summary": "Syncs standard navbar items from hooks during migration. Updates both settings_dropdown and help_dropdown tables.",
+      "tags": ["sync", "migration", "hooks", "navbar"],
+      "complexity": 1
+    },
+    {
+      "id": "func:sync_table",
+      "type": "function",
+      "name": "sync_table",
+      "filePath": "frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "lineRange": [55, 73],
+      "summary": "Syncs a specific navbar dropdown table (settings or help) with items from hooks. Adds new standard items and removes obsolete ones.",
+      "tags": ["sync", "hooks", "navbar", "dropdown"],
+      "complexity": 3
+    },
+    {
+      "id": "file:frappe/core/doctype/navbar_settings/test_navbar_settings.py",
+      "type": "file",
+      "name": "test_navbar_settings.py",
+      "filePath": "frappe/core/doctype/navbar_settings/test_navbar_settings.py",
+      "summary": "Empty test file for Navbar Settings DocType. Contains only the test class stub.",
+      "tags": ["test", "navbar", "settings"],
+      "complexity": 0
+    },
+    {
+      "id": "class:TestNavbarSettings",
+      "type": "class",
+      "name": "TestNavbarSettings",
+      "filePath": "frappe/core/doctype/navbar_settings/test_navbar_settings.py",
+      "lineRange": [7, 8],
+      "summary": "Empty test case class for Navbar Settings DocType.",
+      "tags": ["test", "navbar", "settings"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/package/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/package/__init__.py",
+      "summary": "Empty init file for the package DocType module.",
+      "tags": ["init", "package"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/package/package.js",
+      "type": "file",
+      "name": "package.js",
+      "filePath": "frappe/core/doctype/package/package.js",
+      "summary": "Client-side controller for Package DocType. Auto-generates package_name from doc name on validate, and fetches license text from server when license_type changes.",
+      "tags": ["javascript", "client", "package", "license"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/package/package.py",
+      "type": "file",
+      "name": "package.py",
+      "filePath": "frappe/core/doctype/package/package.py",
+      "summary": "Server-side controller for Package DocType. Manages exportable packages of DocTypes and modules. Validates package names to contain only alphanumeric characters and hyphens. Provides a whitelisted API to fetch license text files.",
+      "tags": ["python", "doctype", "package", "license", "export"],
+      "complexity": 2
+    },
+    {
+      "id": "class:Package",
+      "type": "class",
+      "name": "Package",
+      "filePath": "frappe/core/doctype/package/package.py",
+      "lineRange": [17, 40],
+      "summary": "Document controller for Package DocType. Validates package_name format ensuring only letters, digits, and hyphens. Auto-generates package_name from document name if not set.",
+      "tags": ["doctype", "document", "package", "validation"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_license_text",
+      "type": "function",
+      "name": "get_license_text",
+      "filePath": "frappe/core/doctype/package/package.py",
+      "lineRange": [43, 47],
+      "summary": "Whitelisted API endpoint that reads and returns the full text of a license file (MIT, GPL, AGPL) from bundled templates.",
+      "tags": ["api", "whitelist", "license", "package"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/package/test_package.py",
+      "type": "file",
+      "name": "test_package.py",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "summary": "Integration tests for the Package DocType. Tests the full package release workflow including creating a package, module, doctype, server script, and web page, then verifying the release creates correct file structure.",
+      "tags": ["test", "package", "integration", "release"],
+      "complexity": 3
+    },
+    {
+      "id": "class:TestPackage",
+      "type": "class",
+      "name": "TestPackage",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [11, 51],
+      "summary": "Integration test class for Package DocType. Tests package release by creating test fixtures (package, module, doctype, server script, web page) and verifying the exported file structure.",
+      "tags": ["test", "package", "integration", "release"],
+      "complexity": 3
+    },
+    {
+      "id": "func:make_test_package",
+      "type": "function",
+      "name": "make_test_package",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [53, 57],
+      "summary": "Test helper that creates a 'Test Package' document if it does not already exist.",
+      "tags": ["test", "helper", "fixture", "package"],
+      "complexity": 1
+    },
+    {
+      "id": "func:make_test_module",
+      "type": "function",
+      "name": "make_test_module",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [60, 68],
+      "summary": "Test helper that creates a custom Module Def linked to the test package.",
+      "tags": ["test", "helper", "fixture", "module"],
+      "complexity": 1
+    },
+    {
+      "id": "func:make_test_doctype",
+      "type": "function",
+      "name": "make_test_doctype",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [71, 80],
+      "summary": "Test helper that creates a custom DocType linked to the test module for package testing.",
+      "tags": ["test", "helper", "fixture", "doctype"],
+      "complexity": 1
+    },
+    {
+      "id": "func:make_test_server_script",
+      "type": "function",
+      "name": "make_test_server_script",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [83, 93],
+      "summary": "Test helper that creates a Server Script linked to the test module and doctype.",
+      "tags": ["test", "helper", "fixture", "server-script"],
+      "complexity": 1
+    },
+    {
+      "id": "func:make_test_web_page",
+      "type": "function",
+      "name": "make_test_web_page",
+      "filePath": "frappe/core/doctype/package/test_package.py",
+      "lineRange": [96, 104],
+      "summary": "Test helper that creates a Web Page linked to the test module for package testing.",
+      "tags": ["test", "helper", "fixture", "web-page"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/package_import/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/package_import/__init__.py",
+      "summary": "Empty init file for the package_import DocType module.",
+      "tags": ["init", "package-import"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/package_import/package_import.js",
+      "type": "file",
+      "name": "package_import.js",
+      "filePath": "frappe/core/doctype/package_import/package_import.js",
+      "summary": "Client-side controller stub for Package Import DocType. Contains no active logic.",
+      "tags": ["javascript", "client", "package-import", "stub"],
+      "complexity": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:NavbarSettings",
+      "target": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_app_logo",
+      "target": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_navbar_settings",
+      "target": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:sync_standard_items",
+      "target": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:sync_table",
+      "target": "file:frappe/core/doctype/navbar_settings/navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:sync_standard_items",
+      "target": "func:sync_table",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:sync_table",
+      "target": "class:NavbarSettings",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:NavbarSettings",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/navbar_settings/navbar_settings.js",
+      "target": "class:NavbarSettings",
+      "type": "client_for",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestNavbarSettings",
+      "target": "file:frappe/core/doctype/navbar_settings/test_navbar_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestNavbarSettings",
+      "target": "class:NavbarSettings",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Package",
+      "target": "file:frappe/core/doctype/package/package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_license_text",
+      "target": "file:frappe/core/doctype/package/package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Package",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/package/package.js",
+      "target": "class:Package",
+      "type": "client_for",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/package/package.js",
+      "target": "func:get_license_text",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "class:Package",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:make_test_package",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_test_module",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_test_doctype",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_test_server_script",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_test_web_page",
+      "target": "file:frappe/core/doctype/package/test_package.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "func:make_test_package",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "func:make_test_module",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "func:make_test_doctype",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "func:make_test_server_script",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestPackage",
+      "target": "func:make_test_web_page",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/package_import/package_import.js",
+      "target": "file:frappe/core/doctype/package_import/__init__.py",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

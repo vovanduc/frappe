@@ -1,0 +1,407 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/user_permission/user_permission.js",
+      "type": "file",
+      "name": "user_permission.js",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.js",
+      "summary": "Client-side form controller for User Permission DocType. Sets up query filters for 'allow' and 'applicable_for' fields, provides a button to view permitted documents, and toggles visibility of hide_descendants for nested set doctypes.",
+      "tags": ["javascript", "form-controller", "user-permission", "client-side"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "file",
+      "name": "user_permission.py",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "summary": "Server-side controller and utility functions for User Permission DocType. Manages CRUD operations for user-level document access restrictions, with caching, validation against duplicates, nested set descendant expansion, and bulk permission management APIs.",
+      "tags": ["python", "doctype-controller", "permissions", "rbac", "caching", "whitelisted-api"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_permission/user_permission_list.js",
+      "type": "file",
+      "name": "user_permission_list.js",
+      "filePath": "frappe/core/doctype/user_permission/user_permission_list.js",
+      "summary": "List view settings for User Permission DocType. Provides 'Add / Update' dialog for creating/updating user permissions with multi-select applicable doctypes, and 'Bulk Delete' dialog for clearing permissions by user and doctype.",
+      "tags": ["javascript", "list-view", "user-permission", "dialog", "bulk-operations"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_role/user_role.py",
+      "type": "file",
+      "name": "user_role.py",
+      "filePath": "frappe/core/doctype/user_role/user_role.py",
+      "summary": "Minimal child DocType controller for UserRole, a child table that stores role assignments for users. Contains only auto-generated type hints for parent, parentfield, parenttype, and role fields.",
+      "tags": ["python", "doctype-controller", "child-table", "roles"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_role_profile/user_role_profile.py",
+      "type": "file",
+      "name": "user_role_profile.py",
+      "filePath": "frappe/core/doctype/user_role_profile/user_role_profile.py",
+      "summary": "Minimal child DocType controller for UserRoleProfile, a child table linking users to role profiles. Contains only auto-generated type hints.",
+      "tags": ["python", "doctype-controller", "child-table", "role-profile"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_select_document_type/user_select_document_type.py",
+      "type": "file",
+      "name": "user_select_document_type.py",
+      "filePath": "frappe/core/doctype/user_select_document_type/user_select_document_type.py",
+      "summary": "Minimal child DocType controller for UserSelectDocumentType, a child table storing user-selected document types. Contains only auto-generated type hints.",
+      "tags": ["python", "doctype-controller", "child-table"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:UserPermission",
+      "type": "class",
+      "name": "UserPermission",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [15, 82],
+      "summary": "Document controller for User Permission DocType. Validates against duplicate permissions and overlapping defaults on save. Invalidates user permission cache on update/trash and publishes realtime events.",
+      "tags": ["python", "document-class", "permissions", "validation", "caching"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:UserRole",
+      "type": "class",
+      "name": "UserRole",
+      "filePath": "frappe/core/doctype/user_role/user_role.py",
+      "lineRange": [8, 23],
+      "summary": "Empty child Document controller for the UserRole child table that stores role-to-user mappings.",
+      "tags": ["python", "document-class", "child-table"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:UserRoleProfile",
+      "type": "class",
+      "name": "UserRoleProfile",
+      "filePath": "frappe/core/doctype/user_role_profile/user_role_profile.py",
+      "lineRange": [8, 23],
+      "summary": "Empty child Document controller for the UserRoleProfile child table that links users to role profiles.",
+      "tags": ["python", "document-class", "child-table"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:UserSelectDocumentType",
+      "type": "class",
+      "name": "UserSelectDocumentType",
+      "filePath": "frappe/core/doctype/user_select_document_type/user_select_document_type.py",
+      "lineRange": [8, 23],
+      "summary": "Empty child Document controller for UserSelectDocumentType child table.",
+      "tags": ["python", "document-class", "child-table"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:get_user_permissions",
+      "type": "function",
+      "name": "get_user_permissions",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [88, 148],
+      "summary": "Whitelisted function that retrieves all user permissions for a given user as a dict keyed by doctype. Uses Redis caching. Expands nested set doctypes to include descendants unless hide_descendants is set. Returns empty dict for Administrator/Guest.",
+      "tags": ["python", "whitelisted", "permissions", "caching", "nested-set"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:get_applicable_for_doctype_list",
+      "type": "function",
+      "name": "get_applicable_for_doctype_list",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [162, 184],
+      "summary": "Whitelisted search function returning linked doctypes applicable for a given doctype in user permission context. Used as a query handler for the applicable_for field.",
+      "tags": ["python", "whitelisted", "search-query", "linked-doctypes"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_permitted_documents",
+      "type": "function",
+      "name": "get_permitted_documents",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [187, 194],
+      "summary": "Returns list of permitted document names for a given doctype for the current session user, sorted so defaults appear first.",
+      "tags": ["python", "permissions", "utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:check_applicable_doc_perm",
+      "type": "function",
+      "name": "check_applicable_doc_perm",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [197, 226],
+      "summary": "Whitelisted function (System Manager only) that checks which doctypes a specific user permission applies to. Returns linked doctypes if apply_to_all is set, otherwise returns explicitly listed applicable_for doctypes.",
+      "tags": ["python", "whitelisted", "permissions", "system-manager"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:clear_user_permissions",
+      "type": "function",
+      "name": "clear_user_permissions",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [229, 244],
+      "summary": "Whitelisted function (System Manager only) that bulk-deletes all user permissions for a given user and doctype. Returns count of deleted records.",
+      "tags": ["python", "whitelisted", "permissions", "bulk-delete"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:add_user_permissions",
+      "type": "function",
+      "name": "add_user_permissions",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [247, 295],
+      "summary": "Whitelisted function (System Manager only) that adds or updates user permissions. Handles both apply-to-all and specific applicable doctype modes, managing transitions between the two by removing conflicting records.",
+      "tags": ["python", "whitelisted", "permissions", "crud"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:insert_user_perm",
+      "type": "function",
+      "name": "insert_user_perm",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [298, 312],
+      "summary": "Helper function that creates a new User Permission document with the specified user, doctype, docname, and optional applicable_for or apply_to_all settings.",
+      "tags": ["python", "permissions", "helper"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:send_user_permissions",
+      "type": "function",
+      "name": "send_user_permissions",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [84, 85],
+      "summary": "Boot info hook that attaches user permissions to the bootinfo payload sent to the client.",
+      "tags": ["python", "boot-hook", "permissions"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:user_permission_exists",
+      "type": "function",
+      "name": "user_permission_exists",
+      "filePath": "frappe/core/doctype/user_permission/user_permission.py",
+      "lineRange": [151, 159],
+      "summary": "Checks if a user permission with matching doc value and applicable_for already exists for a user. Returns the matching permission dict or None.",
+      "tags": ["python", "permissions", "utility"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:UserPermission",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserPermission",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_user_permissions",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_applicable_for_doctype_list",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_permitted_documents",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:check_applicable_doc_perm",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:clear_user_permissions",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:add_user_permissions",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:insert_user_perm",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:send_user_permissions",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:user_permission_exists",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserRole",
+      "target": "file:frappe/core/doctype/user_role/user_role.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserRole",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:UserRoleProfile",
+      "target": "file:frappe/core/doctype/user_role_profile/user_role_profile.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserRoleProfile",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:UserSelectDocumentType",
+      "target": "file:frappe/core/doctype/user_select_document_type/user_select_document_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserSelectDocumentType",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_permitted_documents",
+      "target": "func:get_user_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:send_user_permissions",
+      "target": "func:get_user_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:user_permission_exists",
+      "target": "func:get_user_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:add_user_permissions",
+      "target": "func:check_applicable_doc_perm",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:add_user_permissions",
+      "target": "func:insert_user_perm",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission.js",
+      "target": "class:UserPermission",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission_list.js",
+      "target": "class:UserPermission",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission_list.js",
+      "target": "func:add_user_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission_list.js",
+      "target": "func:clear_user_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission_list.js",
+      "target": "func:check_applicable_doc_perm",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/user_permission.js",
+      "target": "func:get_applicable_for_doctype_list",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_user_permissions",
+      "target": "module:frappe.cache",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:UserPermission",
+      "target": "module:frappe.cache",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:get_applicable_for_doctype_list",
+      "target": "module:frappe.desk.form.linked_with",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

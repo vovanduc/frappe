@@ -1,0 +1,1953 @@
+{
+  "nodes": [
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js",
+      "type": "file",
+      "name": "list_view.js",
+      "summary": "Default ListView: extends BaseList, handles rendering, filters, bulk actions, selection",
+      "tags": [
+        "javascript",
+        "list-view"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/list/list_view.js",
+        "lines": 2749
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "type": "class",
+      "name": "frappe.views.ListView",
+      "summary": "Class frappe.views.ListView extends frappe.views.BaseList",
+      "tags": [
+        "javascript",
+        "list-view",
+        "class"
+      ],
+      "complexity": {
+        "lineRange": [
+          6,
+          512
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.load_last_view@7",
+      "type": "function",
+      "name": "load_last_view",
+      "summary": "Method load_last_view",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          7,
+          22
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.constructor@24",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Method constructor",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          24,
+          39
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.show_skeleton@57",
+      "type": "function",
+      "name": "show_skeleton",
+      "summary": "Method show_skeleton",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          57,
+          74
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.setup_defaults@89",
+      "type": "function",
+      "name": "setup_defaults",
+      "summary": "Method setup_defaults",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          89,
+          116
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.add_recent_filter_on_large_tables@118",
+      "type": "function",
+      "name": "add_recent_filter_on_large_tables",
+      "summary": "Method add_recent_filter_on_large_tables",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          118,
+          138
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_actions_menu_items@163",
+      "type": "function",
+      "name": "set_actions_menu_items",
+      "summary": "Method set_actions_menu_items",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          163,
+          179
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.show_restricted_list_indicator_if_applicable@181",
+      "type": "function",
+      "name": "show_restricted_list_indicator_if_applicable",
+      "summary": "Method show_restricted_list_indicator_if_applicable",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          181,
+          192
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_fields@213",
+      "type": "function",
+      "name": "set_fields",
+      "summary": "Method set_fields",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          213,
+          262
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.patch_refresh_and_load_lib@264",
+      "type": "function",
+      "name": "patch_refresh_and_load_lib",
+      "summary": "Method patch_refresh_and_load_lib",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          264,
+          283
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_primary_action@285",
+      "type": "function",
+      "name": "set_primary_action",
+      "summary": "Method set_primary_action",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          285,
+          308
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView._trim_primary_action_if_overflow@310",
+      "type": "function",
+      "name": "_trim_primary_action_if_overflow",
+      "summary": "Method _trim_primary_action_if_overflow",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          310,
+          320
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.make_new_doc@322",
+      "type": "function",
+      "name": "make_new_doc",
+      "summary": "Method make_new_doc",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          322,
+          340
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.refresh@360",
+      "type": "function",
+      "name": "refresh",
+      "summary": "Method refresh",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          360,
+          369
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.update_checkbox@371",
+      "type": "function",
+      "name": "update_checkbox",
+      "summary": "Method update_checkbox",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          371,
+          381
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.setup_columns@392",
+      "type": "function",
+      "name": "setup_columns",
+      "summary": "Method setup_columns",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          392,
+          477
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.reorder_listview_fields@479",
+      "type": "function",
+      "name": "reorder_listview_fields",
+      "summary": "Method reorder_listview_fields",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          479,
+          503
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::ElementFactory",
+      "type": "class",
+      "name": "ElementFactory",
+      "summary": "Class ElementFactory",
+      "tags": [
+        "javascript",
+        "list-view",
+        "class"
+      ],
+      "complexity": {
+        "lineRange": [
+          2672,
+          2748
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view.js::ElementFactory.get_like_element@2736",
+      "type": "function",
+      "name": "get_like_element",
+      "summary": "Method get_like_element",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          2736,
+          2747
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js",
+      "type": "file",
+      "name": "list_view_select.js",
+      "summary": "List view switcher/selector for alternate views (Kanban, Gantt, Calendar, etc.)",
+      "tags": [
+        "javascript",
+        "list-view"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/list/list_view_select.js",
+        "lines": 333
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "type": "class",
+      "name": "frappe.views.ListViewSelect",
+      "summary": "Class frappe.views.ListViewSelect",
+      "tags": [
+        "javascript",
+        "list-view",
+        "class"
+      ],
+      "complexity": {
+        "lineRange": [
+          3,
+          332
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.add_view_to_menu@10",
+      "type": "function",
+      "name": "add_view_to_menu",
+      "summary": "Method add_view_to_menu",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          10,
+          23
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.set_current_view@25",
+      "type": "function",
+      "name": "set_current_view",
+      "summary": "Method set_current_view",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          25,
+          38
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.set_route@40",
+      "type": "function",
+      "name": "set_route",
+      "summary": "Method set_route",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          40,
+          49
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_views@51",
+      "type": "function",
+      "name": "setup_views",
+      "summary": "Method setup_views",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          51,
+          149
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_dropdown_in_navbar@151",
+      "type": "function",
+      "name": "setup_dropdown_in_navbar",
+      "summary": "Method setup_dropdown_in_navbar",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          151,
+          167
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_kanban_switcher@169",
+      "type": "function",
+      "name": "setup_kanban_switcher",
+      "summary": "Method setup_kanban_switcher",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          169,
+          195
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_reports@201",
+      "type": "function",
+      "name": "get_reports",
+      "summary": "Method get_reports",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          201,
+          243
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_kanban_boards@245",
+      "type": "function",
+      "name": "setup_kanban_boards",
+      "summary": "Method setup_kanban_boards",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          245,
+          274
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::fetch_kanban_board@246",
+      "type": "function",
+      "name": "fetch_kanban_board",
+      "summary": "Function fetch_kanban_board",
+      "tags": [
+        "javascript",
+        "list-view",
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          246,
+          259
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_calendars@276",
+      "type": "function",
+      "name": "get_calendars",
+      "summary": "Method get_calendars",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          276,
+          305
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_email_accounts@307",
+      "type": "function",
+      "name": "get_email_accounts",
+      "summary": "Method get_email_accounts",
+      "tags": [
+        "javascript",
+        "list-view",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          307,
+          327
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/logtypes.js",
+      "type": "file",
+      "name": "logtypes.js",
+      "summary": "Log doctype helpers (set clear-log button, retention)",
+      "tags": [
+        "javascript"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/logtypes.js",
+        "lines": 36
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/meta_tag.js",
+      "type": "file",
+      "name": "meta_tag.js",
+      "summary": "Sets HTML meta tags for SEO/social",
+      "tags": [
+        "javascript"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/meta_tag.js",
+        "lines": 20
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/microtemplate.js",
+      "type": "file",
+      "name": "microtemplate.js",
+      "summary": "JS template engine (John Resig style micro templating)",
+      "tags": [
+        "javascript"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/microtemplate.js",
+        "lines": 236
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/microtemplate.js::replacer@27",
+      "type": "function",
+      "name": "replacer",
+      "summary": "Function replacer",
+      "tags": [
+        "javascript",
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          27,
+          55
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js",
+      "type": "file",
+      "name": "create_new.js",
+      "summary": "Client-side creation of new documents and child docs with defaults",
+      "tags": [
+        "javascript",
+        "model"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/model/create_new.js",
+        "lines": 386
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::get_new_doc@9",
+      "type": "function",
+      "name": "get_new_doc",
+      "summary": "Function get_new_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          9,
+          71
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::set_default_values@82",
+      "type": "function",
+      "name": "set_default_values",
+      "summary": "Function set_default_values",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          82,
+          117
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::create_mandatory_children@119",
+      "type": "function",
+      "name": "create_mandatory_children",
+      "summary": "Function create_mandatory_children",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          119,
+          129
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::get_default_value@131",
+      "type": "function",
+      "name": "get_default_value",
+      "summary": "Function get_default_value",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          131,
+          235
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::get_default_from_boot_docs@237",
+      "type": "function",
+      "name": "get_default_from_boot_docs",
+      "summary": "Function get_default_from_boot_docs",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          237,
+          250
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::add_child@252",
+      "type": "function",
+      "name": "add_child",
+      "summary": "Function add_child",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          252,
+          279
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::copy_doc@281",
+      "type": "function",
+      "name": "copy_doc",
+      "summary": "Function copy_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          281,
+          323
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::open_mapped_doc@325",
+      "type": "function",
+      "name": "open_mapped_doc",
+      "summary": "Function open_mapped_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          325,
+          360
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/create_new.js::callback@347",
+      "type": "function",
+      "name": "callback",
+      "summary": "Function callback",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          347,
+          358
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/indicator.js",
+      "type": "file",
+      "name": "indicator.js",
+      "summary": "Status indicator colors/filters for docs in list views",
+      "tags": [
+        "javascript",
+        "model"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/model/indicator.js",
+        "lines": 125
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js",
+      "type": "file",
+      "name": "meta.js",
+      "summary": "DocType metadata caching and field utilities (frappe.meta)",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/model/meta.js",
+        "lines": 346
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::add_field@28",
+      "type": "function",
+      "name": "add_field",
+      "summary": "Function add_field",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          28,
+          40
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::make_docfield_copy_for@42",
+      "type": "function",
+      "name": "make_docfield_copy_for",
+      "summary": "Function make_docfield_copy_for",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          42,
+          52
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_field@54",
+      "type": "function",
+      "name": "get_field",
+      "summary": "Function get_field",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          54,
+          69
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::set_indicator_formatter@80",
+      "type": "function",
+      "name": "set_indicator_formatter",
+      "summary": "Function set_indicator_formatter",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          80,
+          92
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_docfields@94",
+      "type": "function",
+      "name": "get_docfields",
+      "summary": "Function get_docfields",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          94,
+          104
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_table_fields@152",
+      "type": "function",
+      "name": "get_table_fields",
+      "summary": "Function get_table_fields",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          152,
+          164
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_doctype_for_field@166",
+      "type": "function",
+      "name": "get_doctype_for_field",
+      "summary": "Function get_doctype_for_field",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          166,
+          196
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_label@206",
+      "type": "function",
+      "name": "get_label",
+      "summary": "Function get_label",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          206,
+          226
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_print_sizes@228",
+      "type": "function",
+      "name": "get_print_sizes",
+      "summary": "Function get_print_sizes",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          228,
+          262
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_print_formats@264",
+      "type": "function",
+      "name": "get_print_formats",
+      "summary": "Function get_print_formats",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          264,
+          293
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_field_currency@295",
+      "type": "function",
+      "name": "get_field_currency",
+      "summary": "Function get_field_currency",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          295,
+          326
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/meta.js::get_field_precision@328",
+      "type": "function",
+      "name": "get_field_precision",
+      "summary": "Function get_field_precision",
+      "tags": [
+        "javascript",
+        "model",
+        "metadata",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          328,
+          344
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js",
+      "type": "file",
+      "name": "model.js",
+      "summary": "Client-side document model / ORM (frappe.model)",
+      "tags": [
+        "javascript",
+        "model"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/model/model.js",
+        "lines": 870
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::init@150",
+      "type": "function",
+      "name": "init",
+      "summary": "Function init",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          150,
+          181
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_std_field@197",
+      "type": "function",
+      "name": "get_std_field",
+      "summary": "Function get_std_field",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          197,
+          213
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::with_doctype@215",
+      "type": "function",
+      "name": "with_doctype",
+      "summary": "Function with_doctype",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          215,
+          245
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::callback@228",
+      "type": "function",
+      "name": "callback",
+      "summary": "Function callback",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          228,
+          242
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::init_doctype@247",
+      "type": "function",
+      "name": "init_doctype",
+      "summary": "Function init_doctype",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          247,
+          262
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::with_doc@264",
+      "type": "function",
+      "name": "with_doc",
+      "summary": "Function with_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          264,
+          289
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::can_share@418",
+      "type": "function",
+      "name": "can_share",
+      "summary": "Function can_share",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          418,
+          429
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::has_value@431",
+      "type": "function",
+      "name": "has_value",
+      "summary": "Function has_value",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          431,
+          449
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_value@457",
+      "type": "function",
+      "name": "get_value",
+      "summary": "Function get_value",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          457,
+          484
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::on@533",
+      "type": "function",
+      "name": "on",
+      "summary": "Function on",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          533,
+          548
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::trigger@550",
+      "type": "function",
+      "name": "trigger",
+      "summary": "Function trigger",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          550,
+          579
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::enqueue_events@553",
+      "type": "function",
+      "name": "enqueue_events",
+      "summary": "Function enqueue_events",
+      "tags": [
+        "javascript",
+        "model",
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          553,
+          571
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_children@591",
+      "type": "function",
+      "name": "get_children",
+      "summary": "Function get_children",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          591,
+          607
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_title_from_title_field@609",
+      "type": "function",
+      "name": "get_title_from_title_field",
+      "summary": "Function get_title_from_title_field",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          609,
+          619
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::clear_doc@649",
+      "type": "function",
+      "name": "clear_doc",
+      "summary": "Function clear_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          649,
+          673
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_no_copy_list@675",
+      "type": "function",
+      "name": "get_no_copy_list",
+      "summary": "Function get_no_copy_list",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          675,
+          685
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::delete_doc@687",
+      "type": "function",
+      "name": "delete_doc",
+      "summary": "Function delete_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          687,
+          714
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::rename_doc@716",
+      "type": "function",
+      "name": "rename_doc",
+      "summary": "Function rename_doc",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          716,
+          766
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::callback@750",
+      "type": "function",
+      "name": "callback",
+      "summary": "Function callback",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          750,
+          762
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::round_floats_in@768",
+      "type": "function",
+      "name": "round_floats_in",
+      "summary": "Function round_floats_in",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          768,
+          781
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/model.js::get_all_docs@793",
+      "type": "function",
+      "name": "get_all_docs",
+      "summary": "Function get_all_docs",
+      "tags": [
+        "javascript",
+        "model",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          793,
+          804
+        ]
+      }
+    },
+    {
+      "id": "frappe/public/js/frappe/model/perm.js",
+      "type": "file",
+      "name": "perm.js",
+      "summary": "Client-side permission checks (frappe.perm)",
+      "tags": [
+        "javascript",
+        "model",
+        "permissions"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/model/perm.js",
+        "lines": 330
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js",
+      "target": "./bulk_operations",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js",
+      "target": "./list_settings",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe.views.BaseList",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 2
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.load_last_view@7",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.constructor@24",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.show_skeleton@57",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.setup_defaults@89",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.add_recent_filter_on_large_tables@118",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_actions_menu_items@163",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.show_restricted_list_indicator_if_applicable@181",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_fields@213",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.patch_refresh_and_load_lib@264",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.set_primary_action@285",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView._trim_primary_action_if_overflow@310",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.make_new_doc@322",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.refresh@360",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.update_checkbox@371",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.setup_columns@392",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView",
+      "target": "frappe/public/js/frappe/list/list_view.js::frappe.views.ListView.reorder_listview_fields@479",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js",
+      "target": "frappe/public/js/frappe/list/list_view.js::ElementFactory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view.js::ElementFactory",
+      "target": "frappe/public/js/frappe/list/list_view.js::ElementFactory.get_like_element@2736",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.add_view_to_menu@10",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.set_current_view@25",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.set_route@40",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_views@51",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_dropdown_in_navbar@151",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_kanban_switcher@169",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_reports@201",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.setup_kanban_boards@245",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::fetch_kanban_board@246",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_calendars@276",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect",
+      "target": "frappe/public/js/frappe/list/list_view_select.js::frappe.views.ListViewSelect.get_email_accounts@307",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/microtemplate.js",
+      "target": "frappe/public/js/frappe/microtemplate.js::replacer@27",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::get_new_doc@9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::set_default_values@82",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::create_mandatory_children@119",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::get_default_value@131",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::get_default_from_boot_docs@237",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::add_child@252",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::copy_doc@281",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::open_mapped_doc@325",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/create_new.js",
+      "target": "frappe/public/js/frappe/model/create_new.js::callback@347",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::add_field@28",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::make_docfield_copy_for@42",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_field@54",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::set_indicator_formatter@80",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_docfields@94",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_table_fields@152",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_doctype_for_field@166",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_label@206",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_print_sizes@228",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_print_formats@264",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_field_currency@295",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/meta.js",
+      "target": "frappe/public/js/frappe/model/meta.js::get_field_precision@328",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::init@150",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_std_field@197",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::with_doctype@215",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::callback@228",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::init_doctype@247",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::with_doc@264",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::can_share@418",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::has_value@431",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_value@457",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::on@533",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::trigger@550",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::enqueue_events@553",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_children@591",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_title_from_title_field@609",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::clear_doc@649",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_no_copy_list@675",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::delete_doc@687",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::rename_doc@716",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::callback@750",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::round_floats_in@768",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "frappe/public/js/frappe/model/model.js",
+      "target": "frappe/public/js/frappe/model/model.js::get_all_docs@793",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,542 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/document_share_key/document_share_key.py",
+      "type": "file",
+      "name": "document_share_key.py",
+      "filePath": "frappe/core/doctype/document_share_key/document_share_key.py",
+      "summary": "DocType controller for Document Share Key, which generates unique hash keys for sharing documents with optional expiry dates.",
+      "tags": ["doctype", "sharing", "security", "core"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:DocumentShareKey",
+      "type": "class",
+      "name": "DocumentShareKey",
+      "filePath": "frappe/core/doctype/document_share_key/document_share_key.py",
+      "lineRange": [10, 30],
+      "summary": "Document controller that auto-generates a random hash key on insert and sets an expiry date based on system settings.",
+      "tags": ["doctype", "document", "sharing"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:DocumentShareKey.before_insert",
+      "type": "function",
+      "name": "before_insert",
+      "filePath": "frappe/core/doctype/document_share_key/document_share_key.py",
+      "lineRange": [25, 30],
+      "summary": "Lifecycle hook that generates a random hash key (25-35 chars) and sets default expiry from system settings (default 90 days).",
+      "tags": ["lifecycle", "hook"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:is_expired",
+      "type": "function",
+      "name": "is_expired",
+      "filePath": "frappe/core/doctype/document_share_key/document_share_key.py",
+      "lineRange": [33, 34],
+      "summary": "Utility function that checks if a share key has expired by comparing expires_on date with current date.",
+      "tags": ["utility", "date"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/document_share_key/test_document_share_key.py",
+      "type": "file",
+      "name": "test_document_share_key.py",
+      "filePath": "frappe/core/doctype/document_share_key/test_document_share_key.py",
+      "summary": "Empty test stub for DocumentShareKey DocType, extends IntegrationTestCase.",
+      "tags": ["test", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestDocumentShareKey",
+      "type": "class",
+      "name": "TestDocumentShareKey",
+      "filePath": "frappe/core/doctype/document_share_key/test_document_share_key.py",
+      "lineRange": [8, 9],
+      "summary": "Empty integration test case for DocumentShareKey DocType.",
+      "tags": ["test"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/domain/__init__.py",
+      "summary": "Empty init file for Domain DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain/domain.js",
+      "type": "file",
+      "name": "domain.js",
+      "filePath": "frappe/core/doctype/domain/domain.js",
+      "summary": "Empty client-side controller for Domain DocType form with only a refresh handler stub.",
+      "tags": ["javascript", "form", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain/domain.py",
+      "type": "file",
+      "name": "domain.py",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "summary": "Domain DocType controller that manages application domains (e.g., Manufacturing, Education) including setup/teardown of roles, custom fields, properties, sidebar items, and portal settings.",
+      "tags": ["doctype", "domain", "configuration", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:Domain",
+      "type": "class",
+      "name": "Domain",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [10, 138],
+      "summary": "Document controller for Domain DocType that handles domain setup (roles, custom fields, properties, sidebar items) and removal when domains are activated or deactivated.",
+      "tags": ["doctype", "document", "domain"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:Domain.setup_domain",
+      "type": "function",
+      "name": "setup_domain",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [26, 43],
+      "summary": "Orchestrates full domain setup: data loading, roles, properties, values, sidebar items, portal role, custom fields, and custom on_setup hooks.",
+      "tags": ["setup", "orchestration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Domain.remove_domain",
+      "type": "function",
+      "name": "remove_domain",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [45, 56],
+      "summary": "Removes domain settings by disabling restricted roles and removing custom fields.",
+      "tags": ["teardown"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Domain.remove_custom_field",
+      "type": "function",
+      "name": "remove_custom_field",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [58, 73],
+      "summary": "Removes custom fields associated with a domain when the domain is disabled.",
+      "tags": ["custom-fields", "cleanup"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Domain.setup_roles",
+      "type": "function",
+      "name": "setup_roles",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [75, 88],
+      "summary": "Enables roles restricted to this domain by creating or enabling Role documents and assigning them to the current user.",
+      "tags": ["roles", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Domain.setup_data",
+      "type": "function",
+      "name": "setup_data",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [90, 92],
+      "summary": "Loads domain configuration data from hooks.",
+      "tags": ["data", "hooks"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:Domain.setup_sidebar_items",
+      "type": "function",
+      "name": "setup_sidebar_items",
+      "filePath": "frappe/core/doctype/domain/domain.py",
+      "lineRange": [118, 138],
+      "summary": "Enables or disables portal sidebar menu items based on domain configuration using raw SQL updates.",
+      "tags": ["sidebar", "portal", "ui"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain/test_domain.py",
+      "type": "file",
+      "name": "test_domain.py",
+      "filePath": "frappe/core/doctype/domain/test_domain.py",
+      "summary": "Empty test stub for Domain DocType.",
+      "tags": ["test", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestDomain",
+      "type": "class",
+      "name": "TestDomain",
+      "filePath": "frappe/core/doctype/domain/test_domain.py",
+      "lineRange": [6, 7],
+      "summary": "Empty integration test case for Domain DocType.",
+      "tags": ["test"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/domain_settings/__init__.py",
+      "summary": "Empty init file for Domain Settings DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain_settings/domain_settings.js",
+      "type": "file",
+      "name": "domain_settings.js",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.js",
+      "summary": "Client-side controller for Domain Settings that renders a MultiCheck control for selecting active domains and syncs selections to the active_domains child table.",
+      "tags": ["javascript", "form", "ui", "multicheck"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "type": "file",
+      "name": "domain_settings.py",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "summary": "Domain Settings DocType controller and utility functions for managing active domains and modules, with caching support.",
+      "tags": ["doctype", "domain", "settings", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:DomainSettings",
+      "type": "class",
+      "name": "DomainSettings",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [8, 74],
+      "summary": "Single DocType controller managing which domains are active. On update, triggers domain setup and restricts roles/modules based on active domains.",
+      "tags": ["doctype", "document", "settings", "singleton"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:DomainSettings.set_active_domains",
+      "type": "function",
+      "name": "set_active_domains",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [21, 30],
+      "summary": "Adds new domains to the active_domains child table and saves if any were added.",
+      "tags": ["domains", "configuration"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:DomainSettings.on_update",
+      "type": "function",
+      "name": "on_update",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [32, 41],
+      "summary": "Lifecycle hook that triggers setup_domain for each active domain, restricts roles/modules, and clears cache.",
+      "tags": ["lifecycle", "hook"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:DomainSettings.restrict_roles_and_modules",
+      "type": "function",
+      "name": "restrict_roles_and_modules",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [43, 74],
+      "summary": "Disables restricted roles and manages module/custom field restrictions based on which domains are active vs inactive.",
+      "tags": ["roles", "modules", "permissions"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:get_active_domains",
+      "type": "function",
+      "name": "get_active_domains",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [76, 91],
+      "summary": "Returns cached list of active domain names from the Domain Settings child table.",
+      "tags": ["utility", "cache", "domains"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_active_modules",
+      "type": "function",
+      "name": "get_active_modules",
+      "filePath": "frappe/core/doctype/domain_settings/domain_settings.py",
+      "lineRange": [94, 105],
+      "summary": "Returns cached list of active module names, filtering by domain restrictions from Module Def.",
+      "tags": ["utility", "cache", "modules"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/dynamic_link/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/dynamic_link/__init__.py",
+      "summary": "Empty init file for Dynamic Link DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/document_share_key/document_share_key.py",
+      "target": "class:DocumentShareKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/document_share_key/document_share_key.py",
+      "target": "func:is_expired",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentShareKey",
+      "target": "func:DocumentShareKey.before_insert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentShareKey",
+      "target": "class:frappe.model.document.Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/document_share_key/document_share_key.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_share_key/test_document_share_key.py",
+      "target": "class:TestDocumentShareKey",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDocumentShareKey",
+      "target": "class:DocumentShareKey",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/domain/domain.py",
+      "target": "class:Domain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "class:frappe.model.document.Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.setup_domain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.remove_domain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.remove_custom_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.setup_roles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.setup_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Domain",
+      "target": "func:Domain.setup_sidebar_items",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/domain/domain.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/domain/domain.py",
+      "target": "file:frappe/custom/doctype/custom_field/custom_field.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:Domain.setup_domain",
+      "target": "func:Domain.setup_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Domain.setup_domain",
+      "target": "func:Domain.setup_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Domain.remove_domain",
+      "target": "func:Domain.setup_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Domain.remove_domain",
+      "target": "func:Domain.remove_custom_field",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/domain/test_domain.py",
+      "target": "class:TestDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDomain",
+      "target": "class:Domain",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "target": "class:DomainSettings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "target": "func:get_active_domains",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "target": "func:get_active_modules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DomainSettings",
+      "target": "class:frappe.model.document.Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DomainSettings",
+      "target": "func:DomainSettings.set_active_domains",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DomainSettings",
+      "target": "func:DomainSettings.on_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DomainSettings",
+      "target": "func:DomainSettings.restrict_roles_and_modules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:DomainSettings.on_update",
+      "target": "func:Domain.setup_domain",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DomainSettings.on_update",
+      "target": "func:DomainSettings.restrict_roles_and_modules",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_active_modules",
+      "target": "func:get_active_domains",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DomainSettings.restrict_roles_and_modules",
+      "target": "func:Domain.remove_custom_field",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DomainSettings",
+      "target": "class:Domain",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/domain_settings/domain_settings.js",
+      "target": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/domain/domain.js",
+      "target": "file:frappe/core/doctype/domain/domain.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

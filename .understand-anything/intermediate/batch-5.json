@@ -1,0 +1,340 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/communication/test_communication.py",
+      "type": "file",
+      "name": "test_communication.py",
+      "filePath": "frappe/core/doctype/communication/test_communication.py",
+      "summary": "Integration tests for the Communication DocType covering email parsing, circular linking prevention, timeline link deduplication, contact attachment, spam detection, email sending/undo, and attachment handling.",
+      "tags": ["test", "communication", "email", "integration-test", "doctype"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:TestCommunication",
+      "type": "class",
+      "name": "TestCommunication",
+      "filePath": "frappe/core/doctype/communication/test_communication.py",
+      "lineRange": [18, 326],
+      "summary": "Test class validating core Communication DocType behavior including email address parsing, circular link detection, timeline link deduplication, contact attachment, communication data retrieval, email content signatures, and spam marking.",
+      "tags": ["test-class", "communication", "email-parsing", "integration-test"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:TestCommunicationEmailMixin",
+      "type": "class",
+      "name": "TestCommunicationEmailMixin",
+      "filePath": "frappe/core/doctype/communication/test_communication.py",
+      "lineRange": [328, 514],
+      "summary": "Test class for Communication email mixin functionality including recipients, CC/BCC handling, sendmail, attachments, and undo email send with time window and permission checks.",
+      "tags": ["test-class", "email-mixin", "sendmail", "undo-send", "attachments"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:create_email_account",
+      "type": "function",
+      "name": "create_email_account",
+      "filePath": "frappe/core/doctype/communication/test_communication.py",
+      "lineRange": [517, 548],
+      "summary": "Helper function that creates a test Email Account with outgoing/incoming settings, signature, and auto-reply configuration for use in communication tests.",
+      "tags": ["test-helper", "email-account", "fixture"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication_link/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/communication_link/__init__.py",
+      "summary": "Empty init file for the Communication Link DocType module.",
+      "tags": ["init", "module", "communication-link"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication_link/communication_link.py",
+      "type": "file",
+      "name": "communication_link.py",
+      "filePath": "frappe/core/doctype/communication_link/communication_link.py",
+      "summary": "Defines the CommunicationLink Document class (child table linking communications to other documents) and sets up database indexes for efficient lookup by link_doctype, link_name, and communication_date.",
+      "tags": ["doctype", "communication-link", "child-table", "database-index"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CommunicationLink",
+      "type": "class",
+      "name": "CommunicationLink",
+      "filePath": "frappe/core/doctype/communication_link/communication_link.py",
+      "lineRange": [8, 26],
+      "summary": "Document subclass for Communication Link, a child table that associates communications with other DocTypes via link_doctype and link_name fields.",
+      "tags": ["doctype", "child-table", "document", "communication-link"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:communication_link:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "filePath": "frappe/core/doctype/communication_link/communication_link.py",
+      "lineRange": [29, 31],
+      "summary": "Creates database indexes on Communication Link table for efficient querying by link_doctype, link_name, communication_date, and parent fields.",
+      "tags": ["database", "index", "performance", "hook"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication_link/patches/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/communication_link/patches/__init__.py",
+      "summary": "Empty init file for the Communication Link patches module.",
+      "tags": ["init", "module", "patches"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication_link/patches/copy_communication_date_to_link.py",
+      "type": "file",
+      "name": "copy_communication_date_to_link.py",
+      "filePath": "frappe/core/doctype/communication_link/patches/copy_communication_date_to_link.py",
+      "summary": "Database migration patch that copies the communication_date field from parent Communication records to their Communication Link child rows in batches of 10,000, supporting both MariaDB and PostgreSQL.",
+      "tags": ["patch", "migration", "database", "communication-link", "batch-processing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:copy_communication_date_to_link:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/doctype/communication_link/patches/copy_communication_date_to_link.py",
+      "lineRange": [5, 46],
+      "summary": "Batch-copies communication_date from Communication to Communication Link records using database-specific SQL (MariaDB vs PostgreSQL), processing 10,000 rows per iteration until all null dates are populated.",
+      "tags": ["patch", "migration", "batch-update", "multi-database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_docperm/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/custom_docperm/__init__.py",
+      "summary": "Empty init file for the Custom DocPerm DocType module.",
+      "tags": ["init", "module", "custom-docperm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_docperm/custom_docperm.js",
+      "type": "file",
+      "name": "custom_docperm.js",
+      "filePath": "frappe/core/doctype/custom_docperm/custom_docperm.js",
+      "summary": "Minimal client-side form controller for Custom DocPerm with an empty refresh handler.",
+      "tags": ["javascript", "form-controller", "custom-docperm", "client-side"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "type": "file",
+      "name": "custom_docperm.py",
+      "filePath": "frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "summary": "Defines the CustomDocPerm Document class for managing custom permission rules on DocTypes, with cache clearing on update and a helper function to update permission values.",
+      "tags": ["doctype", "permissions", "rbac", "custom-docperm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CustomDocPerm",
+      "type": "class",
+      "name": "CustomDocPerm",
+      "filePath": "frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "lineRange": [8, 41],
+      "summary": "Document subclass for custom permission rules that clears the DocType cache on update and provides permission log options for audit tracking.",
+      "tags": ["doctype", "permissions", "cache", "document"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:update_custom_docperm",
+      "type": "function",
+      "name": "update_custom_docperm",
+      "filePath": "frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "lineRange": [44, 47],
+      "summary": "Helper function that fetches and updates a Custom DocPerm record with new values, saving with ignore_permissions.",
+      "tags": ["permissions", "helper", "update"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_docperm/test_custom_docperm.py",
+      "type": "file",
+      "name": "test_custom_docperm.py",
+      "filePath": "frappe/core/doctype/custom_docperm/test_custom_docperm.py",
+      "summary": "Empty test stub for the Custom DocPerm DocType, extending IntegrationTestCase with no test methods.",
+      "tags": ["test", "custom-docperm", "stub"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:TestCustomDocPerm",
+      "type": "class",
+      "name": "TestCustomDocPerm",
+      "filePath": "frappe/core/doctype/custom_docperm/test_custom_docperm.py",
+      "lineRange": [6, 7],
+      "summary": "Empty test class placeholder for Custom DocPerm integration tests.",
+      "tags": ["test-class", "stub", "custom-docperm"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_role/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/custom_role/__init__.py",
+      "summary": "Empty init file for the Custom Role DocType module.",
+      "tags": ["init", "module", "custom-role"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "class:TestCommunication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "class:TestCommunicationEmailMixin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "func:create_email_account",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:TestCommunication",
+      "target": "module:frappe.tests:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestCommunicationEmailMixin",
+      "target": "module:frappe.tests:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "module:frappe.core.doctype.communication.communication",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "module:frappe.core.doctype.communication.email",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "module:frappe.email.doctype.email_queue.email_queue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestCommunication",
+      "target": "func:create_email_account",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/communication_link/communication_link.py",
+      "target": "class:CommunicationLink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication_link/communication_link.py",
+      "target": "func:communication_link:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:CommunicationLink",
+      "target": "module:frappe.model.document:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/communication_link/patches/copy_communication_date_to_link.py",
+      "target": "func:copy_communication_date_to_link:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:copy_communication_date_to_link:execute",
+      "target": "class:CommunicationLink",
+      "type": "modifies",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "target": "class:CustomDocPerm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "target": "func:update_custom_docperm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:CustomDocPerm",
+      "target": "module:frappe.model.document:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:update_custom_docperm",
+      "target": "class:CustomDocPerm",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_docperm/test_custom_docperm.py",
+      "target": "class:TestCustomDocPerm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestCustomDocPerm",
+      "target": "module:frappe.tests:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_docperm/test_custom_docperm.py",
+      "target": "file:frappe/core/doctype/custom_docperm/custom_docperm.py",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/test_communication.py",
+      "target": "file:frappe/core/doctype/communication_link/communication_link.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

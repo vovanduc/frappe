@@ -1,0 +1,375 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/data_import_log/data_import_log.js",
+      "type": "file",
+      "name": "data_import_log.js",
+      "filePath": "frappe/core/doctype/data_import_log/data_import_log.js",
+      "summary": "Client-side form controller for Data Import Log DocType. Contains an empty stub with no custom behavior implemented.",
+      "tags": ["javascript", "doctype", "form-controller", "data-import", "stub"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import_log/data_import_log.py",
+      "type": "file",
+      "name": "data_import_log.py",
+      "filePath": "frappe/core/doctype/data_import_log/data_import_log.py",
+      "summary": "Python controller for Data Import Log DocType. Records the result of individual rows during a data import operation, tracking success status, messages, and exceptions.",
+      "tags": ["python", "doctype", "data-import", "logging", "document"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:DataImportLog",
+      "type": "class",
+      "name": "DataImportLog",
+      "filePath": "frappe/core/doctype/data_import_log/data_import_log.py",
+      "lineRange": [8, 28],
+      "summary": "Document subclass for Data Import Log. Stores import row results including success/failure, exception details, and row indexes. Disables feed on delete.",
+      "tags": ["document", "data-import", "logging", "model"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import_log/test_data_import_log.py",
+      "type": "file",
+      "name": "test_data_import_log.py",
+      "filePath": "frappe/core/doctype/data_import_log/test_data_import_log.py",
+      "summary": "Test file for Data Import Log DocType. Contains an empty integration test case placeholder.",
+      "tags": ["python", "test", "data-import", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:TestDataImportLog",
+      "type": "class",
+      "name": "TestDataImportLog",
+      "filePath": "frappe/core/doctype/data_import_log/test_data_import_log.py",
+      "lineRange": [8, 9],
+      "summary": "Empty integration test case for Data Import Log DocType, extending IntegrationTestCase.",
+      "tags": ["test", "integration-test", "data-import"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/defaultvalue/__init__.py",
+      "type": "file",
+      "name": "defaultvalue/__init__.py",
+      "filePath": "frappe/core/doctype/defaultvalue/__init__.py",
+      "summary": "Package init file for DefaultValue DocType module. Contains only license header.",
+      "tags": ["python", "package-init", "defaultvalue"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "type": "file",
+      "name": "defaultvalue.py",
+      "filePath": "frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "summary": "Python controller for DefaultValue DocType. Stores key-value default settings for users and system, and creates database indexes on the table for efficient lookups.",
+      "tags": ["python", "doctype", "defaults", "database-index", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:DefaultValue",
+      "type": "class",
+      "name": "DefaultValue",
+      "filePath": "frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "lineRange": [8, 24],
+      "summary": "Document subclass for storing default values as key-value pairs. Used as a child table attached to User or system-level parents.",
+      "tags": ["document", "defaults", "child-table", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:defaultvalue:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "filePath": "frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "lineRange": [27, 40],
+      "summary": "Creates database indexes on tabDefaultValue for (parent, defkey) and (parent, parenttype) to optimize default value lookups.",
+      "tags": ["database", "index", "migration", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/deleted_document/__init__.py",
+      "type": "file",
+      "name": "deleted_document/__init__.py",
+      "filePath": "frappe/core/doctype/deleted_document/__init__.py",
+      "summary": "Empty package init file for Deleted Document DocType module.",
+      "tags": ["python", "package-init", "deleted-document"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/deleted_document/deleted_document.js",
+      "type": "file",
+      "name": "deleted_document.js",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.js",
+      "summary": "Client-side form controller for Deleted Document. Shows either an 'Open' button for restored documents or a 'Restore' button that calls the server-side restore method.",
+      "tags": ["javascript", "doctype", "form-controller", "restore", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "type": "file",
+      "name": "deleted_document.py",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.py",
+      "summary": "Python controller for Deleted Document DocType. Provides soft-delete recovery by storing serialized document data and offering single and bulk restore functionality with workflow awareness.",
+      "tags": ["python", "doctype", "soft-delete", "restore", "data-recovery"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:DeletedDocument",
+      "type": "class",
+      "name": "DeletedDocument",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.py",
+      "lineRange": [13, 37],
+      "summary": "Document subclass for Deleted Document. Stores serialized JSON data of deleted documents and provides a static method to clear old logs beyond a configurable retention period.",
+      "tags": ["document", "soft-delete", "data-recovery", "cleanup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:DeletedDocument.clear_old_logs",
+      "type": "function",
+      "name": "clear_old_logs",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.py",
+      "lineRange": [31, 37],
+      "summary": "Static method that deletes Deleted Document records older than specified days (default 180) using Query Builder with date interval arithmetic.",
+      "tags": ["cleanup", "query-builder", "scheduled", "maintenance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:deleted_document:restore",
+      "type": "function",
+      "name": "restore",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.py",
+      "lineRange": [40, 68],
+      "summary": "Whitelisted API function that restores a single deleted document by deserializing its JSON data and re-inserting it. Handles docstatus transitions and active workflows gracefully.",
+      "tags": ["api", "whitelisted", "restore", "workflow", "data-recovery"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:deleted_document:bulk_restore",
+      "type": "function",
+      "name": "bulk_restore",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document.py",
+      "lineRange": [71, 93],
+      "summary": "Whitelisted API function that restores multiple deleted documents in batch, tracking restored, invalid (already restored), and failed items with progress reporting.",
+      "tags": ["api", "whitelisted", "bulk-operation", "restore", "progress"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/core/doctype/deleted_document/deleted_document_list.js",
+      "type": "file",
+      "name": "deleted_document_list.js",
+      "filePath": "frappe/core/doctype/deleted_document/deleted_document_list.js",
+      "summary": "List view customization for Deleted Document. Adds a bulk 'Restore' action menu item that calls bulk_restore and displays a categorized summary of results.",
+      "tags": ["javascript", "list-view", "bulk-action", "restore", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/deleted_document/test_deleted_document.py",
+      "type": "file",
+      "name": "test_deleted_document.py",
+      "filePath": "frappe/core/doctype/deleted_document/test_deleted_document.py",
+      "summary": "Test file for Deleted Document DocType. Contains an empty integration test case placeholder.",
+      "tags": ["python", "test", "deleted-document", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:TestDeletedDocument",
+      "type": "class",
+      "name": "TestDeletedDocument",
+      "filePath": "frappe/core/doctype/deleted_document/test_deleted_document.py",
+      "lineRange": [6, 7],
+      "summary": "Empty integration test case for Deleted Document DocType, extending IntegrationTestCase.",
+      "tags": ["test", "integration-test", "deleted-document"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:DataImportLog",
+      "target": "file:frappe/core/doctype/data_import_log/data_import_log.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DataImportLog",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestDataImportLog",
+      "target": "file:frappe/core/doctype/data_import_log/test_data_import_log.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDataImportLog",
+      "target": "class:DataImportLog",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import_log/data_import_log.js",
+      "target": "class:DataImportLog",
+      "type": "clientControllerFor",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DefaultValue",
+      "target": "file:frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DefaultValue",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:defaultvalue:on_doctype_update",
+      "target": "file:frappe/core/doctype/defaultvalue/defaultvalue.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:defaultvalue:on_doctype_update",
+      "target": "module:frappe.db",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DeletedDocument",
+      "target": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DeletedDocument",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:DeletedDocument.clear_old_logs",
+      "target": "class:DeletedDocument",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:DeletedDocument.clear_old_logs",
+      "target": "module:frappe.query_builder",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:deleted_document:restore",
+      "target": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:deleted_document:restore",
+      "target": "class:DeletedDocument",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:deleted_document:restore",
+      "target": "func:get_workflow_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:deleted_document:bulk_restore",
+      "target": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:deleted_document:bulk_restore",
+      "target": "func:deleted_document:restore",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:deleted_document:bulk_restore",
+      "target": "func:show_progress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document.js",
+      "target": "class:DeletedDocument",
+      "type": "clientControllerFor",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document.js",
+      "target": "func:deleted_document:restore",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document_list.js",
+      "target": "func:deleted_document:bulk_restore",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document_list.js",
+      "target": "class:DeletedDocument",
+      "type": "listViewFor",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestDeletedDocument",
+      "target": "file:frappe/core/doctype/deleted_document/test_deleted_document.py",
+      "type": "containedIn",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDeletedDocument",
+      "target": "class:DeletedDocument",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "target": "module:frappe.desk.doctype.bulk_update.bulk_update",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/deleted_document/deleted_document.py",
+      "target": "module:frappe.model.workflow",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

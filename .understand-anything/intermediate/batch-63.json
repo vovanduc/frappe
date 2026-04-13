@@ -1,0 +1,1923 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/base_control.js",
+      "type": "file",
+      "name": "base_control.js",
+      "summary": "Base class frappe.ui.form.Control for all form field controls; handles wrapper, tooltip, lifecycle (make/refresh), df/doc/value plumbing, translations, and permissions.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 295
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "type": "class",
+      "name": "frappe.ui.form.Control",
+      "summary": "Root base class for every form control; owns wrapper, df, doc, value binding and lifecycle.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          294
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:make",
+      "type": "function",
+      "name": "frappe.ui.form.Control.make",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          9,
+          24
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 16
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:get_status",
+      "type": "function",
+      "name": "frappe.ui.form.Control.get_status",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          48,
+          135
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 88
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:refresh",
+      "type": "function",
+      "name": "frappe.ui.form.Control.refresh",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          136,
+          146
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 11
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:show_translatable_button",
+      "type": "function",
+      "name": "frappe.ui.form.Control.show_translatable_button",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          147,
+          183
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 37
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:validate_and_set_in_model",
+      "type": "function",
+      "name": "frappe.ui.form.Control.validate_and_set_in_model",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          212,
+          258
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 47
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:get_value",
+      "type": "function",
+      "name": "frappe.ui.form.Control.get_value",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          259,
+          269
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 11
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:set_model_value",
+      "type": "function",
+      "name": "frappe.ui.form.Control.set_model_value",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          270,
+          287
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_control.js",
+        "lines": 18
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/base_input.js",
+      "type": "file",
+      "name": "base_input.js",
+      "summary": "ControlInput base class extending Control; provides label/input/description layout, bind_change_event, set_input/parse/format plumbing shared by text-like controls.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 311
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "type": "class",
+      "name": "frappe.ui.form.ControlInput",
+      "summary": "Base class for input-rendering controls; adds label/description layout and change-event plumbing.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          2,
+          310
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:make",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.make",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          4,
+          15
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 12
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:make_wrapper",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.make_wrapper",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          16,
+          40
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 25
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_input_areas",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_input_areas",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          47,
+          59
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 13
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:setup_shortcut",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.setup_shortcut",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          60,
+          70
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 11
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:refresh_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.refresh_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          88,
+          154
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 67
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_disp_area",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_disp_area",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          160,
+          190
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 31
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_label",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_label",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          191,
+          203
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 13
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:show_description_on_click",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.show_description_on_click",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          204,
+          213
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 10
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_doc_url",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_doc_url",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          214,
+          236
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 23
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_description",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_description",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          238,
+          263
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 26
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_mandatory",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_mandatory",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          272,
+          286
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 15
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_invalid",
+      "type": "function",
+      "name": "frappe.ui.form.ControlInput.set_invalid",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          287,
+          298
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/base_input.js",
+        "lines": 12
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/button.js",
+      "type": "file",
+      "name": "button.js",
+      "summary": "ControlButton: renders a button control that triggers a server-side method or client handler.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/button.js",
+        "lines": 89
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "type": "class",
+      "name": "frappe.ui.form.ControlButton",
+      "summary": "Button control that fires click handlers or server methods.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          88
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/button.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:make_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlButton.make_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          6,
+          38
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/button.js",
+        "lines": 33
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:onclick",
+      "type": "function",
+      "name": "frappe.ui.form.ControlButton.onclick",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          39,
+          51
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/button.js",
+        "lines": 13
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:run_server_script",
+      "type": "function",
+      "name": "frappe.ui.form.ControlButton.run_server_script",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          52,
+          67
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/button.js",
+        "lines": 16
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:set_label",
+      "type": "function",
+      "name": "frappe.ui.form.ControlButton.set_label",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          78,
+          87
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/button.js",
+        "lines": 10
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/check.js",
+      "type": "file",
+      "name": "check.js",
+      "summary": "ControlCheck: checkbox control with 0/1 value handling extending ControlData.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/check.js",
+        "lines": 46
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "type": "class",
+      "name": "frappe.ui.form.ControlCheck",
+      "summary": "Boolean checkbox control.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          45
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/check.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck:make_wrapper",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCheck.make_wrapper",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          5,
+          17
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/check.js",
+        "lines": 13
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck:set_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCheck.set_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          35,
+          44
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/check.js",
+        "lines": 10
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/code.js",
+      "type": "file",
+      "name": "code.js",
+      "summary": "ControlCode: Ace-editor backed multi-line code editor with syntax highlighting and autocompletion.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 274
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "type": "class",
+      "name": "frappe.ui.form.ControlCode",
+      "summary": "Multi-line code editor backed by Ace editor.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          273
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:setup_copy_button",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.setup_copy_button",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          15,
+          43
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 29
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:make_ace_editor",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.make_ace_editor",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          45,
+          128
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 84
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:setup_autocompletion",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.setup_autocompletion",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          130,
+          177
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 48
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:set_language",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.set_language",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          194,
+          227
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 34
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:set_formatted_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.set_formatted_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          236,
+          245
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 10
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:load_lib",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCode.load_lib",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          255,
+          272
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/code.js",
+        "lines": 18
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/color.js",
+      "type": "file",
+      "name": "color.js",
+      "summary": "ControlColor: color picker control integrating the custom color_picker component.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/color.js",
+        "lines": 118
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "type": "class",
+      "name": "frappe.ui.form.ControlColor",
+      "summary": "Color picker control.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          3,
+          117
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/color.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor:make_color_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlColor.make_color_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          10,
+          83
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/color.js",
+        "lines": 74
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor:validate",
+      "type": "function",
+      "name": "frappe.ui.form.ControlColor.validate",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          107,
+          116
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/color.js",
+        "lines": 10
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/comment.js",
+      "type": "file",
+      "name": "comment.js",
+      "summary": "ControlComment: Quill-based rich-text comment editor with mentions, extends ControlTextEditor.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/comment.js",
+        "lines": 111
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "type": "class",
+      "name": "frappe.ui.form.ControlComment",
+      "summary": "Quill-based comment editor with @mentions.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          6,
+          110
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/comment.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:make_wrapper",
+      "type": "function",
+      "name": "frappe.ui.form.ControlComment.make_wrapper",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          7,
+          38
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/comment.js",
+        "lines": 32
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:bind_events",
+      "type": "function",
+      "name": "frappe.ui.form.ControlComment.bind_events",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          40,
+          61
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/comment.js",
+        "lines": 22
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:get_toolbar_options",
+      "type": "function",
+      "name": "frappe.ui.form.ControlComment.get_toolbar_options",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          85,
+          95
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/comment.js",
+        "lines": 11
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/control.js",
+      "type": "file",
+      "name": "control.js",
+      "summary": "Barrel module importing all control implementations so frappe.ui.form.Control* classes are registered.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/control.js",
+        "lines": 54
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/currency.js",
+      "type": "file",
+      "name": "currency.js",
+      "summary": "ControlCurrency: numeric currency control extending ControlFloat, overriding precision.",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/currency.js",
+        "lines": 16
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency",
+      "type": "class",
+      "name": "frappe.ui.form.ControlCurrency",
+      "summary": "Currency numeric control with precision override.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          15
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/currency.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency:get_precision",
+      "type": "function",
+      "name": "frappe.ui.form.ControlCurrency.get_precision",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          2,
+          14
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/currency.js",
+        "lines": 13
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/data.js",
+      "type": "file",
+      "name": "data.js",
+      "summary": "ControlData: single-line text input \u2014 the workhorse base for most text-like controls (URL, barcode, autoname hints, validation).",
+      "tags": [
+        "javascript",
+        "form-control"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 331
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "class",
+      "name": "frappe.ui.form.ControlData",
+      "summary": "Single-line text input, base for many text-like controls.",
+      "tags": [
+        "javascript",
+        "class",
+        "form-control"
+      ],
+      "complexity": {
+        "lineRange": [
+          3,
+          328
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js"
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:make_input",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.make_input",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          7,
+          79
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 73
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_url_field",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.setup_url_field",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          81,
+          122
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 42
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_copy_button",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.setup_copy_button",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          130,
+          144
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 15
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_barcode_field",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.setup_barcode_field",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          146,
+          173
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 28
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:bind_change_event",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.bind_change_event",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          175,
+          188
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 14
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_autoname_check",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.setup_autoname_check",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          189,
+          227
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 39
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:set_input_attributes",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.set_input_attributes",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          228,
+          261
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 34
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:validate",
+      "type": "function",
+      "name": "frappe.ui.form.ControlData.validate",
+      "summary": "",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          287,
+          320
+        ],
+        "filePath": "frappe/public/js/frappe/form/controls/data.js",
+        "lines": 34
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/base_control.js",
+      "target": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/base_control.js",
+      "target": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:get_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:show_translatable_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:validate_and_set_in_model",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:get_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "target": "func:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control:set_model_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/base_input.js",
+      "target": "file:frappe/public/js/frappe/form/info_card.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/base_input.js",
+      "target": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/base_input.js",
+      "target": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:make_wrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_input_areas",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:setup_shortcut",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:refresh_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_disp_area",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:show_description_on_click",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_doc_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_description",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_mandatory",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "func:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput:set_invalid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/button.js",
+      "target": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/button.js",
+      "target": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "target": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:make_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "target": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:onclick",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "target": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:run_server_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "target": "func:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton:set_label",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/check.js",
+      "target": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/check.js",
+      "target": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck:make_wrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck:set_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/code.js",
+      "target": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/code.js",
+      "target": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:setup_copy_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:make_ace_editor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:setup_autocompletion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:set_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:set_formatted_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/code.js:frappe.ui.form.ControlCode:load_lib",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/color.js",
+      "target": "file:frappe/public/js/frappe/color_picker/color_picker.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/color.js",
+      "target": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/color.js",
+      "target": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "target": "func:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor:make_color_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "target": "func:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor:validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/comment.js",
+      "target": "file:frappe/public/js/frappe/form/controls/quill-mention/quill.mention.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/comment.js",
+      "target": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/comment.js",
+      "target": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "target": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:make_wrapper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "target": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:bind_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment",
+      "target": "func:frappe/public/js/frappe/form/controls/comment.js:frappe.ui.form.ControlComment:get_toolbar_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/base_control.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/base_input.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/data.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/int.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/float.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/percent.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/currency.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/date.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/time.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/datetime.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/date_range.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/select.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/link.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/dynamic_link.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/text.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/code.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/text_editor.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/comment.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/check.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/image.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/attach.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/attach_image.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/table.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/color.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/signature.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/password.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/button.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/html.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/markdown_editor.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/html_editor.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/heading.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/autocomplete.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/barcode.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/geolocation.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/multiselect.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/multicheck.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/table_multiselect.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/multiselect_pills.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/multiselect_list.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/rating.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/duration.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/icon.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/phone.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/control.js",
+      "target": "file:frappe/public/js/frappe/form/controls/json.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/currency.js",
+      "target": "class:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/currency.js",
+      "target": "class:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency",
+      "target": "func:frappe/public/js/frappe/form/controls/currency.js:frappe.ui.form.ControlCurrency:get_precision",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/data.js",
+      "target": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/data.js",
+      "target": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:make_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_url_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_copy_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_barcode_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:bind_change_event",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:setup_autoname_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:set_input_attributes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "func:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData:validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "target": "class:frappe/public/js/frappe/form/controls/base_control.js:frappe.ui.form.Control",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/button.js:frappe.ui.form.ControlButton",
+      "target": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/check.js:frappe.ui.form.ControlCheck",
+      "target": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/color.js:frappe.ui.form.ControlColor",
+      "target": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/data.js:frappe.ui.form.ControlData",
+      "target": "class:frappe/public/js/frappe/form/controls/base_input.js:frappe.ui.form.ControlInput",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

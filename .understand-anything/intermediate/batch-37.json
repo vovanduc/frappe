@@ -1,0 +1,418 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/user_type_module/user_type_module.py",
+      "type": "file",
+      "name": "user_type_module.py",
+      "filePath": "frappe/core/doctype/user_type_module/user_type_module.py",
+      "summary": "Defines the UserTypeModule child DocType controller, a simple pass-through Document subclass with Link field for module. Used as a child table in UserType to specify allowed modules.",
+      "tags": ["doctype", "child-table", "user-type", "module"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:UserTypeModule",
+      "type": "class",
+      "name": "UserTypeModule",
+      "filePath": "frappe/core/doctype/user_type_module/user_type_module.py",
+      "lineRange": [8, 23],
+      "summary": "Child DocType controller for UserTypeModule. Empty implementation (pass) inheriting from Document. Stores module link as child table row.",
+      "tags": ["doctype", "child-table", "document"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/version/test_version.py",
+      "type": "file",
+      "name": "test_version.py",
+      "filePath": "frappe/core/doctype/version/test_version.py",
+      "summary": "Test suite for the Version DocType covering HTML diff generation, diff detection between document versions, and version tracking on document saves. Includes both unit tests for pure functions and integration tests for document lifecycle.",
+      "tags": ["test", "version", "diff", "html-diff"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TestHTMLDiff",
+      "type": "class",
+      "name": "TestHTMLDiff",
+      "filePath": "frappe/core/doctype/version/test_version.py",
+      "lineRange": [16, 71],
+      "summary": "Unit tests for HTML diff helper functions: _generate_html_diff, _should_generate_html_diff, and _as_string. Tests HTML table output, XSS escaping, multiline/long text detection, and string conversion.",
+      "tags": ["test", "unit-test", "html-diff"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TestVersion",
+      "type": "class",
+      "name": "TestVersion",
+      "filePath": "frappe/core/doctype/version/test_version.py",
+      "lineRange": [74, 171],
+      "summary": "Integration tests for the Version DocType. Tests onload HTML diff generation for multiline/long changes, empty data handling, get_diff for field changes including datetime formatting, and version creation behavior on new vs existing documents.",
+      "tags": ["test", "integration-test", "version"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/version/version.js",
+      "type": "file",
+      "name": "version.js",
+      "filePath": "frappe/core/doctype/version/version.js",
+      "summary": "Client-side controller for the Version DocType form. Adds a 'Show all Versions' button and renders the version view template by parsing the JSON data field.",
+      "tags": ["javascript", "form-controller", "version", "ui"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/version/version.py",
+      "type": "file",
+      "name": "version.py",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "summary": "Core Version DocType controller and diff engine. Tracks changes between document versions by computing field-level diffs including child table row additions, removals, and modifications. Supports HTML diff generation for multiline text, impersonation tracking, and link title resolution.",
+      "tags": ["doctype", "version", "diff", "audit", "tracking"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:Version",
+      "type": "class",
+      "name": "Version",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [15, 100],
+      "summary": "Document controller for Version DocType. Manages version data serialization, diff computation between old/new documents, impersonation/audit user tracking, and HTML diff generation on load for multiline or long text changes.",
+      "tags": ["doctype", "document", "version", "audit"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:get_diff",
+      "type": "function",
+      "name": "get_diff",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [102, 225],
+      "summary": "Computes a structured diff between two Document objects. Returns changed fields, added/removed child table rows, and row-level changes. Handles datetime formatting, link title resolution, and recursive child table comparison. Core function for the version tracking system.",
+      "tags": ["diff", "version", "document-comparison", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:_generate_html_diff",
+      "type": "function",
+      "name": "_generate_html_diff",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [232, 246],
+      "summary": "Generates an HTML table diff using Python's difflib.HtmlDiff for visual comparison of old and new text values with context lines.",
+      "tags": ["diff", "html", "utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:_should_generate_html_diff",
+      "type": "function",
+      "name": "_should_generate_html_diff",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [249, 253],
+      "summary": "Determines whether HTML diff should be generated based on whether values are non-empty and contain newlines or exceed 80 characters.",
+      "tags": ["diff", "utility", "predicate"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:_as_string",
+      "type": "function",
+      "name": "_as_string",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [256, 258],
+      "summary": "Converts a value to string, treating None as empty string. Wrapper around frappe.utils.cstr.",
+      "tags": ["utility", "string-conversion"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:on_doctype_update:version",
+      "type": "function",
+      "name": "on_doctype_update",
+      "filePath": "frappe/core/doctype/version/version.py",
+      "lineRange": [228, 229],
+      "summary": "Adds a composite database index on (ref_doctype, docname) for efficient version lookups.",
+      "tags": ["database", "index", "migration"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/view_log/test_view_log.py",
+      "type": "file",
+      "name": "test_view_log.py",
+      "filePath": "frappe/core/doctype/view_log/test_view_log.py",
+      "summary": "Integration test for ViewLog DocType. Verifies that loading a document form (via getdoc) creates a View Log entry recording which user viewed the document.",
+      "tags": ["test", "integration-test", "view-log", "audit"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/view_log/view_log.js",
+      "type": "file",
+      "name": "view_log.js",
+      "filePath": "frappe/core/doctype/view_log/view_log.js",
+      "summary": "Empty client-side form controller stub for the View Log DocType.",
+      "tags": ["javascript", "form-controller", "stub"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/view_log/view_log.py",
+      "type": "file",
+      "name": "view_log.py",
+      "filePath": "frappe/core/doctype/view_log/view_log.py",
+      "summary": "ViewLog DocType controller with a static method to clear old view log entries older than a specified number of days using the Query Builder.",
+      "tags": ["doctype", "view-log", "audit", "cleanup"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ViewLog",
+      "type": "class",
+      "name": "ViewLog",
+      "filePath": "frappe/core/doctype/view_log/view_log.py",
+      "lineRange": [8, 28],
+      "summary": "Document controller for ViewLog DocType. Tracks which users have viewed specific documents. Provides clear_old_logs static method to purge entries older than N days using Query Builder.",
+      "tags": ["doctype", "document", "view-log", "audit"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/notifications.py",
+      "type": "file",
+      "name": "notifications.py",
+      "filePath": "frappe/core/notifications.py",
+      "summary": "Core notification configuration module. Defines notification rules for core DocTypes (Error Log, Communication, ToDo, Event, Workflow Action) and provides helper functions to count pending ToDos and today's calendar events.",
+      "tags": ["notifications", "core", "configuration", "todo", "events"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_notification_config",
+      "type": "function",
+      "name": "get_notification_config",
+      "filePath": "frappe/core/notifications.py",
+      "lineRange": [7, 16],
+      "summary": "Returns notification configuration dict mapping core DocTypes to their notification conditions (filters or callable references for ToDo and Event).",
+      "tags": ["notifications", "configuration"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_things_todo",
+      "type": "function",
+      "name": "get_things_todo",
+      "filePath": "frappe/core/notifications.py",
+      "lineRange": [19, 34],
+      "summary": "Returns count (or list) of open ToDo items allocated to or assigned by the current user. Used for notification badge counts.",
+      "tags": ["notifications", "todo", "query"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_todays_events",
+      "type": "function",
+      "name": "get_todays_events",
+      "filePath": "frappe/core/notifications.py",
+      "lineRange": [37, 44],
+      "summary": "Returns count (or list) of today's calendar events for the current user by delegating to the Event DocType's get_events function.",
+      "tags": ["notifications", "events", "calendar"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:UserTypeModule",
+      "target": "file:frappe/core/doctype/user_type_module/user_type_module.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserTypeModule",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Version",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Version",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Version",
+      "target": "func:get_diff",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Version",
+      "target": "func:_should_generate_html_diff",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Version",
+      "target": "func:_generate_html_diff",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Version",
+      "target": "func:_as_string",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:get_diff",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_generate_html_diff",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_should_generate_html_diff",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_as_string",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:on_doctype_update:version",
+      "target": "file:frappe/core/doctype/version/version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestHTMLDiff",
+      "target": "file:frappe/core/doctype/version/test_version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestHTMLDiff",
+      "target": "func:_generate_html_diff",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestHTMLDiff",
+      "target": "func:_should_generate_html_diff",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestHTMLDiff",
+      "target": "func:_as_string",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestVersion",
+      "target": "file:frappe/core/doctype/version/test_version.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestVersion",
+      "target": "class:Version",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestVersion",
+      "target": "func:get_diff",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/version/version.js",
+      "target": "class:Version",
+      "type": "client_controller",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:ViewLog",
+      "target": "file:frappe/core/doctype/view_log/view_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ViewLog",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/view_log/test_view_log.py",
+      "target": "class:ViewLog",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/view_log/view_log.js",
+      "target": "class:ViewLog",
+      "type": "client_controller",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:get_notification_config",
+      "target": "file:frappe/core/notifications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_things_todo",
+      "target": "file:frappe/core/notifications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_todays_events",
+      "target": "file:frappe/core/notifications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_notification_config",
+      "target": "func:get_things_todo",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_notification_config",
+      "target": "func:get_todays_events",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

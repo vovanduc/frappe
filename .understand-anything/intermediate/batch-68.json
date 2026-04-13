@@ -1,0 +1,4778 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/form.js",
+      "type": "file",
+      "name": "form.js",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "summary": "Central Form class that orchestrates the entire form view lifecycle: rendering, layout, refresh, save/submit/cancel, workflow actions, sidebar, dashboard, toolbar, keyboard shortcuts, and event handlers.",
+      "tags": [
+        "form",
+        "lifecycle",
+        "core",
+        "desk"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/form_tour.js",
+      "type": "file",
+      "name": "form_tour.js",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "summary": "Implements guided product tour overlay for forms, stepping through fields with tooltips and instructions.",
+      "tags": [
+        "tour",
+        "onboarding",
+        "ui"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/form_viewers.js",
+      "type": "file",
+      "name": "form_viewers.js",
+      "filePath": "frappe/public/js/frappe/form/form_viewers.js",
+      "summary": "Displays avatars of users currently viewing the same document in real-time via socket.io.",
+      "tags": [
+        "realtime",
+        "viewers",
+        "collaboration"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/formatters.js",
+      "type": "file",
+      "name": "formatters.js",
+      "filePath": "frappe/public/js/frappe/form/formatters.js",
+      "summary": "Field value formatters for display in forms, lists, and reports (currency, date, link, duration, percent, etc.).",
+      "tags": [
+        "formatting",
+        "display",
+        "fields"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/grid.js",
+      "type": "file",
+      "name": "grid.js",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "summary": "Implements the editable data grid for Table child-table fields: row CRUD, pagination, bulk actions, sorting, column resize, import/export.",
+      "tags": [
+        "grid",
+        "table",
+        "child-table",
+        "editable"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/grid_pagination.js",
+      "type": "file",
+      "name": "grid_pagination.js",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "summary": "Pagination controls for grid rows, handling page size, navigation, and visible-row filtering.",
+      "tags": [
+        "grid",
+        "pagination"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/grid_row.js",
+      "type": "file",
+      "name": "grid_row.js",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "summary": "Represents a single editable row in a table grid with inline controls, expand-to-form, move/copy/delete, and field rendering.",
+      "tags": [
+        "grid",
+        "row",
+        "editable",
+        "controls"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/grid_row_form.js",
+      "type": "file",
+      "name": "grid_row_form.js",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "summary": "Expanded row detail form view shown when a grid row is opened for full editing.",
+      "tags": [
+        "grid",
+        "row-form",
+        "detail"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/info_card.js",
+      "type": "file",
+      "name": "info_card.js",
+      "filePath": "frappe/public/js/frappe/form/info_card.js",
+      "summary": "Renders informational cards for form sidebar with title, indicator, and content areas.",
+      "tags": [
+        "sidebar",
+        "info-card",
+        "ui"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/layout.js",
+      "type": "file",
+      "name": "layout.js",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "summary": "Form field layout composer: builds sections, columns, tabs from DocType metadata and manages field rendering and visibility.",
+      "tags": [
+        "layout",
+        "sections",
+        "tabs",
+        "fields"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/form.js:FormController",
+      "type": "class",
+      "name": "FormController",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        18,
+        22
+      ],
+      "summary": "FormController class defined in form.js (lines 18-22).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "type": "class",
+      "name": "FrappeForm",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        24,
+        2348
+      ],
+      "summary": "FrappeForm class defined in form.js (lines 24-2348).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.constructor",
+      "type": "function",
+      "name": "FrappeForm.constructor",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        25,
+        52
+      ],
+      "summary": "Method constructor of FrappeForm (28 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_meta",
+      "type": "function",
+      "name": "FrappeForm.setup_meta",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        54,
+        72
+      ],
+      "summary": "Method setup_meta of FrappeForm (19 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup",
+      "type": "function",
+      "name": "FrappeForm.setup",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        74,
+        137
+      ],
+      "summary": "Method setup of FrappeForm (64 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_form_keyboard_shortcuts",
+      "type": "function",
+      "name": "FrappeForm.add_form_keyboard_shortcuts",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        139,
+        224
+      ],
+      "summary": "Method add_form_keyboard_shortcuts of FrappeForm (86 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_std_layout",
+      "type": "function",
+      "name": "FrappeForm.setup_std_layout",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        226,
+        277
+      ],
+      "summary": "Method setup_std_layout of FrappeForm (52 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.watch_model_updates",
+      "type": "function",
+      "name": "FrappeForm.watch_model_updates",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        279,
+        332
+      ],
+      "summary": "Method watch_model_updates of FrappeForm (54 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_notify_on_rename",
+      "type": "function",
+      "name": "FrappeForm.setup_notify_on_rename",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        334,
+        346
+      ],
+      "summary": "Method setup_notify_on_rename of FrappeForm (13 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_file_drop",
+      "type": "function",
+      "name": "FrappeForm.setup_file_drop",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        348,
+        375
+      ],
+      "summary": "Method setup_file_drop of FrappeForm (28 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_image_autocompletions_in_markdown",
+      "type": "function",
+      "name": "FrappeForm.setup_image_autocompletions_in_markdown",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        377,
+        394
+      ],
+      "summary": "Method setup_image_autocompletions_in_markdown of FrappeForm (18 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh",
+      "type": "function",
+      "name": "FrappeForm.refresh",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        398,
+        475
+      ],
+      "summary": "Method refresh of FrappeForm (78 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_doctype_actions",
+      "type": "function",
+      "name": "FrappeForm.setup_doctype_actions",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        479,
+        497
+      ],
+      "summary": "Method setup_doctype_actions of FrappeForm (19 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.execute_action",
+      "type": "function",
+      "name": "FrappeForm.execute_action",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        499,
+        532
+      ],
+      "summary": "Method execute_action of FrappeForm (34 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.check_reload",
+      "type": "function",
+      "name": "FrappeForm.check_reload",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        547,
+        557
+      ],
+      "summary": "Method check_reload of FrappeForm (11 lines).",
+      "tags": [
+        "load"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.trigger_onload",
+      "type": "function",
+      "name": "FrappeForm.trigger_onload",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        559,
+        576
+      ],
+      "summary": "Method trigger_onload of FrappeForm (18 lines).",
+      "tags": [
+        "load"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.initialize_new_doc",
+      "type": "function",
+      "name": "FrappeForm.initialize_new_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        578,
+        598
+      ],
+      "summary": "Method initialize_new_doc of FrappeForm (21 lines).",
+      "tags": [
+        "init"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.render_form",
+      "type": "function",
+      "name": "FrappeForm.render_form",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        600,
+        654
+      ],
+      "summary": "Method render_form of FrappeForm (55 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.configure_breadcrumb_width",
+      "type": "function",
+      "name": "FrappeForm.configure_breadcrumb_width",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        660,
+        690
+      ],
+      "summary": "Method configure_breadcrumb_width of FrappeForm (31 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.focus_on_first_input",
+      "type": "function",
+      "name": "FrappeForm.focus_on_first_input",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        692,
+        705
+      ],
+      "summary": "Method focus_on_first_input of FrappeForm (14 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh_fields",
+      "type": "function",
+      "name": "FrappeForm.refresh_fields",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        716,
+        726
+      ],
+      "summary": "Method refresh_fields of FrappeForm (11 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.cleanup_refresh",
+      "type": "function",
+      "name": "FrappeForm.cleanup_refresh",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        728,
+        762
+      ],
+      "summary": "Method cleanup_refresh of FrappeForm (35 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh_header",
+      "type": "function",
+      "name": "FrappeForm.refresh_header",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        764,
+        788
+      ],
+      "summary": "Method refresh_header of FrappeForm (25 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.save",
+      "type": "function",
+      "name": "FrappeForm.save",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        802,
+        815
+      ],
+      "summary": "Method save of FrappeForm (14 lines).",
+      "tags": [
+        "save"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.validate_and_save",
+      "type": "function",
+      "name": "FrappeForm.validate_and_save",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        817,
+        884
+      ],
+      "summary": "Method validate_and_save of FrappeForm (68 lines).",
+      "tags": [
+        "save"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.discard",
+      "type": "function",
+      "name": "FrappeForm.discard",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        886,
+        895
+      ],
+      "summary": "Method discard of FrappeForm (10 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.savesubmit",
+      "type": "function",
+      "name": "FrappeForm.savesubmit",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        897,
+        940
+      ],
+      "summary": "Method savesubmit of FrappeForm (44 lines).",
+      "tags": [
+        "save"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.savecancel",
+      "type": "function",
+      "name": "FrappeForm.savecancel",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        942,
+        968
+      ],
+      "summary": "Method savecancel of FrappeForm (27 lines).",
+      "tags": [
+        "save"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm._cancel_all",
+      "type": "function",
+      "name": "FrappeForm._cancel_all",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        970,
+        1040
+      ],
+      "summary": "Method _cancel_all of FrappeForm (71 lines).",
+      "tags": [
+        "cancel"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm._cancel",
+      "type": "function",
+      "name": "FrappeForm._cancel",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1042,
+        1074
+      ],
+      "summary": "Method _cancel of FrappeForm (33 lines).",
+      "tags": [
+        "cancel"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm._discard",
+      "type": "function",
+      "name": "FrappeForm._discard",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1076,
+        1120
+      ],
+      "summary": "Method _discard of FrappeForm (45 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.amend_doc",
+      "type": "function",
+      "name": "FrappeForm.amend_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1129,
+        1156
+      ],
+      "summary": "Method amend_doc of FrappeForm (28 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.validate_form_action",
+      "type": "function",
+      "name": "FrappeForm.validate_form_action",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1158,
+        1188
+      ],
+      "summary": "Method validate_form_action of FrappeForm (31 lines).",
+      "tags": [
+        "validate"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.trigger_link_fields",
+      "type": "function",
+      "name": "FrappeForm.trigger_link_fields",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1230,
+        1242
+      ],
+      "summary": "Method trigger_link_fields of FrappeForm (13 lines).",
+      "tags": [
+        "trigger"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_conflict_message",
+      "type": "function",
+      "name": "FrappeForm.show_conflict_message",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1244,
+        1259
+      ],
+      "summary": "Method show_conflict_message of FrappeForm (16 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_submit_message",
+      "type": "function",
+      "name": "FrappeForm.show_submit_message",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1261,
+        1273
+      ],
+      "summary": "Method show_submit_message of FrappeForm (13 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_report_bug_link",
+      "type": "function",
+      "name": "FrappeForm.show_report_bug_link",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1284,
+        1293
+      ],
+      "summary": "Method show_report_bug_link of FrappeForm (10 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.check_doctype_conflict",
+      "type": "function",
+      "name": "FrappeForm.check_doctype_conflict",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1315,
+        1330
+      ],
+      "summary": "Method check_doctype_conflict of FrappeForm (16 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.rename_notify",
+      "type": "function",
+      "name": "FrappeForm.rename_notify",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1334,
+        1363
+      ],
+      "summary": "Method rename_notify of FrappeForm (30 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.print_doc",
+      "type": "function",
+      "name": "FrappeForm.print_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1367,
+        1381
+      ],
+      "summary": "Method print_doc of FrappeForm (15 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.navigate_records",
+      "type": "function",
+      "name": "FrappeForm.navigate_records",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1383,
+        1416
+      ],
+      "summary": "Method navigate_records of FrappeForm (34 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.email_doc",
+      "type": "function",
+      "name": "FrappeForm.email_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1426,
+        1435
+      ],
+      "summary": "Method email_doc of FrappeForm (10 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.copy_doc",
+      "type": "function",
+      "name": "FrappeForm.copy_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1437,
+        1447
+      ],
+      "summary": "Method copy_doc of FrappeForm (11 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.reload_doc",
+      "type": "function",
+      "name": "FrappeForm.reload_doc",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1449,
+        1458
+      ],
+      "summary": "Method reload_doc of FrappeForm (10 lines).",
+      "tags": [
+        "load"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_fetch",
+      "type": "function",
+      "name": "FrappeForm.add_fetch",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1469,
+        1486
+      ],
+      "summary": "Method add_fetch of FrappeForm (18 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_custom_button",
+      "type": "function",
+      "name": "FrappeForm.add_custom_button",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1531,
+        1540
+      ],
+      "summary": "Method add_custom_button of FrappeForm (10 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.remove_custom_button",
+      "type": "function",
+      "name": "FrappeForm.remove_custom_button",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1553,
+        1574
+      ],
+      "summary": "Method remove_custom_button of FrappeForm (22 lines).",
+      "tags": [
+        "remove"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.scroll_to_element",
+      "type": "function",
+      "name": "FrappeForm.scroll_to_element",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1576,
+        1594
+      ],
+      "summary": "Method scroll_to_element of FrappeForm (19 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_currency_labels",
+      "type": "function",
+      "name": "FrappeForm.set_currency_labels",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1609,
+        1642
+      ],
+      "summary": "Method set_currency_labels of FrappeForm (34 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.field_map",
+      "type": "function",
+      "name": "FrappeForm.field_map",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1644,
+        1660
+      ],
+      "summary": "Method field_map of FrappeForm (17 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_docfield",
+      "type": "function",
+      "name": "FrappeForm.get_docfield",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1662,
+        1671
+      ],
+      "summary": "Method get_docfield of FrappeForm (10 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_df_property",
+      "type": "function",
+      "name": "FrappeForm.set_df_property",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1673,
+        1705
+      ],
+      "summary": "Method set_df_property of FrappeForm (33 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_query",
+      "type": "function",
+      "name": "FrappeForm.set_query",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1731,
+        1743
+      ],
+      "summary": "Method set_query of FrappeForm (13 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_child",
+      "type": "function",
+      "name": "FrappeForm.add_child",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1749,
+        1769
+      ],
+      "summary": "Method add_child of FrappeForm (21 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_value",
+      "type": "function",
+      "name": "FrappeForm.set_value",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1771,
+        1835
+      ],
+      "summary": "Method set_value of FrappeForm (65 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.call",
+      "type": "function",
+      "name": "FrappeForm.call",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1837,
+        1886
+      ],
+      "summary": "Method call of FrappeForm (50 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_read_only",
+      "type": "function",
+      "name": "FrappeForm.set_read_only",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1892,
+        1905
+      ],
+      "summary": "Method set_read_only of FrappeForm (14 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_selected",
+      "type": "function",
+      "name": "FrappeForm.get_selected",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1928,
+        1945
+      ],
+      "summary": "Method get_selected of FrappeForm (18 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_indicator_formatter",
+      "type": "function",
+      "name": "FrappeForm.set_indicator_formatter",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1947,
+        1993
+      ],
+      "summary": "Method set_indicator_formatter of FrappeForm (47 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.can_create",
+      "type": "function",
+      "name": "FrappeForm.can_create",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        1995,
+        2019
+      ],
+      "summary": "Method can_create of FrappeForm (25 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.make_new",
+      "type": "function",
+      "name": "FrappeForm.make_new",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2021,
+        2041
+      ],
+      "summary": "Method make_new of FrappeForm (21 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_link_field",
+      "type": "function",
+      "name": "FrappeForm.set_link_field",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2043,
+        2066
+      ],
+      "summary": "Method set_link_field of FrappeForm (24 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.update_in_all_rows",
+      "type": "function",
+      "name": "FrappeForm.update_in_all_rows",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2068,
+        2080
+      ],
+      "summary": "Method update_in_all_rows of FrappeForm (13 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.scroll_to_field",
+      "type": "function",
+      "name": "FrappeForm.scroll_to_field",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2090,
+        2126
+      ],
+      "summary": "Method scroll_to_field of FrappeForm (37 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_docinfo_change_listener",
+      "type": "function",
+      "name": "FrappeForm.setup_docinfo_change_listener",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2128,
+        2168
+      ],
+      "summary": "Method setup_docinfo_change_listener of FrappeForm (41 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_active_tab",
+      "type": "function",
+      "name": "FrappeForm.set_active_tab",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2200,
+        2236
+      ],
+      "summary": "Method set_active_tab of FrappeForm (37 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_involved_users",
+      "type": "function",
+      "name": "FrappeForm.get_involved_users",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2242,
+        2263
+      ],
+      "summary": "Method get_involved_users of FrappeForm (22 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_submission_queue_banner",
+      "type": "function",
+      "name": "FrappeForm.show_submission_queue_banner",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2265,
+        2327
+      ],
+      "summary": "Method show_submission_queue_banner of FrappeForm (63 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_workflow_read_only_banner",
+      "type": "function",
+      "name": "FrappeForm.show_workflow_read_only_banner",
+      "filePath": "frappe/public/js/frappe/form/form.js",
+      "lineRange": [
+        2329,
+        2347
+      ],
+      "summary": "Method show_workflow_read_only_banner of FrappeForm (19 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "type": "class",
+      "name": "FormTour",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        1,
+        339
+      ],
+      "summary": "FormTour class defined in form_tour.js (lines 1-339).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.init_driver",
+      "type": "function",
+      "name": "FormTour.init_driver",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        7,
+        34
+      ],
+      "summary": "Method init_driver of FormTour (28 lines).",
+      "tags": [
+        "init"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.include_name_field",
+      "type": "function",
+      "name": "FormTour.include_name_field",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        58,
+        67
+      ],
+      "summary": "Method include_name_field of FormTour (10 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.build_steps",
+      "type": "function",
+      "name": "FormTour.build_steps",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        69,
+        115
+      ],
+      "summary": "Method build_steps of FormTour (47 lines).",
+      "tags": [
+        "build"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.get_step",
+      "type": "function",
+      "name": "FormTour.get_step",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        122,
+        148
+      ],
+      "summary": "Method get_step of FormTour (27 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_table_step",
+      "type": "function",
+      "name": "FormTour.handle_table_step",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        173,
+        205
+      ],
+      "summary": "Method handle_table_step of FormTour (33 lines).",
+      "tags": [
+        "handle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_new_row_step",
+      "type": "function",
+      "name": "FormTour.add_new_row_step",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        207,
+        225
+      ],
+      "summary": "Method add_new_row_step of FormTour (19 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.open_first_row_of",
+      "type": "function",
+      "name": "FormTour.open_first_row_of",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        233,
+        249
+      ],
+      "summary": "Method open_first_row_of of FormTour (17 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_child_table_step",
+      "type": "function",
+      "name": "FormTour.handle_child_table_step",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        251,
+        270
+      ],
+      "summary": "Method handle_child_table_step of FormTour (20 lines).",
+      "tags": [
+        "handle"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_collapse_row_step",
+      "type": "function",
+      "name": "FormTour.add_collapse_row_step",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        272,
+        284
+      ],
+      "summary": "Method add_collapse_row_step of FormTour (13 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_step_to_save",
+      "type": "function",
+      "name": "FormTour.add_step_to_save",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        286,
+        310
+      ],
+      "summary": "Method add_step_to_save of FormTour (25 lines).",
+      "tags": [
+        "save"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_attach_image_steps",
+      "type": "function",
+      "name": "FormTour.handle_attach_image_steps",
+      "filePath": "frappe/public/js/frappe/form/form_tour.js",
+      "lineRange": [
+        312,
+        338
+      ],
+      "summary": "Method handle_attach_image_steps of FormTour (27 lines).",
+      "tags": [
+        "handle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/form_viewers.js:FormViewers",
+      "type": "class",
+      "name": "FormViewers",
+      "filePath": "frappe/public/js/frappe/form/form_viewers.js",
+      "lineRange": [
+        1,
+        85
+      ],
+      "summary": "FormViewers class defined in form_viewers.js (lines 1-85).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_viewers.js:FormViewers.refresh",
+      "type": "function",
+      "name": "FormViewers.refresh",
+      "filePath": "frappe/public/js/frappe/form/form_viewers.js",
+      "lineRange": [
+        34,
+        44
+      ],
+      "summary": "Method refresh of FormViewers (11 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/form_viewers.js:FormViewers.fetch_user_info",
+      "type": "function",
+      "name": "FormViewers.fetch_user_info",
+      "filePath": "frappe/public/js/frappe/form/form_viewers.js",
+      "lineRange": [
+        73,
+        84
+      ],
+      "summary": "Method fetch_user_info of FormViewers (12 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "type": "class",
+      "name": "Grid",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        21,
+        1408
+      ],
+      "summary": "Grid class defined in grid.js (lines 21-1408).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.constructor",
+      "type": "function",
+      "name": "Grid.constructor",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        22,
+        47
+      ],
+      "summary": "Method constructor of Grid (26 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.make",
+      "type": "function",
+      "name": "Grid.make",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        65,
+        159
+      ],
+      "summary": "Method make of Grid (95 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.update_idx_and_name",
+      "type": "function",
+      "name": "Grid.update_idx_and_name",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        169,
+        178
+      ],
+      "summary": "Method update_idx_and_name of Grid (10 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.set_doc_url",
+      "type": "function",
+      "name": "Grid.set_doc_url",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        184,
+        201
+      ],
+      "summary": "Method set_doc_url of Grid (18 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_check",
+      "type": "function",
+      "name": "Grid.setup_check",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        210,
+        265
+      ],
+      "summary": "Method setup_check of Grid (56 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.check_range",
+      "type": "function",
+      "name": "Grid.check_range",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        273,
+        285
+      ],
+      "summary": "Method check_range of Grid (13 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.delete_rows",
+      "type": "function",
+      "name": "Grid.delete_rows",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        295,
+        333
+      ],
+      "summary": "Method delete_rows of Grid (39 lines).",
+      "tags": [
+        "delete"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.delete_all_rows",
+      "type": "function",
+      "name": "Grid.delete_all_rows",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        335,
+        347
+      ],
+      "summary": "Method delete_all_rows of Grid (13 lines).",
+      "tags": [
+        "delete"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh_remove_rows_button",
+      "type": "function",
+      "name": "Grid.refresh_remove_rows_button",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        363,
+        387
+      ],
+      "summary": "Method refresh_remove_rows_button of Grid (25 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh_duplicate_rows_button",
+      "type": "function",
+      "name": "Grid.refresh_duplicate_rows_button",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        394,
+        403
+      ],
+      "summary": "Method refresh_duplicate_rows_button of Grid (10 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.make_head",
+      "type": "function",
+      "name": "Grid.make_head",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        438,
+        471
+      ],
+      "summary": "Method make_head of Grid (34 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.update_search_columns",
+      "type": "function",
+      "name": "Grid.update_search_columns",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        473,
+        489
+      ],
+      "summary": "Method update_search_columns of Grid (17 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh",
+      "type": "function",
+      "name": "Grid.refresh",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        491,
+        553
+      ],
+      "summary": "Method refresh of Grid (63 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.render_result_rows",
+      "type": "function",
+      "name": "Grid.render_result_rows",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        555,
+        641
+      ],
+      "summary": "Method render_result_rows of Grid (87 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_toolbar",
+      "type": "function",
+      "name": "Grid.setup_toolbar",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        643,
+        679
+      ],
+      "summary": "Method setup_toolbar of Grid (37 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_fields",
+      "type": "function",
+      "name": "Grid.setup_fields",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        681,
+        710
+      ],
+      "summary": "Method setup_fields of Grid (30 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.make_sortable",
+      "type": "function",
+      "name": "Grid.make_sortable",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        716,
+        751
+      ],
+      "summary": "Method make_sortable of Grid (36 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.get_data",
+      "type": "function",
+      "name": "Grid.get_data",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        753,
+        763
+      ],
+      "summary": "Method get_data of Grid (11 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.get_filtered_data",
+      "type": "function",
+      "name": "Grid.get_filtered_data",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        765,
+        778
+      ],
+      "summary": "Method get_filtered_data of Grid (14 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.get_data_based_on_fieldtype",
+      "type": "function",
+      "name": "Grid.get_data_based_on_fieldtype",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        780,
+        824
+      ],
+      "summary": "Method get_data_based_on_fieldtype of Grid (45 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.set_column_disp",
+      "type": "function",
+      "name": "Grid.set_column_disp",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        836,
+        848
+      ],
+      "summary": "Method set_column_disp of Grid (13 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.set_editable_grid_column_disp",
+      "type": "function",
+      "name": "Grid.set_editable_grid_column_disp",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        850,
+        887
+      ],
+      "summary": "Method set_editable_grid_column_disp of Grid (38 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.get_row",
+      "type": "function",
+      "name": "Grid.get_row",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        916,
+        926
+      ],
+      "summary": "Method get_row of Grid (11 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.add_new_row",
+      "type": "function",
+      "name": "Grid.add_new_row",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        953,
+        1010
+      ],
+      "summary": "Method add_new_row of Grid (58 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.renumber_based_on_dom",
+      "type": "function",
+      "name": "Grid.renumber_based_on_dom",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1012,
+        1028
+      ],
+      "summary": "Method renumber_based_on_dom of Grid (17 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.duplicate_row",
+      "type": "function",
+      "name": "Grid.duplicate_row",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1030,
+        1050
+      ],
+      "summary": "Method duplicate_row of Grid (21 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.set_focus_on_row",
+      "type": "function",
+      "name": "Grid.set_focus_on_row",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1052,
+        1064
+      ],
+      "summary": "Method set_focus_on_row of Grid (13 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_visible_columns",
+      "type": "function",
+      "name": "Grid.setup_visible_columns",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1066,
+        1143
+      ],
+      "summary": "Method setup_visible_columns of Grid (78 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.update_default_colsize",
+      "type": "function",
+      "name": "Grid.update_default_colsize",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1145,
+        1157
+      ],
+      "summary": "Method update_default_colsize of Grid (13 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_user_defined_columns",
+      "type": "function",
+      "name": "Grid.setup_user_defined_columns",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1159,
+        1177
+      ],
+      "summary": "Method setup_user_defined_columns of Grid (19 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.set_multiple_add",
+      "type": "function",
+      "name": "Grid.set_multiple_add",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1194,
+        1217
+      ],
+      "summary": "Method set_multiple_add of Grid (24 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_allow_bulk_edit",
+      "type": "function",
+      "name": "Grid.setup_allow_bulk_edit",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1219,
+        1296
+      ],
+      "summary": "Method setup_allow_bulk_edit of Grid (78 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_download",
+      "type": "function",
+      "name": "Grid.setup_download",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1298,
+        1346
+      ],
+      "summary": "Method setup_download of Grid (49 lines).",
+      "tags": [
+        "load"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.add_custom_button",
+      "type": "function",
+      "name": "Grid.add_custom_button",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1348,
+        1362
+      ],
+      "summary": "Method add_custom_button of Grid (15 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid.js:Grid.update_docfield_property",
+      "type": "function",
+      "name": "Grid.update_docfield_property",
+      "filePath": "frappe/public/js/frappe/form/grid.js",
+      "lineRange": [
+        1369,
+        1397
+      ],
+      "summary": "Method update_docfield_property of Grid (29 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "type": "class",
+      "name": "GridPagination",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        1,
+        194
+      ],
+      "summary": "GridPagination class defined in grid_pagination.js (lines 1-194).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.render_pagination",
+      "type": "function",
+      "name": "GridPagination.render_pagination",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        15,
+        30
+      ],
+      "summary": "Method render_pagination of GridPagination (16 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.bind_pagination_events",
+      "type": "function",
+      "name": "GridPagination.bind_pagination_events",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        32,
+        90
+      ],
+      "summary": "Method bind_pagination_events of GridPagination (59 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.get_pagination_html",
+      "type": "function",
+      "name": "GridPagination.get_pagination_html",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        115,
+        131
+      ],
+      "summary": "Method get_pagination_html of GridPagination (17 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.go_to_page",
+      "type": "function",
+      "name": "GridPagination.go_to_page",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        147,
+        164
+      ],
+      "summary": "Method go_to_page of GridPagination (18 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.go_to_last_page_to_add_row",
+      "type": "function",
+      "name": "GridPagination.go_to_last_page_to_add_row",
+      "filePath": "frappe/public/js/frappe/form/grid_pagination.js",
+      "lineRange": [
+        176,
+        187
+      ],
+      "summary": "Method go_to_last_page_to_add_row of GridPagination (12 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "type": "class",
+      "name": "GridRow",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        9,
+        1676
+      ],
+      "summary": "GridRow class defined in grid_row.js (lines 9-1676).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.constructor",
+      "type": "function",
+      "name": "GridRow.constructor",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        10,
+        20
+      ],
+      "summary": "Method constructor of GridRow (11 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make",
+      "type": "function",
+      "name": "GridRow.make",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        21,
+        54
+      ],
+      "summary": "Method make of GridRow (34 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_docfields",
+      "type": "function",
+      "name": "GridRow.set_docfields",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        56,
+        65
+      ],
+      "summary": "Method set_docfields of GridRow (10 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.remove",
+      "type": "function",
+      "name": "GridRow.remove",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        91,
+        146
+      ],
+      "summary": "Method remove of GridRow (56 lines).",
+      "tags": [
+        "remove"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.move",
+      "type": "function",
+      "name": "GridRow.move",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        154,
+        188
+      ],
+      "summary": "Method move of GridRow (35 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh",
+      "type": "function",
+      "name": "GridRow.refresh",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        189,
+        204
+      ],
+      "summary": "Method refresh of GridRow (16 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_template",
+      "type": "function",
+      "name": "GridRow.render_template",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        205,
+        232
+      ],
+      "summary": "Method render_template of GridRow (28 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_row",
+      "type": "function",
+      "name": "GridRow.render_row",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        233,
+        318
+      ],
+      "summary": "Method render_row of GridRow (86 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_open_form_button",
+      "type": "function",
+      "name": "GridRow.add_open_form_button",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        328,
+        369
+      ],
+      "summary": "Method add_open_form_button of GridRow (42 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_column_configure_button",
+      "type": "function",
+      "name": "GridRow.add_column_configure_button",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        371,
+        388
+      ],
+      "summary": "Method add_column_configure_button of GridRow (18 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.configure_dialog_for_columns_selector",
+      "type": "function",
+      "name": "GridRow.configure_dialog_for_columns_selector",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        390,
+        424
+      ],
+      "summary": "Method configure_dialog_for_columns_selector of GridRow (35 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.setup_columns_for_dialog",
+      "type": "function",
+      "name": "GridRow.setup_columns_for_dialog",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        426,
+        435
+      ],
+      "summary": "Method setup_columns_for_dialog of GridRow (10 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.prepare_wrapper_for_columns",
+      "type": "function",
+      "name": "GridRow.prepare_wrapper_for_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        437,
+        464
+      ],
+      "summary": "Method prepare_wrapper_for_columns of GridRow (28 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.column_selector_for_dialog",
+      "type": "function",
+      "name": "GridRow.column_selector_for_dialog",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        466,
+        520
+      ],
+      "summary": "Method column_selector_for_dialog of GridRow (55 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.select_all_columns",
+      "type": "function",
+      "name": "GridRow.select_all_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        522,
+        531
+      ],
+      "summary": "Method select_all_columns of GridRow (10 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.prepare_columns_for_dialog",
+      "type": "function",
+      "name": "GridRow.prepare_columns_for_dialog",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        533,
+        571
+      ],
+      "summary": "Method prepare_columns_for_dialog of GridRow (39 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_selected_columns",
+      "type": "function",
+      "name": "GridRow.render_selected_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        573,
+        621
+      ],
+      "summary": "Method render_selected_columns of GridRow (49 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.sort_columns",
+      "type": "function",
+      "name": "GridRow.sort_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        633,
+        644
+      ],
+      "summary": "Method sort_columns of GridRow (12 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_column_width",
+      "type": "function",
+      "name": "GridRow.update_column_width",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        654,
+        670
+      ],
+      "summary": "Method update_column_width of GridRow (17 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_sticky_column",
+      "type": "function",
+      "name": "GridRow.update_sticky_column",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        672,
+        683
+      ],
+      "summary": "Method update_sticky_column of GridRow (12 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.remove_selected_column",
+      "type": "function",
+      "name": "GridRow.remove_selected_column",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        685,
+        701
+      ],
+      "summary": "Method remove_selected_column of GridRow (17 lines).",
+      "tags": [
+        "remove"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_user_settings_for_grid",
+      "type": "function",
+      "name": "GridRow.update_user_settings_for_grid",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        703,
+        714
+      ],
+      "summary": "Method update_user_settings_for_grid of GridRow (12 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.setup_columns",
+      "type": "function",
+      "name": "GridRow.setup_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        723,
+        793
+      ],
+      "summary": "Method setup_columns of GridRow (71 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_dependant_property",
+      "type": "function",
+      "name": "GridRow.set_dependant_property",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        795,
+        808
+      ],
+      "summary": "Method set_dependant_property of GridRow (14 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh_dependency",
+      "type": "function",
+      "name": "GridRow.refresh_dependency",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        810,
+        822
+      ],
+      "summary": "Method refresh_dependency of GridRow (13 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.evaluate_depends_on_value",
+      "type": "function",
+      "name": "GridRow.evaluate_depends_on_value",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        824,
+        858
+      ],
+      "summary": "Method evaluate_depends_on_value of GridRow (35 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.show_search_row",
+      "type": "function",
+      "name": "GridRow.show_search_row",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        860,
+        871
+      ],
+      "summary": "Method show_search_row of GridRow (12 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_search_column",
+      "type": "function",
+      "name": "GridRow.make_search_column",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        873,
+        936
+      ],
+      "summary": "Method make_search_column of GridRow (64 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_column",
+      "type": "function",
+      "name": "GridRow.make_column",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        938,
+        1121
+      ],
+      "summary": "Method make_column of GridRow (184 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.toggle_editable_row",
+      "type": "function",
+      "name": "GridRow.toggle_editable_row",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1128,
+        1176
+      ],
+      "summary": "Method toggle_editable_row of GridRow (49 lines).",
+      "tags": [
+        "toggle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_control",
+      "type": "function",
+      "name": "GridRow.make_control",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1178,
+        1241
+      ],
+      "summary": "Method make_control of GridRow (64 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_arrow_keys",
+      "type": "function",
+      "name": "GridRow.set_arrow_keys",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1242,
+        1345
+      ],
+      "summary": "Method set_arrow_keys of GridRow (104 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_new_row_using_keys",
+      "type": "function",
+      "name": "GridRow.add_new_row_using_keys",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1355,
+        1384
+      ],
+      "summary": "Method add_new_row_using_keys of GridRow (30 lines).",
+      "tags": [
+        "add"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.toggle_view",
+      "type": "function",
+      "name": "GridRow.toggle_view",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1390,
+        1426
+      ],
+      "summary": "Method toggle_view of GridRow (37 lines).",
+      "tags": [
+        "toggle"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.show_form",
+      "type": "function",
+      "name": "GridRow.show_form",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1427,
+        1469
+      ],
+      "summary": "Method show_form of GridRow (43 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.hide_form",
+      "type": "function",
+      "name": "GridRow.hide_form",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1470,
+        1490
+      ],
+      "summary": "Method hide_form of GridRow (21 lines).",
+      "tags": [
+        "hide"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.change_page_if_reqd",
+      "type": "function",
+      "name": "GridRow.change_page_if_reqd",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1513,
+        1528
+      ],
+      "summary": "Method change_page_if_reqd of GridRow (16 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh_field",
+      "type": "function",
+      "name": "GridRow.refresh_field",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1529,
+        1573
+      ],
+      "summary": "Method refresh_field of GridRow (45 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_currency_symbol_in_grid_input",
+      "type": "function",
+      "name": "GridRow.update_currency_symbol_in_grid_input",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1575,
+        1622
+      ],
+      "summary": "Method update_currency_symbol_in_grid_input of GridRow (48 lines).",
+      "tags": [
+        "update"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.get_field",
+      "type": "function",
+      "name": "GridRow.get_field",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1623,
+        1632
+      ],
+      "summary": "Method get_field of GridRow (10 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.get_visible_columns",
+      "type": "function",
+      "name": "GridRow.get_visible_columns",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1634,
+        1647
+      ],
+      "summary": "Method get_visible_columns of GridRow (14 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_field_property",
+      "type": "function",
+      "name": "GridRow.set_field_property",
+      "filePath": "frappe/public/js/frappe/form/grid_row.js",
+      "lineRange": [
+        1648,
+        1666
+      ],
+      "summary": "Method set_field_property of GridRow (19 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "type": "class",
+      "name": "GridRowForm",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        1,
+        166
+      ],
+      "summary": "GridRowForm class defined in grid_row_form.js (lines 1-166).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.render",
+      "type": "function",
+      "name": "GridRowForm.render",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        6,
+        41
+      ],
+      "summary": "Method render of GridRowForm (36 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.make_form",
+      "type": "function",
+      "name": "GridRowForm.make_form",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        42,
+        87
+      ],
+      "summary": "Method make_form of GridRowForm (46 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_form_events",
+      "type": "function",
+      "name": "GridRowForm.set_form_events",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        88,
+        119
+      ],
+      "summary": "Method set_form_events of GridRowForm (32 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_active_tab",
+      "type": "function",
+      "name": "GridRowForm.set_active_tab",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        131,
+        146
+      ],
+      "summary": "Method set_active_tab of GridRowForm (16 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_focus",
+      "type": "function",
+      "name": "GridRowForm.set_focus",
+      "filePath": "frappe/public/js/frappe/form/grid_row_form.js",
+      "lineRange": [
+        147,
+        165
+      ],
+      "summary": "Method set_focus of GridRowForm (19 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/info_card.js:InfoCard",
+      "type": "class",
+      "name": "InfoCard",
+      "filePath": "frappe/public/js/frappe/form/info_card.js",
+      "lineRange": [
+        1,
+        68
+      ],
+      "summary": "InfoCard class defined in info_card.js (lines 1-68).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.make_toggle_button",
+      "type": "function",
+      "name": "InfoCard.make_toggle_button",
+      "filePath": "frappe/public/js/frappe/form/info_card.js",
+      "lineRange": [
+        11,
+        28
+      ],
+      "summary": "Method make_toggle_button of InfoCard (18 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.make_card",
+      "type": "function",
+      "name": "InfoCard.make_card",
+      "filePath": "frappe/public/js/frappe/form/info_card.js",
+      "lineRange": [
+        29,
+        53
+      ],
+      "summary": "Method make_card of InfoCard (25 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.setup_click",
+      "type": "function",
+      "name": "InfoCard.setup_click",
+      "filePath": "frappe/public/js/frappe/form/info_card.js",
+      "lineRange": [
+        54,
+        67
+      ],
+      "summary": "Method setup_click of InfoCard (14 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "type": "class",
+      "name": "Layout",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        5,
+        825
+      ],
+      "summary": "Layout class defined in layout.js (lines 5-825).",
+      "tags": [
+        "class"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.constructor",
+      "type": "function",
+      "name": "Layout.constructor",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        6,
+        19
+      ],
+      "summary": "Method constructor of Layout (14 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.make",
+      "type": "function",
+      "name": "Layout.make",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        21,
+        41
+      ],
+      "summary": "Method make of Layout (21 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tabbed_layout",
+      "type": "function",
+      "name": "Layout.setup_tabbed_layout",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        43,
+        54
+      ],
+      "summary": "Method setup_tabbed_layout of Layout (12 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.get_doctype_fields",
+      "type": "function",
+      "name": "Layout.get_doctype_fields",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        56,
+        67
+      ],
+      "summary": "Method get_doctype_fields of Layout (12 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.get_new_name_field",
+      "type": "function",
+      "name": "Layout.get_new_name_field",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        69,
+        89
+      ],
+      "summary": "Method get_new_name_field of Layout (21 lines).",
+      "tags": [
+        "get"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.show_message",
+      "type": "function",
+      "name": "Layout.show_message",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        106,
+        139
+      ],
+      "summary": "Method show_message of Layout (34 lines).",
+      "tags": [
+        "show"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.render",
+      "type": "function",
+      "name": "Layout.render",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        141,
+        198
+      ],
+      "summary": "Method render of Layout (58 lines).",
+      "tags": [
+        "render"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.replace_field",
+      "type": "function",
+      "name": "Layout.replace_field",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        214,
+        227
+      ],
+      "summary": "Method replace_field of Layout (14 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.make_field",
+      "type": "function",
+      "name": "Layout.make_field",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        229,
+        248
+      ],
+      "summary": "Method make_field of Layout (20 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.init_field",
+      "type": "function",
+      "name": "Layout.init_field",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        250,
+        275
+      ],
+      "summary": "Method init_field of Layout (26 lines).",
+      "tags": [
+        "init"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.make_page",
+      "type": "function",
+      "name": "Layout.make_page",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        281,
+        309
+      ],
+      "summary": "Method make_page of Layout (29 lines).",
+      "tags": [
+        "make"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh",
+      "type": "function",
+      "name": "Layout.refresh",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        362,
+        392
+      ],
+      "summary": "Method refresh of Layout (31 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_sections",
+      "type": "function",
+      "name": "Layout.refresh_sections",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        400,
+        417
+      ],
+      "summary": "Method refresh_sections of Layout (18 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_tabs",
+      "type": "function",
+      "name": "Layout.refresh_tabs",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        419,
+        430
+      ],
+      "summary": "Method refresh_tabs of Layout (12 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.select_tab",
+      "type": "function",
+      "name": "Layout.select_tab",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        432,
+        442
+      ],
+      "summary": "Method select_tab of Layout (11 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.set_tab_as_active",
+      "type": "function",
+      "name": "Layout.set_tab_as_active",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        444,
+        472
+      ],
+      "summary": "Method set_tab_as_active of Layout (29 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_fields",
+      "type": "function",
+      "name": "Layout.refresh_fields",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        474,
+        487
+      ],
+      "summary": "Method refresh_fields of Layout (14 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_section_collapse",
+      "type": "function",
+      "name": "Layout.refresh_section_collapse",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        494,
+        514
+      ],
+      "summary": "Method refresh_section_collapse of Layout (21 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.attach_doc_and_docfields",
+      "type": "function",
+      "name": "Layout.attach_doc_and_docfields",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        516,
+        530
+      ],
+      "summary": "Method attach_doc_and_docfields of Layout (15 lines).",
+      "tags": [
+        "method"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_events",
+      "type": "function",
+      "name": "Layout.setup_events",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        532,
+        567
+      ],
+      "summary": "Method setup_events of Layout (36 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tab_events",
+      "type": "function",
+      "name": "Layout.setup_tab_events",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        569,
+        580
+      ],
+      "summary": "Method setup_tab_events of Layout (12 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tooltip_events",
+      "type": "function",
+      "name": "Layout.setup_tooltip_events",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        582,
+        599
+      ],
+      "summary": "Method setup_tooltip_events of Layout (18 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.handle_tab",
+      "type": "function",
+      "name": "Layout.handle_tab",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        601,
+        660
+      ],
+      "summary": "Method handle_tab of Layout (60 lines).",
+      "tags": [
+        "handle"
+      ],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.focus_on_next_field",
+      "type": "function",
+      "name": "Layout.focus_on_next_field",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        662,
+        685
+      ],
+      "summary": "Method focus_on_next_field of Layout (24 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.set_focus",
+      "type": "function",
+      "name": "Layout.set_focus",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        693,
+        709
+      ],
+      "summary": "Method set_focus of Layout (17 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_dependency",
+      "type": "function",
+      "name": "Layout.refresh_dependency",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        715,
+        752
+      ],
+      "summary": "Method refresh_dependency of Layout (38 lines).",
+      "tags": [
+        "refresh"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.set_dependant_property",
+      "type": "function",
+      "name": "Layout.set_dependant_property",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        754,
+        782
+      ],
+      "summary": "Method set_dependant_property of Layout (29 lines).",
+      "tags": [
+        "set"
+      ],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/layout.js:Layout.evaluate_depends_on_value",
+      "type": "function",
+      "name": "Layout.evaluate_depends_on_value",
+      "filePath": "frappe/public/js/frappe/form/layout.js",
+      "lineRange": [
+        784,
+        824
+      ],
+      "summary": "Method evaluate_depends_on_value of Layout (41 lines).",
+      "tags": [
+        "on"
+      ],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "class:frappe/public/js/frappe/form/form.js:FormController",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_meta",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_form_keyboard_shortcuts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_std_layout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.watch_model_updates",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_notify_on_rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_file_drop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_image_autocompletions_in_markdown",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_doctype_actions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.execute_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.check_reload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.trigger_onload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.initialize_new_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.render_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.configure_breadcrumb_width",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.focus_on_first_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.cleanup_refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.refresh_header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.validate_and_save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.discard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.savesubmit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.savecancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm._cancel_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm._cancel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm._discard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.amend_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.validate_form_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.trigger_link_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_conflict_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_submit_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_report_bug_link",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.check_doctype_conflict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.rename_notify",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.print_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.navigate_records",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.email_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.copy_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.reload_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_fetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_custom_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.remove_custom_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.scroll_to_element",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_currency_labels",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.field_map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_docfield",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_df_property",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.add_child",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_read_only",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_selected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_indicator_formatter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.can_create",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.make_new",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_link_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.update_in_all_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.scroll_to_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.setup_docinfo_change_listener",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.set_active_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.get_involved_users",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_submission_queue_banner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form.js:FrappeForm",
+      "target": "func:frappe/public/js/frappe/form/form.js:FrappeForm.show_workflow_read_only_banner",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form_tour.js",
+      "target": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.init_driver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.include_name_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.build_steps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.get_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_table_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_new_row_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.open_first_row_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_child_table_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_collapse_row_step",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.add_step_to_save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_tour.js:FormTour",
+      "target": "func:frappe/public/js/frappe/form/form_tour.js:FormTour.handle_attach_image_steps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form_viewers.js",
+      "target": "class:frappe/public/js/frappe/form/form_viewers.js:FormViewers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_viewers.js:FormViewers",
+      "target": "func:frappe/public/js/frappe/form/form_viewers.js:FormViewers.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/form_viewers.js:FormViewers",
+      "target": "func:frappe/public/js/frappe/form/form_viewers.js:FormViewers.fetch_user_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid.js",
+      "target": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.update_idx_and_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.set_doc_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_check",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.check_range",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.delete_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.delete_all_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh_remove_rows_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh_duplicate_rows_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.make_head",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.update_search_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.render_result_rows",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_toolbar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.make_sortable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.get_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.get_filtered_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.get_data_based_on_fieldtype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.set_column_disp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.set_editable_grid_column_disp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.get_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.add_new_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.renumber_based_on_dom",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.duplicate_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.set_focus_on_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_visible_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.update_default_colsize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_user_defined_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.set_multiple_add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_allow_bulk_edit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.setup_download",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.add_custom_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid.js:Grid",
+      "target": "func:frappe/public/js/frappe/form/grid.js:Grid.update_docfield_property",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid_pagination.js",
+      "target": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "target": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.render_pagination",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "target": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.bind_pagination_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "target": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.get_pagination_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "target": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.go_to_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_pagination.js:GridPagination",
+      "target": "func:frappe/public/js/frappe/form/grid_pagination.js:GridPagination.go_to_last_page_to_add_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid_row.js",
+      "target": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_docfields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.remove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.move",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_open_form_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_column_configure_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.configure_dialog_for_columns_selector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.setup_columns_for_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.prepare_wrapper_for_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.column_selector_for_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.select_all_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.prepare_columns_for_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.render_selected_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.sort_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_column_width",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_sticky_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.remove_selected_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_user_settings_for_grid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.setup_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_dependant_property",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh_dependency",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.evaluate_depends_on_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.show_search_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_search_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.toggle_editable_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.make_control",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_arrow_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.add_new_row_using_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.toggle_view",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.show_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.hide_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.change_page_if_reqd",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.refresh_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.update_currency_symbol_in_grid_input",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.get_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.get_visible_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row.js:GridRow",
+      "target": "func:frappe/public/js/frappe/form/grid_row.js:GridRow.set_field_property",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid_row_form.js",
+      "target": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "target": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "target": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.make_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "target": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_form_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "target": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_active_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm",
+      "target": "func:frappe/public/js/frappe/form/grid_row_form.js:GridRowForm.set_focus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/info_card.js",
+      "target": "class:frappe/public/js/frappe/form/info_card.js:InfoCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/info_card.js:InfoCard",
+      "target": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.make_toggle_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/info_card.js:InfoCard",
+      "target": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.make_card",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/info_card.js:InfoCard",
+      "target": "func:frappe/public/js/frappe/form/info_card.js:InfoCard.setup_click",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/layout.js",
+      "target": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tabbed_layout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.get_doctype_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.get_new_name_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.show_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.replace_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.make_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.init_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.make_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_sections",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_tabs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.select_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.set_tab_as_active",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_section_collapse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.attach_doc_and_docfields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tab_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.setup_tooltip_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.handle_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.focus_on_next_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.set_focus",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.refresh_dependency",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.set_dependant_property",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/layout.js:Layout",
+      "target": "func:frappe/public/js/frappe/form/layout.js:Layout.evaluate_depends_on_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "file:frappe/public/js/frappe/form/layout.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "file:frappe/public/js/frappe/form/form_viewers.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "file:frappe/public/js/frappe/form/form_tour.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/form.js",
+      "target": "file:frappe/public/js/frappe/form/formatters.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/layout.js",
+      "target": "file:frappe/public/js/frappe/form/grid.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid.js",
+      "target": "file:frappe/public/js/frappe/form/grid_row.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid.js",
+      "target": "file:frappe/public/js/frappe/form/grid_pagination.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/grid_row.js",
+      "target": "file:frappe/public/js/frappe/form/grid_row_form.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/layout.js",
+      "target": "file:frappe/public/js/frappe/form/info_card.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

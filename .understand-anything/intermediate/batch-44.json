@@ -1,0 +1,686 @@
+{
+  "nodes": [
+    {
+      "id": "frappe/model/virtual_doctype.py",
+      "type": "file",
+      "name": "virtual_doctype.py",
+      "filePath": "frappe/model/virtual_doctype.py",
+      "summary": "Defines the VirtualDoctype protocol and validation for virtual doctypes that store data outside the standard database, requiring controllers to implement get_list, get_count, get_stats (static) and db_insert, db_update, load_from_db, delete (instance) methods.",
+      "tags": ["model", "protocol", "virtual-doctype", "validation"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/virtual_doctype.py::VirtualDoctype",
+      "type": "class",
+      "name": "VirtualDoctype",
+      "filePath": "frappe/model/virtual_doctype.py",
+      "lineRange": [10, 57],
+      "summary": "Runtime-checkable Protocol class documenting the interface contract for virtual doctype controllers: static methods get_list, get_count, get_stats and instance methods db_insert, load_from_db, db_update, delete.",
+      "tags": ["protocol", "interface", "virtual-doctype"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/virtual_doctype.py::validate_controller",
+      "type": "function",
+      "name": "validate_controller",
+      "filePath": "frappe/model/virtual_doctype.py",
+      "lineRange": [59, 93],
+      "summary": "Validates that a doctype controller properly implements all required static and instance methods for a virtual doctype, using introspection and MRO checks to detect missing overrides.",
+      "tags": ["validation", "controller", "introspection"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/workflow.py",
+      "type": "file",
+      "name": "workflow.py",
+      "filePath": "frappe/model/workflow.py",
+      "summary": "Implements document workflow state machine logic including state transitions, validation, bulk workflow approval, conditional transitions, transition tasks (sync/async), and workflow action application with docstatus management.",
+      "tags": ["workflow", "state-machine", "transitions", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/workflow.py::WorkflowStateError",
+      "type": "class",
+      "name": "WorkflowStateError",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [23, 24],
+      "summary": "Custom validation error raised when workflow state is not set or invalid.",
+      "tags": ["exception", "workflow"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "frappe/model/workflow.py::WorkflowTransitionError",
+      "type": "class",
+      "name": "WorkflowTransitionError",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [27, 28],
+      "summary": "Custom validation error raised when an invalid workflow transition action is attempted.",
+      "tags": ["exception", "workflow"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "frappe/model/workflow.py::WorkflowPermissionError",
+      "type": "class",
+      "name": "WorkflowPermissionError",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [31, 32],
+      "summary": "Custom validation error raised when a user lacks permission for a workflow state transition.",
+      "tags": ["exception", "workflow", "permissions"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "frappe/model/workflow.py::get_workflow_name",
+      "type": "function",
+      "name": "get_workflow_name",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [35, 41],
+      "summary": "Returns the active workflow name for a doctype, using Redis cache to avoid repeated DB lookups.",
+      "tags": ["workflow", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/workflow.py::get_transitions",
+      "type": "function",
+      "name": "get_transitions",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [44, 78],
+      "summary": "Returns list of valid workflow transitions available for the current user based on the document's current state, user roles, and transition conditions. Whitelisted API endpoint.",
+      "tags": ["workflow", "transitions", "api", "roles"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/workflow.py::apply_workflow",
+      "type": "function",
+      "name": "apply_workflow",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [119, 231],
+      "summary": "Core workflow engine that applies a workflow action to a document: validates transition, checks self-approval, updates state fields, executes sync/async transition tasks (webhooks, server scripts, custom methods), and handles docstatus changes (save/submit/cancel) including background queue support.",
+      "tags": ["workflow", "api", "state-transition", "tasks", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/workflow.py::validate_workflow",
+      "type": "function",
+      "name": "validate_workflow",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [247, 296],
+      "summary": "Validates workflow state and transition during document save: checks if user can edit in the current state and if the state transition is permitted based on available transitions.",
+      "tags": ["workflow", "validation", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/workflow.py::bulk_workflow_approval",
+      "type": "function",
+      "name": "bulk_workflow_approval",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [318, 336],
+      "summary": "Whitelisted API for bulk workflow approval of up to 500 documents, dispatching to background queue for batches of 20+.",
+      "tags": ["workflow", "bulk", "api", "background-jobs"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/workflow.py::get_common_transition_actions",
+      "type": "function",
+      "name": "get_common_transition_actions",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [413, 435],
+      "summary": "Returns the intersection of available workflow transition actions across multiple documents, used for bulk action UI.",
+      "tags": ["workflow", "api", "bulk"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/workflow.py::set_workflow_state_on_action",
+      "type": "function",
+      "name": "set_workflow_state_on_action",
+      "filePath": "frappe/model/workflow.py",
+      "lineRange": [444, 458],
+      "summary": "Sets the workflow state field on a document based on the docstatus action (submit, cancel, update_after_submit), used to sync workflow state when documents are submitted/cancelled outside the workflow system.",
+      "tags": ["workflow", "state-sync"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/monitor.py",
+      "type": "file",
+      "name": "monitor.py",
+      "filePath": "frappe/monitor.py",
+      "summary": "Performance monitoring system that records request and background job metrics (duration, status, IP, path) with unique trace IDs, stores them in Redis, and flushes to a JSON log file. Integrates with rate limiter data.",
+      "tags": ["monitoring", "performance", "redis", "logging"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/monitor.py::Monitor",
+      "type": "class",
+      "name": "Monitor",
+      "filePath": "frappe/monitor.py",
+      "lineRange": [47, 122],
+      "summary": "Core monitoring class using __slots__ for efficiency. Collects request metadata (IP, method, path) or job metadata (method, wait time, scheduled flag), records duration in microseconds, and stores serialized JSON in Redis with a max entry cap of 1M.",
+      "tags": ["monitoring", "performance", "redis"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/monitor.py::flush",
+      "type": "function",
+      "name": "flush",
+      "filePath": "frappe/monitor.py",
+      "lineRange": [125, 137],
+      "summary": "Flushes accumulated monitor transactions from Redis to a JSON log file using a global file lock for concurrency safety.",
+      "tags": ["monitoring", "redis", "file-io", "concurrency"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/oauth.py",
+      "type": "file",
+      "name": "oauth.py",
+      "filePath": "frappe/oauth.py",
+      "summary": "OAuth2 and OpenID Connect provider implementation using oauthlib's RequestValidator. Handles client validation, authorization codes, bearer tokens, refresh tokens, PKCE (S256/plain), JWT ID tokens, user info claims, token revocation, and password grant authentication.",
+      "tags": ["oauth2", "openid-connect", "authentication", "security", "api"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/oauth.py::OAuthWebRequestValidator",
+      "type": "class",
+      "name": "OAuthWebRequestValidator",
+      "filePath": "frappe/oauth.py",
+      "lineRange": [16, 494],
+      "summary": "Complete OAuth2/OIDC request validator extending oauthlib's RequestValidator. Implements ~30 methods covering: client/redirect/scope validation, authorization code lifecycle with PKCE support, bearer token save/validate/revoke, refresh token handling, JWT/ID token finalization, silent auth, user matching, and password grant authentication via LoginManager.",
+      "tags": ["oauth2", "openid-connect", "validator", "security", "pkce"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/oauth.py::calculate_at_hash",
+      "type": "function",
+      "name": "calculate_at_hash",
+      "filePath": "frappe/oauth.py",
+      "lineRange": [497, 516],
+      "summary": "Calculates OIDC access token hash (at_hash) by hashing the token, taking the left-most half, and base64url encoding per the OpenID Connect spec.",
+      "tags": ["openid-connect", "cryptography"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/oauth.py::get_userinfo",
+      "type": "function",
+      "name": "get_userinfo",
+      "filePath": "frappe/oauth.py",
+      "lineRange": [529, 555],
+      "summary": "Builds OIDC-compliant userinfo claims dict from a User document including sub, name, email, picture, roles, and issuer URL.",
+      "tags": ["openid-connect", "userinfo"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/onboarding.py",
+      "type": "file",
+      "name": "onboarding.py",
+      "filePath": "frappe/onboarding.py",
+      "summary": "Simple user onboarding status management with two whitelisted endpoints to get and update per-app onboarding step completion stored as JSON in the User doctype.",
+      "tags": ["onboarding", "user", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/onboarding.py::get_onboarding_status",
+      "type": "function",
+      "name": "get_onboarding_status",
+      "filePath": "frappe/onboarding.py",
+      "lineRange": [6, 9],
+      "summary": "Whitelisted API that returns the current user's onboarding status as a parsed JSON dict.",
+      "tags": ["onboarding", "api"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "frappe/onboarding.py::update_user_onboarding_status",
+      "type": "function",
+      "name": "update_user_onboarding_status",
+      "filePath": "frappe/onboarding.py",
+      "lineRange": [13, 25],
+      "summary": "Whitelisted API that updates the current user's onboarding step completion for a specific app, storing data as JSON in the User record.",
+      "tags": ["onboarding", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/parallel_test_runner.py",
+      "type": "file",
+      "name": "parallel_test_runner.py",
+      "filePath": "frappe/parallel_test_runner.py",
+      "summary": "Parallel test execution framework that splits test files across multiple build instances using weight-based load balancing. Includes a base runner for static partitioning and an orchestrator-based variant for dynamic test distribution via an external service.",
+      "tags": ["testing", "parallel", "ci", "load-balancing"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/parallel_test_runner.py::ParallelTestRunner",
+      "type": "class",
+      "name": "ParallelTestRunner",
+      "filePath": "frappe/parallel_test_runner.py",
+      "lineRange": [31, 169],
+      "summary": "Main parallel test runner that discovers test files, splits them by weight across build instances, sets up the test site (including type checker decorators and before_tests hooks), runs unittest suites, and reports results with CI exit codes.",
+      "tags": ["testing", "parallel", "runner"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/parallel_test_runner.py::ParallelTestWithOrchestrator",
+      "type": "class",
+      "name": "ParallelTestWithOrchestrator",
+      "filePath": "frappe/parallel_test_runner.py",
+      "lineRange": [219, 285],
+      "summary": "Extended parallel test runner that uses an external orchestrator service for dynamic test distribution across CI instances, communicating via REST API for registration, next-test retrieval, and completion notification.",
+      "tags": ["testing", "parallel", "orchestrator", "ci"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/parallel_test_runner.py::split_by_weight",
+      "type": "function",
+      "name": "split_by_weight",
+      "filePath": "frappe/parallel_test_runner.py",
+      "lineRange": [172, 193],
+      "summary": "Splits a list of work items into chunks by their respective weights while preserving order, used for load-balanced test distribution.",
+      "tags": ["algorithm", "load-balancing"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/permissions.py",
+      "type": "file",
+      "name": "permissions.py",
+      "filePath": "frappe/permissions.py",
+      "summary": "Core RBAC permission system implementing multi-layered access control: role-based permissions (DocPerm/Custom DocPerm), user permissions (link-field-based restrictions), controller permissions (hook-based), owner-based permissions (if_owner), sharing permissions, child table permission delegation, and custom permission types. Provides APIs for checking, adding, removing, and resetting permissions.",
+      "tags": ["permissions", "rbac", "security", "core", "access-control"],
+      "complexity": "very-high"
+    },
+    {
+      "id": "frappe/permissions.py::has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [79, 224],
+      "summary": "Primary permission checking function that evaluates multi-layered access: Administrator bypass, role permissions, document-level user permissions, sharing permissions, child table delegation, and select-implies-read fallback. Returns boolean indicating if user has the specified permission type for a doctype/document.",
+      "tags": ["permissions", "rbac", "core", "api"],
+      "complexity": "very-high"
+    },
+    {
+      "id": "frappe/permissions.py::get_doc_permissions",
+      "type": "function",
+      "name": "get_doc_permissions",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [227, 279],
+      "summary": "Returns evaluated permission dict for a specific document, combining role permissions, controller permissions, if_owner overrides, and user permission restrictions.",
+      "tags": ["permissions", "document-level"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/permissions.py::get_role_permissions",
+      "type": "function",
+      "name": "get_role_permissions",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [282, 342],
+      "summary": "Computes and caches role-based permissions for a doctype/user combination, handling if_owner conditional permissions and returning a dict of permission types with boolean values.",
+      "tags": ["permissions", "roles", "cache"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/permissions.py::has_user_permission",
+      "type": "function",
+      "name": "has_user_permission",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [351, 478],
+      "summary": "Checks user-level permissions by validating that the document and all its link field values are within the user's allowed document set. Handles strict mode, tree doctypes with ancestor checking, and child table link fields.",
+      "tags": ["permissions", "user-permissions", "link-fields"],
+      "complexity": "very-high"
+    },
+    {
+      "id": "frappe/permissions.py::has_controller_permissions",
+      "type": "function",
+      "name": "has_controller_permissions",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [481, 498],
+      "summary": "Evaluates controller-defined permission hooks (has_permission) that can only deny access, never grant it. Checks both doctype-specific and wildcard hooks.",
+      "tags": ["permissions", "hooks", "controller"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/permissions.py::get_roles",
+      "type": "function",
+      "name": "get_roles",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [535, 569],
+      "summary": "Returns cached list of roles for a user, querying Has Role table and adding automatic roles (Guest, All, Desk User) based on user type.",
+      "tags": ["permissions", "roles", "cache"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/permissions.py::has_child_permission",
+      "type": "function",
+      "name": "has_child_permission",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [804, 892],
+      "summary": "Delegates permission checks for child table doctypes to their parent, validating parentfield correctness and permlevel access before checking parent document permissions.",
+      "tags": ["permissions", "child-table", "delegation"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/permissions.py::add_permission",
+      "type": "function",
+      "name": "add_permission",
+      "filePath": "frappe/permissions.py",
+      "lineRange": [689, 726],
+      "summary": "Adds a new Custom DocPerm permission rule for a doctype/role/permlevel combination, setting up custom permissions if not already configured.",
+      "tags": ["permissions", "management", "custom-docperm"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/push_notification.py",
+      "type": "file",
+      "name": "push_notification.py",
+      "filePath": "frappe/push_notification.py",
+      "summary": "Push notification client that communicates with an external relay server for FCM-based notifications. Supports user/topic-based notifications, token management, topic subscription, credential registration via webhook authentication, and whitelisted subscribe/unsubscribe endpoints.",
+      "tags": ["push-notifications", "fcm", "relay", "api"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/push_notification.py::PushNotification",
+      "type": "class",
+      "name": "PushNotification",
+      "filePath": "frappe/push_notification.py",
+      "lineRange": [12, 266],
+      "summary": "Push notification client class handling token add/remove, topic management, user/topic notification sending with body truncation and HTML stripping, credential registration with webhook-based auth, and relay server communication via FrappeClient.",
+      "tags": ["push-notifications", "fcm", "client"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/push_notification.py::auth_webhook",
+      "type": "function",
+      "name": "auth_webhook",
+      "filePath": "frappe/push_notification.py",
+      "lineRange": [270, 279],
+      "summary": "Guest-accessible webhook endpoint called by the relay server during credential registration, validates secret against Redis-cached token.",
+      "tags": ["push-notifications", "webhook", "auth", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/rate_limiter.py",
+      "type": "file",
+      "name": "rate_limiter.py",
+      "filePath": "frappe/rate_limiter.py",
+      "summary": "Two-tier rate limiting system: a global request-level limiter (RateLimiter class) based on cumulative request duration per time window, and a decorator-based endpoint-level limiter based on request count per identity (IP/key). Both use Redis for distributed state.",
+      "tags": ["rate-limiting", "security", "redis", "middleware"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/rate_limiter.py::RateLimiter",
+      "type": "class",
+      "name": "RateLimiter",
+      "filePath": "frappe/rate_limiter.py",
+      "lineRange": [32, 101],
+      "summary": "Global rate limiter that tracks cumulative request duration per time window using Redis counters. Provides apply/update lifecycle, HTTP headers (X-RateLimit-*), and 429 responses when limits are exceeded.",
+      "tags": ["rate-limiting", "redis", "middleware"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/rate_limiter.py::rate_limit",
+      "type": "function",
+      "name": "rate_limit",
+      "filePath": "frappe/rate_limiter.py",
+      "lineRange": [104, 174],
+      "summary": "Decorator factory for endpoint-level rate limiting by request count. Supports configurable limits, time windows, method filtering, and IP/key-based identity tracking via Redis.",
+      "tags": ["rate-limiting", "decorator", "api", "redis"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/realtime.py",
+      "type": "file",
+      "name": "realtime.py",
+      "filePath": "frappe/realtime.py",
+      "summary": "Real-time communication layer using Redis pub/sub for Socket.IO integration. Provides publish_realtime for broadcasting events to rooms (user, doctype, document, site, task), with after_commit support for transactional consistency. Manages Socket.IO authentication secrets.",
+      "tags": ["realtime", "websocket", "redis", "pubsub", "socketio"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/realtime.py::publish_realtime",
+      "type": "function",
+      "name": "publish_realtime",
+      "filePath": "frappe/realtime.py",
+      "lineRange": [23, 83],
+      "summary": "Central function for publishing real-time events to Socket.IO via Redis. Routes messages to appropriate rooms (user, doc, doctype, site, task) and supports after_commit deferred publishing for transactional consistency.",
+      "tags": ["realtime", "redis", "pubsub", "events"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/realtime.py::emit_via_redis",
+      "type": "function",
+      "name": "emit_via_redis",
+      "filePath": "frappe/realtime.py",
+      "lineRange": [100, 115],
+      "summary": "Low-level function that publishes serialized event data to the Redis 'events' channel for Socket.IO consumption, with connection error suppression.",
+      "tags": ["realtime", "redis", "pubsub"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/realtime.py::get_socketio_secret",
+      "type": "function",
+      "name": "get_socketio_secret",
+      "filePath": "frappe/realtime.py",
+      "lineRange": [127, 139],
+      "summary": "Generates and caches a Socket.IO authentication secret in Redis for securing the real-time communication channel.",
+      "tags": ["realtime", "security", "socketio"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/realtime.py::publish_progress",
+      "type": "function",
+      "name": "publish_progress",
+      "filePath": "frappe/realtime.py",
+      "lineRange": [12, 20],
+      "summary": "Convenience function that publishes progress updates (percent, title, description) as real-time events, targeting either a specific user or a document.",
+      "tags": ["realtime", "progress", "ui"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "frappe/model/workflow.py::apply_workflow",
+      "target": "frappe/model/workflow.py::get_transitions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/workflow.py::apply_workflow",
+      "target": "frappe/model/workflow.py::get_workflow_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/workflow.py::validate_workflow",
+      "target": "frappe/model/workflow.py::get_transitions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/workflow.py::validate_workflow",
+      "target": "frappe/model/workflow.py::get_workflow_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/workflow.py::bulk_workflow_approval",
+      "target": "frappe/model/workflow.py::apply_workflow",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/workflow.py::get_common_transition_actions",
+      "target": "frappe/model/workflow.py::get_transitions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/workflow.py::get_transitions",
+      "target": "frappe/permissions.py::has_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/permissions.py::has_permission",
+      "target": "frappe/permissions.py::get_doc_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/permissions.py::has_permission",
+      "target": "frappe/permissions.py::get_role_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/permissions.py::has_permission",
+      "target": "frappe/permissions.py::has_child_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/permissions.py::get_doc_permissions",
+      "target": "frappe/permissions.py::get_role_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/permissions.py::get_doc_permissions",
+      "target": "frappe/permissions.py::has_controller_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/permissions.py::get_doc_permissions",
+      "target": "frappe/permissions.py::has_user_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/permissions.py::has_child_permission",
+      "target": "frappe/permissions.py::has_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/permissions.py::get_role_permissions",
+      "target": "frappe/permissions.py::get_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/monitor.py::Monitor",
+      "target": "frappe/rate_limiter.py::RateLimiter",
+      "type": "reads",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/monitor.py::Monitor",
+      "target": "frappe/monitor.py::flush",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/oauth.py::OAuthWebRequestValidator",
+      "target": "frappe/oauth.py::get_userinfo",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/oauth.py::OAuthWebRequestValidator",
+      "target": "frappe/oauth.py::calculate_at_hash",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/realtime.py::publish_progress",
+      "target": "frappe/realtime.py::publish_realtime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/realtime.py::publish_realtime",
+      "target": "frappe/realtime.py::emit_via_redis",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/workflow.py::bulk_workflow_approval",
+      "target": "frappe/realtime.py::publish_progress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/parallel_test_runner.py::ParallelTestWithOrchestrator",
+      "target": "frappe/parallel_test_runner.py::ParallelTestRunner",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/parallel_test_runner.py::ParallelTestRunner",
+      "target": "frappe/parallel_test_runner.py::split_by_weight",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/virtual_doctype.py::validate_controller",
+      "target": "frappe/model/virtual_doctype.py::VirtualDoctype",
+      "type": "validates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/push_notification.py::PushNotification",
+      "target": "frappe/push_notification.py::auth_webhook",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/rate_limiter.py::RateLimiter",
+      "target": "frappe/rate_limiter.py::rate_limit",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/model/workflow.py::WorkflowPermissionError",
+      "target": "frappe/permissions.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/permissions.py::add_permission",
+      "target": "frappe/permissions.py::get_role_permissions",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/realtime.py",
+      "target": "frappe/realtime.py::get_socketio_secret",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

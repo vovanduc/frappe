@@ -1,0 +1,553 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "type": "file",
+      "name": "user_doctype_permissions.py",
+      "filePath": "frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "summary": "Script report that aggregates and displays per-DocType permission flags (read, write, create, delete, etc.) for a given user, grouping by doctype and if_owner flag.",
+      "tags": ["report", "permissions", "core"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:user_doctype_permissions:execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "lineRange": [25, 27],
+      "summary": "Entry point for the User DocType Permissions report; extracts user filter and returns columns and aggregated permission data.",
+      "tags": ["report", "entry-point"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:user_doctype_permissions:get_data",
+      "type": "function",
+      "name": "get_data",
+      "filePath": "frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "lineRange": [63, 94],
+      "summary": "Retrieves valid permissions for a user, aggregates them by doctype and if_owner using OR logic across all permission types, returns sorted rows.",
+      "tags": ["report", "permissions", "aggregation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/utils.py",
+      "type": "file",
+      "name": "utils.py",
+      "filePath": "frappe/core/utils.py",
+      "summary": "Core utility functions for parent document resolution, timeline linking, list searching (find/find_all), list padding, and HTML-to-text/markdown conversion.",
+      "tags": ["utils", "core", "html", "markdown"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:get_parent_doc",
+      "type": "function",
+      "name": "get_parent_doc",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [10, 17],
+      "summary": "Returns the parent document referenced by reference_doctype and reference_name fields, caching it on the doc object.",
+      "tags": ["utils", "document"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:set_timeline_doc",
+      "type": "function",
+      "name": "set_timeline_doc",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [20, 38],
+      "summary": "Sets timeline_doctype and timeline_name on a document by looking up the parent document's timeline_field metadata.",
+      "tags": ["utils", "timeline"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:find",
+      "type": "function",
+      "name": "find",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [41, 53],
+      "summary": "Returns the first dict in a list of dicts that matches a given predicate function.",
+      "tags": ["utils", "search"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:find_all",
+      "type": "function",
+      "name": "find_all",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [56, 68],
+      "summary": "Returns all dicts in a list that match a given predicate function.",
+      "tags": ["utils", "search"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:html2text",
+      "type": "function",
+      "name": "html2text",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [88, 91],
+      "summary": "Converts HTML to markdown text using the markdownify library, with optional link stripping.",
+      "tags": ["utils", "html", "markdown"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:core_utils:html_to_plain_text",
+      "type": "function",
+      "name": "html_to_plain_text",
+      "filePath": "frappe/core/utils.py",
+      "lineRange": [94, 130],
+      "summary": "Converts HTML to plain text using BeautifulSoup, removing scripts/styles, handling block elements and collapsing blank lines.",
+      "tags": ["utils", "html", "text"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/web_form/edit_profile/edit_profile.js",
+      "type": "file",
+      "name": "edit_profile.js",
+      "filePath": "frappe/core/web_form/edit_profile/edit_profile.js",
+      "summary": "Minimal client-side scaffold for the Edit Profile web form; binds events on frappe.ready.",
+      "tags": ["web-form", "frontend", "profile"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/web_form/edit_profile/edit_profile.py",
+      "type": "file",
+      "name": "edit_profile.py",
+      "filePath": "frappe/core/web_form/edit_profile/edit_profile.py",
+      "summary": "Minimal server-side scaffold for the Edit Profile web form; provides a no-op get_context function.",
+      "tags": ["web-form", "profile"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/coverage.py",
+      "type": "file",
+      "name": "coverage.py",
+      "filePath": "frappe/coverage.py",
+      "summary": "Defines code coverage configuration (inclusions, exclusions) and a CodeCoverage context manager for measuring test coverage of Frappe apps.",
+      "tags": ["testing", "coverage", "infrastructure"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:coverage:CodeCoverage",
+      "type": "class",
+      "name": "CodeCoverage",
+      "filePath": "frappe/coverage.py",
+      "lineRange": [53, 90],
+      "summary": "Context manager that starts/stops code coverage measurement for a specified app, applying standard inclusion/exclusion patterns and generating an XML report.",
+      "tags": ["testing", "coverage", "context-manager"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/defaults.py",
+      "type": "file",
+      "name": "defaults.py",
+      "filePath": "frappe/defaults.py",
+      "summary": "Manages user-level and global default values stored in the DefaultValue DocType. Provides get/set/clear/add operations with cache integration and user permission awareness.",
+      "tags": ["defaults", "configuration", "cache", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:defaults:set_user_default",
+      "type": "function",
+      "name": "set_user_default",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [12, 13],
+      "summary": "Sets a default value for the current or specified user by delegating to set_default.",
+      "tags": ["defaults", "user"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:defaults:get_user_default",
+      "type": "function",
+      "name": "get_user_default",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [20, 39],
+      "summary": "Retrieves a user's default value for a key, considering user permissions and falling back to permission-based defaults when appropriate.",
+      "tags": ["defaults", "user", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:defaults:get_defaults",
+      "type": "function",
+      "name": "get_defaults",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [105, 118],
+      "summary": "Returns merged global and user-specific defaults, adding user and owner keys.",
+      "tags": ["defaults"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:defaults:set_default",
+      "type": "function",
+      "name": "set_default",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [149, 177],
+      "summary": "Overrides or adds a default value in the DefaultValue table using query builder, with duplicate detection and cache clearing.",
+      "tags": ["defaults", "database"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:defaults:get_defaults_for",
+      "type": "function",
+      "name": "get_defaults_for",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [235, 267],
+      "summary": "Fetches all defaults for a parent key from database with client-side caching, converting duplicate keys into lists.",
+      "tags": ["defaults", "cache", "database"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:defaults:clear_default",
+      "type": "function",
+      "name": "clear_default",
+      "filePath": "frappe/defaults.py",
+      "lineRange": [194, 232],
+      "summary": "Clears default values by key, value, parent, or name filters, and invalidates related caches.",
+      "tags": ["defaults", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/deferred_insert.py",
+      "type": "file",
+      "name": "deferred_insert.py",
+      "filePath": "frappe/deferred_insert.py",
+      "summary": "Implements a Redis-backed deferred document insertion queue, allowing bulk inserts to be queued and later flushed to the database in batches with periodic commits.",
+      "tags": ["queue", "redis", "performance", "insert"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:deferred_insert:deferred_insert",
+      "type": "function",
+      "name": "deferred_insert",
+      "filePath": "frappe/deferred_insert.py",
+      "lineRange": [15, 25],
+      "summary": "Pushes document records onto a Redis queue for deferred insertion, falling back to immediate insert on connection failure.",
+      "tags": ["queue", "redis"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:deferred_insert:save_to_db",
+      "type": "function",
+      "name": "save_to_db",
+      "filePath": "frappe/deferred_insert.py",
+      "lineRange": [28, 48],
+      "summary": "Drains all deferred insert queues from Redis, inserting records into the database with periodic commits and a 10,000 record cap per doctype.",
+      "tags": ["queue", "database", "batch"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/deprecation_dumpster.py",
+      "type": "file",
+      "name": "deprecation_dumpster.py",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "summary": "Central repository for all deprecated functions and methods in the Frappe framework. Implements a deprecation warning system with versioned graduation (v15/v16/v17) classes and a @deprecated decorator that enforces placement in this file.",
+      "tags": ["deprecation", "warnings", "infrastructure", "compatibility"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:deprecation_dumpster:FrappeDeprecationError",
+      "type": "class",
+      "name": "FrappeDeprecationError",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [42, 48],
+      "summary": "Warning class for features deprecated in the current version; raises an error by default but can be downgraded via PYTHONWARNINGS.",
+      "tags": ["deprecation", "warning"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:deprecation_dumpster:FrappeDeprecationWarning",
+      "type": "class",
+      "name": "FrappeDeprecationWarning",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [51, 52],
+      "summary": "Warning class for features deprecated in the next version.",
+      "tags": ["deprecation", "warning"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:deprecation_dumpster:PendingFrappeDeprecationWarning",
+      "type": "class",
+      "name": "PendingFrappeDeprecationWarning",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [55, 63],
+      "summary": "Warning class for features deprecated beyond the next version; ignored by default since the decision may be reverted.",
+      "tags": ["deprecation", "warning"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:deprecation_dumpster:deprecated",
+      "type": "function",
+      "name": "deprecated",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [145, 180],
+      "summary": "Decorator that marks a function as deprecated with metadata (original name, date marked, graduation version, message). Enforces that decorated functions must reside in deprecation_dumpster.py.",
+      "tags": ["deprecation", "decorator"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:deprecation_dumpster:deprecation_warning",
+      "type": "function",
+      "name": "deprecation_warning",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [183, 200],
+      "summary": "Emits a deprecation warning in-place from a deprecated code path with versioned graduation class selection.",
+      "tags": ["deprecation", "warning"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:deprecation_dumpster:FrappeTestCase",
+      "type": "class",
+      "name": "FrappeTestCase (deprecated)",
+      "filePath": "frappe/deprecation_dumpster.py",
+      "lineRange": [595, 837],
+      "summary": "Deprecated backward-compatible test case class with DB connection management, assertion helpers (assertDocumentEqual, assertQueryCount, assertRedisCallCounts), and context managers for user switching and time freezing. Replaced by IntegrationTestCase.",
+      "tags": ["testing", "deprecated", "compatibility"],
+      "complexity": "high"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "target": "func:user_doctype_permissions:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "target": "func:user_doctype_permissions:get_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:user_doctype_permissions:execute",
+      "target": "func:user_doctype_permissions:get_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:get_parent_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:set_timeline_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:find",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:find_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:html2text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/utils.py",
+      "target": "func:core_utils:html_to_plain_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:core_utils:set_timeline_doc",
+      "target": "func:core_utils:get_parent_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/coverage.py",
+      "target": "class:coverage:CodeCoverage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:set_user_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:get_user_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:get_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:set_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:get_defaults_for",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/defaults.py",
+      "target": "func:defaults:clear_default",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:defaults:set_user_default",
+      "target": "func:defaults:set_default",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:defaults:get_user_default",
+      "target": "func:defaults:get_defaults",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:defaults:get_defaults",
+      "target": "func:defaults:get_defaults_for",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:defaults:set_default",
+      "target": "func:defaults:clear_default",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/deferred_insert.py",
+      "target": "func:deferred_insert:deferred_insert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deferred_insert.py",
+      "target": "func:deferred_insert:save_to_db",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "class:deprecation_dumpster:FrappeDeprecationError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "class:deprecation_dumpster:FrappeDeprecationWarning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "class:deprecation_dumpster:PendingFrappeDeprecationWarning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "func:deprecation_dumpster:deprecated",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "func:deprecation_dumpster:deprecation_warning",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/deprecation_dumpster.py",
+      "target": "class:deprecation_dumpster:FrappeTestCase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:deprecation_dumpster:PendingFrappeDeprecationWarning",
+      "target": "class:deprecation_dumpster:FrappeDeprecationWarning",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:deprecation_dumpster:deprecated",
+      "target": "class:deprecation_dumpster:FrappeDeprecationError",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:deprecation_dumpster:deprecated",
+      "target": "class:deprecation_dumpster:FrappeDeprecationWarning",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:defaults:get_user_default",
+      "target": "file:frappe/core/report/user_doctype_permissions/user_doctype_permissions.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "file:frappe/deferred_insert.py",
+      "target": "file:frappe/defaults.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.2
+    },
+    {
+      "source": "class:deprecation_dumpster:FrappeTestCase",
+      "target": "class:coverage:CodeCoverage",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.3
+    }
+  ]
+}

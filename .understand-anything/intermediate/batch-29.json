@@ -1,0 +1,469 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/scheduler_event/test_scheduler_event.py",
+      "type": "file",
+      "name": "test_scheduler_event.py",
+      "filePath": "frappe/core/doctype/scheduler_event/test_scheduler_event.py",
+      "summary": "Stub integration test file for the SchedulerEvent DocType. Contains an empty test class with no actual test methods yet.",
+      "tags": ["test", "scheduler", "stub"],
+      "complexity": 1
+    },
+    {
+      "id": "class:IntegrationTestSchedulerEvent",
+      "type": "class",
+      "name": "IntegrationTestSchedulerEvent",
+      "filePath": "frappe/core/doctype/scheduler_event/test_scheduler_event.py",
+      "lineRange": [14, 20],
+      "summary": "Empty integration test case class for the SchedulerEvent DocType, extends IntegrationTestCase.",
+      "tags": ["test", "scheduler"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/server_script/__init__.py",
+      "type": "file",
+      "name": "__init__.py (server_script)",
+      "filePath": "frappe/core/doctype/server_script/__init__.py",
+      "summary": "Empty init file for the server_script DocType package.",
+      "tags": ["init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/server_script/server_script.js",
+      "type": "file",
+      "name": "server_script.js",
+      "filePath": "frappe/core/doctype/server_script/server_script.js",
+      "summary": "Client-side form controller for Server Script DocType. Sets up autocompletion for the script code editor, checks if safe exec is enabled, provides inline help with code examples for DocType Events, API calls, Permission Queries, and Workflow Tasks, and adds a Compare Versions button.",
+      "tags": ["frontend", "form-controller", "server-script", "javascript"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "file",
+      "name": "server_script.py",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "summary": "Core Python controller for Server Script DocType. Implements execution of user-defined scripts for DocType events, API endpoints, scheduler events, permission queries, and workflow tasks. Uses RestrictedPython for sandboxed execution via safe_exec.",
+      "tags": ["backend", "controller", "server-script", "safe-exec", "scripting"],
+      "complexity": 4
+    },
+    {
+      "id": "class:ServerScript",
+      "type": "class",
+      "name": "ServerScript",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [25, 244],
+      "summary": "Document controller for Server Script DocType. Manages lifecycle (validate, on_update, on_trash), syncs Scheduled Job Types for scheduler scripts, validates script compilation with RestrictedPython, and provides execute methods for API, doc event, scheduler, permission query, and workflow task script types.",
+      "tags": ["controller", "document", "server-script", "safe-exec"],
+      "complexity": 4
+    },
+    {
+      "id": "func:ServerScript.validate",
+      "type": "function",
+      "name": "ServerScript.validate",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [88, 90],
+      "summary": "Validates that the current user has Script Manager role and checks if the script compiles in restricted context.",
+      "tags": ["validation", "permissions"],
+      "complexity": 2
+    },
+    {
+      "id": "func:ServerScript.sync_scheduled_job_type",
+      "type": "function",
+      "name": "ServerScript.sync_scheduled_job_type",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [119, 157],
+      "summary": "Creates or updates Scheduled Job Type documents when a Server Script of type 'Scheduler Event' is saved. Handles frequency changes, cron format updates, and script type transitions.",
+      "tags": ["scheduler", "sync", "scheduled-job"],
+      "complexity": 4
+    },
+    {
+      "id": "func:ServerScript.execute_method",
+      "type": "function",
+      "name": "ServerScript.execute_method",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [168, 188],
+      "summary": "Executes API-type Server Scripts with optional rate limiting. Wraps execution in rate_limit decorator if enabled, otherwise calls execute_api_server_script directly.",
+      "tags": ["api", "rate-limit", "execution"],
+      "complexity": 3
+    },
+    {
+      "id": "func:ServerScript.execute_doc",
+      "type": "function",
+      "name": "ServerScript.execute_doc",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [190, 201],
+      "summary": "Executes a DocType Event Server Script in the context of a given document, with commit/rollback restrictions.",
+      "tags": ["execution", "doc-event"],
+      "complexity": 2
+    },
+    {
+      "id": "func:ServerScript.execute_scheduled_method",
+      "type": "function",
+      "name": "ServerScript.execute_scheduled_method",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [203, 212],
+      "summary": "Executes Scheduler Event Server Scripts. Raises DoesNotExistError if script type is not Scheduler Event.",
+      "tags": ["execution", "scheduler"],
+      "complexity": 2
+    },
+    {
+      "id": "func:ServerScript.get_permission_query_conditions",
+      "type": "function",
+      "name": "ServerScript.get_permission_query_conditions",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [214, 231],
+      "summary": "Executes Permission Query Server Scripts to generate dynamic SQL conditions for list filtering based on user context.",
+      "tags": ["execution", "permissions", "query"],
+      "complexity": 3
+    },
+    {
+      "id": "func:ServerScript.execute_workflow_task",
+      "type": "function",
+      "name": "ServerScript.execute_workflow_task",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [233, 244],
+      "summary": "Executes Workflow Task Server Scripts in the context of a document being acted upon by a workflow action.",
+      "tags": ["execution", "workflow"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_autocompletion_items",
+      "type": "function",
+      "name": "get_autocompletion_items",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [247, 264],
+      "summary": "Whitelisted cached endpoint that generates autocompletion strings from the safe_exec context dictionary for use in the Server Script code editor.",
+      "tags": ["api", "autocompletion", "cached"],
+      "complexity": 2
+    },
+    {
+      "id": "func:execute_api_server_script",
+      "type": "function",
+      "name": "execute_api_server_script",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [267, 282],
+      "summary": "Executes an API-type Server Script after validating script type and guest permissions. Returns the flags set during safe execution.",
+      "tags": ["api", "execution", "guest-access"],
+      "complexity": 2
+    },
+    {
+      "id": "func:enabled",
+      "type": "function",
+      "name": "enabled",
+      "filePath": "frappe/core/doctype/server_script/server_script.py",
+      "lineRange": [285, 288],
+      "summary": "Whitelisted endpoint that checks whether safe_exec (Server Scripts feature) is enabled on the current site.",
+      "tags": ["api", "configuration"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/server_script/server_script_utils.py",
+      "type": "file",
+      "name": "server_script_utils.py",
+      "filePath": "frappe/core/doctype/server_script/server_script_utils.py",
+      "summary": "Utility module for Server Scripts providing the EVENT_MAP constant that maps document lifecycle hooks to Server Script event names, and functions to run server scripts for doc events and build/cache the server script map.",
+      "tags": ["backend", "utility", "server-script", "event-mapping"],
+      "complexity": 3
+    },
+    {
+      "id": "const:EVENT_MAP",
+      "type": "variable",
+      "name": "EVENT_MAP",
+      "filePath": "frappe/core/doctype/server_script/server_script_utils.py",
+      "lineRange": [6, 31],
+      "summary": "Dictionary mapping Python document lifecycle hook names (e.g., 'before_insert', 'on_update') to their corresponding Server Script event labels (e.g., 'Before Insert', 'After Save'). Covers 21 events including payment processing hooks.",
+      "tags": ["constant", "event-mapping"],
+      "complexity": 1
+    },
+    {
+      "id": "func:run_server_script_for_doc_event",
+      "type": "function",
+      "name": "run_server_script_for_doc_event",
+      "filePath": "frappe/core/doctype/server_script/server_script_utils.py",
+      "lineRange": [34, 49],
+      "summary": "Entry point called from Document lifecycle to execute all matching Server Scripts for a given document event. Skips execution during install/migrate. Looks up scripts from the cached server script map.",
+      "tags": ["execution", "doc-event", "lifecycle"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_server_script_map",
+      "type": "function",
+      "name": "get_server_script_map",
+      "filePath": "frappe/core/doctype/server_script/server_script_utils.py",
+      "lineRange": [52, 88],
+      "summary": "Builds and caches a map of all enabled Server Scripts organized by type: DocType events keyed by doctype and event, permission queries keyed by doctype, and API methods keyed by method path. Uses client_cache for persistence.",
+      "tags": ["cache", "mapping", "configuration"],
+      "complexity": 3
+    },
+    {
+      "id": "file:frappe/core/doctype/server_script/test_server_script.py",
+      "type": "file",
+      "name": "test_server_script.py",
+      "filePath": "frappe/core/doctype/server_script/test_server_script.py",
+      "summary": "Comprehensive integration tests for Server Script DocType covering DocType events (before insert, after rename), API endpoints, permission queries, syntax validation, commit restrictions in doc events, query builder restrictions, nested script calls, rate limiting, scheduled job creation/updates, and script state transitions.",
+      "tags": ["test", "integration", "server-script"],
+      "complexity": 4
+    },
+    {
+      "id": "class:TestServerScript",
+      "type": "class",
+      "name": "TestServerScript",
+      "filePath": "frappe/core/doctype/server_script/test_server_script.py",
+      "lineRange": [111, 384],
+      "summary": "Integration test class for Server Scripts with 13 test methods. Sets up test scripts for DocType events, API calls, and permission queries. Tests include validation, commit restrictions, QBuilder restrictions, nested scripts, rate limiting, scheduled jobs, and state transitions.",
+      "tags": ["test", "integration", "server-script"],
+      "complexity": 4
+    },
+    {
+      "id": "file:frappe/core/doctype/session_default/__init__.py",
+      "type": "file",
+      "name": "__init__.py (session_default)",
+      "filePath": "frappe/core/doctype/session_default/__init__.py",
+      "summary": "Empty init file for the session_default DocType package.",
+      "tags": ["init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/session_default/session_default.py",
+      "type": "file",
+      "name": "session_default.py",
+      "filePath": "frappe/core/doctype/session_default/session_default.py",
+      "summary": "Minimal Document controller for SessionDefault DocType, a child table that stores a reference doctype link. Used as a child of Session Default Settings.",
+      "tags": ["backend", "controller", "child-table", "session"],
+      "complexity": 1
+    },
+    {
+      "id": "class:SessionDefault",
+      "type": "class",
+      "name": "SessionDefault",
+      "filePath": "frappe/core/doctype/session_default/session_default.py",
+      "lineRange": [8, 23],
+      "summary": "Empty Document controller for SessionDefault child DocType. Contains only auto-generated type annotations for parent, parentfield, parenttype, and ref_doctype fields.",
+      "tags": ["controller", "child-table", "session"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/session_default_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py (session_default_settings)",
+      "filePath": "frappe/core/doctype/session_default_settings/__init__.py",
+      "summary": "Empty init file for the session_default_settings DocType package.",
+      "tags": ["init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/session_default_settings/session_default_settings.js",
+      "type": "file",
+      "name": "session_default_settings.js",
+      "filePath": "frappe/core/doctype/session_default_settings/session_default_settings.js",
+      "summary": "Client-side form controller for Session Default Settings DocType. On refresh, sets a filter query on the ref_doctype field to exclude single and table DocTypes.",
+      "tags": ["frontend", "form-controller", "session", "javascript"],
+      "complexity": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:IntegrationTestSchedulerEvent",
+      "target": "file:frappe/core/doctype/scheduler_event/test_scheduler_event.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ServerScript",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:ServerScript.validate",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.sync_scheduled_job_type",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.execute_method",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.execute_doc",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.execute_scheduled_method",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.get_permission_query_conditions",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ServerScript.execute_workflow_task",
+      "target": "class:ServerScript",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_autocompletion_items",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:execute_api_server_script",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:enabled",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:ServerScript.execute_method",
+      "target": "func:execute_api_server_script",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ServerScript",
+      "target": "file:frappe/core/doctype/server_script/server_script_utils.py",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:run_server_script_for_doc_event",
+      "target": "func:get_server_script_map",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:run_server_script_for_doc_event",
+      "target": "func:ServerScript.execute_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:run_server_script_for_doc_event",
+      "target": "file:frappe/core/doctype/server_script/server_script_utils.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_server_script_map",
+      "target": "file:frappe/core/doctype/server_script/server_script_utils.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "const:EVENT_MAP",
+      "target": "file:frappe/core/doctype/server_script/server_script_utils.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:run_server_script_for_doc_event",
+      "target": "const:EVENT_MAP",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestServerScript",
+      "target": "file:frappe/core/doctype/server_script/test_server_script.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestServerScript",
+      "target": "class:ServerScript",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:SessionDefault",
+      "target": "file:frappe/core/doctype/session_default/session_default.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/session_default_settings/session_default_settings.js",
+      "target": "class:SessionDefault",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/server_script/server_script.js",
+      "target": "func:get_autocompletion_items",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/server_script/server_script.js",
+      "target": "func:enabled",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:ServerScript.sync_scheduled_job_type",
+      "target": "file:frappe/core/doctype/scheduler_event/test_scheduler_event.py",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "func:get_autocompletion_items",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:ServerScript",
+      "target": "file:frappe/core/doctype/server_script/server_script.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

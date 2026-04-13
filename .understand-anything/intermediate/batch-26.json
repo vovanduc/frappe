@@ -1,0 +1,416 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/role_permission_for_page_and_report/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/__init__.py",
+      "summary": "Empty init file for the Role Permission for Page and Report DocType package.",
+      "tags": ["core", "init", "doctype"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+      "type": "file",
+      "name": "role_permission_for_page_and_report.js",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+      "summary": "Client-side controller for managing role permissions on Pages and Reports. Provides a RoleEditor UI to set, update, and reset roles for custom access control. Handles field toggling, validation, and server calls for persisting role changes.",
+      "tags": ["core", "permissions", "javascript", "form-controller", "roles", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "type": "file",
+      "name": "role_permission_for_page_and_report.py",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "summary": "Server-side controller for Role Permission for Page and Report DocType. Manages custom role assignments for Pages and Reports by creating/updating Custom Role documents. Supports resetting to standard roles and toggling prepared report settings.",
+      "tags": ["core", "permissions", "python", "doctype-controller", "roles", "custom-role"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RolePermissionforPageandReport",
+      "type": "class",
+      "name": "RolePermissionforPageandReport",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [10, 107],
+      "summary": "Document controller that manages custom role-based access for Pages and Reports. Provides whitelisted methods to load, update, and reset role assignments via Custom Role documents, and toggles prepared report status on Report documents.",
+      "tags": ["core", "permissions", "document", "controller", "roles"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:RolePermissionforPageandReport.set_report_page_data",
+      "type": "function",
+      "name": "set_report_page_data",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [27, 30],
+      "summary": "Whitelisted method that loads custom roles for the selected page/report and checks if prepared report is disabled.",
+      "tags": ["whitelist", "api", "roles"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:RolePermissionforPageandReport.set_custom_roles",
+      "type": "function",
+      "name": "set_custom_roles",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [32, 43],
+      "summary": "Loads roles from an existing Custom Role document if one exists, otherwise falls back to standard roles from the Page/Report document.",
+      "tags": ["roles", "custom-role"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:RolePermissionforPageandReport.update_custom_roles",
+      "type": "function",
+      "name": "update_custom_roles",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [67, 82],
+      "summary": "Creates or updates a Custom Role document with the current role assignments. Sets ref_doctype for reports.",
+      "tags": ["roles", "custom-role", "persistence"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:RolePermissionforPageandReport.update_disable_prepared_report",
+      "type": "function",
+      "name": "update_disable_prepared_report",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [84, 91],
+      "summary": "Directly updates the Report table to toggle the prepared_report flag using raw SQL.",
+      "tags": ["report", "prepared-report", "sql"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:RolePermissionforPageandReport.reset_roles",
+      "type": "function",
+      "name": "reset_roles",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "lineRange": [55, 60],
+      "summary": "Whitelisted method that resets roles to the standard defaults from the Page/Report definition and updates Custom Role and prepared report settings.",
+      "tags": ["whitelist", "api", "roles", "reset"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_permission_for_page_and_report/test_role_permission_for_page_and_report.py",
+      "type": "file",
+      "name": "test_role_permission_for_page_and_report.py",
+      "filePath": "frappe/core/doctype/role_permission_for_page_and_report/test_role_permission_for_page_and_report.py",
+      "summary": "Empty test case stub for Role Permission for Page and Report DocType.",
+      "tags": ["core", "test", "permissions"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_profile/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/role_profile/__init__.py",
+      "summary": "Empty init file for the Role Profile DocType package.",
+      "tags": ["core", "init", "doctype"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_profile/role_profile.js",
+      "type": "file",
+      "name": "role_profile.js",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.js",
+      "summary": "Client-side controller for Role Profile. Initializes a RoleEditor widget for Administrator/System Manager users to assign roles to the profile, and syncs selected roles to the document table on validate.",
+      "tags": ["core", "roles", "javascript", "form-controller", "ui"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_profile/role_profile.py",
+      "type": "file",
+      "name": "role_profile.py",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.py",
+      "summary": "Server-side controller for Role Profile DocType. Manages named collections of roles that can be assigned to users. On update, propagates role changes to all users who have this profile assigned.",
+      "tags": ["core", "roles", "python", "doctype-controller", "user-management"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:RoleProfile",
+      "type": "class",
+      "name": "RoleProfile",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.py",
+      "lineRange": [10, 45],
+      "summary": "Document controller for Role Profile. Sets name from role_profile field, and on update queues a background job to propagate role changes to all users with this profile by re-saving them.",
+      "tags": ["core", "document", "roles", "user-management", "background-job"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:RoleProfile.autoname",
+      "type": "function",
+      "name": "autoname",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.py",
+      "lineRange": [24, 26],
+      "summary": "Sets document name to the role_profile field value.",
+      "tags": ["naming", "lifecycle"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "func:RoleProfile.on_update",
+      "type": "function",
+      "name": "on_update",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.py",
+      "lineRange": [28, 35],
+      "summary": "Clears cache and queues update_all_users as a background job (or runs immediately in tests) to propagate role changes.",
+      "tags": ["lifecycle", "cache", "background-job"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:RoleProfile.update_all_users",
+      "type": "function",
+      "name": "update_all_users",
+      "filePath": "frappe/core/doctype/role_profile/role_profile.py",
+      "lineRange": [37, 42],
+      "summary": "Finds all users with this role profile and re-saves them to sync their roles with the updated profile.",
+      "tags": ["user-management", "roles", "propagation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/role_profile/test_role_profile.py",
+      "type": "file",
+      "name": "test_role_profile.py",
+      "filePath": "frappe/core/doctype/role_profile/test_role_profile.py",
+      "summary": "Integration tests for Role Profile DocType. Tests creating profiles with roles, assigning single and multiple profiles to users, and verifying role propagation when profiles are updated.",
+      "tags": ["core", "test", "roles", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TestRoleProfile",
+      "type": "class",
+      "name": "TestRoleProfile",
+      "filePath": "frappe/core/doctype/role_profile/test_role_profile.py",
+      "lineRange": [9, 133],
+      "summary": "Integration test class with 3 tests: creating role profiles, assigning multiple profiles to users, and verifying that updating a profile propagates role changes to assigned users.",
+      "tags": ["test", "roles", "integration-test"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/rq_job/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/rq_job/__init__.py",
+      "summary": "Empty init file for the RQ Job DocType package.",
+      "tags": ["core", "init", "doctype"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/rq_job/rq_job.js",
+      "type": "file",
+      "name": "rq_job.js",
+      "filePath": "frappe/core/doctype/rq_job/rq_job.js",
+      "summary": "Client-side controller for RQ Job virtual DocType. Disables form editing, shows a data-clearing warning, and provides a 'Force Stop' button for started/queued jobs that calls the server-side stop_job method.",
+      "tags": ["core", "background-jobs", "javascript", "form-controller", "virtual-doctype"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:RolePermissionforPageandReport",
+      "target": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.set_report_page_data",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.set_custom_roles",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.update_custom_roles",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.update_disable_prepared_report",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.reset_roles",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:RolePermissionforPageandReport",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "target": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+      "type": "pairs_with",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:RolePermissionforPageandReport",
+      "target": "class:CustomRole",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.set_custom_roles",
+      "target": "func:RolePermissionforPageandReport.update_custom_roles",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.set_report_page_data",
+      "target": "func:RolePermissionforPageandReport.set_custom_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RolePermissionforPageandReport.reset_roles",
+      "target": "func:RolePermissionforPageandReport.update_custom_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "target": "file:frappe/core/doctype/report/report.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/test_role_permission_for_page_and_report.py",
+      "target": "class:RolePermissionforPageandReport",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:RoleProfile",
+      "target": "file:frappe/core/doctype/role_profile/role_profile.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:RoleProfile.autoname",
+      "target": "class:RoleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RoleProfile.on_update",
+      "target": "class:RoleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RoleProfile.update_all_users",
+      "target": "class:RoleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:RoleProfile",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/role_profile/role_profile.py",
+      "target": "file:frappe/core/doctype/role_profile/role_profile.js",
+      "type": "pairs_with",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:RoleProfile.on_update",
+      "target": "func:RoleProfile.update_all_users",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:RoleProfile.update_all_users",
+      "target": "class:User",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestRoleProfile",
+      "target": "file:frappe/core/doctype/role_profile/test_role_profile.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestRoleProfile",
+      "target": "class:RoleProfile",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/rq_job/rq_job.js",
+      "target": "file:frappe/core/doctype/rq_job/rq_job.py",
+      "type": "pairs_with",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/rq_job/rq_job.js",
+      "target": "func:stop_job",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/role_profile/role_profile.js",
+      "target": "class:RoleEditor",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/role_permission_for_page_and_report/role_permission_for_page_and_report.js",
+      "target": "class:RoleEditor",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

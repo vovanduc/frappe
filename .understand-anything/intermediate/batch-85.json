@@ -1,0 +1,218 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/web_form/web_form_list.js",
+      "type": "file",
+      "name": "web_form_list.js",
+      "summary": "Client-side list view for public web forms. Renders filterable/paginated table of user's web form submissions with row actions (open, delete, select all).",
+      "tags": ["web-form", "list-view", "portal", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/web_form/web_form_list.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/web_form/web_form_list.js:WebFormList",
+      "type": "class",
+      "name": "WebFormList",
+      "summary": "Default-exported controller for web form list pages. Handles filters, data fetch, pagination ('more'), empty state, row rendering and bulk delete.",
+      "tags": ["web-form", "list-controller", "class"],
+      "complexity": "complex",
+      "lineRange": [5, 358]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/web_form/web_form_list.js:WebFormListRow",
+      "type": "class",
+      "name": "WebFormListRow",
+      "summary": "Represents a single row in the web form list (attached to frappe.ui.WebFormListRow). Builds cell DOM, handles select/deselect.",
+      "tags": ["web-form", "list-row", "class"],
+      "complexity": "simple",
+      "lineRange": [360, 409]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/web_form/webform_script.js",
+      "type": "file",
+      "name": "webform_script.js",
+      "summary": "Entry script loaded on public web form pages. Boots WebForm or WebFormList depending on route and wires login-required prompts and reCAPTCHA.",
+      "tags": ["web-form", "bootstrap", "portal"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/web_form/webform_script.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/base_widget.js",
+      "type": "file",
+      "name": "base_widget.js",
+      "summary": "Parent Widget class for all workspace widgets (charts, number cards, shortcuts, quick lists, onboarding). Provides make/refresh/edit/delete/resize/customize lifecycle and DOM scaffolding.",
+      "tags": ["widget", "workspace", "base-class"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/widgets/base_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget",
+      "type": "class",
+      "name": "Widget",
+      "summary": "Base class extended by all concrete widgets. Owns the widget container, title, actions, customize/edit dialogs, and delete/hide/toggle-width behaviors.",
+      "tags": ["widget", "base", "class"],
+      "complexity": "moderate",
+      "lineRange": [3, 200]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/chart_widget.js",
+      "type": "file",
+      "name": "chart_widget.js",
+      "summary": "Chart widget rendering Frappe Charts on workspaces. Handles dashboard chart fetch, time-series filters, date ranges, heatmap, report-based charts, per-user config save, and chart actions menu.",
+      "tags": ["widget", "chart", "frappe-charts", "dashboard"],
+      "complexity": "very-complex",
+      "filePath": "frappe/public/js/frappe/widgets/chart_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/chart_widget.js:ChartWidget",
+      "type": "class",
+      "name": "ChartWidget",
+      "summary": "Extends Widget to render a Dashboard Chart. Builds chart args, fetches data via frappe.xcall, sets up filter dialog and action menu, persists user overrides.",
+      "tags": ["widget", "chart", "class"],
+      "complexity": "very-complex",
+      "lineRange": [7, 873]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/custom_block_widget.js",
+      "type": "file",
+      "name": "custom_block_widget.js",
+      "summary": "Widget that renders a Custom HTML Block doctype's content into a workspace slot.",
+      "tags": ["widget", "custom-block"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/widgets/custom_block_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/custom_block_widget.js:CustomBlockWidget",
+      "type": "class",
+      "name": "CustomBlockWidget",
+      "summary": "Extends Widget to render a Custom HTML Block's HTML body.",
+      "tags": ["widget", "custom-block", "class"],
+      "complexity": "simple",
+      "lineRange": [3, 46]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/links_widget.js",
+      "type": "file",
+      "name": "links_widget.js",
+      "summary": "Workspace Links widget rendering grouped card breaks and navigation links with permission filtering and hover events.",
+      "tags": ["widget", "links", "navigation"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/widgets/links_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/links_widget.js:LinksWidget",
+      "type": "class",
+      "name": "LinksWidget",
+      "summary": "Extends Widget to render a list of navigation links grouped by Card Break, with permission checks.",
+      "tags": ["widget", "links", "class"],
+      "complexity": "moderate",
+      "lineRange": [5, 159]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/new_widget.js",
+      "type": "file",
+      "name": "new_widget.js",
+      "summary": "Placeholder '+ New' tile that opens the appropriate widget creation dialog (chart, card, link, etc.) based on widget type.",
+      "tags": ["widget", "new", "dialog"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/widgets/new_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/new_widget.js:NewWidget",
+      "type": "class",
+      "name": "NewWidget",
+      "summary": "Standalone widget class (does not extend Widget) rendering a 'New' placeholder tile that opens a WidgetDialog to create another widget.",
+      "tags": ["widget", "new", "class"],
+      "complexity": "simple",
+      "lineRange": [3, 64]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/number_card_widget.js",
+      "type": "file",
+      "name": "number_card_widget.js",
+      "summary": "Number Card widget on workspaces. Fetches count/sum/avg from DocType, Report, or Custom sources; formats numbers; renders percentage stats vs prior period; routes on click.",
+      "tags": ["widget", "number-card", "stats"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/widgets/number_card_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/number_card_widget.js:NumberCardWidget",
+      "type": "class",
+      "name": "NumberCardWidget",
+      "summary": "Extends Widget to render a Number Card. Supports DocType/Report/Custom function modes, percentage stats, formatted output and click routing.",
+      "tags": ["widget", "number-card", "class"],
+      "complexity": "complex",
+      "lineRange": [5, 401]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/onboarding_widget.js",
+      "type": "file",
+      "name": "onboarding_widget.js",
+      "summary": "Onboarding widget rendering a guided tutorial with multi-step actions: create entry, update settings, view report, show form tour, play video, mark complete.",
+      "tags": ["widget", "onboarding", "tutorial"],
+      "complexity": "very-complex",
+      "filePath": "frappe/public/js/frappe/widgets/onboarding_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/onboarding_widget.js:OnboardingWidget",
+      "type": "class",
+      "name": "OnboardingWidget",
+      "summary": "Extends Widget to present a module onboarding checklist with per-step handlers (quick entry, settings update, form tour, report, video) and completion tracking.",
+      "tags": ["widget", "onboarding", "class"],
+      "complexity": "very-complex",
+      "lineRange": [5, 629]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/widgets/quick_list_widget.js",
+      "type": "file",
+      "name": "quick_list_widget.js",
+      "summary": "Quick List widget showing recent docs of a DocType with add/refresh/filter buttons and inline filter dialog.",
+      "tags": ["widget", "quick-list"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/widgets/quick_list_widget.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/widgets/quick_list_widget.js:QuickListWidget",
+      "type": "class",
+      "name": "QuickListWidget",
+      "summary": "Extends Widget to render a mini list of records for a DocType with quick add, refresh, and filter controls.",
+      "tags": ["widget", "quick-list", "class"],
+      "complexity": "moderate",
+      "lineRange": [5, 272]
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/web_form/web_form_list.js", "target": "class:frappe/public/js/frappe/web_form/web_form_list.js:WebFormList", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/web_form/web_form_list.js", "target": "class:frappe/public/js/frappe/web_form/web_form_list.js:WebFormListRow", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/web_form/web_form_list.js", "target": "class:frappe/public/js/frappe/web_form/web_form_list.js:WebFormList", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/web_form/webform_script.js", "target": "file:frappe/public/js/frappe/web_form/web_form_list.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/base_widget.js", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/base_widget.js", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/chart_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/chart_widget.js", "target": "class:frappe/public/js/frappe/widgets/chart_widget.js:ChartWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/chart_widget.js", "target": "class:frappe/public/js/frappe/widgets/chart_widget.js:ChartWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/chart_widget.js:ChartWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/custom_block_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/custom_block_widget.js", "target": "class:frappe/public/js/frappe/widgets/custom_block_widget.js:CustomBlockWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/custom_block_widget.js", "target": "class:frappe/public/js/frappe/widgets/custom_block_widget.js:CustomBlockWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/custom_block_widget.js:CustomBlockWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/links_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/links_widget.js", "target": "class:frappe/public/js/frappe/widgets/links_widget.js:LinksWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/links_widget.js", "target": "class:frappe/public/js/frappe/widgets/links_widget.js:LinksWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/links_widget.js:LinksWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/new_widget.js", "target": "class:frappe/public/js/frappe/widgets/new_widget.js:NewWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/new_widget.js", "target": "class:frappe/public/js/frappe/widgets/new_widget.js:NewWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/number_card_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/number_card_widget.js", "target": "class:frappe/public/js/frappe/widgets/number_card_widget.js:NumberCardWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/number_card_widget.js", "target": "class:frappe/public/js/frappe/widgets/number_card_widget.js:NumberCardWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/number_card_widget.js:NumberCardWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/onboarding_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/onboarding_widget.js", "target": "class:frappe/public/js/frappe/widgets/onboarding_widget.js:OnboardingWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/onboarding_widget.js", "target": "class:frappe/public/js/frappe/widgets/onboarding_widget.js:OnboardingWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/onboarding_widget.js:OnboardingWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/quick_list_widget.js", "target": "file:frappe/public/js/frappe/widgets/base_widget.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/quick_list_widget.js", "target": "class:frappe/public/js/frappe/widgets/quick_list_widget.js:QuickListWidget", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/widgets/quick_list_widget.js", "target": "class:frappe/public/js/frappe/widgets/quick_list_widget.js:QuickListWidget", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/widgets/quick_list_widget.js:QuickListWidget", "target": "class:frappe/public/js/frappe/widgets/base_widget.js:Widget", "type": "inherits", "direction": "forward", "weight": 1}
+  ]
+}

@@ -1,0 +1,408 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/log_setting_user/test_log_setting_user.py",
+      "type": "file",
+      "name": "test_log_setting_user.py",
+      "filePath": "frappe/core/doctype/log_setting_user/test_log_setting_user.py",
+      "summary": "Empty test stub for the LogSettingUser child DocType. Contains only a placeholder IntegrationTestCase class with no test methods.",
+      "tags": ["test", "stub", "doctype"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:TestLogSettingUser",
+      "type": "class",
+      "name": "TestLogSettingUser",
+      "filePath": "frappe/core/doctype/log_setting_user/test_log_setting_user.py",
+      "lineRange": [7, 8],
+      "summary": "Empty integration test case for LogSettingUser DocType. Inherits from IntegrationTestCase with no test methods defined.",
+      "tags": ["test", "stub"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py (log_settings)",
+      "filePath": "frappe/core/doctype/log_settings/__init__.py",
+      "summary": "Empty package init file for the log_settings DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_settings/log_settings.js",
+      "type": "file",
+      "name": "log_settings.js",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.js",
+      "summary": "Client-side controller for Log Settings form. On refresh, sets a query filter on the 'ref_doctype' field in the 'logs_to_clear' child table to only show DocTypes that support log clearing and excludes already-added ones.",
+      "tags": ["javascript", "form-controller", "client"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "file",
+      "name": "log_settings.py",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "summary": "Core log management module providing the LogSettings DocType controller and utility functions. Manages automated clearing of log DocTypes (Error Log, Activity Log, etc.) using a Protocol-based interface pattern. Includes table-swap strategy for clearing very large log tables efficiently.",
+      "tags": ["python", "doctype", "log-management", "protocol", "cleanup"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:LogType",
+      "type": "class",
+      "name": "LogType",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [14, 19],
+      "summary": "Runtime-checkable Protocol defining the interface for DocTypes that support automated log clearing. Requires a static method clear_old_logs(days: int) -> None.",
+      "tags": ["protocol", "interface", "typing"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:_supports_log_clearing",
+      "type": "function",
+      "name": "_supports_log_clearing",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [22, 28],
+      "summary": "Site-cached helper that checks if a DocType controller implements the LogType protocol (i.e., has clear_old_logs method). Returns boolean.",
+      "tags": ["utility", "cache", "protocol-check"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:LogSettings",
+      "type": "class",
+      "name": "LogSettings",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [31, 109],
+      "summary": "Document controller for Log Settings (Single DocType). Validates log clearing entries, removes unsupported DocTypes, deduplicates entries, adds default log types from hooks, and provides clear_logs() to invoke each registered DocType's clear_old_logs method. Also supports dynamic registration of new log DocTypes.",
+      "tags": ["doctype", "controller", "singleton", "log-management"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:run_log_clean_up",
+      "type": "function",
+      "name": "run_log_clean_up",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [112, 117],
+      "summary": "Top-level function that loads LogSettings, removes unsupported doctypes, adds defaults, saves, and triggers log clearing. Called by scheduled jobs to perform periodic log cleanup.",
+      "tags": ["scheduled-job", "cleanup", "entry-point"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:has_unseen_error_log",
+      "type": "function",
+      "name": "has_unseen_error_log",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [120, 128],
+      "summary": "Whitelisted API endpoint that checks for unseen Error Log entries and returns an alert message with a link to the Error Log list if any exist.",
+      "tags": ["api", "whitelisted", "error-log", "notification"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_log_doctypes",
+      "type": "function",
+      "name": "get_log_doctypes",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [131, 147],
+      "summary": "Whitelisted search endpoint for the Log Settings form. Returns DocTypes that implement the LogType protocol, filtered by search text and existing filters. Used by the client-side set_query for the ref_doctype link field.",
+      "tags": ["api", "whitelisted", "search", "link-query"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:clear_log_table",
+      "type": "function",
+      "name": "clear_log_table",
+      "filePath": "frappe/core/doctype/log_settings/log_settings.py",
+      "lineRange": [150, 193],
+      "summary": "Utility for clearing very large log tables using a table-swap strategy instead of DELETE. Creates a temporary table with recent data, renames original to backup, swaps in the new table, then drops the backup. Supports both MariaDB and PostgreSQL with database-specific DDL.",
+      "tags": ["utility", "database", "performance", "mariadb", "postgres", "ddl"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_settings/test_log_settings.py",
+      "type": "file",
+      "name": "test_log_settings.py",
+      "filePath": "frappe/core/doctype/log_settings/test_log_settings.py",
+      "summary": "Integration tests for Log Settings. Tests log deletion by creating test Activity Log, Error Log, and Email Queue entries with past timestamps and verifying run_log_clean_up removes them. Also tests that log type identification correctly recognizes supported and unsupported DocTypes.",
+      "tags": ["test", "integration", "log-management"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestLogSettings",
+      "type": "class",
+      "name": "TestLogSettings",
+      "filePath": "frappe/core/doctype/log_settings/test_log_settings.py",
+      "lineRange": [12, 73],
+      "summary": "Integration test class for LogSettings. Contains test_delete_logs (verifies old logs are cleared after run_log_clean_up) and test_logtype_identification (verifies _supports_log_clearing correctly identifies supported log DocTypes like Error Log, Activity Log vs unsupported ones like User, DocType).",
+      "tags": ["test", "integration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:setup_test_logs",
+      "type": "function",
+      "name": "setup_test_logs",
+      "filePath": "frappe/core/doctype/log_settings/test_log_settings.py",
+      "lineRange": [76, 104],
+      "summary": "Test helper that creates Activity Log, Error Log, and Email Queue entries and backdates their creation timestamps to a specified past datetime for testing log cleanup.",
+      "tags": ["test", "fixture", "helper"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/logs_to_clear/__init__.py",
+      "type": "file",
+      "name": "__init__.py (logs_to_clear)",
+      "filePath": "frappe/core/doctype/logs_to_clear/__init__.py",
+      "summary": "Empty package init file for the logs_to_clear child DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/logs_to_clear/logs_to_clear.py",
+      "type": "file",
+      "name": "logs_to_clear.py",
+      "filePath": "frappe/core/doctype/logs_to_clear/logs_to_clear.py",
+      "summary": "Controller for LogsToClear child DocType used as a table within Log Settings. Defines fields: days (int), ref_doctype (Link). Represents a single log type entry with its retention period in days.",
+      "tags": ["python", "doctype", "child-table"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "class:LogsToClear",
+      "type": "class",
+      "name": "LogsToClear",
+      "filePath": "frappe/core/doctype/logs_to_clear/logs_to_clear.py",
+      "lineRange": [8, 24],
+      "summary": "Child Document controller for the logs_to_clear table in Log Settings. Has fields: days (retention period), ref_doctype (link to the log DocType). No custom logic beyond auto-generated type annotations.",
+      "tags": ["doctype", "child-table", "controller"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/module_def/__init__.py",
+      "type": "file",
+      "name": "__init__.py (module_def)",
+      "filePath": "frappe/core/doctype/module_def/__init__.py",
+      "summary": "Empty package init file for the module_def DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/module_def/module_def.js",
+      "type": "file",
+      "name": "module_def.js",
+      "filePath": "frappe/core/doctype/module_def/module_def.js",
+      "summary": "Client-side controller for Module Def form. On refresh, fetches installed apps via xcall to populate the app_name select options. In non-developer mode, makes the 'custom' field read-only and auto-sets it to 1 for new documents.",
+      "tags": ["javascript", "form-controller", "client", "developer-mode"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/module_def/module_def.py",
+      "type": "file",
+      "name": "module_def.py",
+      "filePath": "frappe/core/doctype/module_def/module_def.py",
+      "summary": "Controller for Module Def DocType which manages frappe application modules. Handles module folder creation, modules.txt management, and module cleanup on deletion. Only allows renaming of custom modules. In developer mode, auto-creates filesystem structures for new modules.",
+      "tags": ["python", "doctype", "module-management", "developer-mode", "filesystem"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:ModuleDef",
+      "type": "class",
+      "name": "ModuleDef",
+      "filePath": "frappe/core/doctype/module_def/module_def.py",
+      "lineRange": [14, 95],
+      "summary": "Document controller for Module Def. On validate, resolves app_name. On update in developer mode, creates module folder with __init__.py and adds module to modules.txt. On trash, removes module folder and entry from modules.txt. Prevents renaming non-custom modules.",
+      "tags": ["doctype", "controller", "lifecycle-hooks", "filesystem"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_installed_apps",
+      "type": "function",
+      "name": "get_installed_apps",
+      "filePath": "frappe/core/doctype/module_def/module_def.py",
+      "lineRange": [98, 100],
+      "summary": "Whitelisted API endpoint that returns a JSON-serialized list of installed frappe apps. Used by the Module Def form to populate the app_name dropdown.",
+      "tags": ["api", "whitelisted", "utility"],
+      "complexity": "trivial"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:TestLogSettingUser",
+      "target": "file:frappe/core/doctype/log_setting_user/test_log_setting_user.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:LogType",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_supports_log_clearing",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:LogSettings",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:run_log_clean_up",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:has_unseen_error_log",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_log_doctypes",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:clear_log_table",
+      "target": "file:frappe/core/doctype/log_settings/log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestLogSettings",
+      "target": "file:frappe/core/doctype/log_settings/test_log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:setup_test_logs",
+      "target": "file:frappe/core/doctype/log_settings/test_log_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:LogsToClear",
+      "target": "file:frappe/core/doctype/logs_to_clear/logs_to_clear.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ModuleDef",
+      "target": "file:frappe/core/doctype/module_def/module_def.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_installed_apps",
+      "target": "file:frappe/core/doctype/module_def/module_def.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:_supports_log_clearing",
+      "target": "class:LogType",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:LogSettings",
+      "target": "func:_supports_log_clearing",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:LogSettings",
+      "target": "class:LogType",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:LogSettings",
+      "target": "class:LogsToClear",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:run_log_clean_up",
+      "target": "class:LogSettings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_log_doctypes",
+      "target": "func:_supports_log_clearing",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestLogSettings",
+      "target": "func:run_log_clean_up",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestLogSettings",
+      "target": "func:_supports_log_clearing",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestLogSettings",
+      "target": "func:setup_test_logs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/log_settings/log_settings.js",
+      "target": "func:get_log_doctypes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/log_settings/log_settings.js",
+      "target": "class:LogSettings",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/module_def/module_def.js",
+      "target": "func:get_installed_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/module_def/module_def.js",
+      "target": "class:ModuleDef",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

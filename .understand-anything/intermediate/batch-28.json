@@ -1,0 +1,489 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_log/scheduled_job_log.py",
+      "type": "file",
+      "name": "scheduled_job_log.py",
+      "filePath": "frappe/core/doctype/scheduled_job_log/scheduled_job_log.py",
+      "summary": "Document controller for Scheduled Job Log DocType. Stores execution logs for scheduled jobs with status (Scheduled/Complete/Failed), debug logs, and details. Provides a static method to clear old log entries older than a given number of days using query builder.",
+      "tags": ["doctype", "scheduler", "logging", "cleanup"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ScheduledJobLog",
+      "type": "class",
+      "name": "ScheduledJobLog",
+      "filePath": "frappe/core/doctype/scheduled_job_log/scheduled_job_log.py",
+      "lineRange": [10, 28],
+      "summary": "Document class for Scheduled Job Log. Tracks execution status of scheduled jobs with fields for debug_log, details, scheduled_job_type (Link), and status. Has a static method clear_old_logs to delete logs older than N days.",
+      "tags": ["document", "logging", "scheduler"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:ScheduledJobLog.clear_old_logs",
+      "type": "function",
+      "name": "clear_old_logs",
+      "filePath": "frappe/core/doctype/scheduled_job_log/scheduled_job_log.py",
+      "lineRange": [25, 28],
+      "summary": "Static method that deletes Scheduled Job Log entries older than a specified number of days (default 90) using frappe query builder with Interval and Now functions.",
+      "tags": ["cleanup", "static-method", "query-builder"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_log/scheduled_job_log_list.js",
+      "type": "file",
+      "name": "scheduled_job_log_list.js",
+      "filePath": "frappe/core/doctype/scheduled_job_log/scheduled_job_log_list.js",
+      "summary": "List view settings for Scheduled Job Log. On load, requires the logtypes bundle and displays a log retention message for the doctype.",
+      "tags": ["listview", "frontend", "log-retention"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_log/test_scheduled_job_log.py",
+      "type": "file",
+      "name": "test_scheduled_job_log.py",
+      "filePath": "frappe/core/doctype/scheduled_job_log/test_scheduled_job_log.py",
+      "summary": "Empty integration test case for ScheduledJobLog DocType. Placeholder test class with no test methods.",
+      "tags": ["test", "placeholder"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.js",
+      "type": "file",
+      "name": "scheduled_job_type.js",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.js",
+      "summary": "Client-side form controller stub for Scheduled Job Type DocType. Contains no active logic (refresh handler is commented out).",
+      "tags": ["frontend", "form", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "file",
+      "name": "scheduled_job_type.py",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "summary": "Core scheduler module implementing ScheduledJobType DocType. Manages scheduled job definitions with cron-based scheduling, job enqueueing via RQ, execution with logging, and synchronization of jobs from hooks.scheduler_events. Supports multiple frequency types (All, Hourly, Daily, Weekly, Monthly, Yearly, Cron) with maintenance offset for multi-tenant deployments.",
+      "tags": ["doctype", "scheduler", "background-jobs", "cron", "rq", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:ScheduledJobType",
+      "type": "class",
+      "name": "ScheduledJobType",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [21, 191],
+      "summary": "Document class for Scheduled Job Type. Central controller for scheduled jobs with validation of cron expressions, job enqueueing with deduplication, next execution calculation using croniter with maintenance offsets, job execution with error handling and logging to Scheduled Job Log, and queue routing (default vs long).",
+      "tags": ["document", "scheduler", "cron", "job-management"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:ScheduledJobType.validate",
+      "type": "function",
+      "name": "validate",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [55, 69],
+      "summary": "Lifecycle hook that forces logging for non-All/Cron frequencies and validates cron format expressions using croniter. Throws user-facing error for invalid cron expressions.",
+      "tags": ["validation", "lifecycle-hook", "cron"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:ScheduledJobType.enqueue",
+      "type": "function",
+      "name": "enqueue",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [71, 88],
+      "summary": "Enqueues the scheduled job to RQ if the event is due and not already in queue. Uses deduplication via rq_job_id. Routes to appropriate queue based on frequency. Returns True if enqueued, False otherwise.",
+      "tags": ["rq", "enqueue", "deduplication"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:ScheduledJobType.get_next_execution",
+      "type": "function",
+      "name": "get_next_execution",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [107, 141],
+      "summary": "Calculates the next execution time using croniter based on last_execution or creation time. Maps named frequencies (Daily, Hourly, etc.) to cron expressions. Adds a site-specific maintenance offset (SHA1 hash-based) for maintenance jobs to distribute load across multi-tenant deployments.",
+      "tags": ["scheduling", "cron", "multi-tenant"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:ScheduledJobType.execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [143, 161],
+      "summary": "Executes the scheduled job method. Supports both Python methods (via frappe.get_attr) and Server Scripts. Handles success with commit and failure with rollback, logging status throughout.",
+      "tags": ["execution", "server-script", "error-handling"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:ScheduledJobType.update_scheduler_log",
+      "type": "function",
+      "name": "update_scheduler_log",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [168, 185],
+      "summary": "Creates or updates a Scheduled Job Log entry with execution status, debug log, and traceback details on failure. Updates last_execution timestamp. Skips log creation if create_log is disabled, just updating last_execution directly.",
+      "tags": ["logging", "scheduler-log"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:execute_event",
+      "type": "function",
+      "name": "execute_event",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [194, 199],
+      "summary": "Whitelisted API endpoint allowing System Managers to force-enqueue a scheduled job type, bypassing the due check.",
+      "tags": ["api", "whitelist", "system-manager"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:skip_next_execution",
+      "type": "function",
+      "name": "skip_next_execution",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [202, 208],
+      "summary": "Whitelisted API endpoint allowing System Managers to skip the next scheduled execution by setting last_execution to the next planned execution time.",
+      "tags": ["api", "whitelist", "system-manager"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:run_scheduled_job",
+      "type": "function",
+      "name": "run_scheduled_job",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [211, 218],
+      "summary": "Wrapper function invoked by RQ workers to execute a scheduled job. Checks for maintenance mode (raises InReadOnlyMode) before executing the Scheduled Job Type document.",
+      "tags": ["rq-worker", "execution", "maintenance-mode"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:sync_jobs",
+      "type": "function",
+      "name": "sync_jobs",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [221, 225],
+      "summary": "Synchronizes Scheduled Job Type documents with hooks.scheduler_events. Reloads the doctype, inserts new events, and clears stale events no longer in hooks.",
+      "tags": ["sync", "hooks", "migration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:insert_events",
+      "type": "function",
+      "name": "insert_events",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [228, 237],
+      "summary": "Processes scheduler_events dictionary, dispatching cron-format events and frequency-based events to their respective insert handlers.",
+      "tags": ["sync", "event-processing"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:insert_single_event",
+      "type": "function",
+      "name": "insert_single_event",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [258, 293],
+      "summary": "Creates or updates a single Scheduled Job Type document for a given event method, frequency, and optional cron format. Validates the method exists via frappe.get_attr. Handles UniqueValidationError by deleting and re-inserting.",
+      "tags": ["sync", "upsert", "event-creation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:clear_events",
+      "type": "function",
+      "name": "clear_events",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [296, 312],
+      "summary": "Removes Scheduled Job Type documents that no longer exist in the current hooks.scheduler_events configuration, preserving server script and scheduler event-linked jobs.",
+      "tags": ["sync", "cleanup"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:on_doctype_update:scheduled_job_type",
+      "type": "function",
+      "name": "on_doctype_update",
+      "filePath": "frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "lineRange": [315, 318],
+      "summary": "Adds a unique database constraint on (frequency, cron_format, method) columns to prevent duplicate scheduled job definitions.",
+      "tags": ["migration", "database-constraint", "unique"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduled_job_type/test_scheduled_job_type.py",
+      "type": "file",
+      "name": "test_scheduled_job_type.py",
+      "filePath": "frappe/core/doctype/scheduled_job_type/test_scheduled_job_type.py",
+      "summary": "Integration tests for ScheduledJobType. Tests duplicate job prevention, sync_jobs from hooks, event due calculations for daily/weekly/monthly/cron frequencies, maintenance job offsets, and cold start behavior.",
+      "tags": ["test", "integration", "scheduler"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestScheduledJobType",
+      "type": "class",
+      "name": "TestScheduledJobType",
+      "filePath": "frappe/core/doctype/scheduled_job_type/test_scheduled_job_type.py",
+      "lineRange": [12, 134],
+      "summary": "Integration test class with 8 test methods covering: duplicate job insertion prevention (with and without cron format), sync_jobs hook synchronization, is_event_due for daily/weekly/monthly/cron frequencies, maintenance job offset calculation, and cold start scenarios with freeze_time.",
+      "tags": ["test", "integration", "scheduler"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduler_event/scheduler_event.js",
+      "type": "file",
+      "name": "scheduler_event.js",
+      "filePath": "frappe/core/doctype/scheduler_event/scheduler_event.js",
+      "summary": "Client-side form controller stub for Scheduler Event DocType. All logic is commented out.",
+      "tags": ["frontend", "form", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/scheduler_event/scheduler_event.py",
+      "type": "file",
+      "name": "scheduler_event.py",
+      "filePath": "frappe/core/doctype/scheduler_event/scheduler_event.py",
+      "summary": "Document controller for Scheduler Event DocType. A simple child/linked DocType with method and scheduled_against (Link) fields. Contains no custom logic.",
+      "tags": ["doctype", "scheduler", "child-table"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:SchedulerEvent",
+      "type": "class",
+      "name": "SchedulerEvent",
+      "filePath": "frappe/core/doctype/scheduler_event/scheduler_event.py",
+      "lineRange": [8, 21],
+      "summary": "Document class for Scheduler Event. A minimal DocType with method and scheduled_against fields. No custom logic implemented (pass).",
+      "tags": ["document", "scheduler"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:ScheduledJobLog",
+      "target": "file:frappe/core/doctype/scheduled_job_log/scheduled_job_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:ScheduledJobLog.clear_old_logs",
+      "target": "class:ScheduledJobLog",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ScheduledJobType",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:ScheduledJobType.validate",
+      "target": "class:ScheduledJobType",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.enqueue",
+      "target": "class:ScheduledJobType",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.get_next_execution",
+      "target": "class:ScheduledJobType",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.execute",
+      "target": "class:ScheduledJobType",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.update_scheduler_log",
+      "target": "class:ScheduledJobType",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:execute_event",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:skip_next_execution",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:run_scheduled_job",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:sync_jobs",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:insert_events",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:insert_single_event",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:clear_events",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:on_doctype_update:scheduled_job_type",
+      "target": "file:frappe/core/doctype/scheduled_job_type/scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestScheduledJobType",
+      "target": "file:frappe/core/doctype/scheduled_job_type/test_scheduled_job_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SchedulerEvent",
+      "target": "file:frappe/core/doctype/scheduler_event/scheduler_event.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ScheduledJobType",
+      "target": "class:ScheduledJobLog",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.update_scheduler_log",
+      "target": "class:ScheduledJobLog",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ScheduledJobType.enqueue",
+      "target": "func:run_scheduled_job",
+      "type": "enqueues",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:run_scheduled_job",
+      "target": "func:ScheduledJobType.execute",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:execute_event",
+      "target": "func:ScheduledJobType.enqueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:skip_next_execution",
+      "target": "class:ScheduledJobType",
+      "type": "modifies",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:sync_jobs",
+      "target": "func:insert_events",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:sync_jobs",
+      "target": "func:clear_events",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:insert_events",
+      "target": "func:insert_single_event",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestScheduledJobType",
+      "target": "class:ScheduledJobType",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:TestScheduledJobType",
+      "target": "func:sync_jobs",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:ScheduledJobType",
+      "target": "class:SchedulerEvent",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:ScheduledJobType.execute",
+      "target": "func:ScheduledJobType.update_scheduler_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:ScheduledJobType.enqueue",
+      "target": "func:ScheduledJobType.get_next_execution",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:ScheduledJobType",
+      "target": "class:ScheduledJobLog",
+      "type": "deletes_on_trash",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

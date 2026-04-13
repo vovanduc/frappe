@@ -1,0 +1,295 @@
+{
+  "nodes": [
+    {
+      "id": "file::frappe/core/doctype/module_def/module_def_list.js",
+      "type": "file",
+      "name": "module_def_list.js",
+      "filePath": "frappe/core/doctype/module_def/module_def_list.js",
+      "summary": "List view settings for Module Def DocType. On load, fetches installed apps via RPC and populates the app_name filter field with options.",
+      "tags": ["javascript", "listview", "module-def", "ui"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/module_def/test_module_def.py",
+      "type": "file",
+      "name": "test_module_def.py",
+      "filePath": "frappe/core/doctype/module_def/test_module_def.py",
+      "summary": "Empty integration test case placeholder for the Module Def DocType.",
+      "tags": ["python", "test", "module-def"],
+      "complexity": "low"
+    },
+    {
+      "id": "class::TestModuleDef",
+      "type": "class",
+      "name": "TestModuleDef",
+      "filePath": "frappe/core/doctype/module_def/test_module_def.py",
+      "lineRange": [6, 7],
+      "summary": "Empty integration test class for Module Def, extends IntegrationTestCase.",
+      "tags": ["test", "integration"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/module_profile/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/module_profile/__init__.py",
+      "summary": "Empty package init file for the module_profile DocType package.",
+      "tags": ["python", "init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/module_profile/module_profile.js",
+      "type": "file",
+      "name": "module_profile.js",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.js",
+      "summary": "Client-side controller for Module Profile form. On refresh, instantiates a ModuleEditor widget (for Admin/System Manager) to select which modules to block. On validate, syncs the editor state back to the child table.",
+      "tags": ["javascript", "form", "module-profile", "ui"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/module_profile/module_profile.py",
+      "type": "file",
+      "name": "module_profile.py",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.py",
+      "summary": "Server-side controller for Module Profile DocType. Manages block_modules child table, propagates module access changes to all linked users via background job on update.",
+      "tags": ["python", "doctype", "module-profile", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class::ModuleProfile",
+      "type": "class",
+      "name": "ModuleProfile",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.py",
+      "lineRange": [10, 64],
+      "summary": "Document controller for Module Profile. Loads all available modules on form load, clears cache on update, and propagates block_modules changes to all users sharing this profile using Query Builder.",
+      "tags": ["doctype-controller", "permissions", "user-management"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::ModuleProfile.onload",
+      "type": "function",
+      "name": "onload",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.py",
+      "lineRange": [24, 27],
+      "summary": "Loads all available module names from all installed apps and sets them as onload data for the form editor.",
+      "tags": ["lifecycle-hook", "modules"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::ModuleProfile.on_update",
+      "type": "function",
+      "name": "on_update",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.py",
+      "lineRange": [32, 38],
+      "summary": "Clears cache and queues update_all_users as a background job to propagate module changes to linked users.",
+      "tags": ["lifecycle-hook", "background-job", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::ModuleProfile.update_all_users",
+      "type": "function",
+      "name": "update_all_users",
+      "filePath": "frappe/core/doctype/module_profile/module_profile.py",
+      "lineRange": [40, 64],
+      "summary": "Queries all users linked to this Module Profile via Query Builder join, compares their current block_modules with the profile's, and updates any users whose modules differ.",
+      "tags": ["query-builder", "user-sync", "bulk-update"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file::frappe/core/doctype/module_profile/test_module_profile.py",
+      "type": "file",
+      "name": "test_module_profile.py",
+      "filePath": "frappe/core/doctype/module_profile/test_module_profile.py",
+      "summary": "Comprehensive integration tests for Module Profile DocType covering creation, multi-module blocking, propagation to users, clearing, multi-user scenarios, and profile switching.",
+      "tags": ["python", "test", "module-profile", "integration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class::TestModuleProfile",
+      "type": "class",
+      "name": "TestModuleProfile",
+      "filePath": "frappe/core/doctype/module_profile/test_module_profile.py",
+      "lineRange": [7, 156],
+      "summary": "Integration test class with 6 test methods validating Module Profile creation, block_modules propagation to users, clearing modules, multi-user sync, and profile switching.",
+      "tags": ["test", "integration", "module-profile"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file::frappe/core/doctype/navbar_item/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/navbar_item/__init__.py",
+      "summary": "Empty package init file for the navbar_item DocType package.",
+      "tags": ["python", "init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/navbar_item/navbar_item.js",
+      "type": "file",
+      "name": "navbar_item.js",
+      "filePath": "frappe/core/doctype/navbar_item/navbar_item.js",
+      "summary": "Empty client-side controller stub for Navbar Item DocType with commented-out refresh handler.",
+      "tags": ["javascript", "form", "navbar-item", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/navbar_item/navbar_item.py",
+      "type": "file",
+      "name": "navbar_item.py",
+      "filePath": "frappe/core/doctype/navbar_item/navbar_item.py",
+      "summary": "Server-side controller for Navbar Item DocType. A child table document representing a single navigation bar entry with fields for label, type (Route/Action/Separator), route, action, condition, and visibility.",
+      "tags": ["python", "doctype", "navbar-item", "child-table", "ui-config"],
+      "complexity": "low"
+    },
+    {
+      "id": "class::NavbarItem",
+      "type": "class",
+      "name": "NavbarItem",
+      "filePath": "frappe/core/doctype/navbar_item/navbar_item.py",
+      "lineRange": [8, 29],
+      "summary": "Document controller for Navbar Item. A child-table DocType with typed fields: item_label, item_type (Route/Action/Separator), route, action, condition, hidden, and is_standard. No custom logic (pass-through).",
+      "tags": ["doctype-controller", "child-table", "navbar"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/navbar_item/test_navbar_item.py",
+      "type": "file",
+      "name": "test_navbar_item.py",
+      "filePath": "frappe/core/doctype/navbar_item/test_navbar_item.py",
+      "summary": "Empty integration test case placeholder for the Navbar Item DocType.",
+      "tags": ["python", "test", "navbar-item"],
+      "complexity": "low"
+    },
+    {
+      "id": "class::TestNavbarItem",
+      "type": "class",
+      "name": "TestNavbarItem",
+      "filePath": "frappe/core/doctype/navbar_item/test_navbar_item.py",
+      "lineRange": [7, 8],
+      "summary": "Empty integration test class for Navbar Item, extends IntegrationTestCase.",
+      "tags": ["test", "integration"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class::TestModuleDef",
+      "target": "file::frappe/core/doctype/module_def/test_module_def.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::ModuleProfile",
+      "target": "file::frappe/core/doctype/module_profile/module_profile.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::ModuleProfile.onload",
+      "target": "class::ModuleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::ModuleProfile.on_update",
+      "target": "class::ModuleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::ModuleProfile.update_all_users",
+      "target": "class::ModuleProfile",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::ModuleProfile.on_update",
+      "target": "func::ModuleProfile.update_all_users",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::ModuleProfile",
+      "target": "class::Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class::TestModuleProfile",
+      "target": "file::frappe/core/doctype/module_profile/test_module_profile.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::TestModuleProfile",
+      "target": "class::ModuleProfile",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class::NavbarItem",
+      "target": "file::frappe/core/doctype/navbar_item/navbar_item.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::NavbarItem",
+      "target": "class::Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class::TestNavbarItem",
+      "target": "file::frappe/core/doctype/navbar_item/test_navbar_item.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::TestNavbarItem",
+      "target": "class::NavbarItem",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file::frappe/core/doctype/module_profile/module_profile.js",
+      "target": "file::frappe/core/doctype/module_profile/module_profile.py",
+      "type": "client_server_pair",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file::frappe/core/doctype/module_def/module_def_list.js",
+      "target": "file::frappe/core/doctype/module_def/module_def_list.js",
+      "type": "calls_rpc",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class::ModuleProfile",
+      "target": "class::NavbarItem",
+      "type": "sibling_doctype",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "func::ModuleProfile.update_all_users",
+      "target": "class::Document",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

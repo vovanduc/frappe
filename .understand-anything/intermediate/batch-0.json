@@ -1,0 +1,1132 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/__init__.py",
+      "summary": "The 'god object' module that exposes the entire Frappe framework API via thread-local state (frappe.local). Defines core functions like init, connect, get_doc, get_list, whitelist decorator, hooks system, and re-exports from submodules.",
+      "tags": ["core", "api", "thread-local", "framework", "namespace"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/_optimizations.py",
+      "type": "file",
+      "name": "_optimizations.py",
+      "filePath": "frappe/_optimizations.py",
+      "summary": "Houses all Frappe-specific runtime optimizations including GC tuning, regex cache optimization, copy-on-write optimization for forked workers, and CPU core pinning for GIL contention reduction.",
+      "tags": ["optimization", "gc", "performance", "forking", "internal"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/app.py",
+      "type": "file",
+      "name": "app.py",
+      "filePath": "frappe/app.py",
+      "summary": "WSGI application entry point built on Werkzeug. Handles HTTP request routing, exception handling, CORS, CSRF, database sync, response processing, and Sentry integration.",
+      "tags": ["wsgi", "http", "routing", "werkzeug", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/apps.py",
+      "type": "file",
+      "name": "apps.py",
+      "filePath": "frappe/apps.py",
+      "summary": "Manages the apps screen and default routing for installed Frappe applications. Provides whitelisted endpoints for getting app lists, setting default apps, and handling incomplete setup routing.",
+      "tags": ["apps", "routing", "setup", "whitelist"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/auth.py",
+      "type": "file",
+      "name": "auth.py",
+      "filePath": "frappe/auth.py",
+      "summary": "Authentication and session management module handling login flows (password, OAuth, API keys, 2FA), CSRF validation, cookie management, IP restrictions, and login attempt tracking with rate limiting.",
+      "tags": ["authentication", "session", "security", "login", "cookies"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/boot.py",
+      "type": "file",
+      "name": "boot.py",
+      "filePath": "frappe/boot.py",
+      "summary": "Bootstraps the client-side desk session by assembling bootinfo: user data, system defaults, workspace layouts, translations, print settings, notification settings, currency, and app metadata.",
+      "tags": ["bootstrap", "client-session", "desk", "bootinfo", "initialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/build.py",
+      "type": "file",
+      "name": "build.py",
+      "filePath": "frappe/build.py",
+      "summary": "Asset build system that handles JS/CSS bundling via yarn/esbuild, symlink management for app assets, downloading pre-built assets from GitHub releases, and HTML-to-JS template compilation.",
+      "tags": ["build", "assets", "esbuild", "bundling", "frontend"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/cache_manager.py",
+      "type": "file",
+      "name": "cache_manager.py",
+      "filePath": "frappe/cache_manager.py",
+      "summary": "Central cache management module that defines cache key hierarchies (user, doctype, global, bench) and provides functions to selectively clear or rebuild Redis caches for doctypes, users, domains, and metadata.",
+      "tags": ["cache", "redis", "invalidation", "metadata", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/client.py",
+      "type": "file",
+      "name": "client.py",
+      "filePath": "frappe/client.py",
+      "summary": "REST API handler for /api/resource/ CRUD operations. Provides whitelisted endpoints for get_list, get, set_value, insert, save, submit, cancel, delete, and link validation used by FrappeClient.",
+      "tags": ["rest-api", "crud", "whitelist", "resource", "client"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/config.py",
+      "type": "file",
+      "name": "config.py",
+      "filePath": "frappe/config.py",
+      "summary": "Site configuration loader that reads and merges common_site_config.json and site_config.json, applies environment variable overrides for database and Redis settings, and supports extensible config hooks.",
+      "tags": ["configuration", "site-config", "environment", "settings"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:init",
+      "type": "function",
+      "name": "init",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [144, 212],
+      "summary": "Initializes frappe for the current site by resetting thread locals (frappe.local), loading site config, setting up Redis cache connections, and building the module map.",
+      "tags": ["initialization", "thread-local", "site", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/__init__.py:connect",
+      "type": "function",
+      "name": "connect",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [215, 267],
+      "summary": "Establishes a database connection for the current site using credentials from site config, supporting MariaDB, PostgreSQL, and SQLite backends.",
+      "tags": ["database", "connection", "initialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:whitelist",
+      "type": "function",
+      "name": "whitelist",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [422, 461],
+      "summary": "Decorator that marks a function as accessible via HTTP API at /api/method/[path], with options for guest access, XSS safety, and HTTP method restrictions.",
+      "tags": ["decorator", "api", "security", "http"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:get_hooks",
+      "type": "function",
+      "name": "get_hooks",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [976, 998],
+      "summary": "Retrieves hook definitions from installed apps' hooks.py files, with caching at request, site, or client cache level depending on developer mode.",
+      "tags": ["hooks", "extensibility", "caching", "plugins"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:get_installed_apps",
+      "type": "function",
+      "name": "get_installed_apps",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [907, 926],
+      "summary": "Returns the list of installed apps for the current site from the database, with optional filtering to ensure apps are present on bench.",
+      "tags": ["apps", "installation", "site"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/__init__.py:call",
+      "type": "function",
+      "name": "call",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [1124, 1131],
+      "summary": "Calls a function by name or reference, automatically matching kwargs to function signature parameters.",
+      "tags": ["dispatch", "dynamic-call", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/__init__.py:get_attr",
+      "type": "function",
+      "name": "get_attr",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [1113, 1121],
+      "summary": "Resolves a dotted Python method string to the actual method object, verifying the app is installed.",
+      "tags": ["resolution", "dynamic-import", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/__init__.py:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [584, 630],
+      "summary": "Checks if a user has a specific permission type on a doctype or document, optionally raising PermissionError.",
+      "tags": ["permissions", "security", "rbac"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:setup_module_map",
+      "type": "function",
+      "name": "setup_module_map",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [1022, 1065],
+      "summary": "Builds and caches the bidirectional mapping between apps and their modules, used for module resolution throughout the framework.",
+      "tags": ["modules", "mapping", "initialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/__init__.py:set_user",
+      "type": "function",
+      "name": "set_user",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [366, 378],
+      "summary": "Sets the current user in the session and resets user-specific local state like cache, permissions, and form data.",
+      "tags": ["session", "user", "state"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/_optimizations.py:optimize_all",
+      "type": "function",
+      "name": "optimize_all",
+      "filePath": "frappe/_optimizations.py",
+      "lineRange": [20, 33],
+      "summary": "Single entry point that enables all runtime optimizations at import time: regex cache, GC parameters, copy-on-write GC, and GIL contention pinning.",
+      "tags": ["optimization", "startup", "performance"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/_optimizations.py:optimize_gc_for_copy_on_write",
+      "type": "function",
+      "name": "optimize_gc_for_copy_on_write",
+      "filePath": "frappe/_optimizations.py",
+      "lineRange": [63, 69],
+      "summary": "Registers a pre-fork hook to freeze the GC, preventing copy-on-write memory waste in forked Gunicorn/RQ workers.",
+      "tags": ["gc", "memory", "forking", "optimization"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/_optimizations.py:assign_core",
+      "type": "function",
+      "name": "assign_core",
+      "filePath": "frappe/_optimizations.py",
+      "lineRange": [125, 162],
+      "summary": "Determines optimal CPU core assignment for a worker process considering SMT/hyperthreading topology to avoid co-scheduling on the same physical core.",
+      "tags": ["cpu-pinning", "performance", "scheduling"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/app.py:application",
+      "type": "function",
+      "name": "application",
+      "filePath": "frappe/app.py",
+      "lineRange": [97, 160],
+      "summary": "Main WSGI application function that initializes requests, validates auth, routes to API/handler/website, handles exceptions, and syncs the database.",
+      "tags": ["wsgi", "routing", "request-handling", "entry-point"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/app.py:init_request",
+      "type": "function",
+      "name": "init_request",
+      "filePath": "frappe/app.py",
+      "lineRange": [171, 204],
+      "summary": "Initializes a request by setting up frappe.local, connecting to the database, configuring maintenance mode, parsing form data, and running before_request hooks.",
+      "tags": ["request", "initialization", "middleware"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/app.py:handle_exception",
+      "type": "function",
+      "name": "handle_exception",
+      "filePath": "frappe/app.py",
+      "lineRange": [344, 413],
+      "summary": "Central exception handler that maps exceptions to appropriate HTTP responses (JSON error, error pages) based on status code and request type.",
+      "tags": ["error-handling", "http", "exception"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/app.py:process_response",
+      "type": "function",
+      "name": "process_response",
+      "filePath": "frappe/app.py",
+      "lineRange": [244, 274],
+      "summary": "Post-processes HTTP responses by setting cache control, rate limiter headers, trace IDs, CORS headers, and flushing cookies.",
+      "tags": ["response", "headers", "cors", "cookies"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/app.py:serve",
+      "type": "function",
+      "name": "serve",
+      "filePath": "frappe/app.py",
+      "lineRange": [480, 523],
+      "summary": "Starts the development server using Werkzeug's run_simple with optional profiling, static file serving, and proxy support.",
+      "tags": ["server", "development", "werkzeug"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/app.py:sync_database",
+      "type": "function",
+      "name": "sync_database",
+      "filePath": "frappe/app.py",
+      "lineRange": [416, 431],
+      "summary": "Commits or rolls back the database transaction based on HTTP method safety, and schedules session updates for after-response execution.",
+      "tags": ["database", "transaction", "commit"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/apps.py:get_apps",
+      "type": "function",
+      "name": "get_apps",
+      "filePath": "frappe/apps.py",
+      "lineRange": [20, 52],
+      "summary": "Returns the list of installed apps with their details (logo, title, route) for the apps screen, filtering by setup completion and permissions.",
+      "tags": ["apps", "whitelist", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/apps.py:get_default_path",
+      "type": "function",
+      "name": "get_default_path",
+      "filePath": "frappe/apps.py",
+      "lineRange": [69, 87],
+      "summary": "Determines the default landing path for the current user based on system/user default app settings and installed app count.",
+      "tags": ["routing", "default-path", "apps"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/auth.py:HTTPRequest",
+      "type": "class",
+      "name": "HTTPRequest",
+      "filePath": "frappe/auth.py",
+      "lineRange": [33, 118],
+      "summary": "Initializes HTTP request context by setting IP address, cookies, session (via LoginManager), language, and validating CSRF tokens.",
+      "tags": ["http", "request", "csrf", "session", "initialization"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/auth.py:LoginManager",
+      "type": "class",
+      "name": "LoginManager",
+      "filePath": "frappe/auth.py",
+      "lineRange": [121, 387],
+      "summary": "Manages the complete login lifecycle including authentication, 2FA, session creation, user info loading, cookie setting, logout, and impersonation.",
+      "tags": ["login", "authentication", "session", "2fa", "security"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/auth.py:CookieManager",
+      "type": "class",
+      "name": "CookieManager",
+      "filePath": "frappe/auth.py",
+      "lineRange": [389, 452],
+      "summary": "Manages HTTP cookies for the request lifecycle, supporting set, delete, and flush operations with security options (secure, httponly, samesite).",
+      "tags": ["cookies", "http", "session", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/auth.py:LoginAttemptTracker",
+      "type": "class",
+      "name": "LoginAttemptTracker",
+      "filePath": "frappe/auth.py",
+      "lineRange": [535, 631],
+      "summary": "Tracks consecutive login failures per user/IP using Redis, implementing account lockout after configurable max attempts within a time interval.",
+      "tags": ["security", "rate-limiting", "login", "redis", "brute-force"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/auth.py:validate_auth",
+      "type": "function",
+      "name": "validate_auth",
+      "filePath": "frappe/auth.py",
+      "lineRange": [634, 649],
+      "summary": "Authenticates requests by checking OAuth bearer tokens, API key/secret pairs, and custom auth hooks from the Authorization header.",
+      "tags": ["authentication", "oauth", "api-keys", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/boot.py:get_bootinfo",
+      "type": "function",
+      "name": "get_bootinfo",
+      "filePath": "frappe/boot.py",
+      "lineRange": [35, 130],
+      "summary": "Assembles the complete boot payload for the desk client including user info, system defaults, workspaces, translations, permissions, settings, and app metadata.",
+      "tags": ["bootstrap", "client", "desk", "initialization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/boot.py:get_user_pages_or_reports",
+      "type": "function",
+      "name": "get_user_pages_or_reports",
+      "filePath": "frappe/boot.py",
+      "lineRange": [238, 341],
+      "summary": "Queries and returns pages or reports accessible to the current user based on roles, custom roles, and standard role assignments.",
+      "tags": ["permissions", "pages", "reports", "roles"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/boot.py:load_desktop_data",
+      "type": "function",
+      "name": "load_desktop_data",
+      "filePath": "frappe/boot.py",
+      "lineRange": [163, 223],
+      "summary": "Loads workspace sidebar items, module-wise workspaces, dashboards, and per-app details including routes and logos into bootinfo.",
+      "tags": ["desktop", "workspaces", "modules", "ui"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/build.py:bundle",
+      "type": "function",
+      "name": "bundle",
+      "filePath": "frappe/build.py",
+      "lineRange": [222, 266],
+      "summary": "Runs the JS/CSS build pipeline via yarn using esbuild, supporting app filtering, file selection, cached builds, and metafile generation.",
+      "tags": ["build", "bundling", "esbuild", "yarn"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/build.py:make_asset_dirs",
+      "type": "function",
+      "name": "make_asset_dirs",
+      "filePath": "frappe/build.py",
+      "lineRange": [380, 397],
+      "summary": "Creates asset directories and symlinks (or hard copies) from app public folders to the sites/assets directory.",
+      "tags": ["assets", "symlinks", "build"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/build.py:download_frappe_assets",
+      "type": "function",
+      "name": "download_frappe_assets",
+      "filePath": "frappe/build.py",
+      "lineRange": [137, 166],
+      "summary": "Downloads pre-built assets from GitHub releases or the asset server based on the current git HEAD commit hash.",
+      "tags": ["assets", "download", "github", "deployment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/cache_manager.py:clear_cache",
+      "type": "function",
+      "name": "clear_cache",
+      "filePath": "frappe/cache_manager.py",
+      "lineRange": [276, 316],
+      "summary": "Selectively clears user, doctype, or global caches from Redis, respecting persistent cache keys defined in hooks, and resets local state.",
+      "tags": ["cache", "invalidation", "redis", "cleanup"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/cache_manager.py:clear_doctype_cache",
+      "type": "function",
+      "name": "clear_doctype_cache",
+      "filePath": "frappe/cache_manager.py",
+      "lineRange": [121, 128],
+      "summary": "Clears controller cache and persistent caches for a doctype, scheduling Redis cleanup for both commit and rollback scenarios.",
+      "tags": ["cache", "doctype", "invalidation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/cache_manager.py:build_table_count_cache",
+      "type": "function",
+      "name": "build_table_count_cache",
+      "filePath": "frappe/cache_manager.py",
+      "lineRange": [210, 239],
+      "summary": "Populates Redis cache with row counts from information_schema for all database tables, used for UI optimizations.",
+      "tags": ["cache", "database", "statistics", "performance"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/client.py:get_list",
+      "type": "function",
+      "name": "get_list",
+      "filePath": "frappe/client.py",
+      "lineRange": [27, 75],
+      "summary": "Whitelisted REST endpoint that returns filtered, paginated document lists with optional expanded link data for a given DocType.",
+      "tags": ["rest-api", "query", "list", "whitelist"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/client.py:get",
+      "type": "function",
+      "name": "get",
+      "filePath": "frappe/client.py",
+      "lineRange": [94, 117],
+      "summary": "Whitelisted endpoint that returns a single document by name or filters, checking permissions and applying field-level read permissions.",
+      "tags": ["rest-api", "document", "read", "whitelist"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/client.py:set_value",
+      "type": "function",
+      "name": "set_value",
+      "filePath": "frappe/client.py",
+      "lineRange": [183, 217],
+      "summary": "Whitelisted endpoint to update specific field values on a document, supporting both regular and child table doctypes.",
+      "tags": ["rest-api", "update", "write", "whitelist"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/client.py:validate_link_and_fetch",
+      "type": "function",
+      "name": "validate_link_and_fetch",
+      "filePath": "frappe/client.py",
+      "lineRange": [426, 525],
+      "summary": "Validates a link field value exists and is accessible, optionally fetching additional fields, using search_widget for permission-aware validation.",
+      "tags": ["validation", "link-field", "search", "whitelist"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/config.py:get_site_config",
+      "type": "function",
+      "name": "get_site_config",
+      "filePath": "frappe/config.py",
+      "lineRange": [14, 31],
+      "summary": "Returns merged site configuration from common_site_config.json and site-specific site_config.json, with optional in-memory caching.",
+      "tags": ["configuration", "site", "settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/config.py:_get_site_config",
+      "type": "function",
+      "name": "_get_site_config",
+      "filePath": "frappe/config.py",
+      "lineRange": [33, 110],
+      "summary": "Internal implementation that reads, merges, and applies environment variable overrides for database, Redis, and extensible config hooks.",
+      "tags": ["configuration", "environment", "database", "redis"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/__init__.py:init_site",
+      "type": "class",
+      "name": "init_site",
+      "filePath": "frappe/__init__.py",
+      "lineRange": [302, 312],
+      "summary": "Context manager that initializes a frappe site on enter and destroys it on exit, useful for short-lived site operations.",
+      "tags": ["context-manager", "site", "initialization"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:init",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:connect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:whitelist",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:get_hooks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:get_installed_apps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:get_attr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:has_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:setup_module_map",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "func:frappe/__init__.py:set_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "class:frappe/__init__.py:init_site",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/_optimizations.py",
+      "target": "func:frappe/_optimizations.py:optimize_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/_optimizations.py",
+      "target": "func:frappe/_optimizations.py:optimize_gc_for_copy_on_write",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/_optimizations.py",
+      "target": "func:frappe/_optimizations.py:assign_core",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:application",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:init_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:handle_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:process_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:serve",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "func:frappe/app.py:sync_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/apps.py",
+      "target": "func:frappe/apps.py:get_apps",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/apps.py",
+      "target": "func:frappe/apps.py:get_default_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "class:frappe/auth.py:HTTPRequest",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "class:frappe/auth.py:LoginManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "class:frappe/auth.py:CookieManager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "class:frappe/auth.py:LoginAttemptTracker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "func:frappe/auth.py:validate_auth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/boot.py",
+      "target": "func:frappe/boot.py:get_bootinfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/boot.py",
+      "target": "func:frappe/boot.py:get_user_pages_or_reports",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/boot.py",
+      "target": "func:frappe/boot.py:load_desktop_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/build.py",
+      "target": "func:frappe/build.py:bundle",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/build.py",
+      "target": "func:frappe/build.py:make_asset_dirs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/build.py",
+      "target": "func:frappe/build.py:download_frappe_assets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/cache_manager.py",
+      "target": "func:frappe/cache_manager.py:clear_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/cache_manager.py",
+      "target": "func:frappe/cache_manager.py:clear_doctype_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/cache_manager.py",
+      "target": "func:frappe/cache_manager.py:build_table_count_cache",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "func:frappe/client.py:get_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "func:frappe/client.py:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "func:frappe/client.py:set_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "func:frappe/client.py:validate_link_and_fetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/config.py",
+      "target": "func:frappe/config.py:get_site_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/config.py",
+      "target": "func:frappe/config.py:_get_site_config",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/_optimizations.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/cache_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/config.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/auth.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/boot.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/apps.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "file:frappe/apps.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/boot.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/build.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/cache_manager.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/config.py",
+      "target": "file:frappe/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/app.py:application",
+      "target": "func:frappe/app.py:init_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:application",
+      "target": "func:frappe/auth.py:validate_auth",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:application",
+      "target": "func:frappe/app.py:handle_exception",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:application",
+      "target": "func:frappe/app.py:sync_database",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:application",
+      "target": "func:frappe/app.py:process_response",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:init_request",
+      "target": "func:frappe/__init__.py:init",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:init_request",
+      "target": "func:frappe/__init__.py:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/app.py:init_request",
+      "target": "class:frappe/auth.py:HTTPRequest",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/auth.py:HTTPRequest",
+      "target": "class:frappe/auth.py:CookieManager",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/auth.py:HTTPRequest",
+      "target": "class:frappe/auth.py:LoginManager",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/auth.py:LoginManager",
+      "target": "class:frappe/auth.py:LoginAttemptTracker",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/auth.py:LoginManager",
+      "target": "func:frappe/cache_manager.py:build_table_count_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/__init__.py:init",
+      "target": "func:frappe/config.py:get_site_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/__init__.py:init",
+      "target": "func:frappe/__init__.py:setup_module_map",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/__init__.py:call",
+      "target": "func:frappe/__init__.py:get_attr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/__init__.py:get_hooks",
+      "target": "func:frappe/__init__.py:get_installed_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/boot.py:get_bootinfo",
+      "target": "func:frappe/boot.py:load_desktop_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/boot.py:get_bootinfo",
+      "target": "func:frappe/boot.py:get_user_pages_or_reports",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/client.py:get_list",
+      "target": "func:frappe/__init__.py:has_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/client.py:validate_link_and_fetch",
+      "target": "func:frappe/client.py:get_list",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/cache_manager.py:clear_cache",
+      "target": "func:frappe/cache_manager.py:clear_doctype_cache",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/__init__.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/app.py",
+      "target": "file:frappe/auth.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/boot.py",
+      "target": "file:frappe/cache_manager.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/auth.py",
+      "target": "file:frappe/apps.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/config.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/cache_manager.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/__init__.py",
+      "target": "file:frappe/_optimizations.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/client.py",
+      "target": "file:frappe/__init__.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/config.py:get_site_config",
+      "target": "func:frappe/config.py:_get_site_config",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/apps.py:get_default_path",
+      "target": "func:frappe/apps.py:get_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

@@ -1,0 +1,288 @@
+{
+  "nodes": [
+    {
+      "id": "file::frappe/core/report/database_storage_usage_by_tables/test_database_storage_usage_by_tables.py",
+      "type": "file",
+      "name": "test_database_storage_usage_by_tables.py",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/test_database_storage_usage_by_tables.py",
+      "summary": "Integration test for the Database Storage Usage By Tables report. Verifies that the execute function returns data including expected tables like tabUser and tabDocField.",
+      "tags": ["test", "report", "database-storage"],
+      "complexity": "low"
+    },
+    {
+      "id": "class::TestDBUsageReport",
+      "type": "class",
+      "name": "TestDBUsageReport",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/test_database_storage_usage_by_tables.py",
+      "lineRange": [11, 15],
+      "summary": "Integration test case for Database Storage Usage report. Extends IntegrationTestCase and tests basic query execution.",
+      "tags": ["test", "integration-test"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::TestDBUsageReport.test_basic_query",
+      "type": "function",
+      "name": "test_basic_query",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/test_database_storage_usage_by_tables.py",
+      "lineRange": [12, 15],
+      "summary": "Tests that the report execute function returns data containing tabUser and tabDocField tables.",
+      "tags": ["test-method"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/document_share_report/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/document_share_report/__init__.py",
+      "summary": "Empty init file for the Document Share Report module.",
+      "tags": ["init", "report"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/permitted_documents_for_user/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/permitted_documents_for_user/__init__.py",
+      "summary": "Empty init file for the Permitted Documents For User report module.",
+      "tags": ["init", "report"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.js",
+      "type": "file",
+      "name": "permitted_documents_for_user.js",
+      "filePath": "frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.js",
+      "summary": "Client-side filter configuration for the Permitted Documents For User report. Defines User (Link), DocType (Link with custom query to filter available doctypes), and Show Permissions (Check) filters.",
+      "tags": ["javascript", "report-filters", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "type": "file",
+      "name": "permitted_documents_for_user.py",
+      "filePath": "frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "summary": "Server-side logic for the Permitted Documents For User report. Lists documents a specific user can access for a given DocType, optionally showing per-document permission details (read, write, etc.). Restricted to System Manager.",
+      "tags": ["python", "report", "permissions", "security"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::permitted_documents_for_user.execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "lineRange": [12, 32],
+      "summary": "Main report entry point. Fetches documents accessible by a user for a given DocType using frappe.get_list with user context. Optionally appends per-document permission checks for each right.",
+      "tags": ["report-execute", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::permitted_documents_for_user.get_columns_and_fields",
+      "type": "function",
+      "name": "get_columns_and_fields",
+      "filePath": "frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "lineRange": [35, 44],
+      "summary": "Builds report columns and field list dynamically from the DocType meta, including fields marked with in_list_view that have data fieldtypes.",
+      "tags": ["report-columns", "meta"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::permitted_documents_for_user.query_doctypes",
+      "type": "function",
+      "name": "query_doctypes",
+      "filePath": "frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "lineRange": [47, 65],
+      "summary": "Whitelisted search query that returns DocTypes a user has read permission for, filtering out single DocTypes by default. Used by the JS filter's get_query for DocType autocomplete.",
+      "tags": ["whitelisted", "search-query", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file::frappe/core/report/prepared_report_analytics/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/prepared_report_analytics/__init__.py",
+      "summary": "Empty init file for the Prepared Report Analytics module.",
+      "tags": ["init", "report"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.js",
+      "type": "file",
+      "name": "prepared_report_analytics.js",
+      "filePath": "frappe/core/report/prepared_report_analytics/prepared_report_analytics.js",
+      "summary": "Client-side filter configuration for the Prepared Report Analytics report. Provides Report (Data), Top 10 (Check), and In Minutes (Check) filters.",
+      "tags": ["javascript", "report-filters", "analytics"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "type": "file",
+      "name": "prepared_report_analytics.py",
+      "filePath": "frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "summary": "Server-side logic for the Prepared Report Analytics report. Uses the Query Builder (pypika) to analyze completed Prepared Reports from the last 2 months, showing runtime and memory usage, with optional top-10 filtering and time unit conversion.",
+      "tags": ["python", "report", "analytics", "query-builder", "performance"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::prepared_report_analytics.execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "lineRange": [12, 22],
+      "summary": "Main entry point for the Prepared Report Analytics report. Delegates to get_columns and get_data to return report results.",
+      "tags": ["report-execute"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::prepared_report_analytics.get_columns",
+      "type": "function",
+      "name": "get_columns",
+      "filePath": "frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "lineRange": [25, 68],
+      "summary": "Returns column definitions for the report including Prepared Report link, Report Name, Start/End datetime, Runtime (seconds or minutes based on filter), and Memory Usage in MB.",
+      "tags": ["report-columns"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::prepared_report_analytics.get_data",
+      "type": "function",
+      "name": "get_data",
+      "filePath": "frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "lineRange": [71, 106],
+      "summary": "Builds and executes a Query Builder query against Prepared Report DocType. Filters completed reports from last 2 months, calculates runtime and memory usage, supports report name filtering and top-10 limit, orders by runtime descending.",
+      "tags": ["query-builder", "data-retrieval", "pypika"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file::frappe/core/report/user_doctype_permissions/user_doctype_permissions.js",
+      "type": "file",
+      "name": "user_doctype_permissions.js",
+      "filePath": "frappe/core/report/user_doctype_permissions/user_doctype_permissions.js",
+      "summary": "Client-side filter configuration for the User Doctype Permissions report. Defines a single required User (Link) filter.",
+      "tags": ["javascript", "report-filters", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/report/user_doctype_permissions/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/user_doctype_permissions/__init__.py",
+      "summary": "Empty init file for the User Doctype Permissions report module.",
+      "tags": ["init", "report"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class::TestDBUsageReport",
+      "target": "file::frappe/core/report/database_storage_usage_by_tables/test_database_storage_usage_by_tables.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::TestDBUsageReport.test_basic_query",
+      "target": "class::TestDBUsageReport",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::TestDBUsageReport",
+      "target": "file::frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::permitted_documents_for_user.execute",
+      "target": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::permitted_documents_for_user.get_columns_and_fields",
+      "target": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::permitted_documents_for_user.query_doctypes",
+      "target": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::permitted_documents_for_user.execute",
+      "target": "func::permitted_documents_for_user.get_columns_and_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.js",
+      "target": "func::permitted_documents_for_user.query_doctypes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.py",
+      "target": "file::frappe/core/report/permitted_documents_for_user/permitted_documents_for_user.js",
+      "type": "paired_with",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::prepared_report_analytics.execute",
+      "target": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::prepared_report_analytics.get_columns",
+      "target": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::prepared_report_analytics.get_data",
+      "target": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func::prepared_report_analytics.execute",
+      "target": "func::prepared_report_analytics.get_columns",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::prepared_report_analytics.execute",
+      "target": "func::prepared_report_analytics.get_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.py",
+      "target": "file::frappe/core/report/prepared_report_analytics/prepared_report_analytics.js",
+      "type": "paired_with",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file::frappe/core/report/user_doctype_permissions/user_doctype_permissions.js",
+      "target": "file::frappe/core/report/user_doctype_permissions/__init__.py",
+      "type": "belongs_to_module",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

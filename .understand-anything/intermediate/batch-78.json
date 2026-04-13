@@ -1,0 +1,327 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "type": "file",
+      "name": "awesome_bar.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "summary": "Global AwesomeBar search at the top of Desk. Builds a modal wrapping an Awesomplete autocomplete, debounces input, aggregates results from frappe.search.utils (creatables, doctypes, reports, pages, dashboards, icons, recents, marketplace), tags, calculator, global search fallback and 'search in current list'. Handles selection, routing, ctrl/meta for new tab.",
+      "tags": ["search", "desk", "autocomplete", "ui", "modal"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.search.AwesomeBar",
+      "type": "class",
+      "name": "AwesomeBar",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "lineRange": "6-444",
+      "summary": "Top-of-Desk global search bar controller. Manages modal, Awesomplete instance, option aggregation and action dispatch.",
+      "tags": ["search", "class"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:AwesomeBar.setup_event_listeners",
+      "type": "function",
+      "name": "setup_event_listeners",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "lineRange": "80-220",
+      "summary": "Creates Awesomplete instance, debounced input handler that rebuilds options, and selection handler that routes via frappe.set_route or custom onclick.",
+      "tags": ["events", "autocomplete"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:AwesomeBar.build_options",
+      "type": "function",
+      "name": "build_options",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "lineRange": "256-277",
+      "summary": "Aggregates results from frappe.search.utils (creatables, doctypes, reports, pages, icons, dashboards, recents, executables, marketplace) and tags when query starts with #.",
+      "tags": ["aggregation", "search"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:AwesomeBar.make_calculator",
+      "type": "function",
+      "name": "make_calculator",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "lineRange": "391-431",
+      "summary": "Evaluates math expressions entered in the search bar via frappe.utils.eval_expression and returns a result option with proper decimal formatting.",
+      "tags": ["calculator", "eval"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/fuzzy_match.js",
+      "type": "file",
+      "name": "fuzzy_match.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/fuzzy_match.js",
+      "summary": "Forrest Smith style fuzzy string matching. Exports fuzzy_match(pattern, str) returning [matched, score, match_indices] with bonuses for sequential/camel/separator/first-letter and penalties for leading/unmatched letters. Used by search_utils for ranking.",
+      "tags": ["fuzzy", "search", "scoring", "algorithm"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:fuzzy_match",
+      "type": "function",
+      "name": "fuzzy_match",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/fuzzy_match.js",
+      "lineRange": "33-50",
+      "summary": "Public fuzzy_match entry point; delegates to fuzzy_match_recursive with initial state.",
+      "tags": ["fuzzy", "export"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:fuzzy_match_recursive",
+      "type": "function",
+      "name": "fuzzy_match_recursive",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/fuzzy_match.js",
+      "lineRange": "52-189",
+      "summary": "Recursive core of fuzzy matching. Normalizes characters (NFD strip diacritics, lowercase), tracks best recursive score, applies leading-letter / unmatched / sequential / camel / separator / first-letter bonuses.",
+      "tags": ["fuzzy", "recursive", "scoring"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/search.js",
+      "type": "file",
+      "name": "search.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search.js",
+      "summary": "Full SearchDialog built on frappe.ui.Dialog. Supports global_search and tags modes, debounced input, sidebar with category sections, progressive 'More' loading via get_global_results/get_nav_results, and result rendering with avatars, descriptions and route handling.",
+      "tags": ["search", "dialog", "ui"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.search.SearchDialog",
+      "type": "class",
+      "name": "SearchDialog",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search.js",
+      "lineRange": "3-401",
+      "summary": "Full-page global search modal with categorized sidebar results and tag search support.",
+      "tags": ["search", "dialog"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:SearchDialog.init_search_objects",
+      "type": "function",
+      "name": "init_search_objects",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search.js",
+      "lineRange": "46-86",
+      "summary": "Declares global_search and tags search providers, each calling into frappe.search.utils.get_nav_results plus get_global_results or frappe.tags.utils.get_tag_results.",
+      "tags": ["config"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:SearchDialog.render_data",
+      "type": "function",
+      "name": "render_data",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search.js",
+      "lineRange": "235-264",
+      "summary": "Renders result sets into sidebar categories and full lists using the 'search' template.",
+      "tags": ["render"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "type": "file",
+      "name": "search_utils.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "summary": "Core search query parser and result providers for the awesome bar and SearchDialog. Produces options for recent pages, creatables, doctypes, reports, pages, desktop icons, dashboards, executables, marketplace apps, nav and global results. Provides fuzzy_search/bolden_match_part helpers built on fuzzy_match.js.",
+      "tags": ["search", "utils", "query-parser"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:search_utils.get_recent_pages",
+      "type": "function",
+      "name": "get_recent_pages",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "lineRange": "9-122",
+      "summary": "Builds options from frappe.route_history and boot.user.recent matching the keyword.",
+      "tags": ["recent"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:search_utils.get_doctypes",
+      "type": "function",
+      "name": "get_doctypes",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "lineRange": "192-254",
+      "summary": "Produces 'List <DocType>' and 'New <DocType>' options by fuzzy matching user-accessible doctypes.",
+      "tags": ["doctype"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:search_utils.get_global_results",
+      "type": "function",
+      "name": "get_global_results",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "lineRange": "380-512",
+      "summary": "Calls server-side frappe.utils.global_search.search to fetch cross-doctype full-text results, grouped per doctype.",
+      "tags": ["global-search", "server-call"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:search_utils.get_nav_results",
+      "type": "function",
+      "name": "get_nav_results",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "lineRange": "513-599",
+      "summary": "Aggregates navigation-oriented results (doctypes, reports, pages, dashboards, modules) for the SearchDialog sidebar.",
+      "tags": ["navigation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:search_utils.fuzzy_search",
+      "type": "function",
+      "name": "fuzzy_search",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "lineRange": "600-682",
+      "summary": "Wrapper around fuzzy_match that optionally returns a marked-up (bolded) string using bolden_match_part.",
+      "tags": ["fuzzy", "ranking"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/tag_utils.js",
+      "type": "file",
+      "name": "tag_utils.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/tag_utils.js",
+      "summary": "Tag search helpers for the awesome bar. Fuzzy-matches tag names (fetched via get_tags_list_for_awesomebar) and loads documents tagged with a given tag via get_documents_for_tag, grouping results by doctype.",
+      "tags": ["tags", "search"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:tag_utils.get_tags",
+      "type": "function",
+      "name": "get_tags",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/tag_utils.js",
+      "lineRange": "7-33",
+      "summary": "Fuzzy-matches the '#'-prefixed query against cached tag list and returns options that launch the tags SearchDialog.",
+      "tags": ["tags"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:tag_utils.get_tag_results",
+      "type": "function",
+      "name": "get_tag_results",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/tag_utils.js",
+      "lineRange": "46-110",
+      "summary": "Server call to get_documents_for_tag, returns result sets grouped by doctype.",
+      "tags": ["tags", "server-call"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/toolbar.js",
+      "type": "file",
+      "name": "toolbar.js",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/toolbar.js",
+      "summary": "Desk Toolbar class that wires up the navbar: help dropdown, search bar, announcement widget, read-only mode, full-width toggle, shortcuts. Also defines global toolbar utilities: clear_cache (throttled), show_about, route_to_user, view_website, session defaults.",
+      "tags": ["toolbar", "navbar", "ui"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.ui.toolbar.Toolbar",
+      "type": "class",
+      "name": "Toolbar",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/toolbar.js",
+      "lineRange": "7-251",
+      "summary": "Top navbar controller. Sets up help, search (AwesomeBar), announcement widget, read-only banner, full-width toggle and keyboard shortcuts dialog.",
+      "tags": ["navbar"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/tree.js",
+      "type": "file",
+      "name": "tree.js",
+      "filePath": "frappe/public/js/frappe/ui/tree.js",
+      "summary": "Generic client-side Tree widget (frappe.ui.Tree). Lazy-loads children via configurable get_nodes/get_all_nodes, renders collapsible nodes with optional icons and per-node toolbars, supports selection and reload.",
+      "tags": ["tree", "widget", "ui"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.ui.Tree",
+      "type": "class",
+      "name": "Tree",
+      "filePath": "frappe/public/js/frappe/ui/tree.js",
+      "lineRange": "6-321",
+      "summary": "Generic tree view widget with lazy children loading and toolbars.",
+      "tags": ["tree"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue",
+      "type": "file",
+      "name": "OnboardingPanel.vue",
+      "filePath": "frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue",
+      "summary": "Vue 3 component rendering the user onboarding side panel: list of onboarding steps with completion state, progress bar, collapse/expand, and dismissal. Emits step-click and dismiss events to its bundle host.",
+      "tags": ["vue", "onboarding", "panel"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js",
+      "type": "file",
+      "name": "user_onboarding.bundle.js",
+      "filePath": "frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js",
+      "summary": "Mounts the OnboardingPanel Vue component into the desk. Defines UserOnboarding class that builds step state, persists completion in local storage / user settings, and integrates with frappe.router to track progress.",
+      "tags": ["vue", "onboarding", "bundle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:UserOnboarding",
+      "type": "class",
+      "name": "UserOnboarding",
+      "filePath": "frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js",
+      "lineRange": "4-293",
+      "summary": "Onboarding controller: creates Vue app, manages step state, persistence and completion events.",
+      "tags": ["onboarding"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/upload.js",
+      "type": "file",
+      "name": "upload.js",
+      "filePath": "frappe/public/js/frappe/upload.js",
+      "summary": "Tiny shim that lazy-loads the file_uploader bundle via frappe.require on ready.",
+      "tags": ["upload", "shim"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/awesome_bar.js", "target": "class:frappe.search.AwesomeBar", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.search.AwesomeBar", "target": "func:AwesomeBar.setup_event_listeners", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.search.AwesomeBar", "target": "func:AwesomeBar.build_options", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.search.AwesomeBar", "target": "func:AwesomeBar.make_calculator", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:AwesomeBar.build_options", "target": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:AwesomeBar.build_options", "target": "file:frappe/public/js/frappe/ui/toolbar/tag_utils.js", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "func:AwesomeBar.setup_event_listeners", "target": "class:frappe.search.SearchDialog", "type": "calls", "direction": "forward", "weight": 0.6},
+
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/fuzzy_match.js", "target": "func:fuzzy_match", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/fuzzy_match.js", "target": "func:fuzzy_match_recursive", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/fuzzy_match.js", "target": "func:fuzzy_match", "type": "exports", "direction": "forward", "weight": 1.0},
+    {"source": "func:fuzzy_match", "target": "func:fuzzy_match_recursive", "type": "calls", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search.js", "target": "class:frappe.search.SearchDialog", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.search.SearchDialog", "target": "func:SearchDialog.init_search_objects", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.search.SearchDialog", "target": "func:SearchDialog.render_data", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:SearchDialog.init_search_objects", "target": "func:search_utils.get_global_results", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:SearchDialog.init_search_objects", "target": "func:search_utils.get_nav_results", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:SearchDialog.init_search_objects", "target": "func:tag_utils.get_tag_results", "type": "calls", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "func:search_utils.get_recent_pages", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "func:search_utils.get_doctypes", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "func:search_utils.get_global_results", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "func:search_utils.get_nav_results", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "func:search_utils.fuzzy_search", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js", "target": "file:frappe/public/js/frappe/ui/toolbar/fuzzy_match.js", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "func:search_utils.fuzzy_search", "target": "func:fuzzy_match", "type": "calls", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/tag_utils.js", "target": "func:tag_utils.get_tags", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/tag_utils.js", "target": "func:tag_utils.get_tag_results", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "func:tag_utils.get_tags", "target": "func:search_utils.fuzzy_search", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:tag_utils.get_tags", "target": "class:frappe.search.SearchDialog", "type": "calls", "direction": "forward", "weight": 0.6},
+
+    {"source": "file:frappe/public/js/frappe/ui/toolbar/toolbar.js", "target": "class:frappe.ui.toolbar.Toolbar", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:frappe.ui.toolbar.Toolbar", "target": "class:frappe.search.AwesomeBar", "type": "calls", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/tree.js", "target": "class:frappe.ui.Tree", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js", "target": "class:UserOnboarding", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js", "target": "file:frappe/public/js/frappe/ui/user_onboarding/OnboardingPanel.vue", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js", "target": "class:UserOnboarding", "type": "exports", "direction": "forward", "weight": 1.0}
+  ]
+}

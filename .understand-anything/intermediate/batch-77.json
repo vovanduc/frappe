@@ -1,0 +1,1388 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/ui/sidebar/sidebar_card.js",
+      "type": "file",
+      "name": "sidebar_card.js",
+      "summary": "SidebarCard component: wraps a group of sidebar items (title + item list) with add/edit support.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/ui/sidebar/sidebar_card.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "type": "class",
+      "name": "frappe.ui.SidebarCard",
+      "summary": "Class frappe.ui.SidebarCard assigned in sidebar_card.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        4,
+        124
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.constructor",
+      "type": "function",
+      "name": "frappe.ui.SidebarCard.constructor",
+      "summary": "Method constructor on frappe.ui.SidebarCard",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.make",
+      "type": "function",
+      "name": "frappe.ui.SidebarCard.make",
+      "summary": "Method make on frappe.ui.SidebarCard",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        21,
+        21
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.setup",
+      "type": "function",
+      "name": "frappe.ui.SidebarCard.setup",
+      "summary": "Method setup on frappe.ui.SidebarCard",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        61,
+        61
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.hide",
+      "type": "function",
+      "name": "frappe.ui.SidebarCard.hide",
+      "summary": "Method hide on frappe.ui.SidebarCard",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        72,
+        72
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.show",
+      "type": "function",
+      "name": "frappe.ui.SidebarCard.show",
+      "summary": "Method show on frappe.ui.SidebarCard",
+      "tags": [
+        "ui",
+        "sidebar",
+        "component",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        78,
+        78
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js",
+      "type": "file",
+      "name": "sidebar_editor.js",
+      "summary": "Sidebar editor dialog: drag-drop customization of the desk sidebar, manages cards/items save/load.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "editor",
+        "drag-drop"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/ui/sidebar/sidebar_editor.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor",
+      "type": "class",
+      "name": "SidebarEditor",
+      "summary": "Class SidebarEditor in sidebar_editor.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "editor",
+        "drag-drop",
+        "class"
+      ],
+      "complexity": "high",
+      "lineRange": [
+        1,
+        589
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor.constructor",
+      "type": "function",
+      "name": "SidebarEditor.constructor",
+      "summary": "Method constructor on SidebarEditor",
+      "tags": [
+        "ui",
+        "sidebar",
+        "editor",
+        "drag-drop",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor.setup",
+      "type": "function",
+      "name": "SidebarEditor.setup",
+      "summary": "Method setup on SidebarEditor",
+      "tags": [
+        "ui",
+        "sidebar",
+        "editor",
+        "drag-drop",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/sidebar/sidebar_header.js",
+      "type": "file",
+      "name": "sidebar_header.js",
+      "summary": "Sidebar header: top section of sidebar with workspace switcher/title and actions.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "header"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/ui/sidebar/sidebar_header.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader",
+      "type": "class",
+      "name": "frappe.ui.SidebarHeader",
+      "summary": "Class frappe.ui.SidebarHeader assigned in sidebar_header.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "header",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        380
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader.constructor",
+      "type": "function",
+      "name": "frappe.ui.SidebarHeader.constructor",
+      "summary": "Method constructor on frappe.ui.SidebarHeader",
+      "tags": [
+        "ui",
+        "sidebar",
+        "header",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader.make",
+      "type": "function",
+      "name": "frappe.ui.SidebarHeader.make",
+      "summary": "Method make on frappe.ui.SidebarHeader",
+      "tags": [
+        "ui",
+        "sidebar",
+        "header",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        252,
+        252
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "type": "file",
+      "name": "sidebar_item.js",
+      "summary": "SidebarItem component: single link/shortcut entry in the sidebar with icon, label, and handlers.",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/ui/sidebar/sidebar_item.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink",
+      "type": "class",
+      "name": "frappe.ui.sidebar_item.TypeLink",
+      "summary": "Class frappe.ui.sidebar_item.TypeLink assigned in sidebar_item.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        161
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSectionBreak",
+      "type": "class",
+      "name": "frappe.ui.sidebar_item.TypeSectionBreak",
+      "summary": "Class frappe.ui.sidebar_item.TypeSectionBreak assigned in sidebar_item.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        163,
+        349
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSpacer",
+      "type": "class",
+      "name": "frappe.ui.sidebar_item.TypeSpacer",
+      "summary": "Class frappe.ui.sidebar_item.TypeSpacer assigned in sidebar_item.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        351,
+        355
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSidebarItemGroup",
+      "type": "class",
+      "name": "frappe.ui.sidebar_item.TypeSidebarItemGroup",
+      "summary": "Class frappe.ui.sidebar_item.TypeSidebarItemGroup assigned in sidebar_item.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        357,
+        406
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeButton",
+      "type": "class",
+      "name": "frappe.ui.sidebar_item.TypeButton",
+      "summary": "Class frappe.ui.sidebar_item.TypeButton assigned in sidebar_item.js",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        408,
+        426
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink.constructor",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeLink.constructor",
+      "summary": "Method constructor on frappe.ui.sidebar_item.TypeLink",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        3,
+        3
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink.make",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeLink.make",
+      "summary": "Method make on frappe.ui.sidebar_item.TypeLink",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        84,
+        84
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSectionBreak.make",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeSectionBreak.make",
+      "summary": "Method make on frappe.ui.sidebar_item.TypeSectionBreak",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        185,
+        185
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSpacer.constructor",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeSpacer.constructor",
+      "summary": "Method constructor on frappe.ui.sidebar_item.TypeSpacer",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        352,
+        352
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSidebarItemGroup.constructor",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeSidebarItemGroup.constructor",
+      "summary": "Method constructor on frappe.ui.sidebar_item.TypeSidebarItemGroup",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        358,
+        358
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeButton.constructor",
+      "type": "function",
+      "name": "frappe.ui.sidebar_item.TypeButton.constructor",
+      "summary": "Method constructor on frappe.ui.sidebar_item.TypeButton",
+      "tags": [
+        "ui",
+        "sidebar",
+        "item",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        409,
+        409
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/slides.js",
+      "type": "file",
+      "name": "slides.js",
+      "summary": "Slides framework: multi-step slide-based dialog (used for onboarding/setup wizards) with navigation and validation.",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/ui/slides.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "type": "class",
+      "name": "frappe.ui.Slide",
+      "summary": "Class frappe.ui.Slide assigned in slides.js",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        6,
+        246
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "type": "class",
+      "name": "frappe.ui.Slides",
+      "summary": "Class frappe.ui.Slides assigned in slides.js",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        248,
+        474
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.constructor",
+      "type": "function",
+      "name": "frappe.ui.Slide.constructor",
+      "summary": "Method constructor on frappe.ui.Slide",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.setup",
+      "type": "function",
+      "name": "frappe.ui.Slide.setup",
+      "summary": "Method setup on frappe.ui.Slide",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        12,
+        12
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.make",
+      "type": "function",
+      "name": "frappe.ui.Slide.make",
+      "summary": "Method make on frappe.ui.Slide",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        19,
+        19
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.refresh",
+      "type": "function",
+      "name": "frappe.ui.Slide.refresh",
+      "summary": "Method refresh on frappe.ui.Slide",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        70,
+        70
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.before_show",
+      "type": "function",
+      "name": "frappe.ui.Slide.before_show",
+      "summary": "Method before_show on frappe.ui.Slide",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        211,
+        211
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.constructor",
+      "type": "function",
+      "name": "frappe.ui.Slides.constructor",
+      "summary": "Method constructor on frappe.ui.Slides",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        249,
+        249
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.make",
+      "type": "function",
+      "name": "frappe.ui.Slides.make",
+      "summary": "Method make on frappe.ui.Slides",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        275,
+        275
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.setup",
+      "type": "function",
+      "name": "frappe.ui.Slides.setup",
+      "summary": "Method setup on frappe.ui.Slides",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        297,
+        297
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.refresh",
+      "type": "function",
+      "name": "frappe.ui.Slides.refresh",
+      "summary": "Method refresh on frappe.ui.Slides",
+      "tags": [
+        "ui",
+        "slides",
+        "wizard",
+        "onboarding",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        321,
+        321
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/sort_selector.js",
+      "type": "file",
+      "name": "sort_selector.js",
+      "summary": "SortSelector UI: dropdown to pick sort field/order for list views.",
+      "tags": [
+        "ui",
+        "list",
+        "sort"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/ui/sort_selector.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector",
+      "type": "class",
+      "name": "frappe.ui.SortSelector",
+      "summary": "Class frappe.ui.SortSelector assigned in sort_selector.js",
+      "tags": [
+        "ui",
+        "list",
+        "sort",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        215
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.constructor",
+      "type": "function",
+      "name": "frappe.ui.SortSelector.constructor",
+      "summary": "Method constructor on frappe.ui.SortSelector",
+      "tags": [
+        "ui",
+        "list",
+        "sort",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.make",
+      "type": "function",
+      "name": "frappe.ui.SortSelector.make",
+      "summary": "Method make on frappe.ui.SortSelector",
+      "tags": [
+        "ui",
+        "list",
+        "sort",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        15,
+        15
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.bind_events",
+      "type": "function",
+      "name": "frappe.ui.SortSelector.bind_events",
+      "summary": "Method bind_events on frappe.ui.SortSelector",
+      "tags": [
+        "ui",
+        "list",
+        "sort",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        21,
+        21
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/tag_editor.js",
+      "type": "file",
+      "name": "tag_editor.js",
+      "summary": "TagEditor field control: inline tag add/remove UI bound to a document field.",
+      "tags": [
+        "ui",
+        "tags",
+        "control"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/ui/tag_editor.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor",
+      "type": "class",
+      "name": "frappe.ui.TagEditor",
+      "summary": "Class frappe.ui.TagEditor assigned in tag_editor.js",
+      "tags": [
+        "ui",
+        "tags",
+        "control",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        154
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor.constructor",
+      "type": "function",
+      "name": "frappe.ui.TagEditor.constructor",
+      "summary": "Method constructor on frappe.ui.TagEditor",
+      "tags": [
+        "ui",
+        "tags",
+        "control",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor.refresh",
+      "type": "function",
+      "name": "frappe.ui.TagEditor.refresh",
+      "summary": "Method refresh on frappe.ui.TagEditor",
+      "tags": [
+        "ui",
+        "tags",
+        "control",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        134,
+        134
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/tags.js",
+      "type": "file",
+      "name": "tags.js",
+      "summary": "Tags helper: manages assigning/removing tags to documents via frappe.tags API.",
+      "tags": [
+        "ui",
+        "tags"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/ui/tags.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags",
+      "type": "class",
+      "name": "frappe.ui.Tags",
+      "summary": "Class frappe.ui.Tags assigned in tags.js",
+      "tags": [
+        "ui",
+        "tags",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        4,
+        133
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags.constructor",
+      "type": "function",
+      "name": "frappe.ui.Tags.constructor",
+      "summary": "Method constructor on frappe.ui.Tags",
+      "tags": [
+        "ui",
+        "tags",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags.setup",
+      "type": "function",
+      "name": "frappe.ui.Tags.setup",
+      "summary": "Method setup on frappe.ui.Tags",
+      "tags": [
+        "ui",
+        "tags",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        15,
+        15
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/theme_switcher.js",
+      "type": "file",
+      "name": "theme_switcher.js",
+      "summary": "ThemeSwitcher dialog: pick between light/dark/automatic desk themes and persist preference.",
+      "tags": [
+        "ui",
+        "theme"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/ui/theme_switcher.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "type": "class",
+      "name": "frappe.ui.ThemeSwitcher",
+      "summary": "Class frappe.ui.ThemeSwitcher assigned in theme_switcher.js",
+      "tags": [
+        "ui",
+        "theme",
+        "class"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        3,
+        144
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.constructor",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.constructor",
+      "summary": "Method constructor on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        4,
+        4
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.bind_events",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.bind_events",
+      "summary": "Method bind_events on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        17,
+        17
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.refresh",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.refresh",
+      "summary": "Method refresh on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        47,
+        47
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.render",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.render",
+      "summary": "Method render on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        78,
+        78
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.show",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.show",
+      "summary": "Method show on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        137,
+        137
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.hide",
+      "type": "function",
+      "name": "frappe.ui.ThemeSwitcher.hide",
+      "summary": "Method hide on frappe.ui.ThemeSwitcher",
+      "tags": [
+        "ui",
+        "theme",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        141,
+        141
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/ui/toolbar/about.js",
+      "type": "file",
+      "name": "about.js",
+      "summary": "About dialog: toolbar 'About' entry showing Frappe version/links.",
+      "tags": [
+        "ui",
+        "toolbar",
+        "about"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/ui/toolbar/about.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/ui/toolbar/about.js:get_version_text",
+      "type": "function",
+      "name": "get_version_text",
+      "summary": "Function get_version_text in about.js",
+      "tags": [
+        "ui",
+        "toolbar",
+        "about",
+        "function"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        108,
+        108
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_card.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.hide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_card.js:frappe.ui.SidebarCard.show",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_editor.js:SidebarEditor.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_header.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_header.js:frappe.ui.SidebarHeader.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSectionBreak",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSpacer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSidebarItemGroup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.js",
+      "target": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeButton",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeLink.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSectionBreak",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSectionBreak.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSpacer",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSpacer.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSidebarItemGroup",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeSidebarItemGroup.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeButton",
+      "target": "func:frappe/public/js/frappe/ui/sidebar/sidebar_item.js:frappe.ui.sidebar_item.TypeButton.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/slides.js",
+      "target": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/slides.js",
+      "target": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slide.before_show",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides",
+      "target": "func:frappe/public/js/frappe/ui/slides.js:frappe.ui.Slides.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/sort_selector.js",
+      "target": "class:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector",
+      "target": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector",
+      "target": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector",
+      "target": "func:frappe/public/js/frappe/ui/sort_selector.js:frappe.ui.SortSelector.bind_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/tag_editor.js",
+      "target": "class:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor",
+      "target": "func:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor",
+      "target": "func:frappe/public/js/frappe/ui/tag_editor.js:frappe.ui.TagEditor.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/tags.js",
+      "target": "class:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags",
+      "target": "func:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags",
+      "target": "func:frappe/public/js/frappe/ui/tags.js:frappe.ui.Tags.setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/theme_switcher.js",
+      "target": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.bind_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.show",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher",
+      "target": "func:frappe/public/js/frappe/ui/theme_switcher.js:frappe.ui.ThemeSwitcher.hide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/ui/toolbar/about.js",
+      "target": "func:frappe/public/js/frappe/ui/toolbar/about.js:get_version_text",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

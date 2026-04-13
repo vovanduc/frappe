@@ -1,0 +1,676 @@
+{
+  "nodes": [
+    {
+      "id": "frappe/model/qb_query.py",
+      "type": "file",
+      "name": "qb_query.py",
+      "filePath": "frappe/model/qb_query.py",
+      "summary": "Query Builder-based implementation of DatabaseQuery, replacing the legacy db_query.py. Handles field/filter parsing, virtual doctypes, pagination, comment counts, user settings, and delegates to frappe.qb engine for SQL generation.",
+      "tags": ["query", "database", "query-builder", "orm", "pagination"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/qb_query.py::DatabaseQuery",
+      "type": "class",
+      "name": "DatabaseQuery",
+      "filePath": "frappe/model/qb_query.py",
+      "lineRange": [18, 355],
+      "summary": "Query Builder version of DatabaseQuery class. Provides execute() method with comprehensive parameter support (fields, filters, pagination, permissions, pluck, virtual doctypes). Handles deprecated parameter migration and delegates to frappe.qb.get_query().",
+      "tags": ["query", "database", "api", "permissions"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/qb_query.py::DatabaseQuery.execute",
+      "type": "function",
+      "name": "DatabaseQuery.execute",
+      "filePath": "frappe/model/qb_query.py",
+      "lineRange": [26, 227],
+      "summary": "Main query execution method. Swaps fields/filters if misplaced, handles virtual doctypes via controller delegation, converts deprecated pagination params (limit_start/page_length/start) to offset/limit, builds query via frappe.qb.get_query(), adds comment counts, saves user settings.",
+      "tags": ["query", "execution", "pagination", "deprecation"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/qb_query.py::DatabaseQuery._handle_virtual_doctype",
+      "type": "function",
+      "name": "DatabaseQuery._handle_virtual_doctype",
+      "filePath": "frappe/model/qb_query.py",
+      "lineRange": [289, 355],
+      "summary": "Handles queries for virtual doctypes that lack database tables. Converts filters to Filters objects and delegates to the doctype controller's get_list() method via frappe.call().",
+      "tags": ["virtual-doctype", "controller", "delegation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/rename_doc.py",
+      "type": "file",
+      "name": "rename_doc.py",
+      "filePath": "frappe/model/rename_doc.py",
+      "summary": "Core document renaming system. Handles renaming documents including updating all link fields, dynamic links, child tables, assignments, attachments, versions, user settings, and optionally merging documents. Supports DocType renaming with field option updates and sequence renaming.",
+      "tags": ["rename", "document", "link-update", "merge", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::update_document_title",
+      "type": "function",
+      "name": "update_document_title",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [23, 116],
+      "summary": "Whitelisted API to update document name or title. Supports enqueuing rename operations for async processing. Validates permissions, handles before_rename hooks, and optionally enqueues title updates when both name and title change.",
+      "tags": ["api", "whitelist", "rename", "title", "async"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::rename_doc",
+      "type": "function",
+      "name": "rename_doc",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [119, 243],
+      "summary": "Main rename function. Orchestrates the full rename pipeline: validates, renames parent/child records or updates assignments (merge), updates link fields, dynamic links, user settings, handles DocType renames, attachments, versions, calls after_rename hook, manages passwords, publishes realtime events.",
+      "tags": ["rename", "core", "pipeline", "document"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::validate_rename",
+      "type": "function",
+      "name": "validate_rename",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [345, 402],
+      "summary": "Validates rename operation: checks existence, prevents no-op renames, validates merge targets, checks write permissions, verifies allow_rename flag, validates new name format. Uses savepoints for safe validation during enqueued renames.",
+      "tags": ["validation", "rename", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::get_link_fields",
+      "type": "function",
+      "name": "get_link_fields",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [470, 520],
+      "summary": "Retrieves all Link fields referencing a given doctype from DocField, Custom Field, and Property Setter tables. Results are cached in frappe.flags.link_fields. Excludes virtual doctypes.",
+      "tags": ["link-fields", "metadata", "cache"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::update_link_field_values",
+      "type": "function",
+      "name": "update_link_field_values",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [431, 467],
+      "summary": "Updates values in all Link fields that reference the renamed document. Handles single doctypes via ORM and regular doctypes via direct DB updates. Manages edge case where the DocType itself is being renamed.",
+      "tags": ["link-fields", "update", "rename"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::rename_dynamic_links",
+      "type": "function",
+      "name": "rename_dynamic_links",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [673, 692],
+      "summary": "Updates dynamic link fields (where link type is stored in a separate field) during document rename. Handles both single and regular doctypes.",
+      "tags": ["dynamic-links", "rename"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::rename_doctype",
+      "type": "function",
+      "name": "rename_doctype",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [405, 418],
+      "summary": "Handles renaming a DocType itself: updates field options for Link/Table fields, updates parenttype values in child tables, and renames autoincrement sequences.",
+      "tags": ["doctype-rename", "schema"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/rename_doc.py::bulk_rename",
+      "type": "function",
+      "name": "bulk_rename",
+      "filePath": "frappe/model/rename_doc.py",
+      "lineRange": [695, 732],
+      "summary": "Bulk rename documents from a CSV-like list of (oldname, newname, merge) tuples. Limits to 500 rows for non-console usage. Commits after each successful rename, rolls back on failure.",
+      "tags": ["bulk", "rename", "batch"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/sync.py",
+      "type": "file",
+      "name": "sync.py",
+      "filePath": "frappe/model/sync.py",
+      "summary": "Synchronizes DocType definitions and other importable entities from JSON fixture files to database. Handles ordered loading of core frappe doctypes, orphan detection/removal for doctypes and entities (Workspace, Page, Report, etc.), and app-level entity management.",
+      "tags": ["sync", "migration", "fixtures", "install"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/sync.py::sync_all",
+      "type": "function",
+      "name": "sync_all",
+      "filePath": "frappe/model/sync.py",
+      "lineRange": [47, 54],
+      "summary": "Syncs all installed apps' DocType definitions from JSON files to database. Enables patch mode during sync and clears cache afterward.",
+      "tags": ["sync", "migration"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/sync.py::sync_for",
+      "type": "function",
+      "name": "sync_for",
+      "filePath": "frappe/model/sync.py",
+      "lineRange": [57, 142],
+      "summary": "Syncs DocType definitions for a specific app. For frappe app, loads core doctypes in a specific order (docfield, docperm, role, etc.) before other modules. Imports files via import_file_by_path with progress bar display.",
+      "tags": ["sync", "app", "ordered-loading"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/sync.py::remove_orphan_doctypes",
+      "type": "function",
+      "name": "remove_orphan_doctypes",
+      "filePath": "frappe/model/sync.py",
+      "lineRange": [165, 199],
+      "summary": "Finds and removes orphaned doctypes whose code/schema files have been deleted but database entries remain. Non-destructive to data - only removes DocType metadata entries.",
+      "tags": ["cleanup", "orphan", "doctype"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/sync.py::remove_orphan_entities",
+      "type": "function",
+      "name": "remove_orphan_entities",
+      "filePath": "frappe/model/sync.py",
+      "lineRange": [202, 261],
+      "summary": "Removes orphaned standard entities (Workspace, Dashboard, Page, Report, Notification) and app-level entities (Workspace Sidebar, Desktop Icon) that no longer have corresponding JSON files.",
+      "tags": ["cleanup", "orphan", "entities"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/trace.py",
+      "type": "file",
+      "name": "trace.py",
+      "filePath": "frappe/model/trace.py",
+      "summary": "Provides TracedDocument and TracedValue descriptor for monitoring and validating field value changes in documents. Supports forbidden values and custom validation callbacks. Useful for strict value lifetime validation in tests.",
+      "tags": ["trace", "validation", "descriptor", "testing"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/trace.py::TracedValue",
+      "type": "class",
+      "name": "TracedValue",
+      "filePath": "frappe/model/trace.py",
+      "lineRange": [33, 107],
+      "summary": "Python descriptor class for creating traced fields. Intercepts __get__/__set__ to enforce forbidden values and apply custom validation. Raises AssertionError in test mode for debuggability.",
+      "tags": ["descriptor", "validation", "trace"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/trace.py::TracedDocument",
+      "type": "class",
+      "name": "TracedDocument",
+      "filePath": "frappe/model/trace.py",
+      "lineRange": [110, 153],
+      "summary": "Document subclass supporting TracedValue descriptors. Initializes traced fields from class dict and overrides get_valid_dict() to include traced field values in the document dict representation.",
+      "tags": ["document", "trace", "mixin"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/trace.py::traced_field",
+      "type": "function",
+      "name": "traced_field",
+      "filePath": "frappe/model/trace.py",
+      "lineRange": [156, 169],
+      "summary": "Convenience factory function for creating TracedValue instances.",
+      "tags": ["factory", "trace"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/__init__.py",
+      "type": "file",
+      "name": "utils/__init__.py",
+      "filePath": "frappe/model/utils/__init__.py",
+      "summary": "Model utility functions: set_default for documents, render_include for JS template includes, get_fetch_values for link field fetch-from, is_virtual_doctype/is_single_doctype cached checks, simple_singledispatch decorator, and standard field type mapping.",
+      "tags": ["utilities", "model", "include", "fetch", "dispatch"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/__init__.py::render_include",
+      "type": "function",
+      "name": "render_include",
+      "filePath": "frappe/model/utils/__init__.py",
+      "lineRange": [58, 91],
+      "summary": "Renders {% include 'app/path/filename' %} directives in JS files. Resolves paths securely (prevents path traversal), supports up to 5 levels of nested includes, and converts HTML includes to JS templates.",
+      "tags": ["include", "javascript", "template", "security"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/__init__.py::get_fetch_values",
+      "type": "function",
+      "name": "get_fetch_values",
+      "filePath": "frappe/model/utils/__init__.py",
+      "lineRange": [94, 136],
+      "summary": "Returns fetch value dictionary for a link field selection. Resolves fetch_from definitions on fields, fetches source values from the database, and returns a mapping of target fieldname to fetched value.",
+      "tags": ["fetch", "link-field", "values"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/__init__.py::is_virtual_doctype",
+      "type": "function",
+      "name": "is_virtual_doctype",
+      "filePath": "frappe/model/utils/__init__.py",
+      "lineRange": [139, 148],
+      "summary": "Cached check whether a doctype is virtual (has no database table). Falls back to direct DB query during install/migrate when meta may not be available.",
+      "tags": ["virtual", "doctype", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/__init__.py::simple_singledispatch",
+      "type": "function",
+      "name": "simple_singledispatch",
+      "filePath": "frappe/model/utils/__init__.py",
+      "lineRange": [164, 228],
+      "summary": "Simplified single dispatch decorator similar to functools.singledispatch. Dispatches to type-specific implementations based on the first argument's MRO. Provides a register() method for adding type handlers.",
+      "tags": ["dispatch", "decorator", "polymorphism"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/link_count.py",
+      "type": "file",
+      "name": "link_count.py",
+      "filePath": "frappe/model/utils/link_count.py",
+      "summary": "Tracks document link popularity by sampling 10% of link accesses. Buffers counts in thread-local storage, flushes to Redis cache after commit, and periodically writes to database idx column. Used for sorting documents by usage frequency.",
+      "tags": ["link-count", "analytics", "sampling", "redis", "performance"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/link_count.py::notify_link_count",
+      "type": "function",
+      "name": "notify_link_count",
+      "filePath": "frappe/model/utils/link_count.py",
+      "lineRange": [36, 47],
+      "summary": "Records a link access for a document, sampling only 10% of requests. Buffers counts in frappe.local._link_count and registers flush_local_link_count as an after-commit callback.",
+      "tags": ["link-count", "sampling", "buffer"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/link_count.py::flush_local_link_count",
+      "type": "function",
+      "name": "flush_local_link_count",
+      "filePath": "frappe/model/utils/link_count.py",
+      "lineRange": [49, 69],
+      "summary": "Flushes buffered link counts from thread-local storage to Redis cache. Caps the cache buffer at 256 entries to prevent unbounded memory growth.",
+      "tags": ["flush", "redis", "buffer"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/link_count.py::update_link_count",
+      "type": "function",
+      "name": "update_link_count",
+      "filePath": "frappe/model/utils/link_count.py",
+      "lineRange": [72, 86],
+      "summary": "Writes accumulated link counts from Redis cache to database idx column. Called periodically (likely by scheduler). Commits after each doctype update and clears the cache.",
+      "tags": ["database", "write", "scheduled"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/mask.py",
+      "type": "file",
+      "name": "mask.py",
+      "filePath": "frappe/model/utils/mask.py",
+      "summary": "Field value masking utilities for sensitive data. Masks phone numbers (first 3 chars visible), emails (domain visible), dates, times, and other fields with X patterns. Supports both dict and list result formats.",
+      "tags": ["masking", "privacy", "security", "sensitive-data"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/mask.py::mask_field_value",
+      "type": "function",
+      "name": "mask_field_value",
+      "filePath": "frappe/model/utils/mask.py",
+      "lineRange": [6, 38],
+      "summary": "Masks a single field value based on fieldtype and options. Phone: first 3 chars + XXXXXX, Email: XXXXXX@domain, Date: XX-XX-XXXX, Time: XX:XX, Default: XXXXXXXX.",
+      "tags": ["masking", "privacy"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/mask.py::mask_dict_results",
+      "type": "function",
+      "name": "mask_dict_results",
+      "filePath": "frappe/model/utils/mask.py",
+      "lineRange": [41, 55],
+      "summary": "Applies field masking to dictionary-format query results in-place.",
+      "tags": ["masking", "dict"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/mask.py::mask_list_results",
+      "type": "function",
+      "name": "mask_list_results",
+      "filePath": "frappe/model/utils/mask.py",
+      "lineRange": [58, 77],
+      "summary": "Applies field masking to list/tuple-format query results, using a field index map for position lookup.",
+      "tags": ["masking", "list"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/rename_doc.py",
+      "type": "file",
+      "name": "utils/rename_doc.py",
+      "filePath": "frappe/model/utils/rename_doc.py",
+      "summary": "Utility for cascading updates to linked doctypes when a master document's linked field value changes. Finds all doctypes containing both a link to the master and a link to the target doctype, then updates the target link values.",
+      "tags": ["rename", "linked-doctypes", "cascade-update"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/rename_doc.py::update_linked_doctypes",
+      "type": "function",
+      "name": "update_linked_doctypes",
+      "filePath": "frappe/model/utils/rename_doc.py",
+      "lineRange": [10, 29],
+      "summary": "Updates linked field values across all related doctypes when a master document's linked value changes. Uses get_fetch_fields to find affected doctypes and updates them via frappe.db.set_value.",
+      "tags": ["cascade", "update", "linked"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/rename_doc.py::get_fetch_fields",
+      "type": "function",
+      "name": "get_fetch_fields",
+      "filePath": "frappe/model/utils/rename_doc.py",
+      "lineRange": [32, 63],
+      "summary": "Finds all doctypes that have both a link to the master doctype and a link to the target doctype. Uses cartesian product of link fields from both doctypes to identify matching pairs in the same parent.",
+      "tags": ["link-fields", "discovery", "cartesian-product"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/rename_field.py",
+      "type": "file",
+      "name": "rename_field.py",
+      "filePath": "frappe/model/utils/rename_field.py",
+      "summary": "Field renaming utilities. Handles renaming a field within a doctype including: copying data to new column, updating Report Builder reports, user report view settings, property setters, custom field insert_after references, and user settings filters.",
+      "tags": ["rename", "field", "migration", "reports"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/utils/rename_field.py::rename_field",
+      "type": "function",
+      "name": "rename_field",
+      "filePath": "frappe/model/utils/rename_field.py",
+      "lineRange": [11, 56],
+      "summary": "Renames a field in a doctype. Validates field existence, handles table fields (updates parentfield), copies data for value fields, updates reports, user report views, property setters, user settings, and password fields.",
+      "tags": ["rename", "field", "migration"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/utils/rename_field.py::update_reports",
+      "type": "function",
+      "name": "update_reports",
+      "filePath": "frappe/model/utils/rename_field.py",
+      "lineRange": [59, 124],
+      "summary": "Updates Report Builder report definitions (filters, columns, sort_by) when a field is renamed. Parses and modifies stored JSON configurations.",
+      "tags": ["reports", "update", "json"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/model/utils/rename_field.py::update_property_setters",
+      "type": "function",
+      "name": "update_property_setters",
+      "filePath": "frappe/model/utils/rename_field.py",
+      "lineRange": [150, 161],
+      "summary": "Updates Property Setter and Custom Field records when a field is renamed, including insert_after references.",
+      "tags": ["property-setter", "custom-field", "update"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/user_settings.py",
+      "type": "file",
+      "name": "user_settings.py",
+      "filePath": "frappe/model/utils/user_settings.py",
+      "summary": "Per-user settings storage (page_limit, filters, last_view) backed by Redis cache with database persistence. Provides get/update/sync/save operations and update_user_settings_data for migrating filter values during renames.",
+      "tags": ["user-settings", "redis", "cache", "persistence"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/user_settings.py::get_user_settings",
+      "type": "function",
+      "name": "get_user_settings",
+      "filePath": "frappe/model/utils/user_settings.py",
+      "lineRange": [13, 27],
+      "summary": "Retrieves user settings for a doctype from Redis cache, falling back to database. Optionally refreshes cache on read.",
+      "tags": ["get", "cache", "user-settings"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/user_settings.py::update_user_settings",
+      "type": "function",
+      "name": "update_user_settings",
+      "filePath": "frappe/model/utils/user_settings.py",
+      "lineRange": [30, 43],
+      "summary": "Updates user settings in Redis cache. Merges new settings with existing ones unless for_update flag indicates full replacement.",
+      "tags": ["update", "cache", "user-settings"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/model/utils/user_settings.py::sync_user_settings",
+      "type": "function",
+      "name": "sync_user_settings",
+      "filePath": "frappe/model/utils/user_settings.py",
+      "lineRange": [46, 62],
+      "summary": "Syncs user settings from Redis cache to database using upsert (INSERT ... ON DUPLICATE KEY UPDATE). Called asynchronously via browser requests.",
+      "tags": ["sync", "database", "redis"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/utils/user_settings.py::update_user_settings_data",
+      "type": "function",
+      "name": "update_user_settings_data",
+      "filePath": "frappe/model/utils/user_settings.py",
+      "lineRange": [77, 104],
+      "summary": "Updates specific filter values within stored user settings data across all views (List, Gantt, Kanban, Calendar, etc.). Used during document/field renames to keep user settings consistent.",
+      "tags": ["update", "filters", "rename", "migration"],
+      "complexity": "medium"
+    }
+  ],
+  "edges": [
+    {
+      "source": "frappe/model/qb_query.py",
+      "target": "frappe/model/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/qb_query.py",
+      "target": "frappe/model/utils/user_settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/qb_query.py::DatabaseQuery.execute",
+      "target": "frappe/model/utils/__init__.py::is_virtual_doctype",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/qb_query.py::DatabaseQuery.execute",
+      "target": "frappe/model/utils/user_settings.py::get_user_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/model/qb_query.py::DatabaseQuery.execute",
+      "target": "frappe/model/utils/user_settings.py::update_user_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/model/rename_doc.py",
+      "target": "frappe/model/utils/user_settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/rename_doc.py::validate_rename",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/rename_doc.py::get_link_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/rename_doc.py::update_link_field_values",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/rename_doc.py::rename_dynamic_links",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/rename_doc.py::rename_doctype",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/rename_doc.py::update_document_title",
+      "target": "frappe/model/rename_doc.py::validate_rename",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/utils/user_settings.py::sync_user_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/rename_doc.py::rename_doc",
+      "target": "frappe/model/utils/user_settings.py::update_user_settings_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/utils/rename_doc.py",
+      "target": "frappe/model/rename_doc.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/rename_doc.py::get_fetch_fields",
+      "target": "frappe/model/rename_doc.py::get_link_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/rename_field.py",
+      "target": "frappe/model/utils/user_settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/utils/rename_field.py::rename_field",
+      "target": "frappe/model/utils/rename_field.py::update_reports",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/utils/rename_field.py::rename_field",
+      "target": "frappe/model/utils/rename_field.py::update_property_setters",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/model/utils/rename_field.py::rename_field",
+      "target": "frappe/model/utils/user_settings.py::sync_user_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/utils/rename_field.py::rename_field",
+      "target": "frappe/model/utils/user_settings.py::update_user_settings_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/sync.py::sync_for",
+      "target": "frappe/model/sync.py::sync_all",
+      "type": "calledBy",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/trace.py::TracedDocument",
+      "target": "frappe/model/trace.py::TracedValue",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/trace.py::traced_field",
+      "target": "frappe/model/trace.py::TracedValue",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/link_count.py::notify_link_count",
+      "target": "frappe/model/utils/link_count.py::flush_local_link_count",
+      "type": "registers",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/link_count.py::update_link_count",
+      "target": "frappe/model/utils/link_count.py::flush_local_link_count",
+      "type": "dependsOn",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/model/utils/mask.py::mask_dict_results",
+      "target": "frappe/model/utils/mask.py::mask_field_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/mask.py::mask_list_results",
+      "target": "frappe/model/utils/mask.py::mask_field_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/rename_doc.py::bulk_rename",
+      "target": "frappe/model/rename_doc.py::rename_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/model/utils/user_settings.py::get_user_settings",
+      "target": "frappe/model/utils/user_settings.py::update_user_settings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

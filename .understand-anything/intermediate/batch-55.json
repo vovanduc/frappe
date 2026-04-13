@@ -1,0 +1,346 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/user.py",
+      "type": "file",
+      "name": "user.py",
+      "filePath": "frappe/utils/user.py",
+      "summary": "User permission utilities providing the UserPermissions class for building DocType-level permission maps, plus helper functions for querying system managers, user roles, and user metadata.",
+      "tags": ["permissions", "users", "roles", "rbac", "utilities"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/verified_command.py",
+      "type": "file",
+      "name": "verified_command.py",
+      "filePath": "frappe/utils/verified_command.py",
+      "summary": "URL signing and verification utilities using HMAC signatures to create tamper-proof signed URLs for secure command execution.",
+      "tags": ["security", "hmac", "url-signing", "verification"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/weasyprint.py",
+      "type": "file",
+      "name": "weasyprint.py",
+      "filePath": "frappe/utils/weasyprint.py",
+      "summary": "WeasyPrint-based PDF generation alternative that renders documents with repeatable headers and footers using the WeasyPrint library instead of wkhtmltopdf.",
+      "tags": ["pdf", "weasyprint", "printing", "rendering", "templates"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/xlsxutils.py",
+      "type": "file",
+      "name": "xlsxutils.py",
+      "filePath": "frappe/utils/xlsxutils.py",
+      "summary": "Excel file utilities for creating XLSX files with openpyxl and reading XLS/XLSX files, including HTML-to-text conversion and date formatting for spreadsheet export.",
+      "tags": ["excel", "xlsx", "export", "openpyxl", "utilities"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/utils/user.py:UserPermissions",
+      "type": "class",
+      "name": "UserPermissions",
+      "summary": "Core permission object (accessed via frappe.get_user()) that builds comprehensive DocType permission maps including can_read, can_write, can_create, can_delete and other permission lists for a user based on roles and sharing rules.",
+      "tags": ["permissions", "rbac", "user", "doctype-access", "roles"],
+      "complexity": "complex",
+      "lineRange": [21, 287]
+    },
+    {
+      "id": "class:frappe/utils/weasyprint.py:PrintFormatGenerator",
+      "type": "class",
+      "name": "PrintFormatGenerator",
+      "summary": "Generates PDFs from Print Format definitions using WeasyPrint, handling header/footer overlays, page layout, margin texts, and field renderers for document printing.",
+      "tags": ["pdf-generation", "weasyprint", "print-format", "rendering"],
+      "complexity": "complex",
+      "lineRange": [29, 233]
+    },
+    {
+      "id": "func:frappe/utils/user.py:get_user_fullname",
+      "type": "function",
+      "name": "get_user_fullname",
+      "summary": "Returns the full name of a user by concatenating first_name and last_name using the Query Builder.",
+      "tags": ["user", "query-builder", "utility"],
+      "complexity": "simple",
+      "lineRange": [289, 298]
+    },
+    {
+      "id": "func:frappe/utils/user.py:get_system_managers",
+      "type": "function",
+      "name": "get_system_managers",
+      "summary": "Returns a list of enabled system managers with their formatted email addresses or just names, queried via the Query Builder joining User and Has Role tables.",
+      "tags": ["system-manager", "roles", "query-builder"],
+      "complexity": "moderate",
+      "lineRange": [315, 344]
+    },
+    {
+      "id": "func:frappe/utils/user.py:add_system_manager",
+      "type": "function",
+      "name": "add_system_manager",
+      "summary": "Creates a new System User with all non-automatic roles and optionally sets a password, used during site setup.",
+      "tags": ["user-creation", "system-manager", "roles"],
+      "complexity": "moderate",
+      "lineRange": [351, 387]
+    },
+    {
+      "id": "func:frappe/utils/user.py:get_users_with_role",
+      "type": "function",
+      "name": "get_users_with_role",
+      "summary": "Returns a list of enabled user names that have a specific role, using the Query Builder.",
+      "tags": ["roles", "query-builder", "user-query"],
+      "complexity": "simple",
+      "lineRange": [435, 451]
+    },
+    {
+      "id": "func:frappe/utils/verified_command.py:get_signed_params",
+      "type": "function",
+      "name": "get_signed_params",
+      "summary": "Signs URL parameters by appending an HMAC-SHA512 signature, accepting either a string or dict of params.",
+      "tags": ["hmac", "url-signing", "security"],
+      "complexity": "simple",
+      "lineRange": [12, 20]
+    },
+    {
+      "id": "func:frappe/utils/verified_command.py:verify_request",
+      "type": "function",
+      "name": "verify_request",
+      "summary": "Verifies an incoming signed GET request by comparing the HMAC signature, ensuring the request method is GET and no form data is present.",
+      "tags": ["verification", "hmac", "security", "request"],
+      "complexity": "moderate",
+      "lineRange": [29, 52]
+    },
+    {
+      "id": "func:frappe/utils/weasyprint.py:download_pdf",
+      "type": "function",
+      "name": "download_pdf",
+      "summary": "Whitelisted API endpoint that generates and serves a PDF download for a document using the WeasyPrint-based PrintFormatGenerator.",
+      "tags": ["api", "pdf", "download", "whitelisted"],
+      "complexity": "simple",
+      "lineRange": [11, 19]
+    },
+    {
+      "id": "func:frappe/utils/xlsxutils.py:make_xlsx",
+      "type": "function",
+      "name": "make_xlsx",
+      "summary": "Creates an Excel workbook from row data with support for column widths, header formatting, date formatting, HTML stripping, and illegal character removal.",
+      "tags": ["excel", "xlsx", "export", "formatting"],
+      "complexity": "complex",
+      "lineRange": [36, 105]
+    },
+    {
+      "id": "func:frappe/utils/xlsxutils.py:read_xlsx_file_from_attached_file",
+      "type": "function",
+      "name": "read_xlsx_file_from_attached_file",
+      "summary": "Reads an XLSX file from a file URL, raw content, or file path and returns all rows as a list of lists.",
+      "tags": ["excel", "import", "file-reading"],
+      "complexity": "simple",
+      "lineRange": [125, 141]
+    },
+    {
+      "id": "func:frappe/utils/xlsxutils.py:build_xlsx_response",
+      "type": "function",
+      "name": "build_xlsx_response",
+      "summary": "Creates an XLSX file from data and sets it as a binary file download response.",
+      "tags": ["excel", "response", "download"],
+      "complexity": "simple",
+      "lineRange": [151, 154]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "class:frappe/utils/user.py:UserPermissions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "func:frappe/utils/user.py:get_user_fullname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "func:frappe/utils/user.py:get_system_managers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "func:frappe/utils/user.py:add_system_manager",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "func:frappe/utils/user.py:get_users_with_role",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/verified_command.py",
+      "target": "func:frappe/utils/verified_command.py:get_signed_params",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/verified_command.py",
+      "target": "func:frappe/utils/verified_command.py:verify_request",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/weasyprint.py",
+      "target": "class:frappe/utils/weasyprint.py:PrintFormatGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/weasyprint.py",
+      "target": "func:frappe/utils/weasyprint.py:download_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/xlsxutils.py",
+      "target": "func:frappe/utils/xlsxutils.py:make_xlsx",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/xlsxutils.py",
+      "target": "func:frappe/utils/xlsxutils.py:read_xlsx_file_from_attached_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/xlsxutils.py",
+      "target": "func:frappe/utils/xlsxutils.py:build_xlsx_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/boot.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/core/doctype/domain_settings/domain_settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/query_builder/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/share.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/user.py",
+      "target": "file:frappe/utils/translations.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/user.py:add_system_manager",
+      "target": "file:frappe/utils/password.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/verified_command.py",
+      "target": "file:frappe/utils/password.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/xlsxutils.py",
+      "target": "file:frappe/core/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/xlsxutils.py",
+      "target": "file:frappe/utils/html_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/xlsxutils.py:build_xlsx_response",
+      "target": "file:frappe/desk/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/weasyprint.py:download_pdf",
+      "target": "class:frappe/utils/weasyprint.py:PrintFormatGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/xlsxutils.py:build_xlsx_response",
+      "target": "func:frappe/utils/xlsxutils.py:make_xlsx",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/user.py:UserPermissions",
+      "target": "file:frappe/boot.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/user.py:UserPermissions",
+      "target": "file:frappe/share.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/user.py:get_system_managers",
+      "target": "func:frappe/utils/user.py:get_users_with_role",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,1417 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/billing.bundle.js",
+      "type": "file",
+      "name": "billing.bundle.js",
+      "summary": "Billing bundle entry with Frappe Cloud dashboard and chat bubble helpers",
+      "tags": [
+        "billing",
+        "bundle",
+        "frappe-cloud",
+        "chat"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/billing.bundle.js"
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:setErrorMessage:70",
+      "type": "function",
+      "name": "setErrorMessage",
+      "summary": "Function setErrorMessage in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        70,
+        70
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:addManageBillingDropdown:74",
+      "type": "function",
+      "name": "addManageBillingDropdown",
+      "summary": "Function addManageBillingDropdown in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        74,
+        74
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:openFrappeCloudDashboard:87",
+      "type": "function",
+      "name": "openFrappeCloudDashboard",
+      "summary": "Function openFrappeCloudDashboard in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        87,
+        87
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:addChatBubble:93",
+      "type": "function",
+      "name": "addChatBubble",
+      "summary": "Function addChatBubble in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        93,
+        93
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:toggleChatBubble:116",
+      "type": "function",
+      "name": "toggleChatBubble",
+      "summary": "Function toggleChatBubble in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        116,
+        116
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/billing.bundle.js:desk_apps:96",
+      "type": "function",
+      "name": "desk_apps",
+      "summary": "Function desk_apps in billing.bundle.js",
+      "tags": [
+        "function",
+        "javascript",
+        "bundle"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/billing.bundle.js",
+      "lineRange": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/bootstrap-4-web.bundle.js",
+      "type": "file",
+      "name": "bootstrap-4-web.bundle.js",
+      "summary": "Bootstrap 4 web bundle entry for website pages",
+      "tags": [
+        "bootstrap",
+        "bundle",
+        "web",
+        "vendor"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/bootstrap-4-web.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/calendar.bundle.js",
+      "type": "file",
+      "name": "calendar.bundle.js",
+      "summary": "Calendar bundle entry importing FullCalendar plugins",
+      "tags": [
+        "calendar",
+        "bundle",
+        "fullcalendar",
+        "entry"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/calendar.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/controls.bundle.js",
+      "type": "file",
+      "name": "controls.bundle.js",
+      "summary": "Form controls bundle entry (datepicker, capture, base control)",
+      "tags": [
+        "controls",
+        "bundle",
+        "form",
+        "entry"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/controls.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/data_import_tools.bundle.js",
+      "type": "file",
+      "name": "data_import_tools.bundle.js",
+      "summary": "Data import tools bundle entry",
+      "tags": [
+        "data-import",
+        "bundle",
+        "tools",
+        "entry"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/data_import_tools.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/desk.bundle.js",
+      "type": "file",
+      "name": "desk.bundle.js",
+      "summary": "Desk bundle entry aggregating core desk UI modules",
+      "tags": [
+        "desk",
+        "bundle",
+        "entry",
+        "core"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/desk.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/dialog.bundle.js",
+      "type": "file",
+      "name": "dialog.bundle.js",
+      "summary": "Dialog bundle entry for modal and form dialog modules",
+      "tags": [
+        "dialog",
+        "bundle",
+        "form",
+        "entry"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/dialog.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/form.bundle.js",
+      "type": "file",
+      "name": "form.bundle.js",
+      "summary": "Form view bundle entry with form templates and renderer",
+      "tags": [
+        "form",
+        "bundle",
+        "templates",
+        "entry"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "type": "file",
+      "name": "FormBuilder.vue",
+      "summary": "Root Vue component for the drag-and-drop DocType form builder",
+      "tags": [
+        "vue",
+        "form-builder",
+        "component",
+        "root"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/form_builder/FormBuilder.vue"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/FormBuilder.vue:should_render:9",
+      "type": "function",
+      "name": "should_render",
+      "summary": "Function should_render in FormBuilder.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/FormBuilder.vue",
+      "lineRange": [
+        9,
+        9
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "type": "file",
+      "name": "AddFieldButton.vue",
+      "summary": "Vue component rendering a popover button to add new fields of a chosen fieldtype",
+      "tags": [
+        "vue",
+        "form-builder",
+        "component",
+        "field"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:setupPopper:81",
+      "type": "function",
+      "name": "setupPopper",
+      "summary": "Function setupPopper in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        81,
+        81
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:toggle_fieldtype_options:99",
+      "type": "function",
+      "name": "toggle_fieldtype_options",
+      "summary": "Function toggle_fieldtype_options in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        99,
+        99
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:add_new_field:105",
+      "type": "function",
+      "name": "add_new_field",
+      "summary": "Function add_new_field in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        105,
+        105
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:selected:53",
+      "type": "function",
+      "name": "selected",
+      "summary": "Function selected in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:fields:61",
+      "type": "function",
+      "name": "fields",
+      "summary": "Function fields in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        61,
+        61
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:fields:62",
+      "type": "function",
+      "name": "fields",
+      "summary": "Function fields in AddFieldButton.vue",
+      "tags": [
+        "function",
+        "javascript",
+        "vue"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "lineRange": [
+        62,
+        62
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:setErrorMessage:70",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:addManageBillingDropdown:74",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:openFrappeCloudDashboard:87",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:addChatBubble:93",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:toggleChatBubble:116",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/billing.bundle.js",
+      "target": "func:frappe/public/js/billing.bundle.js:desk_apps:96",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/controls.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/controls/datepicker_i18n.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/controls.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/capture.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/controls.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/controls/control.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/data_import_tools.bundle.js",
+      "target": "file:frappe/public/js/frappe/data_import",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/breadcrumbs.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/section.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/module_editor.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/iconbar.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/awesome_bar.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/meta.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/page.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/user.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/number_format.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/desktop_icon.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/db.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/field_group.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/microtemplate.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/tag_utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/pretty_date.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sort_selector.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/help.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/workflow.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/toolbar.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/format.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/dom.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/app_icon.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/colors.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/scanner",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/keyboard.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/router.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/about.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/driver.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/datatable.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar_header.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/preview_email.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar_item.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/help_links.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/upload.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/search.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/pageview.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/dashboard_utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/messages.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/address_and_contact.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/common.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/layout.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/model.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/translation_manager.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/change_log.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/datetime.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/communication.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/slides.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/search_utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/diffview.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/file_manager.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/theme_switcher.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/widgets/widget_group.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/translate.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/chart.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/roles_editor.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/class.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/urllib.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/notifications/notifications.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/assets.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sort_selector.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/tools.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/create_new.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar_card.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/tree.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/query_string.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/formatters.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/menu.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar_card.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/perm.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/container.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/address_autocomplete/autocomplete_dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/sync.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/socketio_client.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/model/user_settings.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/capture.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/defaults.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/user_onboarding/user_onboarding.bundle.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/multi_select_dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/workspace_loading_skeleton.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/find.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/link_selector.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/desk.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/column.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/router_history.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/event_emitter.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/broadcast.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/sidebar/sidebar_header.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/link_preview.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/navbar.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/workspace/workspace.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/workspace_sidebar_loading_skeleton.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/page.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/polyfill.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/utils/datatable.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/toolbar/search.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/tab.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/desk.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/factory.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/formatters.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/multi_select_dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/layout.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/dom.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/ui/field_group.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/dialog.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/link_selector.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/form_footer.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/print_layout.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/doctype",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/form_dashboard.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/form.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/address_list.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/report_links.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/users_in_sidebar.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/contact_list.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/render_preview.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/form_sidebar.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/meta_tag.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/form_links.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/timeline_message_box.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/views/formview.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form.bundle.js",
+      "target": "file:frappe/public/js/frappe/form/templates/set_sharing.html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "target": "file:frappe/public/js/form_builder/components/Sidebar.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "target": "file:frappe/public/js/form_builder/store.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "target": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/FormBuilder.vue",
+      "target": "func:frappe/public/js/form_builder/FormBuilder.vue:should_render:9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "file:frappe/public/js/form_builder/store.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "file:frappe/public/js/form_builder/utils.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "file:frappe/public/js/form_builder/components/Autocomplete.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:setupPopper:81",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:toggle_fieldtype_options:99",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:add_new_field:105",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:selected:53",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:fields:61",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/AddFieldButton.vue",
+      "target": "func:frappe/public/js/form_builder/components/AddFieldButton.vue:fields:62",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    }
+  ]
+}

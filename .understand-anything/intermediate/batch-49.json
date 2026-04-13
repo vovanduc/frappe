@@ -1,0 +1,1083 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/csvutils.py",
+      "type": "file",
+      "name": "csvutils.py",
+      "filePath": "frappe/utils/csvutils.py",
+      "summary": "CSV import/export utilities for reading CSV content from files, Google Sheets, and writing CSV responses. Handles encoding detection, delimiter sniffing, and record validation.",
+      "tags": ["csv", "import-export", "file-processing", "encoding", "google-sheets"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/dashboard.py",
+      "type": "file",
+      "name": "dashboard.py",
+      "filePath": "frappe/utils/dashboard.py",
+      "summary": "Dashboard chart utilities providing caching for chart data sources and syncing dashboard configurations from app modules.",
+      "tags": ["dashboard", "caching", "charts", "sync"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/data.py",
+      "type": "file",
+      "name": "data.py",
+      "filePath": "frappe/utils/data.py",
+      "summary": "The largest utility module in frappe providing comprehensive date/time manipulation, number formatting, string processing, URL handling, JSON parsing, HTML utilities, filter evaluation, and type casting functions used throughout the framework.",
+      "tags": ["utilities", "date-time", "number-format", "string-processing", "type-casting"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/dateutils.py",
+      "type": "file",
+      "name": "dateutils.py",
+      "filePath": "frappe/utils/dateutils.py",
+      "summary": "Date utility functions for parsing user-formatted dates, converting between date formats, generating date ranges from timegrains, and computing period boundaries.",
+      "tags": ["date-parsing", "date-format", "timegrain", "period"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/defaults.py",
+      "type": "file",
+      "name": "defaults.py",
+      "filePath": "frappe/utils/defaults.py",
+      "summary": "Provides a mapping of DocType field types to their Python native default values (empty string, zero, or None) for non-null column defaults.",
+      "tags": ["defaults", "field-types", "type-mapping"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/deprecations.py",
+      "type": "file",
+      "name": "deprecations.py",
+      "filePath": "frappe/utils/deprecations.py",
+      "summary": "Re-exports deprecation utilities (deprecated decorator and deprecation_warning) from frappe.deprecation_dumpster for backward compatibility.",
+      "tags": ["deprecation", "backward-compatibility", "re-export"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/diff.py",
+      "type": "file",
+      "name": "diff.py",
+      "filePath": "frappe/utils/diff.py",
+      "summary": "Provides whitelisted API functions for computing unified diffs between document versions and querying version history records.",
+      "tags": ["diff", "version-control", "document-history", "api"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/doctor.py",
+      "type": "file",
+      "name": "doctor.py",
+      "filePath": "frappe/utils/doctor.py",
+      "summary": "Diagnostic utilities for inspecting background job queues, workers, and scheduler status. Provides functions to purge jobs, check pending tasks, and print scheduler health reports.",
+      "tags": ["diagnostics", "scheduler", "background-jobs", "workers", "rq"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/error.py",
+      "type": "file",
+      "name": "error.py",
+      "filePath": "frappe/utils/error.py",
+      "summary": "Error logging and handling utilities including Error Log creation with metadata, exception source guessing from tracebacks, and decorator for raising errors on missing function output.",
+      "tags": ["error-handling", "logging", "error-log", "traceback", "decorator"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/file_lock.py",
+      "type": "file",
+      "name": "file_lock.py",
+      "filePath": "frappe/utils/file_lock.py",
+      "summary": "File-based locking mechanism for inter-process synchronization, primarily used for document locking during background queue actions. Implements weak locks with timeout detection.",
+      "tags": ["file-lock", "synchronization", "locking", "background-jobs"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/csvutils.py:UnicodeWriter",
+      "type": "class",
+      "name": "UnicodeWriter",
+      "summary": "Simple CSV writer wrapper that writes rows to a StringIO buffer with configurable encoding and quoting.",
+      "tags": ["csv", "writer", "unicode"],
+      "complexity": "simple",
+      "lineRange": [133, 143]
+    },
+    {
+      "id": "class:frappe/utils/data.py:Weekday",
+      "type": "class",
+      "name": "Weekday",
+      "summary": "Enum representing days of the week starting from Sunday (0) through Saturday (6), used for week start configuration.",
+      "tags": ["enum", "weekday", "date"],
+      "complexity": "simple",
+      "lineRange": [96, 103]
+    },
+    {
+      "id": "class:frappe/utils/data.py:UnicodeWithAttrs",
+      "type": "class",
+      "name": "UnicodeWithAttrs",
+      "summary": "String subclass that preserves toc_html and metadata attributes from markdown2 conversion output.",
+      "tags": ["markdown", "string", "metadata"],
+      "complexity": "simple",
+      "lineRange": [2636, 2639]
+    },
+    {
+      "id": "class:frappe/utils/file_lock.py:LockTimeoutError",
+      "type": "class",
+      "name": "LockTimeoutError",
+      "summary": "Custom exception raised when a file lock has exceeded its timeout duration.",
+      "tags": ["exception", "lock", "timeout"],
+      "complexity": "simple",
+      "lineRange": [21, 22]
+    },
+    {
+      "id": "func:frappe/utils/csvutils.py:read_csv_content_from_attached_file",
+      "type": "function",
+      "name": "read_csv_content_from_attached_file",
+      "summary": "Reads CSV content from a file attached to a given document by fetching the File record and parsing its content.",
+      "tags": ["csv", "file-attachment", "import"],
+      "complexity": "moderate",
+      "lineRange": [17, 39]
+    },
+    {
+      "id": "func:frappe/utils/csvutils.py:read_csv_content",
+      "type": "function",
+      "name": "read_csv_content",
+      "summary": "Parses raw CSV content with encoding detection, optional delimiter sniffing, and returns a list of rows with None for empty values.",
+      "tags": ["csv", "parsing", "encoding", "delimiter"],
+      "complexity": "moderate",
+      "lineRange": [42, 104]
+    },
+    {
+      "id": "func:frappe/utils/csvutils.py:check_record",
+      "type": "function",
+      "name": "check_record",
+      "summary": "Validates a record dictionary against DocType metadata, checking mandatory fields, select options, and type-casting dates, integers, and floats.",
+      "tags": ["validation", "doctype", "type-casting"],
+      "complexity": "moderate",
+      "lineRange": [146, 173]
+    },
+    {
+      "id": "func:frappe/utils/csvutils.py:import_doc",
+      "type": "function",
+      "name": "import_doc",
+      "summary": "Imports a non-child document by either creating a new record or updating an existing one with optional submit and overwrite behavior.",
+      "tags": ["import", "document", "crud"],
+      "complexity": "moderate",
+      "lineRange": [175, 199]
+    },
+    {
+      "id": "func:frappe/utils/csvutils.py:get_csv_content_from_google_sheets",
+      "type": "function",
+      "name": "get_csv_content_from_google_sheets",
+      "summary": "Fetches CSV content from a Google Sheets URL by converting the edit URL to an export URL with format=csv parameter.",
+      "tags": ["google-sheets", "csv", "http-request"],
+      "complexity": "moderate",
+      "lineRange": [206, 238]
+    },
+    {
+      "id": "func:frappe/utils/dashboard.py:cache_source",
+      "type": "function",
+      "name": "cache_source",
+      "summary": "Decorator that caches dashboard chart data source results in Redis, with support for forced refresh and no-cache mode.",
+      "tags": ["decorator", "caching", "dashboard", "redis"],
+      "complexity": "moderate",
+      "lineRange": [13, 35]
+    },
+    {
+      "id": "func:frappe/utils/dashboard.py:sync_dashboards",
+      "type": "function",
+      "name": "sync_dashboards",
+      "summary": "Synchronizes dashboard configurations by importing JSON definitions from app module directories for dashboards, charts, and number cards.",
+      "tags": ["sync", "dashboard", "import"],
+      "complexity": "moderate",
+      "lineRange": [85, 95]
+    },
+    {
+      "id": "func:frappe/utils/data.py:getdate",
+      "type": "function",
+      "name": "getdate",
+      "summary": "Converts a string date (yyyy-mm-dd) or datetime object to a datetime.date object, using fast ISO parsing with dateutil fallback.",
+      "tags": ["date", "parsing", "conversion"],
+      "complexity": "moderate",
+      "lineRange": [118, 148]
+    },
+    {
+      "id": "func:frappe/utils/data.py:get_datetime",
+      "type": "function",
+      "name": "get_datetime",
+      "summary": "Converts various date/time representations (string, date, datetime, timedelta, list/tuple) to a datetime.datetime object.",
+      "tags": ["datetime", "parsing", "conversion"],
+      "complexity": "moderate",
+      "lineRange": [150, 184]
+    },
+    {
+      "id": "func:frappe/utils/data.py:add_to_date",
+      "type": "function",
+      "name": "add_to_date",
+      "summary": "Adds specified years, months, weeks, days, hours, minutes, and seconds to a date using relativedelta, with options to return as string or datetime.",
+      "tags": ["date-arithmetic", "relativedelta", "overloaded"],
+      "complexity": "moderate",
+      "lineRange": [282, 321]
+    },
+    {
+      "id": "func:frappe/utils/data.py:now_datetime",
+      "type": "function",
+      "name": "now_datetime",
+      "summary": "Returns the current datetime in the system timezone with timezone info stripped.",
+      "tags": ["datetime", "timezone", "current-time"],
+      "complexity": "simple",
+      "lineRange": [371, 373]
+    },
+    {
+      "id": "func:frappe/utils/data.py:flt",
+      "type": "function",
+      "name": "flt",
+      "summary": "Converts a value to float, stripping commas from strings, with optional precision-based rounding. Returns 0.0 for unconvertible inputs.",
+      "tags": ["number", "conversion", "rounding", "float"],
+      "complexity": "moderate",
+      "lineRange": [1120, 1160]
+    },
+    {
+      "id": "func:frappe/utils/data.py:cint",
+      "type": "function",
+      "name": "cint",
+      "summary": "Converts a value to integer with a configurable default (0) for unconvertible inputs, trying float conversion as fallback.",
+      "tags": ["number", "conversion", "integer"],
+      "complexity": "simple",
+      "lineRange": [1163, 1189]
+    },
+    {
+      "id": "func:frappe/utils/data.py:cstr",
+      "type": "function",
+      "name": "cstr",
+      "summary": "Converts the given argument to a string using frappe.as_unicode with specified encoding.",
+      "tags": ["string", "conversion", "unicode"],
+      "complexity": "simple",
+      "lineRange": [1210, 1212]
+    },
+    {
+      "id": "func:frappe/utils/data.py:rounded",
+      "type": "function",
+      "name": "rounded",
+      "summary": "Rounds a number according to the system-configured rounding method (Banker's Rounding, legacy, or Commercial Rounding).",
+      "tags": ["rounding", "number", "system-settings"],
+      "complexity": "moderate",
+      "lineRange": [1239, 1257]
+    },
+    {
+      "id": "func:frappe/utils/data.py:fmt_money",
+      "type": "function",
+      "name": "fmt_money",
+      "summary": "Formats a monetary amount with thousands separators, decimal precision, and optional currency symbol placement based on number format configuration.",
+      "tags": ["money", "formatting", "currency", "number-format"],
+      "complexity": "complex",
+      "lineRange": [1394, 1478]
+    },
+    {
+      "id": "func:frappe/utils/data.py:money_in_words",
+      "type": "function",
+      "name": "money_in_words",
+      "summary": "Converts a numeric monetary value to its word representation with main and fraction currency labels using num2words.",
+      "tags": ["money", "words", "currency", "localization"],
+      "complexity": "complex",
+      "lineRange": [1504, 1571]
+    },
+    {
+      "id": "func:frappe/utils/data.py:format_date",
+      "type": "function",
+      "name": "format_date",
+      "summary": "Formats a date string according to the user's date format preference using Babel locale-aware formatting.",
+      "tags": ["date", "formatting", "locale", "babel"],
+      "complexity": "moderate",
+      "lineRange": [710, 738]
+    },
+    {
+      "id": "func:frappe/utils/data.py:get_url",
+      "type": "function",
+      "name": "get_url",
+      "summary": "Constructs the application URL from site configuration, request headers, or database settings, with optional URI joining and port handling.",
+      "tags": ["url", "configuration", "request"],
+      "complexity": "complex",
+      "lineRange": [1822, 1882]
+    },
+    {
+      "id": "func:frappe/utils/data.py:evaluate_filters",
+      "type": "function",
+      "name": "evaluate_filters",
+      "summary": "Evaluates whether a document matches a set of filter conditions using the operator_map for comparison.",
+      "tags": ["filters", "evaluation", "comparison"],
+      "complexity": "moderate",
+      "lineRange": [2126, 2135]
+    },
+    {
+      "id": "func:frappe/utils/data.py:get_filter",
+      "type": "function",
+      "name": "get_filter",
+      "summary": "Parses and validates a filter definition into a structured dict with doctype, fieldname, operator, value, and fieldtype, including SQL injection prevention.",
+      "tags": ["filters", "parsing", "validation", "security"],
+      "complexity": "complex",
+      "lineRange": [2175, 2244]
+    },
+    {
+      "id": "func:frappe/utils/data.py:sanitize_column",
+      "type": "function",
+      "name": "sanitize_column",
+      "summary": "Sanitizes a column name against SQL injection by checking for blacklisted SQL keywords and dangerous characters, with LRU caching.",
+      "tags": ["security", "sql-injection", "sanitization", "caching"],
+      "complexity": "complex",
+      "lineRange": [2266, 2315]
+    },
+    {
+      "id": "func:frappe/utils/data.py:expand_relative_urls",
+      "type": "function",
+      "name": "expand_relative_urls",
+      "summary": "Expands relative URLs in HTML content to absolute URLs using the site's base URL, handling href, src attributes and CSS url() notation.",
+      "tags": ["url", "html", "expansion"],
+      "complexity": "moderate",
+      "lineRange": [2327, 2354]
+    },
+    {
+      "id": "func:frappe/utils/data.py:get_timespan_date_range",
+      "type": "function",
+      "name": "get_timespan_date_range",
+      "summary": "Returns start and end date tuple for a named timespan option (e.g. 'last week', 'this month', 'next quarter') using Python match/case.",
+      "tags": ["date-range", "timespan", "match-case"],
+      "complexity": "moderate",
+      "lineRange": [909, 1005]
+    },
+    {
+      "id": "func:frappe/utils/data.py:cast",
+      "type": "function",
+      "name": "cast",
+      "summary": "Casts a value to the Python native type corresponding to a Frappe fieldtype (str, float, int, datetime, date, time).",
+      "tags": ["type-casting", "fieldtype", "conversion"],
+      "complexity": "moderate",
+      "lineRange": [1059, 1105]
+    },
+    {
+      "id": "func:frappe/utils/data.py:guess_date_format",
+      "type": "function",
+      "name": "guess_date_format",
+      "summary": "Attempts to guess the date/time format of a date string by trying multiple common format patterns.",
+      "tags": ["date", "format-detection", "parsing"],
+      "complexity": "moderate",
+      "lineRange": [2467, 2548]
+    },
+    {
+      "id": "func:frappe/utils/data.py:parse_json",
+      "type": "function",
+      "name": "parse_json",
+      "summary": "Parses a JSON string using orjson and wraps dict results in frappe._dict, passing through non-string values.",
+      "tags": ["json", "parsing", "orjson"],
+      "complexity": "simple",
+      "lineRange": [2557, 2565]
+    },
+    {
+      "id": "func:frappe/utils/data.py:add_trackers_to_url",
+      "type": "function",
+      "name": "add_trackers_to_url",
+      "summary": "Appends UTM tracking parameters (source, medium, campaign, content) to a URL for marketing analytics.",
+      "tags": ["url", "utm", "tracking", "marketing"],
+      "complexity": "moderate",
+      "lineRange": [2778, 2815]
+    },
+    {
+      "id": "func:frappe/utils/data.py:attach_expanded_links",
+      "type": "function",
+      "name": "attach_expanded_links",
+      "summary": "Expands link and dynamic link fields in a list of documents by replacing name references with full linked document records.",
+      "tags": ["link-expansion", "documents", "batch-fetch"],
+      "complexity": "complex",
+      "lineRange": [2862, 2934]
+    },
+    {
+      "id": "func:frappe/utils/dateutils.py:parse_date",
+      "type": "function",
+      "name": "parse_date",
+      "summary": "Parses a date string in various user formats into the system format (yyyy-mm-dd) by trying multiple date format patterns.",
+      "tags": ["date", "parsing", "format-conversion"],
+      "complexity": "moderate",
+      "lineRange": [49, 74]
+    },
+    {
+      "id": "func:frappe/utils/dateutils.py:get_dates_from_timegrain",
+      "type": "function",
+      "name": "get_dates_from_timegrain",
+      "summary": "Generates a list of period-ending dates between from_date and to_date based on a timegrain (Daily, Weekly, Monthly, Quarterly, Yearly).",
+      "tags": ["date-range", "timegrain", "period"],
+      "complexity": "moderate",
+      "lineRange": [94, 118]
+    },
+    {
+      "id": "func:frappe/utils/defaults.py:get_not_null_defaults",
+      "type": "function",
+      "name": "get_not_null_defaults",
+      "summary": "Returns the appropriate non-null default value (empty string for text, 0 for numeric, None for others) for a given DocType field type.",
+      "tags": ["defaults", "field-type", "non-null"],
+      "complexity": "simple",
+      "lineRange": [4, 50]
+    },
+    {
+      "id": "func:frappe/utils/diff.py:get_version_diff",
+      "type": "function",
+      "name": "get_version_diff",
+      "summary": "Computes a unified diff between two document versions for a specified field, returning the diff as a list of strings.",
+      "tags": ["diff", "version", "unified-diff", "api"],
+      "complexity": "moderate",
+      "lineRange": [11, 29]
+    },
+    {
+      "id": "func:frappe/utils/diff.py:version_query",
+      "type": "function",
+      "name": "version_query",
+      "summary": "Search query function for Version Log records, filtering by document reference and optionally by changed field name.",
+      "tags": ["version", "search", "query", "api"],
+      "complexity": "moderate",
+      "lineRange": [46, 68]
+    },
+    {
+      "id": "func:frappe/utils/doctor.py:doctor",
+      "type": "function",
+      "name": "doctor",
+      "summary": "Prints comprehensive scheduler and worker diagnostic information including scheduler status, maintenance mode, and job queue details for a site.",
+      "tags": ["diagnostics", "scheduler", "health-check"],
+      "complexity": "moderate",
+      "lineRange": [104, 148]
+    },
+    {
+      "id": "func:frappe/utils/doctor.py:purge_pending_jobs",
+      "type": "function",
+      "name": "purge_pending_jobs",
+      "summary": "Purges pending background jobs from Redis queues, optionally filtered by event type and site name.",
+      "tags": ["purge", "background-jobs", "queue"],
+      "complexity": "moderate",
+      "lineRange": [14, 40]
+    },
+    {
+      "id": "func:frappe/utils/error.py:log_error",
+      "type": "function",
+      "name": "log_error",
+      "summary": "Logs an error to the Error Log doctype with traceback, trace ID, and request/job metadata, also capturing to Sentry if enabled.",
+      "tags": ["error-logging", "error-log", "sentry", "traceback"],
+      "complexity": "complex",
+      "lineRange": [37, 80]
+    },
+    {
+      "id": "func:frappe/utils/error.py:log_error_snapshot",
+      "type": "function",
+      "name": "log_error_snapshot",
+      "summary": "Creates a deferred error log entry for unhandled exceptions, excluding authentication and security exceptions.",
+      "tags": ["error-logging", "snapshot", "exception-filter"],
+      "complexity": "moderate",
+      "lineRange": [118, 129]
+    },
+    {
+      "id": "func:frappe/utils/error.py:raise_error_on_no_output",
+      "type": "function",
+      "name": "raise_error_on_no_output",
+      "summary": "Decorator that raises an error if the decorated function returns no output, controlled by _raise_error parameter and optional keep_quiet callback.",
+      "tags": ["decorator", "error-handling", "validation"],
+      "complexity": "moderate",
+      "lineRange": [138, 183]
+    },
+    {
+      "id": "func:frappe/utils/error.py:guess_exception_source",
+      "type": "function",
+      "name": "guess_exception_source",
+      "summary": "Attempts to identify which installed app caused an exception by analyzing file paths in the traceback with priority-weighted scoring.",
+      "tags": ["error-analysis", "traceback", "app-detection"],
+      "complexity": "moderate",
+      "lineRange": [186, 214]
+    },
+    {
+      "id": "func:frappe/utils/file_lock.py:create_lock",
+      "type": "function",
+      "name": "create_lock",
+      "summary": "Creates a file-based lock in the site's locks directory, returning False if the lock already exists and hasn't timed out.",
+      "tags": ["lock", "file-system", "synchronization"],
+      "complexity": "simple",
+      "lineRange": [25, 36]
+    },
+    {
+      "id": "func:frappe/utils/data.py:pretty_date",
+      "type": "function",
+      "name": "pretty_date",
+      "summary": "Returns a localized human-readable relative time string (e.g. '1 hour ago', '2 days ago') for a given datetime using Babel.",
+      "tags": ["date", "formatting", "relative-time", "babel"],
+      "complexity": "moderate",
+      "lineRange": [1717, 1736]
+    },
+    {
+      "id": "func:frappe/utils/data.py:format_duration",
+      "type": "function",
+      "name": "format_duration",
+      "summary": "Converts a duration in seconds to human-readable format like '3h 34m 45s', with optional day hiding.",
+      "tags": ["duration", "formatting", "time"],
+      "complexity": "moderate",
+      "lineRange": [800, 832]
+    },
+    {
+      "id": "func:frappe/utils/data.py:strip_html",
+      "type": "function",
+      "name": "strip_html",
+      "summary": "Removes all HTML tags and comments from a text string using regex substitution.",
+      "tags": ["html", "strip", "sanitization"],
+      "complexity": "simple",
+      "lineRange": [1693, 1695]
+    },
+    {
+      "id": "func:frappe/utils/data.py:comma_or",
+      "type": "function",
+      "name": "comma_or",
+      "summary": "Joins list items as comma-separated string with the last item connected by locale-aware 'or' pattern.",
+      "tags": ["string", "formatting", "localization"],
+      "complexity": "moderate",
+      "lineRange": [1739, 1754]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "func:frappe/utils/csvutils.py:read_csv_content_from_attached_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "func:frappe/utils/csvutils.py:read_csv_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "func:frappe/utils/csvutils.py:check_record",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "func:frappe/utils/csvutils.py:import_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "func:frappe/utils/csvutils.py:get_csv_content_from_google_sheets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "class:frappe/utils/csvutils.py:UnicodeWriter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/dashboard.py",
+      "target": "func:frappe/utils/dashboard.py:cache_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/dashboard.py",
+      "target": "func:frappe/utils/dashboard.py:sync_dashboards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:getdate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:get_datetime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:add_to_date",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:now_datetime",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:flt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:cint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:cstr",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:rounded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:fmt_money",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:money_in_words",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:format_date",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:get_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:evaluate_filters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:get_filter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:sanitize_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:expand_relative_urls",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:get_timespan_date_range",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:cast",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:guess_date_format",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:parse_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:add_trackers_to_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:attach_expanded_links",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "class:frappe/utils/data.py:Weekday",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "class:frappe/utils/data.py:UnicodeWithAttrs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:pretty_date",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:format_duration",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:strip_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "func:frappe/utils/data.py:comma_or",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/dateutils.py",
+      "target": "func:frappe/utils/dateutils.py:parse_date",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/dateutils.py",
+      "target": "func:frappe/utils/dateutils.py:get_dates_from_timegrain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/defaults.py",
+      "target": "func:frappe/utils/defaults.py:get_not_null_defaults",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/diff.py",
+      "target": "func:frappe/utils/diff.py:get_version_diff",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/diff.py",
+      "target": "func:frappe/utils/diff.py:version_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/doctor.py",
+      "target": "func:frappe/utils/doctor.py:doctor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/doctor.py",
+      "target": "func:frappe/utils/doctor.py:purge_pending_jobs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/error.py",
+      "target": "func:frappe/utils/error.py:log_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/error.py",
+      "target": "func:frappe/utils/error.py:log_error_snapshot",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/error.py",
+      "target": "func:frappe/utils/error.py:raise_error_on_no_output",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/error.py",
+      "target": "func:frappe/utils/error.py:guess_exception_source",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_lock.py",
+      "target": "func:frappe/utils/file_lock.py:create_lock",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_lock.py",
+      "target": "class:frappe/utils/file_lock.py:LockTimeoutError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/csvutils.py",
+      "target": "file:frappe/utils/dateutils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/dashboard.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/data.py",
+      "target": "file:frappe/utils/deprecations.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/dateutils.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/utils/diff.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/doctor.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/utils/error.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/utils/file_lock.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/csvutils.py:check_record",
+      "target": "func:frappe/utils/dateutils.py:parse_date",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/csvutils.py:read_csv_content_from_attached_file",
+      "target": "func:frappe/utils/csvutils.py:read_csv_content",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:flt",
+      "target": "func:frappe/utils/data.py:rounded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:fmt_money",
+      "target": "func:frappe/utils/data.py:flt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:fmt_money",
+      "target": "func:frappe/utils/data.py:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:evaluate_filters",
+      "target": "func:frappe/utils/data.py:get_filter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:get_filter",
+      "target": "func:frappe/utils/data.py:sanitize_column",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:cast",
+      "target": "func:frappe/utils/data.py:flt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:cast",
+      "target": "func:frappe/utils/data.py:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:cast",
+      "target": "func:frappe/utils/data.py:getdate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:cast",
+      "target": "func:frappe/utils/data.py:get_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:add_to_date",
+      "target": "func:frappe/utils/data.py:now_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:add_to_date",
+      "target": "func:frappe/utils/data.py:get_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:getdate",
+      "target": "func:frappe/utils/data.py:get_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/data.py:get_timespan_date_range",
+      "target": "func:frappe/utils/data.py:add_to_date",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/dateutils.py:get_dates_from_timegrain",
+      "target": "func:frappe/utils/data.py:add_to_date",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/error.py:log_error_snapshot",
+      "target": "func:frappe/utils/error.py:log_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/diff.py:get_version_diff",
+      "target": "func:frappe/utils/data.py:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/diff.py:version_query",
+      "target": "func:frappe/utils/data.py:pretty_date",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/deprecations.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

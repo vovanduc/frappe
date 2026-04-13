@@ -1,0 +1,1073 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/model/sync.js",
+      "type": "file",
+      "name": "model/sync.js",
+      "summary": "Syncs server doc data into client-side frappe.model; adds records to locals, sets defaults, triggers events.",
+      "tags": [
+        "model",
+        "sync",
+        "client-cache"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/model/sync.js"
+    },
+    {
+      "id": "func:model/sync.js:sync",
+      "type": "func",
+      "name": "sync",
+      "summary": "func sync defined in model/sync.js",
+      "tags": [
+        "model",
+        "sync",
+        "client-cache"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        6,
+        6
+      ]
+    },
+    {
+      "id": "func:model/sync.js:add_to_locals",
+      "type": "func",
+      "name": "add_to_locals",
+      "summary": "func add_to_locals defined in model/sync.js",
+      "tags": [
+        "model",
+        "sync",
+        "client-cache"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        72,
+        72
+      ]
+    },
+    {
+      "id": "func:model/sync.js:update_in_locals",
+      "type": "func",
+      "name": "update_in_locals",
+      "summary": "func update_in_locals defined in model/sync.js",
+      "tags": [
+        "model",
+        "sync",
+        "client-cache"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        108,
+        108
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/model/user_settings.js",
+      "type": "file",
+      "name": "model/user_settings.js",
+      "summary": "Persists per-user DocType settings (list view filters, columns) via API calls.",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/model/user_settings.js"
+    },
+    {
+      "id": "func:model/user_settings.js:get",
+      "type": "func",
+      "name": "get",
+      "summary": "func get defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        4,
+        4
+      ]
+    },
+    {
+      "id": "func:model/user_settings.js:save",
+      "type": "func",
+      "name": "save",
+      "summary": "func save defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        9,
+        9
+      ]
+    },
+    {
+      "id": "func:model/user_settings.js:remove",
+      "type": "func",
+      "name": "remove",
+      "summary": "func remove defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        30,
+        30
+      ]
+    },
+    {
+      "id": "func:model/user_settings.js:update",
+      "type": "func",
+      "name": "update",
+      "summary": "func update defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        36,
+        36
+      ]
+    },
+    {
+      "id": "func:model/user_settings.js:callback",
+      "type": "func",
+      "name": "callback",
+      "summary": "func callback defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "func:model/user_settings.js:frappe.get_user_settings",
+      "type": "func",
+      "name": "frappe.get_user_settings",
+      "summary": "func frappe.get_user_settings defined in model/user_settings.js",
+      "tags": [
+        "model",
+        "user-settings",
+        "persistence"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        51,
+        51
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/model/workflow.js",
+      "type": "file",
+      "name": "model/workflow.js",
+      "summary": "Client-side workflow state machine helpers: get transitions, apply actions, state fields.",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/model/workflow.js"
+    },
+    {
+      "id": "func:model/workflow.js:setup",
+      "type": "func",
+      "name": "setup",
+      "summary": "func setup defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:get_state_fieldname",
+      "type": "func",
+      "name": "get_state_fieldname",
+      "summary": "func get_state_fieldname defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        22,
+        22
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:get_default_state",
+      "type": "func",
+      "name": "get_default_state",
+      "summary": "func get_default_state defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        28,
+        28
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:get_transitions",
+      "type": "func",
+      "name": "get_transitions",
+      "summary": "func get_transitions defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        39,
+        39
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:get_document_state_roles",
+      "type": "func",
+      "name": "get_document_state_roles",
+      "summary": "func get_document_state_roles defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        43,
+        43
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:is_self_approval_enabled",
+      "type": "func",
+      "name": "is_self_approval_enabled",
+      "summary": "func is_self_approval_enabled defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        50,
+        50
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:is_read_only",
+      "type": "func",
+      "name": "is_read_only",
+      "summary": "func is_read_only defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "func:model/workflow.js:get_update_fields",
+      "type": "func",
+      "name": "get_update_fields",
+      "summary": "func get_update_fields defined in model/workflow.js",
+      "tags": [
+        "workflow",
+        "state-machine"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        72,
+        72
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/module_editor.js",
+      "type": "file",
+      "name": "module_editor.js",
+      "summary": "UI control for selecting which modules a user has access to.",
+      "tags": [
+        "ui",
+        "module",
+        "permissions"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/module_editor.js"
+    },
+    {
+      "id": "class:module_editor.js:frappe.ModuleEditor",
+      "type": "class",
+      "name": "frappe.ModuleEditor",
+      "summary": "class frappe.ModuleEditor defined in module_editor.js",
+      "tags": [
+        "ui",
+        "module",
+        "permissions"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/phone_picker/phone_picker.js",
+      "type": "file",
+      "name": "phone_picker/phone_picker.js",
+      "summary": "Phone country-code picker dialog widget.",
+      "tags": [
+        "ui",
+        "widget",
+        "phone"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/phone_picker/phone_picker.js"
+    },
+    {
+      "id": "class:phone_picker/phone_picker.js:PhonePicker",
+      "type": "class",
+      "name": "PhonePicker",
+      "summary": "class PhonePicker defined in phone_picker/phone_picker.js",
+      "tags": [
+        "ui",
+        "widget",
+        "phone"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        1,
+        1
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/polyfill.js",
+      "type": "file",
+      "name": "polyfill.js",
+      "summary": "Browser polyfills (String/Array/Object helpers) for legacy support.",
+      "tags": [
+        "polyfill",
+        "compat"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/polyfill.js"
+    },
+    {
+      "id": "func:polyfill.js:value",
+      "type": "func",
+      "name": "value",
+      "summary": "func value defined in polyfill.js",
+      "tags": [
+        "polyfill",
+        "compat"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/provide.js",
+      "type": "file",
+      "name": "provide.js",
+      "summary": "frappe.provide() creates nested JS namespace objects to attach API surfaces.",
+      "tags": [
+        "namespace",
+        "bootstrap"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/provide.js"
+    },
+    {
+      "id": "func:provide.js:frappe.provide",
+      "type": "func",
+      "name": "frappe.provide",
+      "summary": "func frappe.provide defined in provide.js",
+      "tags": [
+        "namespace",
+        "bootstrap"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/query_string.js",
+      "type": "file",
+      "name": "query_string.js",
+      "summary": "Parses URL query string and routes based on cmd/doctype/name params.",
+      "tags": [
+        "routing",
+        "url"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/query_string.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/request.js",
+      "type": "file",
+      "name": "request.js",
+      "summary": "Core AJAX wrapper (frappe.call). Handles CSRF, retries, progress, error routing, server messages, docinfo sync.",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/request.js"
+    },
+    {
+      "id": "func:request.js:frappe.xcall",
+      "type": "func",
+      "name": "frappe.xcall",
+      "summary": "func frappe.xcall defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "func:request.js:frappe.call",
+      "type": "func",
+      "name": "frappe.call",
+      "summary": "func frappe.call defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        31,
+        31
+      ]
+    },
+    {
+      "id": "func:request.js:frappe.request.call",
+      "type": "func",
+      "name": "frappe.request.call",
+      "summary": "func frappe.request.call defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        123,
+        123
+      ]
+    },
+    {
+      "id": "func:request.js:200",
+      "type": "func",
+      "name": "200",
+      "summary": "func 200 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        127,
+        127
+      ]
+    },
+    {
+      "id": "func:request.js:401",
+      "type": "func",
+      "name": "401",
+      "summary": "func 401 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        130,
+        130
+      ]
+    },
+    {
+      "id": "func:request.js:404",
+      "type": "func",
+      "name": "404",
+      "summary": "func 404 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        138,
+        138
+      ]
+    },
+    {
+      "id": "func:request.js:403",
+      "type": "func",
+      "name": "403",
+      "summary": "func 403 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        147,
+        147
+      ]
+    },
+    {
+      "id": "func:request.js:508",
+      "type": "func",
+      "name": "508",
+      "summary": "func 508 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        185,
+        185
+      ]
+    },
+    {
+      "id": "func:request.js:413",
+      "type": "func",
+      "name": "413",
+      "summary": "func 413 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        196,
+        196
+      ]
+    },
+    {
+      "id": "func:request.js:417",
+      "type": "func",
+      "name": "417",
+      "summary": "func 417 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        206,
+        206
+      ]
+    },
+    {
+      "id": "func:request.js:501",
+      "type": "func",
+      "name": "501",
+      "summary": "func 501 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        218,
+        218
+      ]
+    },
+    {
+      "id": "func:request.js:500",
+      "type": "func",
+      "name": "500",
+      "summary": "func 500 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        222,
+        222
+      ]
+    },
+    {
+      "id": "func:request.js:504",
+      "type": "func",
+      "name": "504",
+      "summary": "func 504 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        231,
+        231
+      ]
+    },
+    {
+      "id": "func:request.js:502",
+      "type": "func",
+      "name": "502",
+      "summary": "func 502 defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        235,
+        235
+      ]
+    },
+    {
+      "id": "func:request.js:QueryTimeoutError",
+      "type": "func",
+      "name": "QueryTimeoutError",
+      "summary": "func QueryTimeoutError defined in request.js",
+      "tags": [
+        "ajax",
+        "api",
+        "core",
+        "frappe.call"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        242,
+        242
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/roles_editor.js",
+      "type": "file",
+      "name": "roles_editor.js",
+      "summary": "UI for editing roles attached to a user/profile (checkbox matrix).",
+      "tags": [
+        "ui",
+        "roles",
+        "permissions"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/roles_editor.js"
+    },
+    {
+      "id": "class:roles_editor.js:frappe.RoleEditor",
+      "type": "class",
+      "name": "frappe.RoleEditor",
+      "summary": "class frappe.RoleEditor defined in roles_editor.js",
+      "tags": [
+        "ui",
+        "roles",
+        "permissions"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        1,
+        1
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/model/sync.js",
+      "target": "func:model/sync.js:sync",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/sync.js",
+      "target": "func:model/sync.js:add_to_locals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/sync.js",
+      "target": "func:model/sync.js:update_in_locals",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:get",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:remove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:callback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "func:model/user_settings.js:frappe.get_user_settings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:get_state_fieldname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:get_default_state",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:get_transitions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:get_document_state_roles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:is_self_approval_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:is_read_only",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "func:model/workflow.js:get_update_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/module_editor.js",
+      "target": "class:module_editor.js:frappe.ModuleEditor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/phone_picker/phone_picker.js",
+      "target": "class:phone_picker/phone_picker.js:PhonePicker",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/polyfill.js",
+      "target": "func:polyfill.js:value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/provide.js",
+      "target": "func:provide.js:frappe.provide",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:frappe.xcall",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:frappe.call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:frappe.request.call",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:200",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:401",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:404",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:403",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:508",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:413",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:417",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:501",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:500",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:504",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:502",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "func:request.js:QueryTimeoutError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/roles_editor.js",
+      "target": "class:roles_editor.js:frappe.RoleEditor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "file:frappe/public/js/frappe/model/sync.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 3
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/sync.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 2
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 2
+    },
+    {
+      "source": "file:frappe/public/js/frappe/query_string.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/roles_editor.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/module_editor.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/phone_picker/phone_picker.js",
+      "target": "file:frappe/public/js/frappe/request.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/sync.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/workflow.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/model/user_settings.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/request.js",
+      "target": "file:frappe/public/js/frappe/provide.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

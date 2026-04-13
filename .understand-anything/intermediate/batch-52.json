@@ -1,0 +1,998 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/nestedset.py",
+      "type": "file",
+      "name": "nestedset.py",
+      "filePath": "frappe/utils/nestedset.py",
+      "summary": "Implements the nested set model (NSM) for hierarchical/tree data structures in DocTypes. Provides tree operations like insert, move, rebuild, and ancestor/descendant queries.",
+      "tags": ["nested-set", "tree", "hierarchy", "database", "model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/number_format.py",
+      "type": "file",
+      "name": "number_format.py",
+      "filePath": "frappe/utils/number_format.py",
+      "summary": "Defines a NumberFormat dataclass and a mapping of number format strings to their decimal separator, thousands separator, and precision.",
+      "tags": ["formatting", "numbers", "dataclass", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/oauth.py",
+      "type": "file",
+      "name": "oauth.py",
+      "filePath": "frappe/utils/oauth.py",
+      "summary": "Handles OAuth2 authentication flows including provider configuration, authorization URL building, token exchange, and user login/signup via social providers like Google, GitHub, Facebook.",
+      "tags": ["oauth", "authentication", "social-login", "security", "integration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/password.py",
+      "type": "file",
+      "name": "password.py",
+      "filePath": "frappe/utils/password.py",
+      "summary": "Manages password hashing (via passlib with pbkdf2_sha256/argon2), verification, and Fernet-based encryption/decryption for sensitive fields stored in the __Auth table.",
+      "tags": ["password", "encryption", "security", "hashing", "authentication"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/password_strength.py",
+      "type": "file",
+      "name": "password_strength.py",
+      "filePath": "frappe/utils/password_strength.py",
+      "summary": "Wraps the zxcvbn library to test password strength and provides localized feedback with warnings and suggestions for improving weak passwords.",
+      "tags": ["password", "security", "validation", "zxcvbn", "feedback"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/pdf.py",
+      "type": "file",
+      "name": "pdf.py",
+      "filePath": "frappe/utils/pdf.py",
+      "summary": "PDF generation utilities using wkhtmltopdf (pdfkit) with support for headers/footers, CSS parsing, image inlining, and option preparation. Also provides a bridge to the Chrome-based PDF generator.",
+      "tags": ["pdf", "printing", "wkhtmltopdf", "html-to-pdf", "formatting"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/pdf_generator/browser.py",
+      "type": "file",
+      "name": "browser.py",
+      "filePath": "frappe/utils/pdf_generator/browser.py",
+      "summary": "Orchestrates Chrome-based PDF generation by managing browser pages for body, header, and footer content, handling page sizing, margins, and dynamic page numbering.",
+      "tags": ["pdf", "chrome", "browser", "cdp", "printing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/pdf_generator/cdp_connection.py",
+      "type": "file",
+      "name": "cdp_connection.py",
+      "filePath": "frappe/utils/pdf_generator/cdp_connection.py",
+      "summary": "WebSocket client for Chrome DevTools Protocol (CDP) communication. Handles async message sending/receiving, event listeners, and connection lifecycle.",
+      "tags": ["websocket", "cdp", "chrome", "async", "protocol"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/pdf_generator/chrome_pdf_generator.py",
+      "type": "file",
+      "name": "chrome_pdf_generator.py",
+      "filePath": "frappe/utils/pdf_generator/chrome_pdf_generator.py",
+      "summary": "Singleton class that manages the headless Chromium process lifecycle including launching, finding the DevTools URL, and closing the browser for PDF generation.",
+      "tags": ["chromium", "pdf", "singleton", "subprocess", "headless"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/pdf_generator/page.py",
+      "type": "file",
+      "name": "page.py",
+      "filePath": "frappe/utils/pdf_generator/page.py",
+      "summary": "Represents a browser page/tab in the Chrome DevTools Protocol, providing methods for navigation, content setting, DOM inspection, CSS injection, cookie management, and PDF generation.",
+      "tags": ["cdp", "page", "chrome", "pdf", "dom"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/nestedset.py:NestedSet",
+      "type": "class",
+      "name": "NestedSet",
+      "lineRange": [263, 374],
+      "summary": "Document subclass implementing the nested set pattern with lifecycle hooks for insert, update, trash, rename, and merge operations on hierarchical DocTypes.",
+      "tags": ["nested-set", "document", "tree", "hierarchy", "model"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/number_format.py:NumberFormat",
+      "type": "class",
+      "name": "NumberFormat",
+      "lineRange": [18, 36],
+      "summary": "Dataclass representing a number format with precision, decimal separator, thousands separator, and a factory method to parse from format strings.",
+      "tags": ["dataclass", "formatting", "numbers"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "type": "class",
+      "name": "Browser",
+      "lineRange": [11, 417],
+      "summary": "Orchestrates Chrome-based PDF generation by managing CDP connections, browser contexts, and body/header/footer pages with proper sizing and margin calculations.",
+      "tags": ["pdf", "chrome", "browser", "cdp", "orchestration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/browser.py:PageSize",
+      "type": "class",
+      "name": "PageSize",
+      "lineRange": [419, 474],
+      "summary": "Utility class providing a lookup dictionary of standard paper sizes (A, B, C series, Letter, Legal, etc.) with width and height in millimeters.",
+      "tags": ["page-size", "paper", "constants", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/cdp_connection.py:CDPSocketClient",
+      "type": "class",
+      "name": "CDPSocketClient",
+      "lineRange": [8, 179],
+      "summary": "Manages WebSocket communications with Chrome DevTools Protocol, handling async message dispatch, response matching via composite keys, and event listeners.",
+      "tags": ["websocket", "cdp", "async", "protocol", "client"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/chrome_pdf_generator.py:ChromePDFGenerator",
+      "type": "class",
+      "name": "ChromePDFGenerator",
+      "lineRange": [18, 266],
+      "summary": "Singleton that manages the headless Chromium process lifecycle, including launching with security flags, monitoring stderr for DevTools URL, and graceful shutdown.",
+      "tags": ["singleton", "chromium", "subprocess", "pdf", "headless"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/pdf_generator/page.py:Page",
+      "type": "class",
+      "name": "Page",
+      "lineRange": [14, 357],
+      "summary": "Represents a CDP browser tab with methods for navigation, content injection, request interception, DOM querying, CSS manipulation, and streaming PDF generation.",
+      "tags": ["cdp", "page", "dom", "pdf", "chrome"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:update_nsm",
+      "type": "function",
+      "name": "update_nsm",
+      "lineRange": [41, 64],
+      "summary": "Main entry point for updating nested set model values when a document's parent changes or a new node is inserted.",
+      "tags": ["nested-set", "update", "tree"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:update_add_node",
+      "type": "function",
+      "name": "update_add_node",
+      "lineRange": [67, 98],
+      "summary": "Inserts a new node into the nested set by shifting lft/rgt values of existing nodes to make room.",
+      "tags": ["nested-set", "insert", "tree"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:update_move_node",
+      "type": "function",
+      "name": "update_move_node",
+      "lineRange": [101, 164],
+      "summary": "Moves a node and its subtree to a new parent in the nested set by temporarily negating lft/rgt values.",
+      "tags": ["nested-set", "move", "tree"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:rebuild_tree",
+      "type": "function",
+      "name": "rebuild_tree",
+      "lineRange": [167, 199],
+      "summary": "Rebuilds the entire nested set tree by recursively recalculating lft/rgt values from root nodes. Whitelisted for client-side calls.",
+      "tags": ["nested-set", "rebuild", "tree", "whitelisted"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:rebuild_node",
+      "type": "function",
+      "name": "rebuild_node",
+      "lineRange": [202, 227],
+      "summary": "Recursively rebuilds lft/rgt values for a node and all its children in the nested set.",
+      "tags": ["nested-set", "rebuild", "recursive"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:remove_subtree",
+      "type": "function",
+      "name": "remove_subtree",
+      "lineRange": [236, 260],
+      "summary": "Removes a document and all its children from the nested set using raw SQL, bypassing controller hooks.",
+      "tags": ["nested-set", "delete", "subtree"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:get_root_of",
+      "type": "function",
+      "name": "get_root_of",
+      "lineRange": [376, 387],
+      "summary": "Returns the root element of a DocType with tree structure using a subquery to find nodes with no ancestors.",
+      "tags": ["nested-set", "root", "query"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:get_ancestors_of",
+      "type": "function",
+      "name": "get_ancestors_of",
+      "lineRange": [390, 401],
+      "summary": "Returns ancestor elements of a given node in a tree-structured DocType.",
+      "tags": ["nested-set", "ancestors", "query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/nestedset.py:get_descendants_of",
+      "type": "function",
+      "name": "get_descendants_of",
+      "lineRange": [404, 419],
+      "summary": "Returns descendant elements of a given node in a tree-structured DocType.",
+      "tags": ["nested-set", "descendants", "query"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/oauth.py:get_oauth2_providers",
+      "type": "function",
+      "name": "get_oauth2_providers",
+      "lineRange": [50, 81],
+      "summary": "Fetches all Social Login Key records and builds a dictionary of OAuth2 provider configurations with flow params, redirect URIs, and API endpoints.",
+      "tags": ["oauth", "providers", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/oauth.py:login_via_oauth2",
+      "type": "function",
+      "name": "login_via_oauth2",
+      "lineRange": [148, 150],
+      "summary": "Entry point for OAuth2 login flow that fetches user info and logs them in.",
+      "tags": ["oauth", "login", "authentication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/oauth.py:get_info_via_oauth",
+      "type": "function",
+      "name": "get_info_via_oauth",
+      "lineRange": [158, 195],
+      "summary": "Exchanges an OAuth2 authorization code for user information, supporting both API endpoint and JWT id_token flows.",
+      "tags": ["oauth", "token-exchange", "user-info"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/oauth.py:login_oauth_user",
+      "type": "function",
+      "name": "login_oauth_user",
+      "lineRange": [198, 256],
+      "summary": "Processes OAuth user data, creates or updates the user record, and establishes a login session with optional token generation.",
+      "tags": ["oauth", "login", "session", "user"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/oauth.py:update_oauth_user",
+      "type": "function",
+      "name": "update_oauth_user",
+      "lineRange": [293, 332],
+      "summary": "Creates or updates an OAuth user record with social login ID and provider-specific data (Facebook, Google, GitHub, etc.).",
+      "tags": ["oauth", "user", "social-login", "update"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/password.py:get_decrypted_password",
+      "type": "function",
+      "name": "get_decrypted_password",
+      "lineRange": [23, 48],
+      "summary": "Retrieves and decrypts an encrypted password field from the __Auth table using Fernet symmetric encryption.",
+      "tags": ["password", "decryption", "fernet", "auth"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/password.py:set_encrypted_password",
+      "type": "function",
+      "name": "set_encrypted_password",
+      "lineRange": [51, 77],
+      "summary": "Encrypts and stores a password in the __Auth table with upsert support for MariaDB, PostgreSQL, and SQLite.",
+      "tags": ["password", "encryption", "storage", "database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/password.py:check_password",
+      "type": "function",
+      "name": "check_password",
+      "lineRange": [101, 131],
+      "summary": "Verifies a user's password against the stored hash, auto-upgrading the hash if the scheme needs updating.",
+      "tags": ["password", "verification", "authentication", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/password.py:update_password",
+      "type": "function",
+      "name": "update_password",
+      "lineRange": [138, 178],
+      "summary": "Hashes and stores a new password for a user with upsert logic, optionally clearing other sessions.",
+      "tags": ["password", "update", "hashing", "session"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/password.py:encrypt",
+      "type": "function",
+      "name": "encrypt",
+      "lineRange": [207, 216],
+      "summary": "Encrypts text using Fernet symmetric encryption with the site's encryption key.",
+      "tags": ["encryption", "fernet", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/password.py:decrypt",
+      "type": "function",
+      "name": "decrypt",
+      "lineRange": [219, 238],
+      "summary": "Decrypts Fernet-encrypted text, providing helpful error messages if the encryption key is invalid.",
+      "tags": ["decryption", "fernet", "security"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/password.py:get_encryption_key",
+      "type": "function",
+      "name": "get_encryption_key",
+      "lineRange": [241, 249],
+      "summary": "Returns the site's Fernet encryption key, auto-generating and persisting one if not configured.",
+      "tags": ["encryption", "key", "configuration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/password_strength.py:test_password_strength",
+      "type": "function",
+      "name": "test_password_strength",
+      "lineRange": [20, 30],
+      "summary": "Wraps zxcvbn to test password strength, truncating long passwords to 128 chars for performance, and adding localized feedback.",
+      "tags": ["password", "strength", "zxcvbn", "validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/password_strength.py:get_feedback",
+      "type": "function",
+      "name": "get_feedback",
+      "lineRange": [50, 75],
+      "summary": "Returns password feedback dictionary with warnings and suggestions based on the password score and longest match sequence.",
+      "tags": ["password", "feedback", "validation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/password_strength.py:get_match_feedback",
+      "type": "function",
+      "name": "get_match_feedback",
+      "lineRange": [78, 146],
+      "summary": "Returns pattern-specific feedback (dictionary, spatial, repeat, sequence, regex, date) for a password match.",
+      "tags": ["password", "feedback", "patterns"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/password_strength.py:get_dictionary_match_feedback",
+      "type": "function",
+      "name": "get_dictionary_match_feedback",
+      "lineRange": [149, 193],
+      "summary": "Provides detailed feedback for dictionary-based password matches including common passwords, English words, and names.",
+      "tags": ["password", "feedback", "dictionary"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:get_pdf",
+      "type": "function",
+      "name": "get_pdf",
+      "lineRange": [87, 132],
+      "summary": "Generates a PDF from HTML using wkhtmltopdf (pdfkit), handling options, error recovery, and optional password encryption.",
+      "tags": ["pdf", "wkhtmltopdf", "generation", "html"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:get_chrome_pdf",
+      "type": "function",
+      "name": "get_chrome_pdf",
+      "lineRange": [148, 163],
+      "summary": "Generates a PDF using Chrome DevTools Protocol via the Browser and ChromePDFGenerator classes, with timing measurement.",
+      "tags": ["pdf", "chrome", "generation"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:prepare_options",
+      "type": "function",
+      "name": "prepare_options",
+      "lineRange": [178, 222],
+      "summary": "Prepares wkhtmltopdf options from HTML content, adding defaults for margins, page size, cookies, and inlining private images.",
+      "tags": ["pdf", "options", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:read_options_from_html",
+      "type": "function",
+      "name": "read_options_from_html",
+      "lineRange": [242, 264],
+      "summary": "Parses HTML with BeautifulSoup to extract PDF options from CSS styles and prepare header/footer sections.",
+      "tags": ["pdf", "html-parsing", "options"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:prepare_header_footer",
+      "type": "function",
+      "name": "prepare_header_footer",
+      "lineRange": [333, 378],
+      "summary": "Extracts header and footer sections from HTML, renders them as standalone HTML files for wkhtmltopdf consumption.",
+      "tags": ["pdf", "header", "footer", "template"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/pdf.py:pdf_contains_js",
+      "type": "function",
+      "name": "pdf_contains_js",
+      "lineRange": [421, 459],
+      "summary": "Checks if a PDF file contains JavaScript by inspecting its object tree for /JS and /JavaScript keys.",
+      "tags": ["pdf", "security", "validation"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "class:frappe/utils/nestedset.py:NestedSet",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:update_nsm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:update_add_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:update_move_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:rebuild_tree",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:rebuild_node",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:remove_subtree",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:get_root_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:get_ancestors_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "func:frappe/utils/nestedset.py:get_descendants_of",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/number_format.py",
+      "target": "class:frappe/utils/number_format.py:NumberFormat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "func:frappe/utils/oauth.py:get_oauth2_providers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "func:frappe/utils/oauth.py:login_via_oauth2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "func:frappe/utils/oauth.py:get_info_via_oauth",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "func:frappe/utils/oauth.py:login_oauth_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "func:frappe/utils/oauth.py:update_oauth_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:get_decrypted_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:set_encrypted_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:check_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:update_password",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:encrypt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:decrypt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "func:frappe/utils/password.py:get_encryption_key",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password_strength.py",
+      "target": "func:frappe/utils/password_strength.py:test_password_strength",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password_strength.py",
+      "target": "func:frappe/utils/password_strength.py:get_feedback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password_strength.py",
+      "target": "func:frappe/utils/password_strength.py:get_match_feedback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/password_strength.py",
+      "target": "func:frappe/utils/password_strength.py:get_dictionary_match_feedback",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:get_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:get_chrome_pdf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:prepare_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:read_options_from_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:prepare_header_footer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "func:frappe/utils/pdf.py:pdf_contains_js",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "class:frappe/utils/pdf_generator/browser.py:PageSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/cdp_connection.py",
+      "target": "class:frappe/utils/pdf_generator/cdp_connection.py:CDPSocketClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/chrome_pdf_generator.py",
+      "target": "class:frappe/utils/pdf_generator/chrome_pdf_generator.py:ChromePDFGenerator",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/page.py",
+      "target": "class:frappe/utils/pdf_generator/page.py:Page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/utils/nestedset.py:NestedSet",
+      "target": "class:frappe/model/document.py:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/nestedset.py",
+      "target": "file:frappe/query_builder/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "file:frappe/utils/password.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "file:frappe/website/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/oauth.py",
+      "target": "file:frappe/apps.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/oauth.py:get_info_via_oauth",
+      "target": "func:frappe/utils/oauth.py:get_oauth2_providers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/oauth.py:login_via_oauth2",
+      "target": "func:frappe/utils/oauth.py:get_info_via_oauth",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/oauth.py:login_via_oauth2",
+      "target": "func:frappe/utils/oauth.py:login_oauth_user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/oauth.py:login_oauth_user",
+      "target": "func:frappe/utils/oauth.py:update_oauth_user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/oauth.py:get_oauth2_providers",
+      "target": "func:frappe/utils/password.py:get_decrypted_password",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/password.py",
+      "target": "file:frappe/query_builder/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/password.py:check_password",
+      "target": "func:frappe/utils/password.py:update_password",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password.py:set_encrypted_password",
+      "target": "func:frappe/utils/password.py:encrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password.py:get_decrypted_password",
+      "target": "func:frappe/utils/password.py:decrypt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password.py:encrypt",
+      "target": "func:frappe/utils/password.py:get_encryption_key",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password.py:decrypt",
+      "target": "func:frappe/utils/password.py:get_encryption_key",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password_strength.py:test_password_strength",
+      "target": "func:frappe/utils/password_strength.py:get_feedback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password_strength.py:get_feedback",
+      "target": "func:frappe/utils/password_strength.py:get_match_feedback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/password_strength.py:get_match_feedback",
+      "target": "func:frappe/utils/password_strength.py:get_dictionary_match_feedback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "file:frappe/core/doctype/file/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "file:frappe/utils/caching.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf.py",
+      "target": "file:frappe/utils/jinja_globals.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/pdf.py:get_pdf",
+      "target": "func:frappe/utils/pdf.py:prepare_options",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/pdf.py:prepare_options",
+      "target": "func:frappe/utils/pdf.py:read_options_from_html",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/pdf.py:read_options_from_html",
+      "target": "func:frappe/utils/pdf.py:prepare_header_footer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/pdf.py:get_chrome_pdf",
+      "target": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/pdf.py:get_chrome_pdf",
+      "target": "class:frappe/utils/pdf_generator/chrome_pdf_generator.py:ChromePDFGenerator",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "file:frappe/utils/pdf.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "file:frappe/utils/pdf_generator/cdp_connection.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "file:frappe/utils/pdf_generator/page.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "target": "class:frappe/utils/pdf_generator/cdp_connection.py:CDPSocketClient",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "target": "class:frappe/utils/pdf_generator/page.py:Page",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/utils/pdf_generator/browser.py:Browser",
+      "target": "class:frappe/utils/pdf_generator/chrome_pdf_generator.py:ChromePDFGenerator",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/utils/pdf_generator/page.py:Page",
+      "target": "class:frappe/utils/pdf_generator/cdp_connection.py:CDPSocketClient",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/page.py",
+      "target": "file:frappe/utils/pdf.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/chrome_pdf_generator.py",
+      "target": "file:frappe/utils/print_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/pdf_generator/browser.py",
+      "target": "file:frappe/utils/print_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/nestedset.py:update_nsm",
+      "target": "func:frappe/utils/nestedset.py:update_add_node",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/nestedset.py:update_nsm",
+      "target": "func:frappe/utils/nestedset.py:update_move_node",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/nestedset.py:rebuild_tree",
+      "target": "func:frappe/utils/nestedset.py:rebuild_node",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/password_strength.py",
+      "target": "file:frappe/utils/password.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

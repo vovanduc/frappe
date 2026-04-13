@@ -1,0 +1,1478 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/link_selector.js",
+      "type": "file",
+      "name": "link_selector.js",
+      "summary": "Dialog-based Link selector UI for searching and picking Link field values, supporting grid insertion, quantity prompts and dynamic link fields. Also defines frappe.link_search helper.",
+      "tags": ["form", "link", "selector", "dialog", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/form/link_selector.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector",
+      "type": "class",
+      "name": "LinkSelector",
+      "summary": "frappe.ui.form.LinkSelector: dialog to search and select a Link value for a form/grid field.",
+      "tags": ["class", "ui", "link-selector"],
+      "complexity": "moderate",
+      "lineRange": [4, 240]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Initializes LinkSelector with options and loads doctype metadata before calling make().",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [5, 17]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.make",
+      "type": "function",
+      "name": "make",
+      "summary": "Builds the search dialog with a text input, results area and More button.",
+      "tags": ["dialog", "ui"],
+      "complexity": "moderate",
+      "lineRange": [18, 63]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.search",
+      "type": "function",
+      "name": "search",
+      "summary": "Runs a link search via frappe.link_search and renders result rows with click handlers for selection.",
+      "tags": ["search", "render"],
+      "complexity": "complex",
+      "lineRange": [64, 169]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.set_in_grid",
+      "type": "function",
+      "name": "set_in_grid",
+      "summary": "Adds or updates a grid row with the selected value, optionally prompting for quantity or handling dynamic link references.",
+      "tags": ["grid", "set-value"],
+      "complexity": "complex",
+      "lineRange": [170, 239]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/link_selector.js:link_search",
+      "type": "function",
+      "name": "link_search",
+      "summary": "Global helper that calls frappe.desk.search.search_widget to retrieve link search results.",
+      "tags": ["helper", "search", "api"],
+      "complexity": "simple",
+      "lineRange": [242, 262]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/linked_with.js",
+      "type": "file",
+      "name": "linked_with.js",
+      "summary": "Dialog showing documents linked to the current form document, fetched from frappe.desk.form.linked_with.get.",
+      "tags": ["form", "linked-with", "dialog", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/linked_with.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith",
+      "type": "class",
+      "name": "LinkedWith",
+      "summary": "frappe.ui.form.LinkedWith: lists documents linked to the current document in a dialog.",
+      "tags": ["class", "dialog"],
+      "complexity": "simple",
+      "lineRange": [4, 109]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.show",
+      "type": "function",
+      "name": "show",
+      "summary": "Shows the linked documents dialog, creating it first if needed.",
+      "tags": ["show"],
+      "complexity": "simple",
+      "lineRange": [9, 19]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_dialog",
+      "type": "function",
+      "name": "make_dialog",
+      "summary": "Creates the dialog and wires on_page_show to fetch linked docs and render HTML.",
+      "tags": ["dialog"],
+      "complexity": "simple",
+      "lineRange": [21, 38]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html",
+      "type": "function",
+      "name": "make_html",
+      "summary": "Renders linked documents grouped by doctype into the dialog body.",
+      "tags": ["render", "html"],
+      "complexity": "moderate",
+      "lineRange": [40, 80]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_head",
+      "type": "function",
+      "name": "make_doc_head",
+      "summary": "Returns the header markup for a doctype section.",
+      "tags": ["html"],
+      "complexity": "simple",
+      "lineRange": [82, 88]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_hidden_count_row",
+      "type": "function",
+      "name": "make_hidden_count_row",
+      "summary": "Renders a row summarizing restricted/hidden linked documents count.",
+      "tags": ["html"],
+      "complexity": "simple",
+      "lineRange": [90, 98]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_row",
+      "type": "function",
+      "name": "make_doc_row",
+      "summary": "Renders a single linked document row with link to its desk page.",
+      "tags": ["html"],
+      "complexity": "simple",
+      "lineRange": [100, 108]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/multi_select_dialog.js",
+      "type": "file",
+      "name": "multi_select_dialog.js",
+      "summary": "Multi-select search dialog used for picking multiple records, with filter setters, custom filter groups, child table selection and datatable rendering.",
+      "tags": ["form", "multi-select", "dialog", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/multi_select_dialog.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog",
+      "type": "class",
+      "name": "MultiSelectDialog",
+      "summary": "frappe.ui.form.MultiSelectDialog: a dialog with search, filters and selection of multiple records including optional child item selection.",
+      "tags": ["class", "dialog", "selection"],
+      "complexity": "complex",
+      "lineRange": [1, 665]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Initializes the dialog options and loads doctype metadata before calling init().",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [2, 11]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.init",
+      "type": "function",
+      "name": "init",
+      "summary": "Sets page length, builds field definitions and creates the dialog.",
+      "tags": ["init"],
+      "complexity": "simple",
+      "lineRange": [13, 21]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_fields",
+      "type": "function",
+      "name": "get_fields",
+      "summary": "Combines primary filters, result fields, data fields and child selection fields for the dialog layout.",
+      "tags": ["fields"],
+      "complexity": "simple",
+      "lineRange": [23, 30]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_result_fields",
+      "type": "function",
+      "name": "get_result_fields",
+      "summary": "Returns the results HTML area and the More button for paginated search results.",
+      "tags": ["fields"],
+      "complexity": "simple",
+      "lineRange": [32, 49]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_data_fields",
+      "type": "function",
+      "name": "get_data_fields",
+      "summary": "Adds user-provided data_fields after a section break.",
+      "tags": ["fields"],
+      "complexity": "simple",
+      "lineRange": [51, 59]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_selection_fields",
+      "type": "function",
+      "name": "get_child_selection_fields",
+      "summary": "Adds child item selection UI fields when allow_child_item_selection is set.",
+      "tags": ["fields", "child"],
+      "complexity": "simple",
+      "lineRange": [60, 78]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make",
+      "type": "function",
+      "name": "make",
+      "summary": "Instantiates the frappe.ui.Dialog, wires primary action, filter group and results setup.",
+      "tags": ["dialog", "ui"],
+      "complexity": "moderate",
+      "lineRange": [79, 117]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_new_document",
+      "type": "function",
+      "name": "make_new_document",
+      "summary": "Opens a new document with route options based on setters when user requests creation.",
+      "tags": ["new-doc"],
+      "complexity": "simple",
+      "lineRange": [118, 125]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.set_route_options",
+      "type": "function",
+      "name": "set_route_options",
+      "summary": "Populates frappe.route_options with current setter values for new document creation.",
+      "tags": ["route"],
+      "complexity": "simple",
+      "lineRange": [126, 141]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.setup_results",
+      "type": "function",
+      "name": "setup_results",
+      "summary": "Renders the initial results area wrapper and triggers an initial search.",
+      "tags": ["render"],
+      "complexity": "simple",
+      "lineRange": [142, 151]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.show_child_results",
+      "type": "function",
+      "name": "show_child_results",
+      "summary": "Fetches child results and renders them in the child datatable.",
+      "tags": ["child", "render"],
+      "complexity": "simple",
+      "lineRange": [152, 162]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.is_child_selection_enabled",
+      "type": "function",
+      "name": "is_child_selection_enabled",
+      "summary": "Returns whether the allow-child-item-selection checkbox is currently toggled on.",
+      "tags": ["child"],
+      "complexity": "simple",
+      "lineRange": [163, 166]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.toggle_child_selection",
+      "type": "function",
+      "name": "toggle_child_selection",
+      "summary": "Toggles between parent and child result display when child selection mode changes.",
+      "tags": ["child", "toggle"],
+      "complexity": "simple",
+      "lineRange": [167, 177]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.render_child_datatable",
+      "type": "function",
+      "name": "render_child_datatable",
+      "summary": "Creates or refreshes the child datatable with current child results.",
+      "tags": ["datatable", "child"],
+      "complexity": "simple",
+      "lineRange": [178, 190]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_datatable_columns",
+      "type": "function",
+      "name": "get_child_datatable_columns",
+      "summary": "Builds column definitions for the child datatable from configured child columns.",
+      "tags": ["datatable"],
+      "complexity": "simple",
+      "lineRange": [191, 198]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_datatable_rows",
+      "type": "function",
+      "name": "get_child_datatable_rows",
+      "summary": "Returns truncated child rows for the datatable according to page length.",
+      "tags": ["datatable"],
+      "complexity": "simple",
+      "lineRange": [199, 209]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.setup_child_datatable",
+      "type": "function",
+      "name": "setup_child_datatable",
+      "summary": "Instantiates a DataTable for child item selection with checkboxes and More button.",
+      "tags": ["datatable", "ui"],
+      "complexity": "moderate",
+      "lineRange": [210, 229]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_primary_filters",
+      "type": "function",
+      "name": "get_primary_filters",
+      "summary": "Builds the search text and setter filter fields used as primary filters in the dialog.",
+      "tags": ["filters"],
+      "complexity": "moderate",
+      "lineRange": [230, 306]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_filter_area",
+      "type": "function",
+      "name": "make_filter_area",
+      "summary": "Sets up an advanced filter group area and hooks it into the results refresh.",
+      "tags": ["filters", "ui"],
+      "complexity": "simple",
+      "lineRange": [307, 323]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_custom_filters",
+      "type": "function",
+      "name": "get_custom_filters",
+      "summary": "Collects filters configured in the advanced filter group into a filters object.",
+      "tags": ["filters"],
+      "complexity": "simple",
+      "lineRange": [324, 335]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.bind_events",
+      "type": "function",
+      "name": "bind_events",
+      "summary": "Binds click events on result rows for checkbox toggling and selection synchronization.",
+      "tags": ["events"],
+      "complexity": "moderate",
+      "lineRange": [336, 390]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_parent_name_of_selected_children",
+      "type": "function",
+      "name": "get_parent_name_of_selected_children",
+      "summary": "Returns the unique parent names from currently checked child rows.",
+      "tags": ["child", "selection"],
+      "complexity": "simple",
+      "lineRange": [391, 409]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_selected_child_names",
+      "type": "function",
+      "name": "get_selected_child_names",
+      "summary": "Returns names of child rows currently checked in the datatable.",
+      "tags": ["child", "selection"],
+      "complexity": "simple",
+      "lineRange": [410, 426]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_checked_values",
+      "type": "function",
+      "name": "get_checked_values",
+      "summary": "Returns primary record names (or child child-table data) for checked rows in parent result list.",
+      "tags": ["selection"],
+      "complexity": "simple",
+      "lineRange": [427, 438]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_checked_items",
+      "type": "function",
+      "name": "get_checked_items",
+      "summary": "Returns the full result objects that are currently selected.",
+      "tags": ["selection"],
+      "complexity": "simple",
+      "lineRange": [439, 444]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_datatable_columns",
+      "type": "function",
+      "name": "get_datatable_columns",
+      "summary": "Returns configured columns or a default name column for the results list.",
+      "tags": ["datatable"],
+      "complexity": "simple",
+      "lineRange": [445, 453]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_list_row",
+      "type": "function",
+      "name": "make_list_row",
+      "summary": "Builds a single result row with checkbox, links and column values for the list.",
+      "tags": ["render", "list"],
+      "complexity": "moderate",
+      "lineRange": [454, 497]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.render_result_list",
+      "type": "function",
+      "name": "render_result_list",
+      "summary": "Renders list of results, handles empty state, header row, and More button visibility with optional auto scroll.",
+      "tags": ["render", "list"],
+      "complexity": "moderate",
+      "lineRange": [498, 526]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.empty_list",
+      "type": "function",
+      "name": "empty_list",
+      "summary": "Clears all checkboxes and selection state in the results list.",
+      "tags": ["reset"],
+      "complexity": "simple",
+      "lineRange": [527, 542]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_filters_from_setters",
+      "type": "function",
+      "name": "get_filters_from_setters",
+      "summary": "Builds filters and filter fields from configured setters based on their current values and fieldtype.",
+      "tags": ["filters"],
+      "complexity": "moderate",
+      "lineRange": [543, 570]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_args_for_search",
+      "type": "function",
+      "name": "get_args_for_search",
+      "summary": "Assembles search arguments (doctype, txt, filters, filter_fields, query) for the search_widget API.",
+      "tags": ["search", "args"],
+      "complexity": "simple",
+      "lineRange": [571, 586]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.perform_search",
+      "type": "function",
+      "name": "perform_search",
+      "summary": "Calls frappe.desk.search.search_widget and returns results plus a 'more' flag.",
+      "tags": ["search", "api"],
+      "complexity": "simple",
+      "lineRange": [588, 598]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_results",
+      "type": "function",
+      "name": "get_results",
+      "summary": "Runs the main search, stores results and renders the result list.",
+      "tags": ["search", "render"],
+      "complexity": "simple",
+      "lineRange": [600, 616]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_filtered_parents_for_child_search",
+      "type": "function",
+      "name": "get_filtered_parents_for_child_search",
+      "summary": "Runs a parent search limited to name field, used to scope child item filters.",
+      "tags": ["child", "search"],
+      "complexity": "simple",
+      "lineRange": [618, 628]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_parent_filters",
+      "type": "function",
+      "name": "add_parent_filters",
+      "summary": "Appends a [parent, in, parent_names] filter to scope child list results.",
+      "tags": ["child", "filters"],
+      "complexity": "simple",
+      "lineRange": [630, 636]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_custom_child_filters",
+      "type": "function",
+      "name": "add_custom_child_filters",
+      "summary": "Appends user-defined custom filters that target the child doctype to child list filters.",
+      "tags": ["child", "filters"],
+      "complexity": "simple",
+      "lineRange": [637, 646]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_result",
+      "type": "function",
+      "name": "get_child_result",
+      "summary": "Fetches child records via frappe.client.get_list using combined parent and custom filters.",
+      "tags": ["child", "api"],
+      "complexity": "simple",
+      "lineRange": [647, 664]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/print_utils.js",
+      "type": "file",
+      "name": "print_utils.js",
+      "summary": "Print utilities: dialog for print settings selection, and QZ Tray integration helpers for raw printing.",
+      "tags": ["form", "print", "qz", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/form/print_utils.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:get_print_settings",
+      "type": "function",
+      "name": "get_print_settings",
+      "summary": "Shows a dialog to configure print options (letterhead, columns, filters) and invokes a callback with the chosen settings.",
+      "tags": ["print", "dialog"],
+      "complexity": "complex",
+      "lineRange": [1, 128]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:qz_connect",
+      "type": "function",
+      "name": "qz_connect",
+      "summary": "Establishes a websocket connection to QZ Tray, initializing certificate and signature if needed.",
+      "tags": ["print", "qz"],
+      "complexity": "moderate",
+      "lineRange": [129, 199]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:qz_init",
+      "type": "function",
+      "name": "qz_init",
+      "summary": "Loads the QZ Tray library if not already present and resolves when ready.",
+      "tags": ["print", "qz"],
+      "complexity": "simple",
+      "lineRange": [200, 226]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:qz_get_printer_list",
+      "type": "function",
+      "name": "qz_get_printer_list",
+      "summary": "Connects to QZ and returns the list of available printers.",
+      "tags": ["print", "qz"],
+      "complexity": "simple",
+      "lineRange": [227, 241]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:qz_success",
+      "type": "function",
+      "name": "qz_success",
+      "summary": "Shows a success alert when a QZ Tray print job succeeds.",
+      "tags": ["print", "qz"],
+      "complexity": "simple",
+      "lineRange": [242, 249]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/print_utils.js:qz_fail",
+      "type": "function",
+      "name": "qz_fail",
+      "summary": "Handles QZ Tray errors, showing a user-friendly message for common connection issues.",
+      "tags": ["print", "qz", "error"],
+      "complexity": "simple",
+      "lineRange": [250, 259]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/quick_entry.js",
+      "type": "file",
+      "name": "quick_entry.js",
+      "summary": "Quick entry dialog form for fast creation of records with only mandatory fields, supporting custom QuickEntryForm subclasses per doctype.",
+      "tags": ["form", "quick-entry", "dialog", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/quick_entry.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:quick_edit",
+      "type": "function",
+      "name": "quick_edit",
+      "summary": "Opens a QuickEntryForm for editing an existing record by doctype and name.",
+      "tags": ["quick-edit"],
+      "complexity": "simple",
+      "lineRange": [3, 34]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm",
+      "type": "class",
+      "name": "QuickEntryForm",
+      "summary": "frappe.ui.form.QuickEntryForm extends frappe.ui.Dialog to render a lightweight dialog for new/quick document creation with mandatory fields only.",
+      "tags": ["class", "dialog", "quick-entry"],
+      "complexity": "complex",
+      "lineRange": [36, 416]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Initializes the quick entry form with doctype, after_insert hook, init callback and optional existing doc.",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [37, 50]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup",
+      "type": "function",
+      "name": "setup",
+      "summary": "Loads meta, decides if quick entry is viable, creates and renders the dialog or falls back to full form.",
+      "tags": ["setup"],
+      "complexity": "moderate",
+      "lineRange": [51, 74]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_meta_and_mandatory_fields",
+      "type": "function",
+      "name": "set_meta_and_mandatory_fields",
+      "summary": "Populates this.meta and docfields with mandatory/required fields from the doctype metadata.",
+      "tags": ["meta", "fields"],
+      "complexity": "simple",
+      "lineRange": [75, 88]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.check_quick_entry_doc",
+      "type": "function",
+      "name": "check_quick_entry_doc",
+      "summary": "Ensures this.doc is set, creating a new local doc if needed.",
+      "tags": ["doc"],
+      "complexity": "simple",
+      "lineRange": [89, 94]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.is_quick_entry",
+      "type": "function",
+      "name": "is_quick_entry",
+      "summary": "Returns whether the doctype is marked quick-entry and has a reasonable set of required fields.",
+      "tags": ["check"],
+      "complexity": "simple",
+      "lineRange": [95, 108]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.too_many_mandatory_fields",
+      "type": "function",
+      "name": "too_many_mandatory_fields",
+      "summary": "Returns true if more than 7 mandatory fields exist, disabling quick entry.",
+      "tags": ["check"],
+      "complexity": "simple",
+      "lineRange": [109, 116]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.has_child_table",
+      "type": "function",
+      "name": "has_child_table",
+      "summary": "Returns true if any mandatory field is a child table fieldtype.",
+      "tags": ["check"],
+      "complexity": "simple",
+      "lineRange": [117, 128]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.validate_for_prompt_autoname",
+      "type": "function",
+      "name": "validate_for_prompt_autoname",
+      "summary": "Inserts a name field when autoname is set to 'prompt'.",
+      "tags": ["autoname"],
+      "complexity": "simple",
+      "lineRange": [129, 153]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.render_dialog",
+      "type": "function",
+      "name": "render_dialog",
+      "summary": "Creates the dialog with current fields, registers actions, sets intro and renders it.",
+      "tags": ["render", "dialog"],
+      "complexity": "moderate",
+      "lineRange": [154, 173]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.get_title",
+      "type": "function",
+      "name": "get_title",
+      "summary": "Returns a human-readable title for the quick entry dialog.",
+      "tags": ["title"],
+      "complexity": "simple",
+      "lineRange": [174, 183]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.register_primary_action",
+      "type": "function",
+      "name": "register_primary_action",
+      "summary": "Wires the dialog primary action to update the doc and call insert() (or skip insert) with after-save hooks.",
+      "tags": ["action", "save"],
+      "complexity": "moderate",
+      "lineRange": [184, 227]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.handle_after_callbacks",
+      "type": "function",
+      "name": "handle_after_callbacks",
+      "summary": "Runs after_insert and calling-link update callbacks after the doc is saved.",
+      "tags": ["callback"],
+      "complexity": "simple",
+      "lineRange": [228, 236]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.insert",
+      "type": "function",
+      "name": "insert",
+      "summary": "Saves the new doc via frappe.db.insert, handles success/error, and closes the dialog.",
+      "tags": ["save", "insert"],
+      "complexity": "moderate",
+      "lineRange": [237, 276]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.submit",
+      "type": "function",
+      "name": "submit",
+      "summary": "Submits the given doc and resolves after process_after_insert.",
+      "tags": ["submit"],
+      "complexity": "simple",
+      "lineRange": [277, 290]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.process_after_insert",
+      "type": "function",
+      "name": "process_after_insert",
+      "summary": "Calls after_insert, updates calling link and optionally opens the full form if not in list view.",
+      "tags": ["after-insert"],
+      "complexity": "simple",
+      "lineRange": [291, 304]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup_cmd_enter_for_save",
+      "type": "function",
+      "name": "setup_cmd_enter_for_save",
+      "summary": "Binds Ctrl/Cmd+Enter to trigger the dialog primary action.",
+      "tags": ["shortcut"],
+      "complexity": "simple",
+      "lineRange": [305, 319]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.open_form_if_not_list",
+      "type": "function",
+      "name": "open_form_if_not_list",
+      "summary": "Opens the full form route for the doc unless the user is already on its list.",
+      "tags": ["route"],
+      "complexity": "simple",
+      "lineRange": [320, 329]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.update_doc",
+      "type": "function",
+      "name": "update_doc",
+      "summary": "Copies dialog field values back into the doc object.",
+      "tags": ["doc"],
+      "complexity": "simple",
+      "lineRange": [330, 340]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.open_doc",
+      "type": "function",
+      "name": "open_doc",
+      "summary": "Opens the full form for the doc, optionally registering after_insert hook.",
+      "tags": ["open"],
+      "complexity": "simple",
+      "lineRange": [341, 353]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.render_edit_in_full_page_link",
+      "type": "function",
+      "name": "render_edit_in_full_page_link",
+      "summary": "Adds a footer link to switch to full form editing.",
+      "tags": ["ui"],
+      "complexity": "simple",
+      "lineRange": [354, 358]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_intro",
+      "type": "function",
+      "name": "set_intro",
+      "summary": "Sets or clears the dialog intro message.",
+      "tags": ["ui"],
+      "complexity": "simple",
+      "lineRange": [359, 366]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_df_property",
+      "type": "function",
+      "name": "set_df_property",
+      "summary": "Proxies set_df_property on the dialog for a given fieldname.",
+      "tags": ["df"],
+      "complexity": "simple",
+      "lineRange": [367, 373]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_display",
+      "type": "function",
+      "name": "toggle_display",
+      "summary": "Shows or hides a set of fields in the dialog.",
+      "tags": ["df"],
+      "complexity": "simple",
+      "lineRange": [374, 380]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_enable",
+      "type": "function",
+      "name": "toggle_enable",
+      "summary": "Enables or disables a set of fields in the dialog.",
+      "tags": ["df"],
+      "complexity": "simple",
+      "lineRange": [381, 387]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_reqd",
+      "type": "function",
+      "name": "toggle_reqd",
+      "summary": "Toggles the required flag on a set of fields.",
+      "tags": ["df"],
+      "complexity": "simple",
+      "lineRange": [388, 394]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm._apply_on_fields",
+      "type": "function",
+      "name": "_apply_on_fields",
+      "summary": "Utility that applies a function to one or many field names.",
+      "tags": ["util"],
+      "complexity": "simple",
+      "lineRange": [395, 403]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_defaults",
+      "type": "function",
+      "name": "set_defaults",
+      "summary": "Sets default values from the doc into the dialog field inputs.",
+      "tags": ["defaults"],
+      "complexity": "simple",
+      "lineRange": [404, 416]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/reminders.js",
+      "type": "file",
+      "name": "reminders.js",
+      "summary": "Reminder creation dialog for documents, converting selected period/datetime into a scheduled notification via frappe.core.doctype.notification_log API.",
+      "tags": ["form", "reminder", "dialog", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/reminders.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager",
+      "type": "class",
+      "name": "ReminderManager",
+      "summary": "Exported ReminderManager: dialog to create a reminder for the current form document.",
+      "tags": ["class", "reminder"],
+      "complexity": "simple",
+      "lineRange": [1, 99]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Stores the frm reference for the reminder manager.",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [2, 4]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.show",
+      "type": "function",
+      "name": "show",
+      "summary": "Builds and shows the reminder dialog with relative/absolute time selectors.",
+      "tags": ["dialog"],
+      "complexity": "moderate",
+      "lineRange": [6, 61]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._update_datetime_selector",
+      "type": "function",
+      "name": "_update_datetime_selector",
+      "summary": "Toggles between period and datetime inputs based on the selected remind_at value.",
+      "tags": ["dialog", "ui"],
+      "complexity": "simple",
+      "lineRange": [62, 71]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._convert_period_to_absolute_time",
+      "type": "function",
+      "name": "_convert_period_to_absolute_time",
+      "summary": "Converts a relative period like '10 minutes' into an absolute datetime.",
+      "tags": ["time"],
+      "complexity": "simple",
+      "lineRange": [72, 84]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.create_reminder",
+      "type": "function",
+      "name": "create_reminder",
+      "summary": "Calls the server to create a reminder notification for the current doc.",
+      "tags": ["api", "create"],
+      "complexity": "simple",
+      "lineRange": [85, 98]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/save.js",
+      "type": "file",
+      "name": "save.js",
+      "summary": "Form save lifecycle: handles Save/Submit/Update/Amend/Cancel flows, mandatory field validation, workflow state and post-save link update.",
+      "tags": ["form", "save", "lifecycle", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/save.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/save.js:save",
+      "type": "function",
+      "name": "save",
+      "summary": "frappe.ui.form.save: top-level save routine that validates mandatory fields, freezes UI and dispatches insert/update/submit/cancel via frappe.call.",
+      "tags": ["save", "lifecycle"],
+      "complexity": "complex",
+      "lineRange": [4, 118]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/save.js:check_mandatory",
+      "type": "function",
+      "name": "check_mandatory",
+      "summary": "Validates mandatory fields on the document and child tables, scrolls to missing ones and shows a msgprint.",
+      "tags": ["validation"],
+      "complexity": "complex",
+      "lineRange": [120, 236]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/save.js:remove_old_form_route",
+      "type": "function",
+      "name": "remove_old_form_route",
+      "summary": "Removes the current form route from route history after save navigation.",
+      "tags": ["route"],
+      "complexity": "simple",
+      "lineRange": [238, 243]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/save.js:update_calling_link",
+      "type": "function",
+      "name": "update_calling_link",
+      "summary": "Updates the link field in the calling form after a new document is inserted via quick entry/new doc link.",
+      "tags": ["link", "quick-entry"],
+      "complexity": "complex",
+      "lineRange": [245, 301]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/script_helpers.js",
+      "type": "file",
+      "name": "script_helpers.js",
+      "summary": "Global helpers exposed on window for legacy client scripts: refresh_field, refresh_many, set_field_options, toggle_field, hide_field, unhide_field.",
+      "tags": ["form", "script", "helpers", "legacy", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/script_helpers.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_many",
+      "type": "function",
+      "name": "refresh_many",
+      "summary": "Refreshes a list of fields, optionally for a grid row.",
+      "tags": ["refresh", "legacy"],
+      "complexity": "simple",
+      "lineRange": [4, 9]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_field",
+      "type": "function",
+      "name": "refresh_field",
+      "summary": "Refreshes a single form or grid field, updating its meta if it belongs to a child table.",
+      "tags": ["refresh", "legacy"],
+      "complexity": "moderate",
+      "lineRange": [11, 33]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:set_field_options",
+      "type": "function",
+      "name": "set_field_options",
+      "summary": "Sets the options df property of a field on the current form.",
+      "tags": ["df", "legacy"],
+      "complexity": "simple",
+      "lineRange": [35, 37]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:toggle_field",
+      "type": "function",
+      "name": "toggle_field",
+      "summary": "Hides or shows a field on the current form by updating its hidden flag.",
+      "tags": ["df", "legacy"],
+      "complexity": "simple",
+      "lineRange": [39, 47]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:hide_field",
+      "type": "function",
+      "name": "hide_field",
+      "summary": "Hides one or several fields on the current form.",
+      "tags": ["df", "legacy"],
+      "complexity": "simple",
+      "lineRange": [49, 56]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_helpers.js:unhide_field",
+      "type": "function",
+      "name": "unhide_field",
+      "summary": "Shows one or several previously hidden fields on the current form.",
+      "tags": ["df", "legacy"],
+      "complexity": "simple",
+      "lineRange": [58, 65]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/script_manager.js",
+      "type": "file",
+      "name": "script_manager.js",
+      "summary": "Script manager that registers and triggers form event handlers (doctype client scripts, custom scripts, and frappe.ui.form.on handlers) for the current form.",
+      "tags": ["form", "script-manager", "events", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/script_manager.js"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:extend_cscript",
+      "type": "function",
+      "name": "extend_cscript",
+      "summary": "Extends a cscript object with a controller's methods and prototype for client scripts.",
+      "tags": ["cscript"],
+      "complexity": "simple",
+      "lineRange": [6, 12]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:get_event_handler_list",
+      "type": "function",
+      "name": "get_event_handler_list",
+      "summary": "Returns (creating if necessary) the event handler array for a given doctype and fieldname.",
+      "tags": ["handlers"],
+      "complexity": "simple",
+      "lineRange": [14, 23]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.on",
+      "type": "function",
+      "name": "on",
+      "summary": "Registers form event handlers for a doctype, fieldname and callback, supporting object map form and immediate trigger for setup on current form.",
+      "tags": ["handlers", "on"],
+      "complexity": "moderate",
+      "lineRange": [25, 58]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.off",
+      "type": "function",
+      "name": "off",
+      "summary": "Removes all event handlers for a given doctype/fieldname from global and current form caches.",
+      "tags": ["handlers", "off"],
+      "complexity": "simple",
+      "lineRange": [60, 73]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.trigger",
+      "type": "function",
+      "name": "trigger",
+      "summary": "Triggers a named event on the current form via its script manager.",
+      "tags": ["handlers", "trigger"],
+      "complexity": "simple",
+      "lineRange": [75, 77]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager",
+      "type": "class",
+      "name": "ScriptManager",
+      "summary": "frappe.ui.form.ScriptManager: orchestrates setup and triggering of client scripts (controller, custom cscripts, form handlers) for a form.",
+      "tags": ["class", "script-manager"],
+      "complexity": "complex",
+      "lineRange": [79, 290]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Initializes the script manager bound to a form instance.",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [80, 82]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.make",
+      "type": "function",
+      "name": "make",
+      "summary": "Instantiates a controller class for the form and extends its cscript.",
+      "tags": ["setup"],
+      "complexity": "simple",
+      "lineRange": [83, 88]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.trigger",
+      "type": "function",
+      "name": "trigger",
+      "summary": "Calls all handlers for an event (doctype-specific, wildcard, cscript, custom_) and chains their returned promises.",
+      "tags": ["trigger", "events"],
+      "complexity": "complex",
+      "lineRange": [89, 142]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.has_handler",
+      "type": "function",
+      "name": "has_handler",
+      "summary": "Returns whether any handlers are registered for an event name.",
+      "tags": ["handlers"],
+      "complexity": "simple",
+      "lineRange": [143, 149]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.has_handlers",
+      "type": "function",
+      "name": "has_handlers",
+      "summary": "Returns whether specific handlers exist for a given doctype/event combination.",
+      "tags": ["handlers"],
+      "complexity": "simple",
+      "lineRange": [150, 153]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.get_handlers",
+      "type": "function",
+      "name": "get_handlers",
+      "summary": "Collects all handler functions registered for an event across doctype, wildcard, cscript and custom_ variants.",
+      "tags": ["handlers"],
+      "complexity": "moderate",
+      "lineRange": [154, 178]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.setup",
+      "type": "function",
+      "name": "setup",
+      "summary": "Runs DocType Layout client script, then __custom_js for the doctype, injecting them into the form scope.",
+      "tags": ["setup", "client-script"],
+      "complexity": "moderate",
+      "lineRange": [179, 261]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.log_error",
+      "type": "function",
+      "name": "log_error",
+      "summary": "Logs client script errors with context to the console and optionally to a message.",
+      "tags": ["error"],
+      "complexity": "simple",
+      "lineRange": [262, 272]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.copy_from_first_row",
+      "type": "function",
+      "name": "copy_from_first_row",
+      "summary": "Utility to copy fieldnames from the first row of a child table into a given current row.",
+      "tags": ["util", "child-table"],
+      "complexity": "simple",
+      "lineRange": [273, 290]
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/form/section.js",
+      "type": "file",
+      "name": "section.js",
+      "summary": "Form Section layout element: renders head/body, supports collapsible sections, labels, description, icons and missing-mandatory tracking.",
+      "tags": ["form", "section", "layout", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/form/section.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/section.js:Section",
+      "type": "class",
+      "name": "Section",
+      "summary": "Exported default Section class representing a section break in a form layout.",
+      "tags": ["class", "section", "layout"],
+      "complexity": "moderate",
+      "lineRange": [1, 174]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.constructor",
+      "type": "function",
+      "name": "constructor",
+      "summary": "Stores parent, df, layout and card_layout references and calls make().",
+      "tags": ["constructor"],
+      "complexity": "simple",
+      "lineRange": [2, 27]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.make",
+      "type": "function",
+      "name": "make",
+      "summary": "Builds the section DOM with optional label, description, css class and collapsible head.",
+      "tags": ["render"],
+      "complexity": "moderate",
+      "lineRange": [28, 62]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.make_head",
+      "type": "function",
+      "name": "make_head",
+      "summary": "Builds the section head with label and collapsible toggle wiring.",
+      "tags": ["render"],
+      "complexity": "moderate",
+      "lineRange": [63, 91]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.replace_field",
+      "type": "function",
+      "name": "replace_field",
+      "summary": "Replaces an existing field's DOM and wiring with a new field object.",
+      "tags": ["field"],
+      "complexity": "simple",
+      "lineRange": [92, 101]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.add_field",
+      "type": "function",
+      "name": "add_field",
+      "summary": "Adds a new field to the section's fields list and dictionary.",
+      "tags": ["field"],
+      "complexity": "simple",
+      "lineRange": [102, 107]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.refresh",
+      "type": "function",
+      "name": "refresh",
+      "summary": "Refreshes the section visibility based on the hide flag and missing mandatory state.",
+      "tags": ["refresh"],
+      "complexity": "simple",
+      "lineRange": [108, 114]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.collapse",
+      "type": "function",
+      "name": "collapse",
+      "summary": "Collapses or expands the section body, updating icon and triggering on_section_toggle.",
+      "tags": ["collapse"],
+      "complexity": "simple",
+      "lineRange": [115, 136]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.set_icon",
+      "type": "function",
+      "name": "set_icon",
+      "summary": "Switches the collapsible chevron icon based on hide state.",
+      "tags": ["ui"],
+      "complexity": "simple",
+      "lineRange": [137, 141]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.set_label",
+      "type": "function",
+      "name": "set_label",
+      "summary": "Updates the section label text.",
+      "tags": ["ui"],
+      "complexity": "simple",
+      "lineRange": [142, 145]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.is_collapsed",
+      "type": "function",
+      "name": "is_collapsed",
+      "summary": "Returns whether the section body is currently hidden.",
+      "tags": ["state"],
+      "complexity": "simple",
+      "lineRange": [146, 149]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.has_missing_mandatory",
+      "type": "function",
+      "name": "has_missing_mandatory",
+      "summary": "Checks whether the section contains any mandatory fields that are currently empty.",
+      "tags": ["validation"],
+      "complexity": "simple",
+      "lineRange": [150, 161]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.hide",
+      "type": "function",
+      "name": "hide",
+      "summary": "Hides the section by calling show(false).",
+      "tags": ["visibility"],
+      "complexity": "simple",
+      "lineRange": [162, 165]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.show",
+      "type": "function",
+      "name": "show",
+      "summary": "Shows or hides the section wrapper based on argument.",
+      "tags": ["visibility"],
+      "complexity": "simple",
+      "lineRange": [166, 169]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/section.js:Section.on_section_toggle",
+      "type": "function",
+      "name": "on_section_toggle",
+      "summary": "Extensibility hook called when the section collapse state changes.",
+      "tags": ["hook"],
+      "complexity": "simple",
+      "lineRange": [170, 173]
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/form/link_selector.js", "target": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/link_selector.js", "target": "func:frappe/public/js/frappe/form/link_selector.js:link_search", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.make", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.search", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/link_selector.js:LinkSelector", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.set_in_grid", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.search", "target": "func:frappe/public/js/frappe/form/link_selector.js:link_search", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.constructor", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.make", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.make", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.search", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.search", "target": "func:frappe/public/js/frappe/form/link_selector.js:LinkSelector.set_in_grid", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/linked_with.js", "target": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.show", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_dialog", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_head", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_hidden_count_row", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/linked_with.js:LinkedWith", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_row", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.show", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_dialog", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_dialog", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_head", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_doc_row", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_html", "target": "func:frappe/public/js/frappe/form/linked_with.js:LinkedWith.make_hidden_count_row", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/multi_select_dialog.js", "target": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.init", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_result_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_data_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_selection_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_new_document", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.set_route_options", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.setup_results", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.show_child_results", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.is_child_selection_enabled", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.toggle_child_selection", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.render_child_datatable", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_datatable_columns", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_datatable_rows", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.setup_child_datatable", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_primary_filters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_filter_area", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_custom_filters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.bind_events", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_parent_name_of_selected_children", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_selected_child_names", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_checked_values", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_checked_items", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_datatable_columns", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.make_list_row", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.render_result_list", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.empty_list", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_filters_from_setters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_args_for_search", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.perform_search", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_results", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_filtered_parents_for_child_search", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_parent_filters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_custom_child_filters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_result", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_results", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_args_for_search", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_results", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.perform_search", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_results", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.render_result_list", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_result", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_parent_filters", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.get_child_result", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.add_custom_child_filters", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.toggle_child_selection", "target": "func:frappe/public/js/frappe/form/multi_select_dialog.js:MultiSelectDialog.show_child_results", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:get_print_settings", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_connect", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_init", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_get_printer_list", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_success", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/print_utils.js", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_fail", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/print_utils.js:qz_get_printer_list", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_connect", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/print_utils.js:qz_connect", "target": "func:frappe/public/js/frappe/form/print_utils.js:qz_init", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/quick_entry.js", "target": "func:frappe/public/js/frappe/form/quick_entry.js:quick_edit", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/quick_entry.js", "target": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_meta_and_mandatory_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.check_quick_entry_doc", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.is_quick_entry", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.too_many_mandatory_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.has_child_table", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.validate_for_prompt_autoname", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.render_dialog", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.get_title", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.register_primary_action", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.handle_after_callbacks", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.insert", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.submit", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.process_after_insert", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup_cmd_enter_for_save", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.open_form_if_not_list", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.update_doc", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.open_doc", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.render_edit_in_full_page_link", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_intro", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_df_property", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_display", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_enable", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.toggle_reqd", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm._apply_on_fields", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_defaults", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.set_meta_and_mandatory_fields", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.setup", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.render_dialog", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.register_primary_action", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.insert", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.insert", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.update_doc", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.insert", "target": "func:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm.process_after_insert", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/quick_entry.js:quick_edit", "target": "class:frappe/public/js/frappe/form/quick_entry.js:QuickEntryForm", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/reminders.js", "target": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/reminders.js", "target": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.show", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._update_datetime_selector", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._convert_period_to_absolute_time", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/reminders.js:ReminderManager", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.create_reminder", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.show", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._update_datetime_selector", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.show", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager._convert_period_to_absolute_time", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.show", "target": "func:frappe/public/js/frappe/form/reminders.js:ReminderManager.create_reminder", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/save.js", "target": "func:frappe/public/js/frappe/form/save.js:save", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/save.js", "target": "func:frappe/public/js/frappe/form/save.js:check_mandatory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/save.js", "target": "func:frappe/public/js/frappe/form/save.js:remove_old_form_route", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/save.js", "target": "func:frappe/public/js/frappe/form/save.js:update_calling_link", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/save.js:save", "target": "func:frappe/public/js/frappe/form/save.js:check_mandatory", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_many", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:set_field_options", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:toggle_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:hide_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_helpers.js", "target": "func:frappe/public/js/frappe/form/script_helpers.js:unhide_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_field", "target": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_many", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_helpers.js:hide_field", "target": "func:frappe/public/js/frappe/form/script_helpers.js:toggle_field", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_helpers.js:unhide_field", "target": "func:frappe/public/js/frappe/form/script_helpers.js:toggle_field", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_helpers.js:toggle_field", "target": "func:frappe/public/js/frappe/form/script_helpers.js:refresh_field", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "func:frappe/public/js/frappe/form/script_manager.js:extend_cscript", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "func:frappe/public/js/frappe/form/script_manager.js:get_event_handler_list", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.on", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.off", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.trigger", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/script_manager.js", "target": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.make", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.trigger", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.has_handler", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.has_handlers", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.get_handlers", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.setup", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.log_error", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/script_manager.js:ScriptManager", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.copy_from_first_row", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.on", "target": "func:frappe/public/js/frappe/form/script_manager.js:get_event_handler_list", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.off", "target": "func:frappe/public/js/frappe/form/script_manager.js:get_event_handler_list", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:frappe.ui.form.trigger", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.trigger", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.trigger", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.get_handlers", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.trigger", "target": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.log_error", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/script_manager.js:ScriptManager.make", "target": "func:frappe/public/js/frappe/form/script_manager.js:extend_cscript", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/section.js", "target": "class:frappe/public/js/frappe/form/section.js:Section", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/section.js", "target": "class:frappe/public/js/frappe/form/section.js:Section", "type": "exports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.constructor", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.make", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.make_head", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.replace_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.add_field", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.refresh", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.collapse", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.set_icon", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.set_label", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.is_collapsed", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.has_missing_mandatory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.hide", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.show", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/public/js/frappe/form/section.js:Section", "target": "func:frappe/public/js/frappe/form/section.js:Section.on_section_toggle", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/section.js:Section.constructor", "target": "func:frappe/public/js/frappe/form/section.js:Section.make", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/section.js:Section.make", "target": "func:frappe/public/js/frappe/form/section.js:Section.make_head", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/section.js:Section.hide", "target": "func:frappe/public/js/frappe/form/section.js:Section.show", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/public/js/frappe/form/section.js:Section.refresh", "target": "func:frappe/public/js/frappe/form/section.js:Section.has_missing_mandatory", "type": "calls", "direction": "forward", "weight": 1}
+  ]
+}

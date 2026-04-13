@@ -1,0 +1,368 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/views/reports/report_factory.js",
+      "type": "file",
+      "name": "report_factory.js",
+      "filePath": "frappe/public/js/frappe/views/reports/report_factory.js",
+      "summary": "Tiny factory that routes legacy /report/<doctype>[/<name>] URLs to the List/<doctype>/Report view by calling frappe.set_route.",
+      "tags": ["view", "factory", "report", "routing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe.views.ReportFactory",
+      "type": "class",
+      "name": "ReportFactory",
+      "filePath": "frappe/public/js/frappe/views/reports/report_factory.js",
+      "lineRange": "4-15",
+      "summary": "Factory subclass whose make(route) rewrites report routes to List/<doctype>/Report form.",
+      "tags": ["factory", "router"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/reports/report_utils.js",
+      "type": "file",
+      "name": "report_utils.js",
+      "filePath": "frappe/public/js/frappe/views/reports/report_utils.js",
+      "summary": "Utility namespace frappe.report_utils providing helpers for Script/Query Reports: build chart options from report columns, derive field options from column metadata, prepare DataTable-compatible field configs, fetch/show report filter dialogs, and CSV export preview/dialog.",
+      "tags": ["utils", "report", "charts", "filters", "csv"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:report_utils.make_chart_options",
+      "type": "function",
+      "name": "make_chart_options",
+      "filePath": "frappe/public/js/frappe/views/reports/report_utils.js",
+      "lineRange": "4-56",
+      "summary": "Builds a chart configuration dialog payload (x/y axes, chart type) from report columns and their data.",
+      "tags": ["chart", "report"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:report_utils.get_field_options_from_report",
+      "type": "function",
+      "name": "get_field_options_from_report",
+      "filePath": "frappe/public/js/frappe/views/reports/report_utils.js",
+      "lineRange": "57-92",
+      "summary": "Derives selectable field option arrays (numeric vs non-numeric) from a report's columns for use in chart axis selection.",
+      "tags": ["report", "fields"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:report_utils.prepare_field_from_column",
+      "type": "function",
+      "name": "prepare_field_from_column",
+      "filePath": "frappe/public/js/frappe/views/reports/report_utils.js",
+      "lineRange": "93-120",
+      "summary": "Normalizes a Script/Query Report column descriptor into a DataTable-compatible field object (label, fieldname, fieldtype).",
+      "tags": ["datatable", "columns"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:report_utils.get_report_filters",
+      "type": "function",
+      "name": "get_report_filters",
+      "filePath": "frappe/public/js/frappe/views/reports/report_utils.js",
+      "lineRange": "121-200",
+      "summary": "Loads a server-side Report's filters (query report), caches them, and returns the field definitions used to build the filter area.",
+      "tags": ["filters", "report"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/reports/report_view.js",
+      "type": "file",
+      "name": "report_view.js",
+      "filePath": "frappe/public/js/frappe/views/reports/report_view.js",
+      "summary": "Report Builder: frappe.views.ReportView extends ListView to show a DataTable-backed tabular report with inline editing, column picker, grouping, totals, sorting, chart view, saved custom reports, and CSV/Excel export. Core class for the Report view in Desk.",
+      "tags": ["view", "report", "datatable", "listview", "charts", "grouping"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.ReportView",
+      "type": "class",
+      "name": "ReportView",
+      "filePath": "frappe/public/js/frappe/views/reports/report_view.js",
+      "lineRange": "9-1895",
+      "summary": "Tabular report view with DataTable, inline edit, grouping, chart builder, column/format customization, saved custom reports, and export. Inherits routing, filters, sort and pagination from ListView.",
+      "tags": ["class", "view", "report"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:ReportView.setup_datatable",
+      "type": "function",
+      "name": "setup_datatable",
+      "filePath": "frappe/public/js/frappe/views/reports/report_view.js",
+      "lineRange": "317-421",
+      "summary": "Instantiates the Frappe DataTable with columns, data, inline edit handlers, tree/group config and event hooks.",
+      "tags": ["datatable", "render"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:ReportView.setup_charts",
+      "type": "function",
+      "name": "setup_charts",
+      "filePath": "frappe/public/js/frappe/views/reports/report_view.js",
+      "lineRange": "521-664",
+      "summary": "Builds the chart configuration dialog and renders an embedded Frappe Chart based on report columns and selected axes.",
+      "tags": ["charts", "dialog"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:ReportView.get_editing_object",
+      "type": "function",
+      "name": "get_editing_object",
+      "filePath": "frappe/public/js/frappe/views/reports/report_view.js",
+      "lineRange": "675-781",
+      "summary": "Returns a DataTable editing object that renders the appropriate Frappe Control for inline editing of a cell, handling read-only rules and value sync.",
+      "tags": ["datatable", "inline-edit"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/translation_manager.js",
+      "type": "file",
+      "name": "translation_manager.js",
+      "filePath": "frappe/public/js/frappe/views/translation_manager.js",
+      "summary": "frappe.views.TranslationManager: dialog wrapper that loads and edits per-field translations for a document, saves via translator.get_contributions_to_translate / update_translations server API.",
+      "tags": ["i18n", "translation", "dialog", "form"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe.views.TranslationManager",
+      "type": "class",
+      "name": "TranslationManager",
+      "filePath": "frappe/public/js/frappe/views/translation_manager.js",
+      "lineRange": "1-107",
+      "summary": "Builds a dialog with a translations grid keyed by language, fetching and updating translations for a given field value.",
+      "tags": ["dialog", "i18n"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/treeview.js",
+      "type": "file",
+      "name": "treeview.js",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "summary": "Tree view for hierarchical DocTypes (Accounts, Warehouses, etc.). Defines TreeFactory for routing and frappe.views.TreeView which builds a Page with filters, frappe.ui.Tree, toolbar actions for new/edit/delete nodes, and print support.",
+      "tags": ["view", "tree", "hierarchy", "desk"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.TreeFactory",
+      "type": "class",
+      "name": "TreeFactory",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "lineRange": "8-44",
+      "summary": "Factory that creates and caches a TreeView per doctype route and triggers on_show refresh.",
+      "tags": ["factory", "router"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe.views.TreeView",
+      "type": "class",
+      "name": "TreeView",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "lineRange": "46-542",
+      "summary": "Main tree view class: manages permissions, page/toolbar, root node fetch, frappe.ui.Tree rendering, node selection, add/edit/delete via dialogs, and print.",
+      "tags": ["view", "tree"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:TreeView.make_tree",
+      "type": "function",
+      "name": "make_tree",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "lineRange": "224-257",
+      "summary": "Instantiates frappe.ui.Tree with root node, method for children, labels and toolbar callbacks.",
+      "tags": ["tree", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:TreeView.get_toolbar",
+      "type": "function",
+      "name": "get_toolbar",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "lineRange": "296-361",
+      "summary": "Returns toolbar button definitions (Edit, Add Child, Rename, Delete) wired to document operations for the currently selected tree node.",
+      "tags": ["tree", "toolbar"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:TreeView.new_node",
+      "type": "function",
+      "name": "new_node",
+      "filePath": "frappe/public/js/frappe/views/treeview.js",
+      "lineRange": "362-419",
+      "summary": "Opens a dialog to create a child node under the selected tree node, using prepared fields and server insert.",
+      "tags": ["tree", "dialog"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/block.js",
+      "type": "file",
+      "name": "block.js",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/block.js",
+      "summary": "Base class for Workspace EditorJS blocks. Provides common widget rendering helpers: make() to build widgets, resizer, column width controls, add/edit/settings buttons, move/duplicate block, and integration with widget_dialog constructors.",
+      "tags": ["workspace", "editorjs", "block", "base"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:Block",
+      "type": "class",
+      "name": "Block",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/block.js",
+      "lineRange": "3-359",
+      "summary": "Base EditorJS block class shared by card/chart/header/custom blocks. Handles widget creation, column/width management, edit dialog wiring, drag/resize, and block actions (move, duplicate, delete).",
+      "tags": ["editorjs", "workspace"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:Block.make",
+      "type": "function",
+      "name": "make",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/block.js",
+      "lineRange": "8-32",
+      "summary": "Instantiates a frappe.widget of the given type inside the block wrapper based on saved block data.",
+      "tags": ["widget", "render"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:Block.update_width",
+      "type": "function",
+      "name": "update_width",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/block.js",
+      "lineRange": "270-340",
+      "summary": "Increases/decreases bootstrap column span of a workspace block and syncs class names.",
+      "tags": ["layout", "columns"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/card.js",
+      "type": "file",
+      "name": "card.js",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/card.js",
+      "summary": "Card EditorJS block (links card) for Workspace. Extends Block to render a links widget, validate required card_name, and save card_name/column settings.",
+      "tags": ["workspace", "editorjs", "block", "card"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Card",
+      "type": "class",
+      "name": "Card",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/card.js",
+      "lineRange": "2-62",
+      "summary": "Workspace Card block extending Block; renders a links widget and handles settings/edit buttons.",
+      "tags": ["block", "card"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/chart.js",
+      "type": "file",
+      "name": "chart.js",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/chart.js",
+      "summary": "Chart EditorJS block for Workspace. Extends Block to render a Dashboard Chart widget and save chart_name/col configuration.",
+      "tags": ["workspace", "editorjs", "block", "chart"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:Chart",
+      "type": "class",
+      "name": "Chart",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/chart.js",
+      "lineRange": "2-62",
+      "summary": "Workspace Chart block extending Block; wraps a dashboard chart widget by chart_name.",
+      "tags": ["block", "chart"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/custom_block.js",
+      "type": "file",
+      "name": "custom_block.js",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/custom_block.js",
+      "summary": "Custom Block EditorJS type for Workspace. Extends Block to render a user-defined Custom Block widget identified by custom_block_name.",
+      "tags": ["workspace", "editorjs", "block", "custom"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CustomBlock",
+      "type": "class",
+      "name": "CustomBlock",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/custom_block.js",
+      "lineRange": "2-62",
+      "summary": "Workspace CustomBlock class extending Block for embedding user-defined Custom Block widgets.",
+      "tags": ["block", "custom"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/header.js",
+      "type": "file",
+      "name": "header.js",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/header.js",
+      "summary": "Heading EditorJS block for Workspace. Extends Block to render contenteditable H1-H6 headings with level selector, icon, and save of text/level/col.",
+      "tags": ["workspace", "editorjs", "block", "header"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:Header",
+      "type": "class",
+      "name": "Header",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/header.js",
+      "lineRange": "1-150",
+      "summary": "Workspace Header block extending Block; contenteditable heading with level toolbar and save/validate.",
+      "tags": ["block", "header"],
+      "complexity": "moderate"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/views/reports/report_factory.js", "target": "class:frappe.views.ReportFactory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportFactory", "target": "class:frappe.views.Factory", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportFactory", "target": "func:frappe.set_route", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/reports/report_utils.js", "target": "func:report_utils.make_chart_options", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/reports/report_utils.js", "target": "func:report_utils.get_field_options_from_report", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/reports/report_utils.js", "target": "func:report_utils.prepare_field_from_column", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/reports/report_utils.js", "target": "func:report_utils.get_report_filters", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:report_utils.make_chart_options", "target": "func:report_utils.get_field_options_from_report", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/reports/report_view.js", "target": "class:frappe.views.ReportView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportView", "target": "class:frappe.views.ListView", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportView", "target": "func:ReportView.setup_datatable", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportView", "target": "func:ReportView.setup_charts", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportView", "target": "func:ReportView.get_editing_object", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.ReportView", "target": "file:frappe/public/js/frappe/views/reports/report_utils.js", "type": "calls", "direction": "forward", "weight": 2},
+
+    {"source": "file:frappe/public/js/frappe/views/translation_manager.js", "target": "class:frappe.views.TranslationManager", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/treeview.js", "target": "class:frappe.views.TreeFactory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/treeview.js", "target": "class:frappe.views.TreeView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.TreeFactory", "target": "class:frappe.views.Factory", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.TreeFactory", "target": "class:frappe.views.TreeView", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.TreeView", "target": "func:TreeView.make_tree", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.TreeView", "target": "func:TreeView.get_toolbar", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.TreeView", "target": "func:TreeView.new_node", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "target": "class:Block", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:Block", "target": "func:Block.make", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:Block", "target": "func:Block.update_width", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "target": "file:frappe/public/js/frappe/views/widgets/widget_dialog.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "target": "class:Block", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/card.js", "target": "class:Card", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/card.js", "target": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:Card", "target": "class:Block", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/card.js", "target": "class:Card", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/chart.js", "target": "class:Chart", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/chart.js", "target": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:Chart", "target": "class:Block", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/chart.js", "target": "class:Chart", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/custom_block.js", "target": "class:CustomBlock", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/custom_block.js", "target": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:CustomBlock", "target": "class:Block", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/custom_block.js", "target": "class:CustomBlock", "type": "exports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/header.js", "target": "class:Header", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/header.js", "target": "file:frappe/public/js/frappe/views/workspace/blocks/block.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:Header", "target": "class:Block", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/workspace/blocks/header.js", "target": "class:Header", "type": "exports", "direction": "forward", "weight": 1}
+  ]
+}

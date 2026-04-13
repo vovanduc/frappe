@@ -1,0 +1,419 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/user_session_display/user_session_display.py",
+      "type": "file",
+      "name": "user_session_display.py",
+      "filePath": "frappe/core/doctype/user_session_display/user_session_display.py",
+      "summary": "Virtual DocType for displaying user session information. All CRUD operations raise NotImplementedError, indicating this is a read-only virtual document that gets its data from elsewhere (likely Redis sessions).",
+      "tags": ["doctype", "virtual", "session", "child-table"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:UserSessionDisplay",
+      "type": "class",
+      "name": "UserSessionDisplay",
+      "filePath": "frappe/core/doctype/user_session_display/user_session_display.py",
+      "lineRange": [8, 38],
+      "summary": "Virtual Document class for user session display. Overrides db_insert, load_from_db, db_update, and delete to raise NotImplementedError, making it a non-persistent display-only child table document with fields for IP address, user agent, and session timestamps.",
+      "tags": ["class", "document", "virtual", "session"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_social_login/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_social_login/__init__.py",
+      "summary": "Empty init file for the User Social Login doctype package.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_social_login/user_social_login.py",
+      "type": "file",
+      "name": "user_social_login.py",
+      "filePath": "frappe/core/doctype/user_social_login/user_social_login.py",
+      "summary": "Child table DocType that stores social login provider information (provider, userid, username) for a User document. Used for OAuth/social authentication integrations.",
+      "tags": ["doctype", "child-table", "social-login", "authentication"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:UserSocialLogin",
+      "type": "class",
+      "name": "UserSocialLogin",
+      "filePath": "frappe/core/doctype/user_social_login/user_social_login.py",
+      "lineRange": [7, 24],
+      "summary": "Simple child table Document class storing social login credentials with fields for provider, userid, and username. No custom logic - relies entirely on base Document class behavior.",
+      "tags": ["class", "document", "child-table", "social-login"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_type/__init__.py",
+      "summary": "Empty init file for the User Type doctype package.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/test_user_type.py",
+      "type": "file",
+      "name": "test_user_type.py",
+      "filePath": "frappe/core/doctype/user_type/test_user_type.py",
+      "summary": "Integration tests for the User Type DocType. Tests that select permissions are correctly added for link fields and child table link fields, and that print/share/email permissions default to enabled for backward compatibility.",
+      "tags": ["test", "integration", "user-type", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestUserType",
+      "type": "class",
+      "name": "TestUserType",
+      "filePath": "frappe/core/doctype/user_type/test_user_type.py",
+      "lineRange": [8, 47],
+      "summary": "Integration test case for User Type. Tests select permission auto-population from link fields and default permission values (print, share, email) for backward compatibility.",
+      "tags": ["test", "class", "user-type"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:create_user_type",
+      "type": "function",
+      "name": "create_user_type",
+      "filePath": "frappe/core/doctype/user_type/test_user_type.py",
+      "lineRange": [50, 69],
+      "summary": "Test helper that creates a User Type document with a custom role and Contact doctype permissions. Updates site config with the user type limit before creation.",
+      "tags": ["test-helper", "factory"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:create_role:test_user_type",
+      "type": "function",
+      "name": "create_role",
+      "filePath": "frappe/core/doctype/user_type/test_user_type.py",
+      "lineRange": [72, 76],
+      "summary": "Test helper that creates the '_Test User Type' custom role if it doesn't exist.",
+      "tags": ["test-helper", "factory"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/user_type.js",
+      "type": "file",
+      "name": "user_type.js",
+      "filePath": "frappe/core/doctype/user_type/user_type.js",
+      "summary": "Client-side form controller for User Type DocType. Sets up query filters for document type fields (non-table doctypes), role field (custom, enabled, desk roles), and dynamically fetches user ID field options based on the selected apply_user_permission_on doctype.",
+      "tags": ["javascript", "form-controller", "user-type", "client"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "file",
+      "name": "user_type.py",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "summary": "Core User Type DocType controller implementing a permission management system for non-standard user types. Handles role-based permission assignment, module access control, document type limits, select permission auto-population, and user permission propagation for restricted user accounts.",
+      "tags": ["doctype", "permissions", "rbac", "user-type", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:UserType",
+      "type": "class",
+      "name": "UserType",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [13, 198],
+      "summary": "Document controller for User Type that manages non-standard user types with restricted permissions. Handles validate/on_update/on_trash lifecycle hooks, auto-populates select permissions from link fields, manages role permissions for user/select/file doctypes, validates document type limits from site config, and updates associated user roles and modules.",
+      "tags": ["class", "document", "permissions", "rbac", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:add_role_permissions",
+      "type": "function",
+      "name": "add_role_permissions",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [201, 207],
+      "summary": "Helper function that ensures a Custom DocPerm record exists for the given doctype and role at permlevel 0, creating one if needed.",
+      "tags": ["permissions", "helper"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_non_standard_user_types",
+      "type": "function",
+      "name": "get_non_standard_user_types",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [210, 217],
+      "summary": "Returns a dictionary of non-standard user types mapping name to [apply_user_permission_on, user_id_field]. Used for caching user type configuration.",
+      "tags": ["query", "cache", "user-type"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_user_linked_doctypes",
+      "type": "function",
+      "name": "get_user_linked_doctypes",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [220, 256],
+      "summary": "Whitelisted search handler that returns doctypes linked to User via DocField or Custom Field. Excludes frappe module doctypes, single/submittable/read-only types. Used for the apply_user_permission_on field query.",
+      "tags": ["whitelisted", "search", "api"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_user_id",
+      "type": "function",
+      "name": "get_user_id",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [259, 278],
+      "summary": "Whitelisted function that returns all User-type Link fields (both standard and custom) for a given parent doctype. Used to populate the user_id_field dropdown.",
+      "tags": ["whitelisted", "api"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:user_linked_with_permission_on_doctype",
+      "type": "function",
+      "name": "user_linked_with_permission_on_doctype",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [281, 305],
+      "summary": "Validates that a user is linked to a record in the apply_user_permission_on doctype via the user_id_field. Returns True if linked or no permission doctype is set, otherwise shows a message guiding the user to set up the link.",
+      "tags": ["validation", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:apply_permissions_for_non_standard_user_type",
+      "type": "function",
+      "name": "apply_permissions_for_non_standard_user_type",
+      "filePath": "frappe/core/doctype/user_type/user_type.py",
+      "lineRange": [308, 347],
+      "summary": "Doc event handler that creates/updates user permissions for non-standard user types when a document's user field changes. Uses cached non-standard user type config to determine which documents need permission records. Sets up roles, modules, and user permissions for the linked user.",
+      "tags": ["doc-event", "permissions", "cache", "hook"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/user_type_dashboard.py",
+      "type": "file",
+      "name": "user_type_dashboard.py",
+      "filePath": "frappe/core/doctype/user_type/user_type_dashboard.py",
+      "summary": "Dashboard configuration for User Type showing linked User documents via the user_type field.",
+      "tags": ["dashboard", "user-type"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type/user_type_list.js",
+      "type": "file",
+      "name": "user_type_list.js",
+      "filePath": "frappe/core/doctype/user_type/user_type_list.js",
+      "summary": "List view settings for User Type showing Standard (green) or Custom (blue) indicators based on the is_standard field.",
+      "tags": ["javascript", "list-view", "user-type"],
+      "complexity": "trivial"
+    },
+    {
+      "id": "file:frappe/core/doctype/user_type_module/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_type_module/__init__.py",
+      "summary": "Empty init file for the User Type Module child table doctype package.",
+      "tags": ["init", "package"],
+      "complexity": "trivial"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:UserSessionDisplay",
+      "target": "file:frappe/core/doctype/user_session_display/user_session_display.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserSessionDisplay",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:UserSocialLogin",
+      "target": "file:frappe/core/doctype/user_social_login/user_social_login.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserSocialLogin",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestUserType",
+      "target": "file:frappe/core/doctype/user_type/test_user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestUserType",
+      "target": "class:UserType",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:create_user_type",
+      "target": "file:frappe/core/doctype/user_type/test_user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:create_role:test_user_type",
+      "target": "file:frappe/core/doctype/user_type/test_user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserType",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserType",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:add_role_permissions",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_non_standard_user_types",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_user_linked_doctypes",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_user_id",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:user_linked_with_permission_on_doctype",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:apply_permissions_for_non_standard_user_type",
+      "target": "file:frappe/core/doctype/user_type/user_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserType",
+      "target": "func:add_role_permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:UserType",
+      "target": "module:frappe.core.doctype.custom_docperm.custom_docperm",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:UserType",
+      "target": "module:frappe.permissions",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:apply_permissions_for_non_standard_user_type",
+      "target": "func:get_non_standard_user_types",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:apply_permissions_for_non_standard_user_type",
+      "target": "module:frappe.permissions",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_type/user_type.js",
+      "target": "func:get_user_linked_doctypes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_type/user_type.js",
+      "target": "func:get_user_id",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:create_user_type",
+      "target": "class:UserType",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_type/user_type_dashboard.py",
+      "target": "class:UserType",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/user_type/user_type_list.js",
+      "target": "class:UserType",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:TestUserType",
+      "target": "func:create_user_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestUserType",
+      "target": "func:create_role:test_user_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_user_linked_doctypes",
+      "target": "module:frappe.utils.modules",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

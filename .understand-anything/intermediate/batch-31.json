@@ -1,0 +1,405 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "file",
+      "name": "sms_settings.py",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "summary": "SMS Settings DocType controller providing SMS sending via configurable gateway, contact number lookup, receiver validation, and SMS log creation. Supports hooks for custom SMS providers.",
+      "tags": ["sms", "gateway", "messaging", "doctype-controller", "whitelisted-api"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:SMSSettings",
+      "type": "class",
+      "name": "SMSSettings",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [10, 27],
+      "summary": "Document controller for SMS Settings DocType. Defines typed fields for gateway URL, message/receiver parameters, and SMS parameter table. No custom logic beyond type annotations.",
+      "tags": ["doctype-controller", "sms", "settings"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:validate_receiver_nos",
+      "type": "function",
+      "name": "validate_receiver_nos",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [30, 45],
+      "summary": "Validates and sanitizes a list of receiver phone numbers by removing spaces, dashes, and parentheses. Throws error if no valid numbers remain.",
+      "tags": ["validation", "sms", "phone-number"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_contact_number",
+      "type": "function",
+      "name": "get_contact_number",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [48, 61],
+      "summary": "Whitelisted API to retrieve mobile number for a contact linked to a specific document via Dynamic Link.",
+      "tags": ["whitelisted-api", "contact", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:send_sms",
+      "type": "function",
+      "name": "send_sms",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [64, 89],
+      "summary": "Whitelisted API to send SMS to a list of receivers. Supports hooks override via 'send_sms' hook. Validates receivers and delegates to send_via_gateway.",
+      "tags": ["whitelisted-api", "sms", "hooks", "gateway"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:send_via_gateway",
+      "type": "function",
+      "name": "send_via_gateway",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [91, 114],
+      "summary": "Sends SMS messages through configured gateway by iterating over receivers, making HTTP requests, and logging successful sends.",
+      "tags": ["sms", "gateway", "http-request"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_headers",
+      "type": "function",
+      "name": "get_headers",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [117, 126],
+      "summary": "Builds HTTP headers dict from SMS Settings parameters marked as headers.",
+      "tags": ["sms", "http-headers"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:send_request",
+      "type": "function",
+      "name": "send_request",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [129, 148],
+      "summary": "Makes HTTP GET or POST request to SMS gateway URL with configurable params/data/json payload. Returns status code.",
+      "tags": ["http-request", "sms", "gateway"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:create_sms_log",
+      "type": "function",
+      "name": "create_sms_log",
+      "filePath": "frappe/core/doctype/sms_settings/sms_settings.py",
+      "lineRange": [153, 162],
+      "summary": "Creates an SMS Log document recording the sent message, requested numbers, and successfully sent numbers.",
+      "tags": ["sms", "logging", "document-creation"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/sms_settings/test_sms_settings.py",
+      "type": "file",
+      "name": "test_sms_settings.py",
+      "filePath": "frappe/core/doctype/sms_settings/test_sms_settings.py",
+      "summary": "Empty test stub for SMS Settings DocType.",
+      "tags": ["test", "sms"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/submission_queue/submission_queue.js",
+      "type": "file",
+      "name": "submission_queue.js",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.js",
+      "summary": "Client-side controller for Submission Queue form. Adds 'Unlock Reference Document' button for System Managers on queued submissions with confirmation dialog.",
+      "tags": ["javascript", "form-controller", "submission-queue", "ui"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "file",
+      "name": "submission_queue.py",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.py",
+      "summary": "Submission Queue DocType controller enabling background document submission/cancellation via RQ jobs. Handles queuing, locking, execution monitoring, status tracking, and user notifications.",
+      "tags": ["background-jobs", "submission", "queue", "doctype-controller", "rq"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:SubmissionQueue",
+      "type": "class",
+      "name": "SubmissionQueue",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.py",
+      "lineRange": [17, 164],
+      "summary": "Document controller managing background submission queue entries. Provides document locking, background job execution via RQ, status tracking (Queued/Finished/Failed), real-time and notification-based user alerts, and document unlocking.",
+      "tags": ["doctype-controller", "background-jobs", "queue", "locking", "notifications"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:queue_submission",
+      "type": "function",
+      "name": "queue_submission",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.py",
+      "lineRange": [166, 192],
+      "summary": "Entry point for queuing a document submission/cancellation. Checks for existing queue entries to prevent duplicates, creates Submission Queue doc, and shows progress tracking link.",
+      "tags": ["queue", "submission", "entry-point"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_latest_submissions",
+      "type": "function",
+      "name": "get_latest_submissions",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.py",
+      "lineRange": [194, 213],
+      "summary": "Whitelisted API to fetch the latest submission queue entry for a given document, returning name, exception summary, and status.",
+      "tags": ["whitelisted-api", "queue", "status-check"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:format_tb",
+      "type": "function",
+      "name": "format_tb",
+      "filePath": "frappe/core/doctype/submission_queue/submission_queue.py",
+      "lineRange": [216, 220],
+      "summary": "Extracts the last line from a traceback string for concise error display.",
+      "tags": ["error-handling", "formatting"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/submission_queue/test_submission_queue.py",
+      "type": "file",
+      "name": "test_submission_queue.py",
+      "filePath": "frappe/core/doctype/submission_queue/test_submission_queue.py",
+      "summary": "Integration tests for Submission Queue covering queue submission, cancellation operations, and duplicate queue prevention.",
+      "tags": ["test", "integration-test", "submission-queue", "background-jobs"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:TestSubmissionQueue",
+      "type": "class",
+      "name": "TestSubmissionQueue",
+      "filePath": "frappe/core/doctype/submission_queue/test_submission_queue.py",
+      "lineRange": [15, 121],
+      "summary": "Integration test class with tests for queue submission, cancel operations, and duplicate queue entry prevention. Uses RQ job tracking with timeout decorators.",
+      "tags": ["test", "integration-test", "submission-queue"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/success_action/success_action.js",
+      "type": "file",
+      "name": "success_action.js",
+      "filePath": "frappe/core/doctype/success_action/success_action.js",
+      "summary": "Client-side controller for Success Action form. Renders a MultiCheck control for configuring next actions (New, Print, Email, View All) shown after successful document operations.",
+      "tags": ["javascript", "form-controller", "success-action", "ui"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/success_action/success_action.py",
+      "type": "file",
+      "name": "success_action.py",
+      "filePath": "frappe/core/doctype/success_action/success_action.py",
+      "summary": "Minimal Python controller for Success Action DocType with typed fields for message, timeout, next actions, and reference doctype.",
+      "tags": ["doctype-controller", "success-action"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:SuccessAction",
+      "type": "class",
+      "name": "SuccessAction",
+      "filePath": "frappe/core/doctype/success_action/success_action.py",
+      "lineRange": [7, 23],
+      "summary": "Document controller for Success Action DocType. Defines typed fields for configuring post-save success messages and available next actions per DocType.",
+      "tags": ["doctype-controller", "success-action", "ux"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:SMSSettings",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:validate_receiver_nos",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_contact_number",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:send_sms",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:send_via_gateway",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_headers",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:send_request",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:create_sms_log",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:send_sms",
+      "target": "func:validate_receiver_nos",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:send_sms",
+      "target": "func:send_via_gateway",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:send_via_gateway",
+      "target": "func:get_headers",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:send_via_gateway",
+      "target": "func:send_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:send_via_gateway",
+      "target": "func:create_sms_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/sms_settings/test_sms_settings.py",
+      "target": "file:frappe/core/doctype/sms_settings/sms_settings.py",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:SubmissionQueue",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:queue_submission",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_latest_submissions",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:format_tb",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:queue_submission",
+      "target": "class:SubmissionQueue",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_latest_submissions",
+      "target": "func:format_tb",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:SubmissionQueue",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.js",
+      "type": "has_client_controller",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/submission_queue/test_submission_queue.py",
+      "target": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestSubmissionQueue",
+      "target": "func:queue_submission",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestSubmissionQueue",
+      "target": "file:frappe/core/doctype/submission_queue/test_submission_queue.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SubmissionQueue",
+      "target": "class:SMSSettings",
+      "type": "sibling_doctype",
+      "direction": "forward",
+      "weight": 0.2
+    },
+    {
+      "source": "class:SuccessAction",
+      "target": "file:frappe/core/doctype/success_action/success_action.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:SuccessAction",
+      "target": "file:frappe/core/doctype/success_action/success_action.js",
+      "type": "has_client_controller",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/submission_queue/submission_queue.py",
+      "target": "file:frappe/core/doctype/success_action/success_action.py",
+      "type": "sibling_module",
+      "direction": "forward",
+      "weight": 0.2
+    }
+  ]
+}

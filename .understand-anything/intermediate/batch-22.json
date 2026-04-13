@@ -1,0 +1,322 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/permission_log/permission_log.js",
+      "type": "file",
+      "name": "permission_log.js",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.js",
+      "summary": "Client-side form controller for Permission Log DocType. Renders a table showing changed permission values (from/to) including support for child table changes with nested tables.",
+      "tags": ["javascript", "form-controller", "permissions", "ui"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "file",
+      "name": "permission_log.py",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "summary": "Python controller and utility functions for Permission Log DocType. Provides make_perm_log() hook to capture permission changes, insert_perm_log() for creating log entries, and get_changes()/get_changes_diff() for computing field-level diffs between document states.",
+      "tags": ["python", "doctype-controller", "permissions", "audit-log", "diff"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_log/permission_log_list.js",
+      "type": "file",
+      "name": "permission_log_list.js",
+      "filePath": "frappe/core/doctype/permission_log/permission_log_list.js",
+      "summary": "List view settings for Permission Log. Hides the name column and disables comment count display.",
+      "tags": ["javascript", "list-view", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_log/test_permission_log.py",
+      "type": "file",
+      "name": "test_permission_log.py",
+      "filePath": "frappe/core/doctype/permission_log/test_permission_log.py",
+      "summary": "Empty test stub for Permission Log DocType extending IntegrationTestCase.",
+      "tags": ["python", "test", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_type/permission_type.js",
+      "type": "file",
+      "name": "permission_type.js",
+      "filePath": "frappe/core/doctype/permission_type/permission_type.js",
+      "summary": "Commented-out placeholder client-side controller for Permission Type DocType.",
+      "tags": ["javascript", "form-controller", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_type/permission_type.py",
+      "type": "file",
+      "name": "permission_type.py",
+      "filePath": "frappe/core/doctype/permission_type/permission_type.py",
+      "summary": "Python controller for Permission Type DocType. Manages custom permission types per DocType by creating custom Check fields on Custom DocPerm, DocPerm, and DocShare. Handles developer-mode restrictions, file export/delete, and provides get_doctype_ptype_map() cached lookup.",
+      "tags": ["python", "doctype-controller", "permissions", "custom-fields", "developer-mode"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/permission_type/test_permission_type.py",
+      "type": "file",
+      "name": "test_permission_type.py",
+      "filePath": "frappe/core/doctype/permission_type/test_permission_type.py",
+      "summary": "Integration tests for Permission Type DocType. Tests custom permission type creation on a DocType (approve on Web Page), verifies custom fields are created, permission granting/revoking works, and reserved name validation.",
+      "tags": ["python", "test", "permissions", "integration-test"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/prepared_report/prepared_report.js",
+      "type": "file",
+      "name": "prepared_report.js",
+      "filePath": "frappe/core/doctype/prepared_report/prepared_report.js",
+      "summary": "Client-side form controller for Prepared Report DocType. Renders filter values table, provides 'Show Report' button for completed reports, 'Download as CSV' for conversion, and 'Cancel Prepared Report' for queued/started reports.",
+      "tags": ["javascript", "form-controller", "reports", "ui"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:PermissionLog",
+      "type": "class",
+      "name": "PermissionLog",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [10, 31],
+      "summary": "Document controller for Permission Log. Minimal controller with a computed property 'changed_at' that returns the document creation timestamp.",
+      "tags": ["python", "doctype-controller", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:make_perm_log",
+      "type": "function",
+      "name": "make_perm_log",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [34, 47],
+      "summary": "Hook function called on document events. Checks if the document supports permission logging via get_permission_log_options(), skips logging during permission resets for Custom DocPerm deletions, then delegates to insert_perm_log().",
+      "tags": ["python", "hook", "permissions", "audit-log"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:insert_perm_log",
+      "type": "function",
+      "name": "insert_perm_log",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [50, 97],
+      "summary": "Creates a Permission Log document recording permission changes. Supports custom_changes for reset-to-standard operations or computes diff via get_changes(). Handles status determination (Updated/Added/Removed) and ensures role/parent fields are included for Custom DocPerm entries.",
+      "tags": ["python", "permissions", "audit-log", "database"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:get_changes",
+      "type": "function",
+      "name": "get_changes",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [100, 123],
+      "summary": "Computes the diff between current and previous document states. Returns tuple of (current_changes, previous_changes) after filtering fields and comparing values.",
+      "tags": ["python", "diff", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_changes_diff",
+      "type": "function",
+      "name": "get_changes_diff",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [126, 149],
+      "summary": "Computes field-level differences between current and previous document values. Uses set operations for child table comparison (symmetric_difference) and direct comparison for scalar fields.",
+      "tags": ["python", "diff", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_filtered_changes",
+      "type": "function",
+      "name": "get_filtered_changes",
+      "filePath": "frappe/core/doctype/permission_log/permission_log.py",
+      "lineRange": [152, 175],
+      "summary": "Filters document changes to only include specified fields. Supports filtering child table documents to specific sub-fields via dict entries in the filter list.",
+      "tags": ["python", "utility", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:PermissionType",
+      "type": "class",
+      "name": "PermissionType",
+      "filePath": "frappe/core/doctype/permission_type/permission_type.py",
+      "lineRange": [16, 124],
+      "summary": "Document controller for Permission Type. Manages custom permission types per DocType. On insert/update creates custom Check fields on DocPerm, Custom DocPerm, and DocShare targets. Validates against reserved standard rights. Restricts creation/deletion to developer mode. Handles file export for app development.",
+      "tags": ["python", "doctype-controller", "permissions", "custom-fields"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:get_doctype_ptype_map",
+      "type": "function",
+      "name": "get_doctype_ptype_map",
+      "filePath": "frappe/core/doctype/permission_type/permission_type.py",
+      "lineRange": [127, 135],
+      "summary": "Site-cached function that returns a mapping of DocType names to their custom permission type lists. Queries all Permission Type records and groups them by doc_type.",
+      "tags": ["python", "permissions", "cache", "utility"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:IntegrationTestPermissionType",
+      "type": "class",
+      "name": "IntegrationTestPermissionType",
+      "filePath": "frappe/core/doctype/permission_type/test_permission_type.py",
+      "lineRange": [15, 103],
+      "summary": "Integration test class for PermissionType. Tests the full lifecycle: creating a custom 'approve' permission type on Web Page, verifying custom fields are created on DocPerm/Custom DocPerm/DocShare, granting/revoking the permission, and rejection of reserved permission names.",
+      "tags": ["python", "test", "permissions", "integration-test"],
+      "complexity": "medium"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:PermissionLog",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_perm_log",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:insert_perm_log",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_changes",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_changes_diff",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_filtered_changes",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:make_perm_log",
+      "target": "func:insert_perm_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:insert_perm_log",
+      "target": "func:get_changes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_changes",
+      "target": "func:get_changes_diff",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:get_changes",
+      "target": "func:get_filtered_changes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:insert_perm_log",
+      "target": "class:PermissionLog",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_log/permission_log.js",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "complements",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_log/permission_log_list.js",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.py",
+      "type": "complements",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_log/test_permission_log.py",
+      "target": "class:PermissionLog",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:PermissionType",
+      "target": "file:frappe/core/doctype/permission_type/permission_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_doctype_ptype_map",
+      "target": "file:frappe/core/doctype/permission_type/permission_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:get_doctype_ptype_map",
+      "target": "class:PermissionType",
+      "type": "queries",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:IntegrationTestPermissionType",
+      "target": "file:frappe/core/doctype/permission_type/test_permission_type.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:IntegrationTestPermissionType",
+      "target": "class:PermissionType",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/permission_type/permission_type.js",
+      "target": "file:frappe/core/doctype/permission_type/permission_type.py",
+      "type": "complements",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "class:PermissionType",
+      "target": "class:PermissionLog",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/prepared_report/prepared_report.js",
+      "target": "file:frappe/core/doctype/permission_log/permission_log.js",
+      "type": "pattern_similarity",
+      "direction": "forward",
+      "weight": 0.4
+    }
+  ]
+}

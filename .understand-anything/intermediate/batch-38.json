@@ -1,0 +1,397 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/page/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/page/__init__.py",
+      "summary": "Package init for core page module. Contains only license header.",
+      "tags": ["core", "page", "init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/page/dashboard_view/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/page/dashboard_view/__init__.py",
+      "summary": "Empty package init for the dashboard_view page module.",
+      "tags": ["core", "page", "dashboard", "init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/page/dashboard_view/dashboard_view.js",
+      "type": "file",
+      "name": "dashboard_view.js",
+      "filePath": "frappe/core/page/dashboard_view/dashboard_view.js",
+      "summary": "Client-side JavaScript for the Dashboard View page. Renders Dashboard documents with chart widgets and number card widgets, supports routing between dashboards, and provides menu actions for editing, creating, and refreshing dashboards.",
+      "tags": ["core", "page", "dashboard", "javascript", "frontend", "widgets"],
+      "complexity": 3
+    },
+    {
+      "id": "class:Dashboard",
+      "type": "class",
+      "name": "Dashboard",
+      "filePath": "frappe/core/page/dashboard_view/dashboard_view.js",
+      "lineRange": [20, 196],
+      "summary": "Main Dashboard class that manages dashboard rendering. Handles route-based dashboard selection, renders chart and number card widget groups, manages breadcrumbs, and provides a dropdown menu for switching between dashboards.",
+      "tags": ["dashboard", "frontend", "widgets", "routing"],
+      "complexity": 3
+    },
+    {
+      "id": "file:frappe/core/page/permission_manager/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/page/permission_manager/__init__.py",
+      "summary": "Package init for the permission_manager page module. Contains only license header.",
+      "tags": ["core", "page", "permissions", "init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/page/permission_manager/permission_manager.js",
+      "type": "file",
+      "name": "permission_manager.js",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.js",
+      "summary": "Client-side JavaScript for the Role Permissions Manager page. Provides a full UI for viewing and managing DocType permissions by role, including adding/removing permission rules, toggling individual permission types via checkboxes, resetting to standard permissions, viewing users with a role, and displaying a permission activity log.",
+      "tags": ["core", "page", "permissions", "javascript", "frontend", "rbac"],
+      "complexity": 5
+    },
+    {
+      "id": "class:PermissionEngine",
+      "type": "class",
+      "name": "PermissionEngine",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.js",
+      "lineRange": [22, 740],
+      "summary": "Core UI engine for the permission manager page. Manages DocType and Role select fields, renders a permission table with checkboxes for each permission type (select, read, write, create, delete, submit, cancel, amend, print, email, report, import, export, share, mask), handles add/remove/update permission rules via server calls, displays users with a given role, supports resetting to standard permissions, and shows permission activity logs in a dialog.",
+      "tags": ["permissions", "frontend", "rbac", "ui-engine"],
+      "complexity": 5
+    },
+    {
+      "id": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "type": "file",
+      "name": "permission_manager.py",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "summary": "Server-side Python backend for the Permission Manager page. Provides whitelisted API endpoints for fetching roles/doctypes, getting/adding/updating/removing/resetting permissions, retrieving users with a role, getting standard permissions, and fetching permission activity logs. Restricted to System Manager role.",
+      "tags": ["core", "page", "permissions", "python", "backend", "rbac", "api"],
+      "complexity": 4
+    },
+    {
+      "id": "func:get_roles_and_doctypes",
+      "type": "function",
+      "name": "get_roles_and_doctypes",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [29, 77],
+      "summary": "Returns sorted lists of active doctypes and roles for the permission manager UI, filtered by active domains and restricted roles. Also includes a doctype-to-permission-type map.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 3
+    },
+    {
+      "id": "func:get_permissions",
+      "type": "function",
+      "name": "get_permissions",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [79, 113],
+      "summary": "Retrieves permission rules for a given doctype and/or role, including linked doctypes and submittable metadata. Falls back from Custom DocPerm to DocPerm if no custom permissions exist.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 3
+    },
+    {
+      "id": "func:permission_manager_add",
+      "type": "function",
+      "name": "add",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [115, 119],
+      "summary": "Adds a new permission rule for a given doctype, role, and permission level. System Manager only.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 1
+    },
+    {
+      "id": "func:permission_manager_update",
+      "type": "function",
+      "name": "update",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [121, 159],
+      "summary": "Updates a specific permission property (e.g., read, write, delete) for a doctype/role/permlevel combination. Handles special logic for 'if_owner' and 'report' permission interaction. Clears cache after commit.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 3
+    },
+    {
+      "id": "func:permission_manager_remove",
+      "type": "function",
+      "name": "remove",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [161, 176],
+      "summary": "Removes a permission rule (Custom DocPerm) for a given doctype, role, permlevel, and if_owner flag. Validates at least one rule remains.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 2
+    },
+    {
+      "id": "func:permission_manager_reset",
+      "type": "function",
+      "name": "reset",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [178, 210],
+      "summary": "Resets permissions for a doctype back to standard (from DocPerm), removes custom permissions, clears cache, and logs the reset action in Permission Log.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 3
+    },
+    {
+      "id": "func:get_users_with_role",
+      "type": "function",
+      "name": "get_users_with_role",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [212, 216],
+      "summary": "Returns list of users who have the specified role. Delegates to frappe.utils.user helper.",
+      "tags": ["permissions", "api", "whitelist", "users"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_standard_permissions",
+      "type": "function",
+      "name": "get_standard_permissions",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [218, 229],
+      "summary": "Retrieves standard (non-custom) permissions for a doctype, either from the DocType document (if custom) or from the module JSON file.",
+      "tags": ["permissions", "api", "whitelist"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_permission_logs",
+      "type": "function",
+      "name": "get_permission_logs",
+      "filePath": "frappe/core/page/permission_manager/permission_manager.py",
+      "lineRange": [231, 261],
+      "summary": "Returns recent Permission Log entries for a given doctype (or all doctypes). Parses JSON changes field and renames creation to changed_at for frontend consumption.",
+      "tags": ["permissions", "api", "whitelist", "audit-log"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/report/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/__init__.py",
+      "summary": "Package init for core report module. Contains only license header.",
+      "tags": ["core", "report", "init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/report/database_storage_usage_by_tables/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/__init__.py",
+      "summary": "Empty package init for the database_storage_usage_by_tables report module.",
+      "tags": ["core", "report", "database", "init"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.js",
+      "type": "file",
+      "name": "database_storage_usage_by_tables.js",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.js",
+      "summary": "Client-side JavaScript for the Database Storage Usage By Tables report. Adds an 'Optimize' action button that lets the user select a DocType and enqueue a table optimization job.",
+      "tags": ["core", "report", "database", "javascript", "frontend"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "type": "file",
+      "name": "database_storage_usage_by_tables.py",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "summary": "Server-side Python for the Database Storage Usage By Tables report. Queries information_schema (MariaDB), pg_total_relation_size (PostgreSQL), or dbstat (SQLite) to return table sizes including data and index breakdown. Also provides an optimize_doctype endpoint that enqueues OPTIMIZE TABLE / VACUUM ANALYZE jobs.",
+      "tags": ["core", "report", "database", "python", "backend", "storage", "optimization"],
+      "complexity": 3
+    },
+    {
+      "id": "func:db_storage_execute",
+      "type": "function",
+      "name": "execute",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "lineRange": [14, 62],
+      "summary": "Main report execution function. Runs multi-database SQL (MariaDB, PostgreSQL, SQLite) to retrieve table storage sizes including data and index breakdown in MB, ordered by total size descending.",
+      "tags": ["report", "database", "sql", "multi-db"],
+      "complexity": 3
+    },
+    {
+      "id": "func:optimize_doctype",
+      "type": "function",
+      "name": "optimize_doctype",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "lineRange": [65, 74],
+      "summary": "Whitelisted endpoint that enqueues a background job to optimize a DocType's database table. System Manager only.",
+      "tags": ["database", "optimization", "api", "whitelist", "background-job"],
+      "complexity": 2
+    },
+    {
+      "id": "func:optimize_doctype_job",
+      "type": "function",
+      "name": "optimize_doctype_job",
+      "filePath": "frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "lineRange": [77, 86],
+      "summary": "Background job worker function that runs OPTIMIZE TABLE (MariaDB) or VACUUM ANALYZE (PostgreSQL) on the specified DocType's table.",
+      "tags": ["database", "optimization", "background-job"],
+      "complexity": 2
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/page/dashboard_view/dashboard_view.js",
+      "target": "class:Dashboard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.js",
+      "target": "class:PermissionEngine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:get_roles_and_doctypes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:get_permissions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:permission_manager_add",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:permission_manager_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:permission_manager_remove",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:permission_manager_reset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:get_users_with_role",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:get_standard_permissions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "target": "func:get_permission_logs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "target": "func:db_storage_execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "target": "func:optimize_doctype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.py",
+      "target": "func:optimize_doctype_job",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:PermissionEngine",
+      "target": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/permission_manager.js",
+      "target": "file:frappe/core/page/permission_manager/permission_manager.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/report/database_storage_usage_by_tables/database_storage_usage_by_tables.js",
+      "target": "func:optimize_doctype",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:optimize_doctype",
+      "target": "func:optimize_doctype_job",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:permission_manager_reset",
+      "target": "func:get_permissions",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:Dashboard",
+      "target": "file:frappe/core/page/dashboard_view/dashboard_view.js",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/page/dashboard_view/__init__.py",
+      "target": "file:frappe/core/page/__init__.py",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "file:frappe/core/page/permission_manager/__init__.py",
+      "target": "file:frappe/core/page/__init__.py",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "file:frappe/core/report/database_storage_usage_by_tables/__init__.py",
+      "target": "file:frappe/core/report/__init__.py",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.3
+    }
+  ]
+}

@@ -1,0 +1,796 @@
+{
+  "nodes": [
+    {
+      "id": "frappe/recorder.py",
+      "type": "file",
+      "name": "recorder.py",
+      "filePath": "frappe/recorder.py",
+      "summary": "SQL query recorder and profiler for debugging. Intercepts database queries, captures call stacks, timing, EXPLAIN output, and cProfile data. Stores results in Redis for inspection via the Recorder UI. Supports recording HTTP requests, background jobs, and direct function calls.",
+      "tags": ["debugging", "profiling", "sql", "redis", "performance"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/recorder.py::RecorderConfig",
+      "type": "class",
+      "name": "RecorderConfig",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [36, 59],
+      "summary": "Dataclass holding recorder configuration (record_requests, record_jobs, record_sql, capture_stack, profile, explain, filters). Stores/retrieves config from Redis cache with auto-disable expiry.",
+      "tags": ["dataclass", "configuration", "redis"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/recorder.py::Recorder",
+      "type": "class",
+      "name": "Recorder",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [197, 295],
+      "summary": "Main recorder class that patches frappe.db.sql to intercept queries. Captures query data (SQL text, stack frames, timing), optionally runs cProfile, and dumps results to Redis hashes for later retrieval and post-processing.",
+      "tags": ["debugging", "sql-interception", "profiling", "redis"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/recorder.py::record_sql",
+      "type": "function",
+      "name": "record_sql",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [62, 85],
+      "summary": "Replacement for frappe.db.sql that wraps the original call with timing measurement and stack capture. Registers each query's data (text, duration, stack) with the active Recorder instance.",
+      "tags": ["sql", "interception", "timing"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/recorder.py::post_process",
+      "type": "function",
+      "name": "post_process",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [105, 137],
+      "summary": "Post-processes recorded SQL queries: reformats with sqlparse, collects EXPLAIN output, marks duplicate and normalized-duplicate queries. Runs as background job after recording stops.",
+      "tags": ["sql", "post-processing", "explain"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/recorder.py::normalize_query",
+      "type": "function",
+      "name": "normalize_query",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [154, 179],
+      "summary": "Normalizes SQL queries by replacing literal values with '?' placeholders using sqlparse, enabling detection of structurally similar duplicate queries.",
+      "tags": ["sql", "normalization"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/recorder.py::record_queries",
+      "type": "function",
+      "name": "record_queries",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [390, 404],
+      "summary": "Decorator to profile a specific function using the recorder. Forces recording, captures all SQL queries during execution, then post-processes results.",
+      "tags": ["decorator", "profiling"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/recorder.py::start",
+      "type": "function",
+      "name": "start",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [327, 353],
+      "summary": "Whitelisted API to start the recorder. Creates RecorderConfig, stores it in cache, sets intercept flag with auto-disable expiry.",
+      "tags": ["api", "whitelisted"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/recorder.py::stop",
+      "type": "function",
+      "name": "stop",
+      "filePath": "frappe/recorder.py",
+      "lineRange": [356, 361],
+      "summary": "Whitelisted API to stop the recorder. Clears intercept flag and enqueues post_process as background job.",
+      "tags": ["api", "whitelisted"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/sessions.py",
+      "type": "file",
+      "name": "sessions.py",
+      "filePath": "frappe/sessions.py",
+      "summary": "Redis-backed session management for Frappe. Handles session creation, resumption, expiry, and cleanup. Builds boot info (permissions, defaults, system settings) cached in Redis. Manages CSRF tokens, session records in database and cache.",
+      "tags": ["session", "authentication", "redis", "boot", "security"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/sessions.py::Session",
+      "type": "class",
+      "name": "Session",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [207, 454],
+      "summary": "Core session class managing user sessions. Handles session start (sid generation, DB insert, cache set), resume (load from cache/DB, validate expiry), and update (extend expiry, persist to DB). Uses __slots__ for memory efficiency. Supports session impersonation.",
+      "tags": ["session", "authentication", "redis", "database"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/sessions.py::get",
+      "type": "function",
+      "name": "get",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [128, 186],
+      "summary": "Gets session boot info. Loads bootinfo from Redis cache or builds fresh via get_bootinfo(). Extends with change_log, translations, app data, navbar settings, and runs extend_bootinfo hooks.",
+      "tags": ["boot", "session", "cache"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/sessions.py::clear_sessions",
+      "type": "function",
+      "name": "clear_sessions",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [38, 51],
+      "summary": "Clears other sessions for a user at login/logout. Respects simultaneous_sessions setting unless force=True.",
+      "tags": ["session", "cleanup"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/sessions.py::delete_session",
+      "type": "function",
+      "name": "delete_session",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [83, 101],
+      "summary": "Deletes a session by sid from both database (Sessions table) and Redis cache. Logs the logout event via activity log feed.",
+      "tags": ["session", "cleanup", "database"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/sessions.py::get_expiry_period",
+      "type": "function",
+      "name": "get_expiry_period",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [480, 487],
+      "summary": "Returns session expiry period from System Settings (default 240:00:00). Normalizes format to HH:MM:SS.",
+      "tags": ["session", "configuration"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/sessions.py::generate_csrf_token",
+      "type": "function",
+      "name": "generate_csrf_token",
+      "filePath": "frappe/sessions.py",
+      "lineRange": [201, 204],
+      "summary": "Generates a new CSRF token hash and stores it in session data. Forces session update except during tests.",
+      "tags": ["security", "csrf"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/share.py",
+      "type": "file",
+      "name": "share.py",
+      "filePath": "frappe/share.py",
+      "summary": "Document sharing permission system. Manages DocShare records that grant read/write/submit/share permissions to specific users or everyone. Validates permissions before granting, supports custom permission types, and sends share notifications.",
+      "tags": ["permissions", "sharing", "docshare", "notifications"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/share.py::add_docshare",
+      "type": "function",
+      "name": "add_docshare",
+      "filePath": "frappe/share.py",
+      "lineRange": [49, 88],
+      "summary": "Creates or updates a DocShare record to share a document with a user. Sets read/write/submit/share permissions, supports custom permission types, validates share permissions, sends notifications, and optionally triggers document follow.",
+      "tags": ["sharing", "permissions", "docshare"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/share.py::set_docshare_permission",
+      "type": "function",
+      "name": "set_docshare_permission",
+      "filePath": "frappe/share.py",
+      "lineRange": [111, 145],
+      "summary": "Sets a specific permission on an existing or new DocShare. Handles permission cascading (unsetting read also unsets write/submit/share). Deletes DocShare if all permissions are removed.",
+      "tags": ["sharing", "permissions"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/share.py::get_shared",
+      "type": "function",
+      "name": "get_shared",
+      "filePath": "frappe/share.py",
+      "lineRange": [168, 199],
+      "summary": "Returns list of shared document names for a given user and DocType, filtered by specified rights (read/write/share). Includes documents shared with everyone.",
+      "tags": ["sharing", "query"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/share.py::check_share_permission",
+      "type": "function",
+      "name": "check_share_permission",
+      "filePath": "frappe/share.py",
+      "lineRange": [229, 263],
+      "summary": "Validates that the current user has share permission on the doctype and possesses all permissions they are trying to grant. Supports custom permission types.",
+      "tags": ["permissions", "validation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/share.py::notify_assignment",
+      "type": "function",
+      "name": "notify_assignment",
+      "filePath": "frappe/share.py",
+      "lineRange": [266, 287],
+      "summary": "Sends a notification to the user when a document is shared with them. Creates notification log entry of type 'Share'.",
+      "tags": ["notifications", "sharing"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/test_runner.py",
+      "type": "file",
+      "name": "test_runner.py",
+      "filePath": "frappe/test_runner.py",
+      "summary": "Deprecated test runner module (to be removed in v17). Re-exports all functions from frappe.deprecation_dumpster for backward compatibility: main, get_modules, make_test_objects, make_test_records, etc.",
+      "tags": ["testing", "deprecated", "backward-compatibility"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/translate.py",
+      "type": "file",
+      "name": "translate.py",
+      "filePath": "frappe/translate.py",
+      "summary": "Comprehensive i18n/translation system for Frappe. Handles language detection (form dict, cookies, headers, user settings), loading translations from CSV and MO files, merging app and user translations with Redis caching, extracting translatable strings from Python/JS/HTML/Vue files, and managing translation CSV files.",
+      "tags": ["i18n", "translation", "localization", "csv", "caching"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/translate.py::get_language",
+      "type": "function",
+      "name": "get_language",
+      "filePath": "frappe/translate.py",
+      "lineRange": [35, 82],
+      "summary": "Determines the user's language with priority: form_dict._lang > cookie (preferred_language) > Accept-Language header > User document language > System Settings. Only checks cookies/headers for guest users.",
+      "tags": ["i18n", "language-detection"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::get_user_lang",
+      "type": "function",
+      "name": "get_user_lang",
+      "filePath": "frappe/translate.py",
+      "lineRange": [98, 108],
+      "summary": "Gets the language for a user from User document, falling back to System Settings, frappe.local.lang, then 'en'.",
+      "tags": ["i18n", "user-preference"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/translate.py::get_all_translations",
+      "type": "function",
+      "name": "get_all_translations",
+      "filePath": "frappe/translate.py",
+      "lineRange": [144, 178],
+      "summary": "Loads the complete translation dictionary for a language by merging: parent language app translations, child language app translations, parent user translations, child user translations, and translated country names. Results cached in Redis.",
+      "tags": ["i18n", "translation-loading", "caching"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::get_translations_from_apps",
+      "type": "function",
+      "name": "get_translations_from_apps",
+      "filePath": "frappe/translate.py",
+      "lineRange": [181, 196],
+      "summary": "Combines translations from CSV files and MO (gettext) files across all installed apps for a given language. Handles derivative languages by merging parent translations first.",
+      "tags": ["i18n", "csv", "gettext"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::get_messages_for_app",
+      "type": "function",
+      "name": "get_messages_for_app",
+      "filePath": "frappe/translate.py",
+      "lineRange": [270, 328],
+      "summary": "Extracts all translatable messages for an app by scanning doctypes, pages, reports, workflows, custom fields, JS include files, server code, and navbar settings.",
+      "tags": ["i18n", "message-extraction"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/translate.py::get_messages_from_file",
+      "type": "function",
+      "name": "get_messages_from_file",
+      "filePath": "frappe/translate.py",
+      "lineRange": [597, 639],
+      "summary": "Extracts translatable strings from a code file (.py, .js, .html, .vue). Uses babel for Python extraction and custom JS parser. Tracks scanned files to avoid duplicates.",
+      "tags": ["i18n", "extraction", "parsing"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::extract_messages_from_python_code",
+      "type": "function",
+      "name": "extract_messages_from_python_code",
+      "filePath": "frappe/translate.py",
+      "lineRange": [642, 664],
+      "summary": "Extracts translatable strings from Python code using babel's extract_python with _() and _lt() as keywords. Returns list of (lineno, source_text, context) tuples.",
+      "tags": ["i18n", "python", "babel"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::extract_messages_from_javascript_code",
+      "type": "function",
+      "name": "extract_messages_from_javascript_code",
+      "filePath": "frappe/translate.py",
+      "lineRange": [667, 687],
+      "summary": "Extracts translatable strings from JavaScript code using a custom JS parser. Returns list of (lineno, source_text, context) tuples.",
+      "tags": ["i18n", "javascript", "extraction"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/translate.py::write_translations_file",
+      "type": "function",
+      "name": "write_translations_file",
+      "filePath": "frappe/translate.py",
+      "lineRange": [879, 895],
+      "summary": "Writes a translation CSV file for an app and language. Gets app messages and full translation dict, then writes CSV at [app]/translations/[lang].csv.",
+      "tags": ["i18n", "csv", "file-io"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/translate.py::clear_cache",
+      "type": "function",
+      "name": "clear_cache",
+      "filePath": "frappe/translate.py",
+      "lineRange": [248, 253],
+      "summary": "Clears all translation caches (bootinfo, user translations, merged translations) from Redis and regenerates the translation version.",
+      "tags": ["i18n", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/translate.py::print_language",
+      "type": "function",
+      "name": "print_language",
+      "filePath": "frappe/translate.py",
+      "lineRange": [976, 1004],
+      "summary": "Context manager that temporarily switches frappe.local.lang and resets jenv for printing in a specific language, restoring originals on exit.",
+      "tags": ["i18n", "context-manager", "printing"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/twofactor.py",
+      "type": "file",
+      "name": "twofactor.py",
+      "filePath": "frappe/twofactor.py",
+      "summary": "Two-factor authentication system supporting OTP App (TOTP), SMS, and Email verification methods. Manages OTP secrets (encrypted), QR code generation, token caching in Redis, and verification flow. Integrates with login manager and supports IP-based 2FA bypass.",
+      "tags": ["authentication", "2fa", "security", "otp", "totp"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/twofactor.py::two_factor_is_enabled",
+      "type": "function",
+      "name": "two_factor_is_enabled",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [44, 62],
+      "summary": "Checks if 2FA is enabled globally via System Settings, with optional bypass for users with restricted IP addresses matching the current request IP.",
+      "tags": ["2fa", "configuration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::authenticate_for_2factor",
+      "type": "function",
+      "name": "authenticate_for_2factor",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [80, 92],
+      "summary": "Initiates 2FA authentication: generates OTP token, creates temp ID, caches 2FA data, and sets verification object in response for the client to prompt user.",
+      "tags": ["2fa", "authentication"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::confirm_otp_token",
+      "type": "function",
+      "name": "confirm_otp_token",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [149, 188],
+      "summary": "Verifies OTP token against both HOTP (for SMS/Email) and TOTP (for OTP App). Tracks login attempts via login attempt tracker. Handles expired login sessions.",
+      "tags": ["2fa", "verification", "otp"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/twofactor.py::cache_2fa_data",
+      "type": "function",
+      "name": "cache_2fa_data",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [94, 109],
+      "summary": "Caches 2FA data (user, password, OTP secret, token) in Redis with expiry times. Uses Redis pipeline for atomic operations. SMS/Email get longer expiry (300s) than OTP App (180s).",
+      "tags": ["2fa", "redis", "caching"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::get_otpsecret_for_",
+      "type": "function",
+      "name": "get_otpsecret_for_",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [133, 142],
+      "summary": "Retrieves or generates the OTP secret for a user. Secrets are stored encrypted in defaults and decrypted on retrieval. Generates random 10-byte base32-encoded secret for new users.",
+      "tags": ["2fa", "encryption", "otp-secret"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::get_verification_obj",
+      "type": "function",
+      "name": "get_verification_obj",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [191, 205],
+      "summary": "Routes 2FA verification to the appropriate method handler (SMS, OTP App, or Email) based on System Settings configuration.",
+      "tags": ["2fa", "verification"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::send_token_via_sms",
+      "type": "function",
+      "name": "send_token_via_sms",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [303, 342],
+      "summary": "Sends OTP token via SMS using SMS Settings. Supports hook override via send_token_via_sms hook. Enqueues SMS sending as background job.",
+      "tags": ["2fa", "sms", "background-job"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::send_token_via_email",
+      "type": "function",
+      "name": "send_token_via_email",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [353, 370],
+      "summary": "Sends OTP token via email using frappe.sendmail with retry. Uses HOTP to generate the verification code from token and secret.",
+      "tags": ["2fa", "email"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/twofactor.py::reset_otp_secret",
+      "type": "function",
+      "name": "reset_otp_secret",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [437, 478],
+      "summary": "Whitelisted API to reset a user's OTP secret. Requires System Manager role (unless self-reset). Clears stored OTP login and secret defaults, sends notification email.",
+      "tags": ["2fa", "api", "whitelisted", "security"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/twofactor.py::ExpiredLoginException",
+      "type": "class",
+      "name": "ExpiredLoginException",
+      "filePath": "frappe/twofactor.py",
+      "lineRange": [32, 33],
+      "summary": "Custom exception raised when a 2FA login session has expired (OTP secret no longer in cache).",
+      "tags": ["2fa", "exception"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "frappe/recorder.py",
+      "target": "frappe/recorder.py::RecorderConfig",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/recorder.py",
+      "target": "frappe/recorder.py::Recorder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/recorder.py::Recorder",
+      "target": "frappe/recorder.py::RecorderConfig",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/recorder.py::Recorder",
+      "target": "frappe/recorder.py::record_sql",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/recorder.py::record_sql",
+      "target": "frappe/recorder.py::Recorder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/recorder.py::post_process",
+      "target": "frappe/recorder.py::normalize_query",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/recorder.py::stop",
+      "target": "frappe/recorder.py::post_process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/recorder.py::start",
+      "target": "frappe/recorder.py::RecorderConfig",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/recorder.py::record_queries",
+      "target": "frappe/recorder.py::Recorder",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/sessions.py",
+      "target": "frappe/sessions.py::Session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/sessions.py::Session",
+      "target": "frappe/sessions.py::delete_session",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/sessions.py::Session",
+      "target": "frappe/sessions.py::get_expiry_period",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/sessions.py::clear_sessions",
+      "target": "frappe/sessions.py::delete_session",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/sessions.py::get",
+      "target": "frappe/translate.py::get_user_lang",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/sessions.py::Session",
+      "target": "frappe/translate.py::get_user_lang",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/sessions.py::generate_csrf_token",
+      "target": "frappe/sessions.py::Session",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/share.py",
+      "target": "frappe/share.py::add_docshare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/share.py",
+      "target": "frappe/share.py::set_docshare_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/share.py",
+      "target": "frappe/share.py::check_share_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/share.py::add_docshare",
+      "target": "frappe/share.py::check_share_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/share.py::add_docshare",
+      "target": "frappe/share.py::notify_assignment",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/share.py::set_docshare_permission",
+      "target": "frappe/share.py::check_share_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/share.py::set_docshare_permission",
+      "target": "frappe/share.py::add_docshare",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/test_runner.py",
+      "target": "frappe/test_runner.py",
+      "type": "deprecation",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "frappe/translate.py",
+      "target": "frappe/translate.py::get_language",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/translate.py",
+      "target": "frappe/translate.py::get_all_translations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/translate.py",
+      "target": "frappe/translate.py::get_messages_for_app",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/translate.py::get_all_translations",
+      "target": "frappe/translate.py::get_translations_from_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/translate.py::get_translations_from_apps",
+      "target": "frappe/translate.py::get_translations_from_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/translate.py::get_messages_for_app",
+      "target": "frappe/translate.py::get_messages_from_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/translate.py::get_messages_from_file",
+      "target": "frappe/translate.py::extract_messages_from_python_code",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/translate.py::get_messages_from_file",
+      "target": "frappe/translate.py::extract_messages_from_javascript_code",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/translate.py::clear_cache",
+      "target": "frappe/translate.py::get_all_translations",
+      "type": "invalidates",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/translate.py::write_translations_file",
+      "target": "frappe/translate.py::get_messages_for_app",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/twofactor.py",
+      "target": "frappe/twofactor.py::two_factor_is_enabled",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/twofactor.py",
+      "target": "frappe/twofactor.py::authenticate_for_2factor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/twofactor.py",
+      "target": "frappe/twofactor.py::confirm_otp_token",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "frappe/twofactor.py::authenticate_for_2factor",
+      "target": "frappe/twofactor.py::get_otpsecret_for_",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/twofactor.py::authenticate_for_2factor",
+      "target": "frappe/twofactor.py::cache_2fa_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "frappe/twofactor.py::authenticate_for_2factor",
+      "target": "frappe/twofactor.py::get_verification_obj",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "frappe/twofactor.py::get_verification_obj",
+      "target": "frappe/twofactor.py::send_token_via_sms",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/twofactor.py::get_verification_obj",
+      "target": "frappe/twofactor.py::send_token_via_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/twofactor.py::confirm_otp_token",
+      "target": "frappe/twofactor.py::ExpiredLoginException",
+      "type": "raises",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/twofactor.py::reset_otp_secret",
+      "target": "frappe/twofactor.py::get_otpsecret_for_",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "frappe/twofactor.py",
+      "target": "frappe/sessions.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "frappe/sessions.py",
+      "target": "frappe/translate.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "frappe/share.py",
+      "target": "frappe/sessions.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.4
+    },
+    {
+      "source": "frappe/recorder.py",
+      "target": "frappe/sessions.py",
+      "type": "related",
+      "direction": "forward",
+      "weight": 0.3
+    }
+  ]
+}

@@ -1,0 +1,222 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue",
+      "type": "file",
+      "name": "WorkflowBuilder.vue",
+      "summary": "Root Vue component for the Workflow Builder; hosts Vue Flow canvas, sidebar, and properties panel to design DocType workflows as a state/transition graph.",
+      "tags": ["vue", "workflow", "vue-flow", "root-component"],
+      "complexity": 371,
+      "filePath": "frappe/public/js/workflow_builder/WorkflowBuilder.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/ActionNode.vue",
+      "type": "file",
+      "name": "ActionNode.vue",
+      "summary": "Vue Flow custom node representing a workflow transition action (button) between two states.",
+      "tags": ["vue", "vue-flow", "node", "workflow"],
+      "complexity": 83,
+      "filePath": "frappe/public/js/workflow_builder/components/ActionNode.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/ConnectionLine.vue",
+      "type": "file",
+      "name": "ConnectionLine.vue",
+      "summary": "Custom connection line rendered while dragging to connect workflow nodes.",
+      "tags": ["vue", "vue-flow", "workflow"],
+      "complexity": 34,
+      "filePath": "frappe/public/js/workflow_builder/components/ConnectionLine.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/Properties.vue",
+      "type": "file",
+      "name": "Properties.vue",
+      "summary": "Right-hand properties panel that edits workflow, state, or transition fields for the selected element.",
+      "tags": ["vue", "workflow", "properties-panel"],
+      "complexity": 109,
+      "filePath": "frappe/public/js/workflow_builder/components/Properties.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/Sidebar.vue",
+      "type": "file",
+      "name": "Sidebar.vue",
+      "summary": "Left sidebar offering draggable palette items (state, action) to drop onto the workflow canvas.",
+      "tags": ["vue", "workflow", "sidebar", "dnd"],
+      "complexity": 59,
+      "filePath": "frappe/public/js/workflow_builder/components/Sidebar.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/StateNode.vue",
+      "type": "file",
+      "name": "StateNode.vue",
+      "summary": "Vue Flow custom node representing a workflow state (Draft/Submitted/etc.) with handles and labels.",
+      "tags": ["vue", "vue-flow", "node", "workflow"],
+      "complexity": 90,
+      "filePath": "frappe/public/js/workflow_builder/components/StateNode.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/components/TransitionEdge.vue",
+      "type": "file",
+      "name": "TransitionEdge.vue",
+      "summary": "Custom Vue Flow edge linking states to actions; renders the animated transition line.",
+      "tags": ["vue", "vue-flow", "edge", "workflow"],
+      "complexity": 110,
+      "filePath": "frappe/public/js/workflow_builder/components/TransitionEdge.vue"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/globals.js",
+      "type": "file",
+      "name": "globals.js",
+      "summary": "Registers global form-builder control components (Data, Link, Select, Table, etc.) on the Vue app used by Workflow Builder.",
+      "tags": ["javascript", "vue", "global-components"],
+      "complexity": 56,
+      "filePath": "frappe/public/js/workflow_builder/globals.js"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/store.js",
+      "type": "file",
+      "name": "store.js",
+      "summary": "Pinia store for the Workflow Builder: loads the Workflow doc and meta, maintains graph elements, handles save/reset, validation, undo/redo, and submittable-state reset.",
+      "tags": ["javascript", "pinia", "store", "workflow"],
+      "complexity": 278,
+      "filePath": "frappe/public/js/workflow_builder/store.js"
+    },
+    {
+      "id": "file:frappe/public/js/workflow_builder/utils.js",
+      "type": "file",
+      "name": "utils.js",
+      "summary": "Pure helpers that convert a Workflow doc (states, transitions) into Vue Flow elements and validate transition legality based on doc_status.",
+      "tags": ["javascript", "workflow", "utils"],
+      "complexity": 189,
+      "filePath": "frappe/public/js/workflow_builder/utils.js"
+    },
+
+    {
+      "id": "func:store.js:useStore",
+      "type": "func",
+      "name": "useStore",
+      "summary": "defineStore factory creating the workflow-builder Pinia store with state refs and actions.",
+      "tags": ["pinia", "store"],
+      "complexity": 273,
+      "lineRange": "6-278"
+    },
+    {
+      "id": "func:store.js:fetch",
+      "type": "func",
+      "name": "fetch",
+      "summary": "Loads Workflow doc, meta for Workflow/State/Transition/document_type, parses workflow_data, builds graph elements, and sets up undo/redo + breadcrumbs.",
+      "tags": ["async", "loader"],
+      "complexity": 54,
+      "lineRange": "17-70"
+    },
+    {
+      "id": "func:store.js:save_changes",
+      "type": "func",
+      "name": "save_changes",
+      "summary": "Serializes current graph back into states/transitions, validates, saves via frappe.client.save, refetches.",
+      "tags": ["async", "save"],
+      "complexity": 19,
+      "lineRange": "76-94"
+    },
+    {
+      "id": "func:store.js:clean_workflow_data",
+      "type": "func",
+      "name": "clean_workflow_data",
+      "summary": "Strips runtime-only fields from elements before JSON-serializing workflow_data on the doc.",
+      "tags": ["serialization"],
+      "complexity": 24,
+      "lineRange": "107-130"
+    },
+    {
+      "id": "func:store.js:reset_non_submittable_states",
+      "type": "func",
+      "name": "reset_non_submittable_states",
+      "summary": "Forces all state doc_status to Draft when the underlying document type is not submittable, showing a msgprint if any changed.",
+      "tags": ["validation"],
+      "complexity": 22,
+      "lineRange": "152-173"
+    },
+    {
+      "id": "func:store.js:get_updated_transitions",
+      "type": "func",
+      "name": "get_updated_transitions",
+      "summary": "Resolves action nodes into Workflow Transition rows by matching from/to state IDs and validates each transition.",
+      "tags": ["transformation"],
+      "complexity": 42,
+      "lineRange": "200-242"
+    },
+    {
+      "id": "func:store.js:setup_undo_redo",
+      "type": "func",
+      "name": "setup_undo_redo",
+      "summary": "Wires useManualRefHistory plus Ctrl/Cmd+Z / Shift+Z keyboard shortcuts for undo/redo on the workflow ref.",
+      "tags": ["undo-redo", "keyboard"],
+      "complexity": 16,
+      "lineRange": "244-259"
+    },
+
+    {
+      "id": "func:utils.js:get_workflow_elements",
+      "type": "func",
+      "name": "get_workflow_elements",
+      "summary": "Builds Vue Flow nodes/edges from a Workflow doc plus persisted workflow_data: state nodes, action nodes, and two transition edges per action (state->action->state).",
+      "tags": ["graph", "transformation"],
+      "complexity": 164,
+      "lineRange": "1-165"
+    },
+    {
+      "id": "func:utils.js:validate_transitions",
+      "type": "func",
+      "name": "validate_transitions",
+      "summary": "Returns an error message if a transition violates doc_status rules (cancelled source, submitted->draft, draft->cancelled).",
+      "tags": ["validation"],
+      "complexity": 22,
+      "lineRange": "167-189"
+    },
+
+    {
+      "id": "func:globals.js:registerGlobalComponents",
+      "type": "func",
+      "name": "registerGlobalComponents",
+      "summary": "Registers form-builder control components (~35 fieldtypes) as globals on a Vue app instance.",
+      "tags": ["vue", "registration"],
+      "complexity": 40,
+      "lineRange": "16-56"
+    }
+  ],
+  "edges": [
+    { "source": "file:frappe/public/js/workflow_builder/store.js", "target": "func:store.js:useStore", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:fetch", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:save_changes", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:clean_workflow_data", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:reset_non_submittable_states", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:get_updated_transitions", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:store.js:useStore", "target": "func:store.js:setup_undo_redo", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/workflow_builder/utils.js", "target": "func:utils.js:get_workflow_elements", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/utils.js", "target": "func:utils.js:validate_transitions", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/workflow_builder/globals.js", "target": "func:globals.js:registerGlobalComponents", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/workflow_builder/store.js", "target": "file:frappe/public/js/workflow_builder/utils.js", "type": "imports", "direction": "forward", "weight": 2 },
+
+    { "source": "file:frappe/public/js/workflow_builder/utils.js", "target": "func:utils.js:get_workflow_elements", "type": "exports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/utils.js", "target": "func:utils.js:validate_transitions", "type": "exports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/store.js", "target": "func:store.js:useStore", "type": "exports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/globals.js", "target": "func:globals.js:registerGlobalComponents", "type": "exports", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 3 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/Sidebar.vue", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/Properties.vue", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/StateNode.vue", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/ActionNode.vue", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/TransitionEdge.vue", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/WorkflowBuilder.vue", "target": "file:frappe/public/js/workflow_builder/components/ConnectionLine.vue", "type": "imports", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/workflow_builder/components/Properties.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 2 },
+    { "source": "file:frappe/public/js/workflow_builder/components/Sidebar.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/components/StateNode.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/components/ActionNode.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/workflow_builder/components/TransitionEdge.vue", "target": "file:frappe/public/js/workflow_builder/store.js", "type": "imports", "direction": "forward", "weight": 1 }
+  ]
+}

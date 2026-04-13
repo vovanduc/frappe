@@ -1,0 +1,662 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/utils/address_and_contact.js",
+      "type": "file",
+      "name": "address_and_contact.js",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "summary": "Client-side helpers on frappe.contacts namespace for rendering address/contact lists on forms, creating new linked Address/Contact records, and fetching address display strings via server xcall.",
+      "tags": ["client", "contacts", "address", "form", "utils"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/address_and_contact.js:clear_address_and_contact",
+      "type": "function",
+      "name": "clear_address_and_contact",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "lineRange": "4-8",
+      "summary": "Empties the address_html and contact_html field wrappers on a form.",
+      "tags": ["form", "dom"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/address_and_contact.js:render_address_and_contact",
+      "type": "function",
+      "name": "render_address_and_contact",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "lineRange": "10-39",
+      "summary": "Renders Address and Contact lists into form HTML wrappers using templates and wires up new-record buttons.",
+      "tags": ["form", "render", "template"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/address_and_contact.js:get_last_doc",
+      "type": "function",
+      "name": "get_last_doc",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "lineRange": "41-55",
+      "summary": "Walks frappe.route_history to find the previously visited Form route that differs from the current doctype.",
+      "tags": ["routing", "history"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/address_and_contact.js:get_address_display",
+      "type": "function",
+      "name": "get_address_display",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "lineRange": "57-75",
+      "summary": "Calls server to compute formatted address display and sets it on the form's display field.",
+      "tags": ["xcall", "address", "form"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/address_and_contact.js:new_record",
+      "type": "function",
+      "name": "new_record",
+      "filePath": "frappe/public/js/frappe/utils/address_and_contact.js",
+      "lineRange": "78-97",
+      "summary": "Opens a new Address or Contact document dialog linked dynamically to the current document; uses AddressAutocompleteDialog when enabled.",
+      "tags": ["new-doc", "dialog"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/common.js",
+      "type": "file",
+      "name": "common.js",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "summary": "Common client utilities shared between desk and website: avatars, palette/abbreviation, cookies, string helpers (repl, strip, lstrip, rstrip), XSS sanitisation, URL sanitisation, auto-repeat prompt, and page view count.",
+      "tags": ["client", "utils", "common", "avatar", "xss", "cookies"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar",
+      "type": "function",
+      "name": "frappe.avatar",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "4-44",
+      "summary": "Builds avatar HTML for a user (desk) or website visitor with optional filterable data attribute.",
+      "tags": ["avatar", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.get_avatar",
+      "type": "function",
+      "name": "frappe.get_avatar",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "46-81",
+      "summary": "Creates avatar markup with either an image or colored abbreviation frame.",
+      "tags": ["avatar", "html"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar_group",
+      "type": "function",
+      "name": "frappe.avatar_group",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "83-134",
+      "summary": "Renders a grouped overlap of avatars with overflow (+N) badge and optional action icon.",
+      "tags": ["avatar", "group", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.ui.scroll",
+      "type": "function",
+      "name": "frappe.ui.scroll",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "136-144",
+      "summary": "Scrolls page to an element, accounting for navbar/page-head height.",
+      "tags": ["scroll", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.get_palette",
+      "type": "function",
+      "name": "frappe.get_palette",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "167-171",
+      "summary": "Deterministically maps a string to an avatar color palette entry using md5.",
+      "tags": ["palette", "md5"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.get_abbr",
+      "type": "function",
+      "name": "frappe.get_abbr",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "173-188",
+      "summary": "Returns a 1-2 char abbreviation from a name.",
+      "tags": ["string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.get_gravatar",
+      "type": "function",
+      "name": "frappe.get_gravatar",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "191-199",
+      "summary": "Returns a gravatar URL for an email, caching by email.",
+      "tags": ["gravatar", "cache"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:repl",
+      "type": "function",
+      "name": "repl",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "203-209",
+      "summary": "Simple %(key)s template replacement from a dict.",
+      "tags": ["template", "string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:strip_html",
+      "type": "function",
+      "name": "strip_html",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "215-217",
+      "summary": "Removes HTML tags from a string.",
+      "tags": ["string", "html"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:lstrip",
+      "type": "function",
+      "name": "lstrip",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "227-236",
+      "summary": "Strips specified leading characters from a string.",
+      "tags": ["string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:rstrip",
+      "type": "function",
+      "name": "rstrip",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "238-246",
+      "summary": "Strips specified trailing characters from a string.",
+      "tags": ["string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.get_cookies",
+      "type": "function",
+      "name": "frappe.get_cookies",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "252-280",
+      "summary": "Parses document.cookie into a key/value dictionary, supporting quoted values.",
+      "tags": ["cookies"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.xss_sanitise",
+      "type": "function",
+      "name": "frappe.utils.xss_sanitise",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "290-324",
+      "summary": "Sanitises a string against XSS using html-escape and script/alert stripping strategies.",
+      "tags": ["xss", "security", "sanitise"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.sanitise_redirect",
+      "type": "function",
+      "name": "frappe.utils.sanitise_redirect",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "326-390",
+      "summary": "Sanitises a redirect URL by stripping external targets and javascript: schemes with obfuscated entity support.",
+      "tags": ["security", "redirect", "url"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.new_auto_repeat_prompt",
+      "type": "function",
+      "name": "frappe.utils.new_auto_repeat_prompt",
+      "filePath": "frappe/public/js/frappe/utils/common.js",
+      "lineRange": "399-454",
+      "summary": "Prompts the user for Auto Repeat frequency/dates and calls make_auto_repeat on the server.",
+      "tags": ["prompt", "auto-repeat", "xcall"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/dashboard_utils.js",
+      "type": "file",
+      "name": "dashboard_utils.js",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "summary": "Dashboard-related client helpers: rendering chart filter dropdowns, resolving chart filter fieldsets by chart type, dashboard settings management, dynamic filter dialog fields, and add-to-dashboard dialogs.",
+      "tags": ["client", "dashboard", "charts", "filters"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:render_chart_filters",
+      "type": "function",
+      "name": "render_chart_filters",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "2-67",
+      "summary": "Renders a dropdown of filter options per chart, wiring click handlers to filter actions.",
+      "tags": ["dashboard", "filters", "ui"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_filters_for_chart_type",
+      "type": "function",
+      "name": "get_filters_for_chart_type",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "69-84",
+      "summary": "Resolves filter definitions for a chart, sourced from Custom source scripts or Report filters.",
+      "tags": ["dashboard", "filters"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_dashboard_settings",
+      "type": "function",
+      "name": "get_dashboard_settings",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "86-103",
+      "summary": "Fetches the current user's Dashboard Settings, creating them if absent.",
+      "tags": ["dashboard", "settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:create_dashboard_settings",
+      "type": "function",
+      "name": "create_dashboard_settings",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "105-116",
+      "summary": "Calls server to create Dashboard Settings for the current user.",
+      "tags": ["dashboard", "settings"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_years_since_creation",
+      "type": "function",
+      "name": "get_years_since_creation",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "118-127",
+      "summary": "Returns a descending list of years from current year down to account creation year.",
+      "tags": ["date"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:remove_common_static_filter_values",
+      "type": "function",
+      "name": "remove_common_static_filter_values",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "133-155",
+      "summary": "Removes static filters that are also present in the dynamic filters set.",
+      "tags": ["filters"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_fields_for_dynamic_filter_dialog",
+      "type": "function",
+      "name": "get_fields_for_dynamic_filter_dialog",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "157-202",
+      "summary": "Builds dialog field list for editing dynamic filter expressions per report or doctype source.",
+      "tags": ["filters", "dialog"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_all_filters",
+      "type": "function",
+      "name": "get_all_filters",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "204-233",
+      "summary": "Parses filters_json and dynamic_filters_json on a doc and evaluates dynamic expressions via eval.",
+      "tags": ["filters", "eval"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_add_to_dashboard_dialog",
+      "type": "function",
+      "name": "get_add_to_dashboard_dialog",
+      "filePath": "frappe/public/js/frappe/utils/dashboard_utils.js",
+      "lineRange": "255-279",
+      "summary": "Creates a dialog for selecting a Dashboard and submitting a server call to add a document to it.",
+      "tags": ["dashboard", "dialog"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/datatable.js",
+      "type": "file",
+      "name": "datatable.js",
+      "filePath": "frappe/public/js/frappe/utils/datatable.js",
+      "summary": "Provides translations for the third-party datatable component in the current user language.",
+      "tags": ["client", "datatable", "i18n"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatable.js:get_translations",
+      "type": "function",
+      "name": "get_translations",
+      "filePath": "frappe/public/js/frappe/utils/datatable.js",
+      "lineRange": "3-22",
+      "summary": "Returns language-keyed translations map for datatable UI strings.",
+      "tags": ["i18n"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/datatype.js",
+      "type": "file",
+      "name": "datatype.js",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "summary": "Global window-scoped primitive type helpers: cstr, cint, toTitle, is_null, copy_dict, validate_email/phone/name/url, nth, has_words, has_common.",
+      "tags": ["client", "primitives", "validation", "globals"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:cstr",
+      "type": "function",
+      "name": "cstr",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "4-7",
+      "summary": "Coerces any value to string, treating null/undefined as empty.",
+      "tags": ["coerce"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:cint",
+      "type": "function",
+      "name": "cint",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "9-17",
+      "summary": "Coerces a value to integer with default fallback; handles booleans and leading zeros.",
+      "tags": ["coerce"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:toTitle",
+      "type": "function",
+      "name": "toTitle",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "20-29",
+      "summary": "Converts a string to title case by capitalising each space-separated word.",
+      "tags": ["string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:validate_email",
+      "type": "function",
+      "name": "validate_email",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "41-43",
+      "summary": "Validates an email string using frappe.utils.validate_type.",
+      "tags": ["validation"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:nth",
+      "type": "function",
+      "name": "nth",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "57-64",
+      "summary": "Returns a number with its ordinal suffix (st/nd/rd/th).",
+      "tags": ["number", "format"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:has_words",
+      "type": "function",
+      "name": "has_words",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "66-73",
+      "summary": "Returns true if any substring in list appears in item.",
+      "tags": ["string"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datatype.js:has_common",
+      "type": "function",
+      "name": "has_common",
+      "filePath": "frappe/public/js/frappe/utils/datatype.js",
+      "lineRange": "75-81",
+      "summary": "Returns true if two lists share any element.",
+      "tags": ["array"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/datetime.js",
+      "type": "file",
+      "name": "datetime.js",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "summary": "Client-side datetime helpers built on moment.js: timezone conversions (user/system), string/object conversions, user-format parsing, diffs, range boundaries (week/month/quarter/year), now helpers and validation.",
+      "tags": ["client", "datetime", "moment", "timezone"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:convert_to_user_tz",
+      "type": "function",
+      "name": "convert_to_user_tz",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "14-29",
+      "summary": "Converts a datetime from system timezone to user timezone.",
+      "tags": ["timezone"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:convert_to_system_tz",
+      "type": "function",
+      "name": "convert_to_system_tz",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "31-48",
+      "summary": "Converts a datetime from user timezone to system timezone for database storage.",
+      "tags": ["timezone"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:is_system_time_zone",
+      "type": "function",
+      "name": "is_system_time_zone",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "50-59",
+      "summary": "Returns true if system and user timezones have the same UTC offset.",
+      "tags": ["timezone"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:str_to_user",
+      "type": "function",
+      "name": "str_to_user",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "157-181",
+      "summary": "Converts a datetime/date/time string from system format into the user's preferred format and timezone.",
+      "tags": ["timezone", "format"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:user_to_str",
+      "type": "function",
+      "name": "user_to_str",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "189-207",
+      "summary": "Parses a date/time in user format and returns a system-formatted string.",
+      "tags": ["format"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:_date",
+      "type": "function",
+      "name": "_date",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "238-252",
+      "summary": "Internal helper returning a moment or formatted string for now in user or system timezone.",
+      "tags": ["timezone", "now"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:moment_to_date_obj",
+      "type": "function",
+      "name": "moment_to_date_obj",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "254-265",
+      "summary": "Converts a moment instance to a native JavaScript Date by component assignment.",
+      "tags": ["date", "conversion"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/datetime.js:validate",
+      "type": "function",
+      "name": "validate",
+      "filePath": "frappe/public/js/frappe/utils/datetime.js",
+      "lineRange": "280-286",
+      "summary": "Returns true if a string is a valid date/datetime/time in default formats.",
+      "tags": ["validation"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/diffview.js",
+      "type": "file",
+      "name": "diffview.js",
+      "filePath": "frappe/public/js/frappe/utils/diffview.js",
+      "summary": "DiffView dialog class for comparing two versions of a doctype field via server-side diff computation with inline insert/delete styling.",
+      "tags": ["client", "diff", "dialog", "version"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/utils/diffview.js:DiffView",
+      "type": "class",
+      "name": "DiffView",
+      "filePath": "frappe/public/js/frappe/utils/diffview.js",
+      "lineRange": "3-104",
+      "summary": "frappe.ui.DiffView — opens a dialog with From/To version pickers, fetches diff via xcall and renders as insert/delete lines.",
+      "tags": ["diff", "dialog", "class"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/display_image.js",
+      "type": "file",
+      "name": "display_image.js",
+      "filePath": "frappe/public/js/frappe/utils/display_image.js",
+      "summary": "Empty placeholder file (no code).",
+      "tags": ["client", "placeholder"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/file_manager.js",
+      "type": "file",
+      "name": "file_manager.js",
+      "filePath": "frappe/public/js/frappe/utils/file_manager.js",
+      "summary": "Client-side file manager clipboard supporting cut/paste of files between folders with state held in a closure; invokes frappe.core.api.file.move_file on paste.",
+      "tags": ["client", "file-manager", "clipboard"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/file_manager.js:cut",
+      "type": "function",
+      "name": "cut",
+      "filePath": "frappe/public/js/frappe/utils/file_manager.js",
+      "lineRange": "8-11",
+      "summary": "Stores files and their old folder to enable a subsequent paste operation.",
+      "tags": ["file-manager"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/file_manager.js:paste",
+      "type": "function",
+      "name": "paste",
+      "filePath": "frappe/public/js/frappe/utils/file_manager.js",
+      "lineRange": "13-37",
+      "summary": "Calls server move_file endpoint to move previously cut files into the new folder and resets state.",
+      "tags": ["file-manager", "server-call"],
+      "complexity": "simple"
+    },
+
+    {
+      "id": "file:frappe/public/js/frappe/utils/help.js",
+      "type": "file",
+      "name": "help.js",
+      "filePath": "frappe/public/js/frappe/utils/help.js",
+      "summary": "Help/video support on frappe.help namespace: maps doctypes to YouTube IDs and shows videos in a Plyr-backed dialog. Also wires clicks on a.help-link to show help for the doctype.",
+      "tags": ["client", "help", "video"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/public/js/frappe/utils/help.js:show_video",
+      "type": "function",
+      "name": "show_video",
+      "filePath": "frappe/public/js/frappe/utils/help.js",
+      "lineRange": "18-50",
+      "summary": "Opens a dialog containing a Plyr YouTube embed for the given video ID or URL.",
+      "tags": ["video", "dialog", "plyr"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    { "source": "file:frappe/public/js/frappe/utils/address_and_contact.js", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:clear_address_and_contact", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/address_and_contact.js", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:render_address_and_contact", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/address_and_contact.js", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:get_last_doc", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/address_and_contact.js", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:get_address_display", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/address_and_contact.js", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:new_record", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/address_and_contact.js:render_address_and_contact", "target": "func:frappe/public/js/frappe/utils/address_and_contact.js:new_record", "type": "calls", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/address_and_contact.js:get_address_display", "target": "file:frappe/contacts/doctype/address/address.py", "type": "calls", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_avatar", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar_group", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.ui.scroll", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_palette", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_abbr", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_gravatar", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:repl", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:strip_html", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:lstrip", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:rstrip", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_cookies", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.xss_sanitise", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.sanitise_redirect", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.new_auto_repeat_prompt", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/common.js", "target": "md5", "type": "imports", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_avatar", "type": "calls", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar_group", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.avatar", "type": "calls", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/common.js:frappe.get_avatar", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_abbr", "type": "calls", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/common.js:frappe.get_avatar", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.get_palette", "type": "calls", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.sanitise_redirect", "target": "func:frappe/public/js/frappe/utils/common.js:frappe.utils.xss_sanitise", "type": "calls", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:render_chart_filters", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_filters_for_chart_type", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_dashboard_settings", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:create_dashboard_settings", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_years_since_creation", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:remove_common_static_filter_values", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_fields_for_dynamic_filter_dialog", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_all_filters", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/dashboard_utils.js", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_add_to_dashboard_dialog", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/dashboard_utils.js:get_dashboard_settings", "target": "func:frappe/public/js/frappe/utils/dashboard_utils.js:create_dashboard_settings", "type": "calls", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/datatable.js", "target": "func:frappe/public/js/frappe/utils/datatable.js:get_translations", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:cstr", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:cint", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:toTitle", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:validate_email", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:nth", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:has_words", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datatype.js", "target": "func:frappe/public/js/frappe/utils/datatype.js:has_common", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "func:frappe/public/js/frappe/utils/datatype.js:cint", "target": "func:frappe/public/js/frappe/utils/common.js:lstrip", "type": "calls", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:convert_to_user_tz", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:convert_to_system_tz", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:is_system_time_zone", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:str_to_user", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:user_to_str", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:_date", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:moment_to_date_obj", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/datetime.js", "target": "func:frappe/public/js/frappe/utils/datetime.js:validate", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/diffview.js", "target": "class:frappe/public/js/frappe/utils/diffview.js:DiffView", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/file_manager.js", "target": "func:frappe/public/js/frappe/utils/file_manager.js:cut", "type": "contains", "direction": "forward", "weight": 1 },
+    { "source": "file:frappe/public/js/frappe/utils/file_manager.js", "target": "func:frappe/public/js/frappe/utils/file_manager.js:paste", "type": "contains", "direction": "forward", "weight": 1 },
+
+    { "source": "file:frappe/public/js/frappe/utils/help.js", "target": "func:frappe/public/js/frappe/utils/help.js:show_video", "type": "contains", "direction": "forward", "weight": 1 }
+  ]
+}

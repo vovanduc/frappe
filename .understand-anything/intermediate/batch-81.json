@@ -1,0 +1,235 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/utils/web_template.js",
+      "type": "file",
+      "name": "web_template.js",
+      "filePath": "frappe/public/js/frappe/utils/web_template.js",
+      "summary": "Small helper exposing frappe.utils.get_web_template_map which fetches web template metadata via frappe.db.get_list for use in form controls and builders.",
+      "tags": ["utils", "web-template", "helper"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/breadcrumbs.js",
+      "type": "file",
+      "name": "breadcrumbs.js",
+      "filePath": "frappe/public/js/frappe/views/breadcrumbs.js",
+      "summary": "Manages the top navigation breadcrumbs for Desk pages. Builds breadcrumb trails from DocType meta, module, and workspace context, caches modules, and renders Home/Workspace/List/Form links.",
+      "tags": ["ui", "navigation", "breadcrumbs", "desk"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/calendar/calendar.js",
+      "type": "file",
+      "name": "calendar.js",
+      "filePath": "frappe/public/js/frappe/views/calendar/calendar.js",
+      "summary": "Calendar view implementation built on FullCalendar. Defines frappe.views.CalendarView (a ListView subclass for routing) and frappe.views.Calendar (the renderer handling event fetch, create/drag/resize, color, and recurring events).",
+      "tags": ["view", "calendar", "fullcalendar", "listview"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/communication.js",
+      "type": "file",
+      "name": "communication.js",
+      "filePath": "frappe/public/js/frappe/views/communication.js",
+      "summary": "The email/comment composer dialog on forms. Provides frappe.views.CommunicationComposer to build a dialog with recipients, CC/BCC, subject, body editor, attachments, email templates, print format selection, and send/save-as-draft actions.",
+      "tags": ["email", "communication", "dialog", "form", "composer"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/container.js",
+      "type": "file",
+      "name": "container.js",
+      "filePath": "frappe/public/js/frappe/views/container.js",
+      "summary": "Top-level page container for the Desk. frappe.views.Container manages page stack, page switching, hide/show of pages inside #body, and binds route change events to display the correct page.",
+      "tags": ["ui", "container", "page-manager", "desk"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/dashboard/dashboard_view.js",
+      "type": "file",
+      "name": "dashboard_view.js",
+      "filePath": "frappe/public/js/frappe/views/dashboard/dashboard_view.js",
+      "summary": "Dashboard View renderer extending ListView. Loads a Dashboard doc, builds chart and number-card widgets, handles layout, edit mode, refresh actions, and customization via widget groups.",
+      "tags": ["view", "dashboard", "charts", "widgets"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/factory.js",
+      "type": "file",
+      "name": "factory.js",
+      "filePath": "frappe/public/js/frappe/views/factory.js",
+      "summary": "Base Factory class for view factories (List, Form, Report, etc.). Handles show/make logic per route and exposes frappe.make_page helper to construct a generic Desk page.",
+      "tags": ["view", "factory", "base-class", "routing"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/file/file_view.js",
+      "type": "file",
+      "name": "file_view.js",
+      "filePath": "frappe/public/js/frappe/views/file/file_view.js",
+      "summary": "File manager view extending ListView. Renders folder/file tree and grid, supports navigation into folders, drag-and-drop upload, rename/move, preview, and bulk actions.",
+      "tags": ["view", "file-manager", "listview", "upload"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/formview.js",
+      "type": "file",
+      "name": "formview.js",
+      "filePath": "frappe/public/js/frappe/views/formview.js",
+      "summary": "FormFactory extending base Factory. Instantiates frappe.ui.form.Form for a given doctype/name route, handles form caching per doctype layout, and delegates to show_doc.",
+      "tags": ["view", "form", "factory", "routing"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/gantt/gantt_view.js",
+      "type": "file",
+      "name": "gantt_view.js",
+      "filePath": "frappe/public/js/frappe/views/gantt/gantt_view.js",
+      "summary": "Gantt chart view extending ListView. Wraps frappe-gantt library to render tasks with start/end/progress, supports drag to update dates, and view modes (Day/Week/Month).",
+      "tags": ["view", "gantt", "listview", "chart"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "class:frappe.views.CalendarView",
+      "type": "class",
+      "name": "CalendarView",
+      "filePath": "frappe/public/js/frappe/views/calendar/calendar.js",
+      "lineRange": "7-107",
+      "summary": "ListView subclass that wires calendar route handling, loads calendar settings for a doctype, and instantiates frappe.views.Calendar as its renderer.",
+      "tags": ["class", "view", "calendar"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe.views.Calendar",
+      "type": "class",
+      "name": "Calendar",
+      "filePath": "frappe/public/js/frappe/views/calendar/calendar.js",
+      "lineRange": "108-493",
+      "summary": "FullCalendar wrapper: configures views, fetches events via a whitelisted get_events method, handles event click/create/drag/resize, color rules, and recurring events.",
+      "tags": ["class", "calendar", "fullcalendar"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.CommunicationComposer",
+      "type": "class",
+      "name": "CommunicationComposer",
+      "filePath": "frappe/public/js/frappe/views/communication.js",
+      "lineRange": "11-1142",
+      "summary": "Dialog controller for composing emails/comments on a document. Builds fields, loads email templates, handles attachments, print formats, auto-fetch CC, send/save-as-draft, and error handling.",
+      "tags": ["class", "composer", "email", "dialog"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.Container",
+      "type": "class",
+      "name": "Container",
+      "filePath": "frappe/public/js/frappe/views/container.js",
+      "lineRange": "9-105",
+      "summary": "Desk page container that manages visible pages inside #body, handles route-based page switching, and triggers page show/hide events.",
+      "tags": ["class", "container", "page-manager"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe.views.DashboardView",
+      "type": "class",
+      "name": "DashboardView",
+      "filePath": "frappe/public/js/frappe/views/dashboard/dashboard_view.js",
+      "lineRange": "3-516",
+      "summary": "ListView subclass rendering a Dashboard doc via chart and number-card widget groups, with edit mode, refresh, and customization actions.",
+      "tags": ["class", "dashboard", "view"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.Factory",
+      "type": "class",
+      "name": "Factory",
+      "filePath": "frappe/public/js/frappe/views/factory.js",
+      "lineRange": "7-36",
+      "summary": "Base class for route-driven view factories. Defines show() which creates the page on first route and delegates to subclass make().",
+      "tags": ["class", "factory", "base"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe.views.FileView",
+      "type": "class",
+      "name": "FileView",
+      "filePath": "frappe/public/js/frappe/views/file/file_view.js",
+      "lineRange": "3-538",
+      "summary": "File manager ListView subclass that adds folder navigation, grid rendering, upload/rename/move actions, and preview handling.",
+      "tags": ["class", "file-manager", "view"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe.views.FormFactory",
+      "type": "class",
+      "name": "FormFactory",
+      "filePath": "frappe/public/js/frappe/views/formview.js",
+      "lineRange": "6-109",
+      "summary": "Factory subclass that creates/reuses frappe.ui.form.Form instances per doctype layout and routes show_doc for form view URLs.",
+      "tags": ["class", "form", "factory"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe.views.GanttView",
+      "type": "class",
+      "name": "GanttView",
+      "filePath": "frappe/public/js/frappe/views/gantt/gantt_view.js",
+      "lineRange": "13-296",
+      "summary": "ListView subclass that renders a frappe-gantt chart from list data, handling task mapping, date changes, progress updates, and view modes.",
+      "tags": ["class", "gantt", "view"],
+      "complexity": "moderate"
+    },
+
+    {
+      "id": "func:frappe.utils.get_web_template_map",
+      "type": "function",
+      "name": "get_web_template_map",
+      "filePath": "frappe/public/js/frappe/utils/web_template.js",
+      "lineRange": "1-70",
+      "summary": "Fetches and caches a map of Web Template names to metadata for use in selectable template fields.",
+      "tags": ["function", "web-template", "helper"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe.make_page",
+      "type": "function",
+      "name": "make_page",
+      "filePath": "frappe/public/js/frappe/views/factory.js",
+      "lineRange": "37-53",
+      "summary": "Helper that builds and returns a new frappe.ui.Page inside the container with optional double-column layout and sidebar.",
+      "tags": ["function", "page", "factory"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/views/calendar/calendar.js", "target": "class:frappe.views.CalendarView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/calendar/calendar.js", "target": "class:frappe.views.Calendar", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/communication.js", "target": "class:frappe.views.CommunicationComposer", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/container.js", "target": "class:frappe.views.Container", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/dashboard/dashboard_view.js", "target": "class:frappe.views.DashboardView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/factory.js", "target": "class:frappe.views.Factory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/factory.js", "target": "func:frappe.make_page", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/file/file_view.js", "target": "class:frappe.views.FileView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/formview.js", "target": "class:frappe.views.FormFactory", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/views/gantt/gantt_view.js", "target": "class:frappe.views.GanttView", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/utils/web_template.js", "target": "func:frappe.utils.get_web_template_map", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "class:frappe.views.CalendarView", "target": "class:frappe.views.ListView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.DashboardView", "target": "class:frappe.views.ListView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.FileView", "target": "class:frappe.views.ListView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.GanttView", "target": "class:frappe.views.ListView", "type": "inherits", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.FormFactory", "target": "class:frappe.views.Factory", "type": "inherits", "direction": "forward", "weight": 2},
+
+    {"source": "class:frappe.views.CalendarView", "target": "class:frappe.views.Calendar", "type": "calls", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.FormFactory", "target": "class:frappe.ui.form.Form", "type": "calls", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.DashboardView", "target": "class:frappe.widget.WidgetGroup", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "class:frappe.views.CommunicationComposer", "target": "class:frappe.ui.Dialog", "type": "calls", "direction": "forward", "weight": 2},
+    {"source": "class:frappe.views.Container", "target": "class:frappe.views.Factory", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:frappe.make_page", "target": "class:frappe.ui.Page", "type": "calls", "direction": "forward", "weight": 2},
+
+    {"source": "file:frappe/public/js/frappe/views/calendar/calendar.js", "target": "ext:fullcalendar", "type": "imports", "direction": "forward", "weight": 2},
+    {"source": "file:frappe/public/js/frappe/views/gantt/gantt_view.js", "target": "ext:frappe-gantt", "type": "imports", "direction": "forward", "weight": 2}
+  ]
+}

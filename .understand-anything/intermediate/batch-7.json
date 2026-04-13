@@ -1,0 +1,836 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/data_import/data_import.py",
+      "type": "file",
+      "name": "data_import.py",
+      "filePath": "frappe/core/doctype/data_import/data_import.py",
+      "summary": "Main Data Import DocType controller handling import orchestration, template download, CSV/JSON export, and background job management for bulk data import/export operations.",
+      "tags": ["data-import", "doctype-controller", "background-jobs", "export", "csv"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:DataImport",
+      "type": "class",
+      "name": "DataImport",
+      "summary": "Document controller for the Data Import DocType. Validates import files, manages import lifecycle (start, stop, retry), and delegates to Importer/Exporter classes for actual data processing.",
+      "tags": ["document", "controller", "data-import", "validation"],
+      "complexity": "complex",
+      "lineRange": [25, 154]
+    },
+    {
+      "id": "func:DataImport.validate",
+      "type": "function",
+      "name": "DataImport.validate",
+      "summary": "Lifecycle hook that validates the import configuration including doctype permissions, file validity, Google Sheets URL, and payload count.",
+      "tags": ["validation", "lifecycle-hook", "permissions"],
+      "complexity": "moderate",
+      "lineRange": [50, 64]
+    },
+    {
+      "id": "func:DataImport.start_import",
+      "type": "function",
+      "name": "DataImport.start_import",
+      "summary": "Enqueues a background job to run the data import process, checking scheduler status and preventing duplicate jobs.",
+      "tags": ["background-job", "rq", "scheduler"],
+      "complexity": "moderate",
+      "lineRange": [120, 141]
+    },
+    {
+      "id": "func:start_import",
+      "type": "function",
+      "name": "start_import",
+      "summary": "Background job handler that creates an Importer instance and runs the actual import, handling timeout and error status updates.",
+      "tags": ["background-job", "import-execution", "error-handling"],
+      "complexity": "moderate",
+      "lineRange": [187, 209]
+    },
+    {
+      "id": "func:download_template",
+      "type": "function",
+      "name": "download_template",
+      "summary": "Whitelisted API endpoint that creates an Exporter to generate and download a CSV or Excel import template with optional data export.",
+      "tags": ["api", "whitelist", "template", "export"],
+      "complexity": "moderate",
+      "lineRange": [212, 242]
+    },
+    {
+      "id": "func:get_preview_from_template",
+      "type": "function",
+      "name": "get_preview_from_template",
+      "summary": "Whitelisted API endpoint returning a preview of import data from an uploaded template file.",
+      "tags": ["api", "whitelist", "preview"],
+      "complexity": "simple",
+      "lineRange": [156, 162]
+    },
+    {
+      "id": "func:stop_data_import",
+      "type": "function",
+      "name": "stop_data_import",
+      "summary": "Whitelisted API to stop a running Data Import background job by sending an RQ stop command.",
+      "tags": ["api", "whitelist", "rq", "job-control"],
+      "complexity": "moderate",
+      "lineRange": [172, 184]
+    },
+    {
+      "id": "func:get_import_status",
+      "type": "function",
+      "name": "get_import_status",
+      "summary": "Whitelisted API endpoint returning the current import status with success/failure counts from Data Import Log.",
+      "tags": ["api", "whitelist", "status"],
+      "complexity": "moderate",
+      "lineRange": [259, 282]
+    },
+    {
+      "id": "func:get_import_logs",
+      "type": "function",
+      "name": "get_import_logs",
+      "summary": "Whitelisted API endpoint returning detailed import log entries for a given Data Import document.",
+      "tags": ["api", "whitelist", "logs"],
+      "complexity": "simple",
+      "lineRange": [285, 296]
+    },
+    {
+      "id": "func:import_file",
+      "type": "function",
+      "name": "import_file",
+      "summary": "Programmatic API to import documents from a CSV/XLSX file, used by the bench CLI for command-line imports.",
+      "tags": ["cli", "import", "csv", "xlsx"],
+      "complexity": "moderate",
+      "lineRange": [299, 320]
+    },
+    {
+      "id": "func:import_doc",
+      "type": "function",
+      "name": "import_doc",
+      "summary": "Imports JSON fixture files from a path or directory, used for loading seed/fixture data into the database.",
+      "tags": ["fixtures", "json-import", "seed-data"],
+      "complexity": "moderate",
+      "lineRange": [323, 340]
+    },
+    {
+      "id": "func:export_json",
+      "type": "function",
+      "name": "export_json",
+      "summary": "Exports documents of a DocType to a JSON file, stripping metadata fields like creation, owner, and tree structure fields.",
+      "tags": ["export", "json", "fixtures"],
+      "complexity": "moderate",
+      "lineRange": [343, 393]
+    },
+    {
+      "id": "func:export_csv",
+      "type": "function",
+      "name": "export_csv",
+      "summary": "Exports documents of a DocType to a CSV file using the legacy data_export module.",
+      "tags": ["export", "csv", "legacy"],
+      "complexity": "simple",
+      "lineRange": [396, 401]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/data_import_list.js",
+      "type": "file",
+      "name": "data_import_list.js",
+      "filePath": "frappe/core/doctype/data_import/data_import_list.js",
+      "summary": "List view configuration for Data Import DocType providing real-time progress indicators, status colors, and custom formatters for import type display.",
+      "tags": ["list-view", "javascript", "realtime", "ui"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/exporter.py",
+      "type": "file",
+      "name": "exporter.py",
+      "filePath": "frappe/core/doctype/data_import/exporter.py",
+      "summary": "Exporter module that generates CSV/Excel import templates with optional data export, handling parent and child table fields with proper header formatting.",
+      "tags": ["export", "csv", "xlsx", "template-generation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:Exporter",
+      "type": "class",
+      "name": "Exporter",
+      "summary": "Generates CSV or Excel export files for a DocType, building headers from field metadata and populating rows from database records including child table data.",
+      "tags": ["export", "csv", "xlsx", "template"],
+      "complexity": "complex",
+      "lineRange": [13, 259]
+    },
+    {
+      "id": "func:Exporter.get_data_to_export",
+      "type": "function",
+      "name": "Exporter.get_data_to_export",
+      "summary": "Fetches parent and child table records from the database using permission checks, yielding flattened row data for CSV/Excel output.",
+      "tags": ["data-fetch", "permissions", "generator"],
+      "complexity": "complex",
+      "lineRange": [112, 139]
+    },
+    {
+      "id": "func:Exporter.get_data_as_docs",
+      "type": "function",
+      "name": "Exporter.get_data_as_docs",
+      "summary": "Queries parent documents and their child table data from the database, grouping children by parent name for hierarchical document assembly.",
+      "tags": ["database-query", "child-tables", "data-assembly"],
+      "complexity": "complex",
+      "lineRange": [161, 213]
+    },
+    {
+      "id": "func:Exporter.build_response",
+      "type": "function",
+      "name": "Exporter.build_response",
+      "summary": "Builds the HTTP response with CSV or Excel file content for download.",
+      "tags": ["http-response", "download", "csv", "xlsx"],
+      "complexity": "simple",
+      "lineRange": [252, 256]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/importer.py",
+      "type": "file",
+      "name": "importer.py",
+      "filePath": "frappe/core/doctype/data_import/importer.py",
+      "summary": "Core import engine containing Importer, ImportFile, Row, Header, and Column classes that parse CSV/XLSX files, validate data, match columns to DocType fields, and insert/update documents.",
+      "tags": ["import-engine", "csv-parsing", "validation", "data-processing", "orm"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:Importer",
+      "type": "class",
+      "name": "Importer",
+      "summary": "Main import orchestrator that coordinates file parsing, data validation, document insertion/update with batch processing, progress reporting, and import log management.",
+      "tags": ["import", "orchestrator", "batch-processing", "progress"],
+      "complexity": "complex",
+      "lineRange": [29, 411]
+    },
+    {
+      "id": "func:Importer.import_data",
+      "type": "function",
+      "name": "Importer.import_data",
+      "summary": "Core import loop that processes payloads in batches, handles retries for partial success, commits per-record, and tracks success/failure status in import logs.",
+      "tags": ["batch-import", "transaction", "error-handling", "progress"],
+      "complexity": "complex",
+      "lineRange": [79, 252]
+    },
+    {
+      "id": "func:Importer.process_doc",
+      "type": "function",
+      "name": "Importer.process_doc",
+      "summary": "Dispatches document processing to insert_record or update_record based on import type.",
+      "tags": ["dispatch", "insert", "update"],
+      "complexity": "simple",
+      "lineRange": [258, 262]
+    },
+    {
+      "id": "func:Importer.insert_record",
+      "type": "function",
+      "name": "Importer.insert_record",
+      "summary": "Creates and inserts a new document from import data, handling autoname rules and optional submission after import.",
+      "tags": ["insert", "document-creation", "autoname"],
+      "complexity": "moderate",
+      "lineRange": [264, 282]
+    },
+    {
+      "id": "func:Importer.update_record",
+      "type": "function",
+      "name": "Importer.update_record",
+      "summary": "Updates an existing document by comparing diffs and saving only if changes are detected.",
+      "tags": ["update", "diff", "document-update"],
+      "complexity": "moderate",
+      "lineRange": [284, 303]
+    },
+    {
+      "id": "class:ImportFile",
+      "type": "class",
+      "name": "ImportFile",
+      "summary": "Handles reading and parsing of CSV/XLSX/Google Sheets import files, converting raw data into structured Header, Row, and Column objects with validation warnings.",
+      "tags": ["file-parsing", "csv", "xlsx", "google-sheets", "validation"],
+      "complexity": "complex",
+      "lineRange": [413, 626]
+    },
+    {
+      "id": "func:ImportFile.get_payloads_for_import",
+      "type": "function",
+      "name": "ImportFile.get_payloads_for_import",
+      "summary": "Parses all rows into document payloads, grouping parent and child table rows together into complete documents ready for import.",
+      "tags": ["parsing", "payload-generation", "parent-child"],
+      "complexity": "moderate",
+      "lineRange": [526, 533]
+    },
+    {
+      "id": "func:ImportFile.parse_next_row_for_import",
+      "type": "function",
+      "name": "ImportFile.parse_next_row_for_import",
+      "summary": "Parses consecutive rows that form a single document, identifying child table rows by blank parent columns.",
+      "tags": ["row-parsing", "child-detection", "document-assembly"],
+      "complexity": "complex",
+      "lineRange": [535, 578]
+    },
+    {
+      "id": "class:Row",
+      "type": "class",
+      "name": "Row",
+      "summary": "Represents a single data row in an import file, providing methods to parse document fields, validate values (links, dates, selects, durations), and convert types.",
+      "tags": ["row-parsing", "validation", "type-conversion", "data-model"],
+      "complexity": "complex",
+      "lineRange": [628, 854]
+    },
+    {
+      "id": "class:Header",
+      "type": "class",
+      "name": "Header",
+      "summary": "Extends Row to represent the header row, creating Column objects for each header cell and tracking which DocTypes are referenced in the import template.",
+      "tags": ["header-parsing", "column-mapping", "doctype-detection"],
+      "complexity": "moderate",
+      "lineRange": [856, 898]
+    },
+    {
+      "id": "class:Column",
+      "type": "class",
+      "name": "Column",
+      "summary": "Represents a column in an import file, matching header titles to DocType fields, detecting date formats, and validating column-level data consistency.",
+      "tags": ["column-matching", "field-mapping", "date-detection", "validation"],
+      "complexity": "complex",
+      "lineRange": [901, 1119]
+    },
+    {
+      "id": "func:build_fields_dict_for_column_matching",
+      "type": "function",
+      "name": "build_fields_dict_for_column_matching",
+      "summary": "Builds a comprehensive lookup dictionary mapping various header formats (labels, fieldnames, translated labels) to DocField objects for column-to-field matching.",
+      "tags": ["column-matching", "field-mapping", "translation", "cache"],
+      "complexity": "complex",
+      "lineRange": [1122, 1262]
+    },
+    {
+      "id": "func:create_import_log",
+      "type": "function",
+      "name": "create_import_log",
+      "summary": "Creates a Data Import Log entry directly via db_insert for tracking per-row import results.",
+      "tags": ["logging", "database", "import-tracking"],
+      "complexity": "simple",
+      "lineRange": [1319, 1331]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/patches/__init__.py",
+      "type": "file",
+      "name": "patches/__init__.py",
+      "filePath": "frappe/core/doctype/data_import/patches/__init__.py",
+      "summary": "Empty init file for the data_import patches subpackage.",
+      "tags": ["patches", "package-init"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/patches/remove_stale_docfields_from_legacy_version.py",
+      "type": "file",
+      "name": "remove_stale_docfields_from_legacy_version.py",
+      "filePath": "frappe/core/doctype/data_import/patches/remove_stale_docfields_from_legacy_version.py",
+      "summary": "Migration patch that removes stale DocField records referencing 'Data Import' from the legacy 'Data Import Legacy' parent DocType.",
+      "tags": ["patch", "migration", "cleanup", "legacy"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/test_data_import.py",
+      "type": "file",
+      "name": "test_data_import.py",
+      "filePath": "frappe/core/doctype/data_import/test_data_import.py",
+      "summary": "Stub test file for the DataImport DocType with an empty test class extending IntegrationTestCase.",
+      "tags": ["test", "stub", "integration-test"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/test_exporter.py",
+      "type": "file",
+      "name": "test_exporter.py",
+      "filePath": "frappe/core/doctype/data_import/test_exporter.py",
+      "summary": "Integration tests for the Exporter class verifying correct field export with parent and multiple child tables, header formatting, and CSV response generation.",
+      "tags": ["test", "exporter", "integration-test", "csv"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TestExporter",
+      "type": "class",
+      "name": "TestExporter",
+      "summary": "Tests the Exporter class for correct CSV header generation, data row population with child tables, and CSV response building.",
+      "tags": ["test", "exporter", "assertions"],
+      "complexity": "moderate",
+      "lineRange": [11, 100]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/test_importer.py",
+      "type": "file",
+      "name": "test_importer.py",
+      "filePath": "frappe/core/doctype/data_import/test_importer.py",
+      "summary": "Integration tests for the Importer class covering file-based import, data preview, mandatory field validation, update operations, delimiter handling, and label fallback matching.",
+      "tags": ["test", "importer", "integration-test", "validation"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:TestImporter",
+      "type": "class",
+      "name": "TestImporter",
+      "summary": "Comprehensive test suite for data import functionality including insert, update, preview, mandatory validation, semicolon delimiter handling, and column matching without labels.",
+      "tags": ["test", "importer", "assertions", "fixtures"],
+      "complexity": "complex",
+      "lineRange": [12, 188]
+    },
+    {
+      "id": "func:create_doctype_if_not_exists",
+      "type": "function",
+      "name": "create_doctype_if_not_exists",
+      "summary": "Test helper that creates a custom DocType with two child tables for import/export testing, including fields of various types (Data, Date, Int, Duration).",
+      "tags": ["test-helper", "fixtures", "doctype-creation"],
+      "complexity": "moderate",
+      "lineRange": [191, 279]
+    },
+    {
+      "id": "func:get_import_file",
+      "type": "function",
+      "name": "get_import_file",
+      "summary": "Test helper that loads a CSV fixture file and creates a File document for use in import tests.",
+      "tags": ["test-helper", "fixtures", "file-loading"],
+      "complexity": "simple",
+      "lineRange": [282, 297]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import_log/__init__.py",
+      "type": "file",
+      "name": "data_import_log/__init__.py",
+      "filePath": "frappe/core/doctype/data_import_log/__init__.py",
+      "summary": "Empty init file for the Data Import Log DocType package.",
+      "tags": ["package-init", "data-import-log"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "class:DataImport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:start_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:download_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:import_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:import_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:export_json",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:export_csv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:stop_data_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:get_import_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:get_import_logs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "func:get_preview_from_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:DataImport",
+      "target": "func:DataImport.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataImport",
+      "target": "func:DataImport.start_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataImport",
+      "target": "class:Importer",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataImport",
+      "target": "class:Exporter",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:start_import",
+      "target": "class:Importer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:download_template",
+      "target": "class:Exporter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:import_file",
+      "target": "class:Importer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/exporter.py",
+      "target": "class:Exporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Exporter",
+      "target": "func:Exporter.get_data_to_export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Exporter",
+      "target": "func:Exporter.get_data_as_docs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Exporter",
+      "target": "func:Exporter.build_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Exporter.get_data_to_export",
+      "target": "func:Exporter.get_data_as_docs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "class:Importer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "class:ImportFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "class:Row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "class:Header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "class:Column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "func:build_fields_dict_for_column_matching",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/importer.py",
+      "target": "func:create_import_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:Importer",
+      "target": "class:ImportFile",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.95
+    },
+    {
+      "source": "class:Importer",
+      "target": "func:Importer.import_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:Importer",
+      "target": "func:Importer.process_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:Importer",
+      "target": "func:Importer.insert_record",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:Importer",
+      "target": "func:Importer.update_record",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Importer.import_data",
+      "target": "func:Importer.process_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:Importer.import_data",
+      "target": "func:create_import_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:Importer.process_doc",
+      "target": "func:Importer.insert_record",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:Importer.process_doc",
+      "target": "func:Importer.update_record",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ImportFile",
+      "target": "class:Header",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ImportFile",
+      "target": "class:Row",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ImportFile",
+      "target": "func:ImportFile.get_payloads_for_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:ImportFile",
+      "target": "func:ImportFile.parse_next_row_for_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:ImportFile.get_payloads_for_import",
+      "target": "func:ImportFile.parse_next_row_for_import",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Header",
+      "target": "class:Row",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Header",
+      "target": "class:Column",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:Column",
+      "target": "func:build_fields_dict_for_column_matching",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/test_exporter.py",
+      "target": "class:TestExporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestExporter",
+      "target": "class:Exporter",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestExporter",
+      "target": "func:create_doctype_if_not_exists",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/test_importer.py",
+      "target": "class:TestImporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/test_importer.py",
+      "target": "func:create_doctype_if_not_exists",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/test_importer.py",
+      "target": "func:get_import_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:TestImporter",
+      "target": "class:Importer",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestImporter",
+      "target": "func:create_doctype_if_not_exists",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestImporter",
+      "target": "func:get_import_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestImporter",
+      "target": "func:build_fields_dict_for_column_matching",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:create_import_log",
+      "target": "file:frappe/core/doctype/data_import_log/__init__.py",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:get_import_status",
+      "target": "file:frappe/core/doctype/data_import_log/__init__.py",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import_list.js",
+      "target": "class:DataImport",
+      "type": "dependency",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "file:frappe/core/doctype/data_import/importer.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.py",
+      "target": "file:frappe/core/doctype/data_import/exporter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

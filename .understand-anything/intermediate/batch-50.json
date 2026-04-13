@@ -1,0 +1,677 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/file_manager.py",
+      "type": "file",
+      "name": "file_manager.py",
+      "filePath": "frappe/utils/file_manager.py",
+      "summary": "Handles file uploads, attachments, and file system operations for the Frappe framework. Provides functions for saving, retrieving, and deleting files with content hashing and size validation.",
+      "tags": ["file-management", "upload", "attachment", "filesystem", "utility"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/fixtures.py",
+      "type": "file",
+      "name": "fixtures.py",
+      "filePath": "frappe/utils/fixtures.py",
+      "summary": "Manages import and export of fixture data (JSON files) for Frappe apps, used during migrations and setup to sync predefined records.",
+      "tags": ["fixtures", "import", "export", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/formatters.py",
+      "type": "file",
+      "name": "formatters.py",
+      "filePath": "frappe/utils/formatters.py",
+      "summary": "Provides the format_value function that formats field values based on their fieldtype (Date, Currency, Float, etc.) for display in forms and print.",
+      "tags": ["formatting", "display", "fieldtype", "value-conversion"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/frappecloud.py",
+      "type": "file",
+      "name": "frappecloud.py",
+      "filePath": "frappe/utils/frappecloud.py",
+      "summary": "Simple utility to detect if the current site is running on Frappe Cloud by checking the site domain.",
+      "tags": ["cloud", "detection", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/utils/global_search.py",
+      "type": "file",
+      "name": "global_search.py",
+      "filePath": "frappe/utils/global_search.py",
+      "summary": "Implements full-text global search across all DocTypes using a dedicated __global_search database table with Redis queue-based indexing and MariaDB/PostgreSQL full-text search.",
+      "tags": ["search", "full-text", "indexing", "redis-queue", "database"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/goal.py",
+      "type": "file",
+      "name": "goal.py",
+      "filePath": "frappe/utils/goal.py",
+      "summary": "Provides goal tracking utilities that compute monthly aggregation data and generate graph data for goal progress visualization on documents.",
+      "tags": ["goal", "aggregation", "graph", "dashboard", "analytics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/html_utils.py",
+      "type": "file",
+      "name": "html_utils.py",
+      "filePath": "frappe/utils/html_utils.py",
+      "summary": "Comprehensive HTML sanitization module using nh3 library with configurable whitelists for tags, attributes, and styles. Prevents XSS attacks across general HTML, email HTML, and rich content.",
+      "tags": ["html", "sanitization", "security", "xss-prevention", "nh3"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/utils/identicon.py",
+      "type": "file",
+      "name": "identicon.py",
+      "filePath": "frappe/utils/identicon.py",
+      "summary": "Generates visual identicon images from strings using MD5 hashing and PIL, producing symmetric grid-based avatars as PNG or base64-encoded images.",
+      "tags": ["identicon", "avatar", "image-generation", "PIL"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/image.py",
+      "type": "file",
+      "name": "image.py",
+      "filePath": "frappe/utils/image.py",
+      "summary": "Image processing utilities for resizing, EXIF stripping, and optimization of uploaded images using PIL/Pillow.",
+      "tags": ["image", "resize", "optimization", "EXIF", "PIL"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/utils/inplacevar.py",
+      "type": "file",
+      "name": "inplacevar.py",
+      "filePath": "frappe/utils/inplacevar.py",
+      "summary": "Provides safe in-place variable operations (+=, -=, etc.) for sandboxed/untrusted code execution, restricting augmented assignment to specific types only.",
+      "tags": ["security", "sandbox", "inplace-operations", "jinja"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/utils/file_manager.py:MaxFileSizeReachedError",
+      "type": "class",
+      "name": "MaxFileSizeReachedError",
+      "lineRange": [18, 19],
+      "summary": "Custom validation error raised when an uploaded file exceeds the maximum allowed file size.",
+      "tags": ["error", "validation", "file-size"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:save_file",
+      "type": "function",
+      "name": "save_file",
+      "lineRange": [147, 188],
+      "summary": "Core function to save file content to disk with deduplication via content hash, size validation, and File document creation.",
+      "tags": ["file-save", "deduplication", "content-hash", "upload"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:upload",
+      "type": "function",
+      "name": "upload",
+      "lineRange": [41, 70],
+      "summary": "Handles file upload requests from form data, creating File documents and adding attachment comments to the parent document.",
+      "tags": ["upload", "attachment", "form-handler"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:remove_all",
+      "type": "function",
+      "name": "remove_all",
+      "lineRange": [243, 261],
+      "summary": "Removes all file attachments from a document, either by direct deletion or through the remove_file workflow.",
+      "tags": ["file-removal", "cleanup", "attachment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:remove_file",
+      "type": "function",
+      "name": "remove_file",
+      "lineRange": [264, 289],
+      "summary": "Removes a single file and its File entry, adding a comment to the parent document about the removal.",
+      "tags": ["file-removal", "comment", "permission"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:get_file_path",
+      "type": "function",
+      "name": "get_file_path",
+      "lineRange": [343, 374],
+      "summary": "Resolves a file name to its absolute filesystem path by querying the File doctype and handling public/private file directories.",
+      "tags": ["file-path", "resolution", "query"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:delete_file",
+      "type": "function",
+      "name": "delete_file",
+      "lineRange": [306, 323],
+      "summary": "Deletes a file from the public or private folder on disk with path traversal protection.",
+      "tags": ["file-delete", "security", "filesystem"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:add_attachments",
+      "type": "function",
+      "name": "add_attachments",
+      "lineRange": [398, 416],
+      "summary": "Whitelisted API to add file attachments to a given DocType by copying existing File records.",
+      "tags": ["attachment", "api", "whitelist"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/file_manager.py:is_safe_path",
+      "type": "function",
+      "name": "is_safe_path",
+      "lineRange": [419, 428],
+      "summary": "Validates that a file path is safe and within the site directory to prevent path traversal attacks.",
+      "tags": ["security", "path-validation", "traversal"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/fixtures.py:sync_fixtures",
+      "type": "function",
+      "name": "sync_fixtures",
+      "lineRange": [12, 25],
+      "summary": "Imports and overwrites fixtures from all installed apps' fixture directories during migration.",
+      "tags": ["fixtures", "sync", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/fixtures.py:export_fixtures",
+      "type": "function",
+      "name": "export_fixtures",
+      "lineRange": [63, 100],
+      "summary": "Exports fixtures as JSON files to app fixture directories with support for filters, prefixes, and auto-ordering.",
+      "tags": ["fixtures", "export", "json"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/formatters.py:format_value",
+      "type": "function",
+      "name": "format_value",
+      "lineRange": [26, 144],
+      "summary": "Formats a value for display based on its DocField type, handling Date, Currency, Float, Percent, Duration, Link, and other field types.",
+      "tags": ["formatting", "fieldtype", "display", "currency"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/frappecloud.py:on_frappecloud",
+      "type": "function",
+      "name": "on_frappecloud",
+      "lineRange": [6, 11],
+      "summary": "Returns true if the current site is running on Frappe Cloud by checking the site domain suffix.",
+      "tags": ["cloud", "detection", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:rebuild_for_doctype",
+      "type": "function",
+      "name": "rebuild_for_doctype",
+      "lineRange": [66, 152],
+      "summary": "Rebuilds the global search index for all documents of a given DocType, including child table data and website publication status.",
+      "tags": ["search", "rebuild", "indexing", "doctype"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:update_global_search",
+      "type": "function",
+      "name": "update_global_search",
+      "lineRange": [242, 287],
+      "summary": "Adds a document's searchable field values to the global search Redis queue for asynchronous indexing.",
+      "tags": ["search", "update", "queue", "document"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:search",
+      "type": "function",
+      "name": "search",
+      "lineRange": [479, 544],
+      "summary": "Whitelisted API that performs full-text search in __global_search table with permission checks and relevance ranking.",
+      "tags": ["search", "api", "full-text", "permissions"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:web_search",
+      "type": "function",
+      "name": "web_search",
+      "lineRange": [547, 601],
+      "summary": "Guest-accessible API for searching published web content with scope filtering and relevance-based result sorting.",
+      "tags": ["search", "web", "guest", "public"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:sync_global_search",
+      "type": "function",
+      "name": "sync_global_search",
+      "lineRange": [371, 387],
+      "summary": "Processes the Redis global_search_queue in batches of 1000 items, deduplicating and syncing values to the database.",
+      "tags": ["search", "sync", "redis", "batch"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/global_search.py:get_children_data",
+      "type": "function",
+      "name": "get_children_data",
+      "lineRange": [172, 208],
+      "summary": "Retrieves all child table records with global search fields for a parent DocType, organized by parent name and child DocType.",
+      "tags": ["search", "child-tables", "data-retrieval"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/goal.py:get_monthly_results",
+      "type": "function",
+      "name": "get_monthly_results",
+      "lineRange": [14, 49],
+      "summary": "Computes monthly aggregation values (sum, avg, count, etc.) for a goal field using the Query Builder with input validation.",
+      "tags": ["goal", "aggregation", "monthly", "query-builder"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/goal.py:get_monthly_goal_graph_data",
+      "type": "function",
+      "name": "get_monthly_goal_graph_data",
+      "lineRange": [52, 153],
+      "summary": "Whitelisted API that generates 12-month goal progress graph data with markers, summaries, and formatted values for dashboard display.",
+      "tags": ["goal", "graph", "api", "dashboard", "visualization"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/html_utils.py:clean_html",
+      "type": "function",
+      "name": "clean_html",
+      "lineRange": [24, 51],
+      "summary": "Cleans HTML by allowing only a minimal set of safe tags using nh3, removing script and style content.",
+      "tags": ["html", "sanitization", "cleaning"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/html_utils.py:clean_email_html",
+      "type": "function",
+      "name": "clean_email_html",
+      "lineRange": [54, 129],
+      "summary": "Sanitizes HTML for email display with an extended tag set and controlled CSS properties to prevent XSS while preserving email formatting.",
+      "tags": ["html", "email", "sanitization", "css"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/html_utils.py:sanitize_html",
+      "type": "function",
+      "name": "sanitize_html",
+      "lineRange": [146, 188],
+      "summary": "Comprehensive HTML sanitizer using nh3 with full HTML5, SVG, and MathML whitelists, supporting custom tag disallowance and JSON passthrough.",
+      "tags": ["html", "sanitization", "xss", "svg", "mathml"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/identicon.py:Identicon",
+      "type": "class",
+      "name": "Identicon",
+      "lineRange": [20, 82],
+      "summary": "Generates symmetric grid-based identicon images from strings using MD5 hashing, with methods for calculation, file saving, and base64 encoding.",
+      "tags": ["identicon", "avatar", "image", "md5", "PIL"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/image.py:strip_exif_data",
+      "type": "function",
+      "name": "strip_exif_data",
+      "lineRange": [25, 43],
+      "summary": "Strips EXIF metadata from image content while preserving orientation data by applying EXIF transpose before removal.",
+      "tags": ["image", "exif", "privacy", "metadata"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/image.py:optimize_image",
+      "type": "function",
+      "name": "optimize_image",
+      "lineRange": [46, 73],
+      "summary": "Optimizes image content by resizing and compressing while preserving EXIF data, returning original if optimized version is larger.",
+      "tags": ["image", "optimization", "resize", "compression"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/inplacevar.py:protected_inplacevar",
+      "type": "function",
+      "name": "protected_inplacevar",
+      "lineRange": [112, 124],
+      "summary": "Executes in-place variable operations safely by restricting augmented assignments to allowed types only, used in Jinja sandbox.",
+      "tags": ["security", "sandbox", "inplace", "jinja"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:save_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:upload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:remove_all",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:remove_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:get_file_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:delete_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:add_attachments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "func:frappe/utils/file_manager.py:is_safe_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "class:frappe/utils/file_manager.py:MaxFileSizeReachedError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/fixtures.py",
+      "target": "func:frappe/utils/fixtures.py:sync_fixtures",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/fixtures.py",
+      "target": "func:frappe/utils/fixtures.py:export_fixtures",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/formatters.py",
+      "target": "func:frappe/utils/formatters.py:format_value",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/frappecloud.py",
+      "target": "func:frappe/utils/frappecloud.py:on_frappecloud",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:rebuild_for_doctype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:update_global_search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:web_search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:sync_global_search",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "func:frappe/utils/global_search.py:get_children_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "func:frappe/utils/goal.py:get_monthly_results",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "func:frappe/utils/goal.py:get_monthly_goal_graph_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/html_utils.py",
+      "target": "func:frappe/utils/html_utils.py:clean_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/html_utils.py",
+      "target": "func:frappe/utils/html_utils.py:clean_email_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/html_utils.py",
+      "target": "func:frappe/utils/html_utils.py:sanitize_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/identicon.py",
+      "target": "class:frappe/utils/identicon.py:Identicon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/image.py",
+      "target": "func:frappe/utils/image.py:strip_exif_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/image.py",
+      "target": "func:frappe/utils/image.py:optimize_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/inplacevar.py",
+      "target": "func:frappe/utils/inplacevar.py:protected_inplacevar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "file:frappe/utils/html_utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "file:frappe/utils/formatters.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/formatters.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/file_manager.py",
+      "target": "file:frappe/query_builder/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "file:frappe/query_builder/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/goal.py",
+      "target": "file:frappe/query_builder/functions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/global_search.py",
+      "target": "file:frappe/model/base_document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/fixtures.py",
+      "target": "file:frappe/core/doctype/data_import/data_import.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/formatters.py",
+      "target": "file:frappe/model/meta.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/html_utils.py",
+      "target": "file:frappe/utils/data.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/goal.py:get_monthly_goal_graph_data",
+      "target": "func:frappe/utils/goal.py:get_monthly_results",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/goal.py:get_monthly_goal_graph_data",
+      "target": "func:frappe/utils/formatters.py:format_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/file_manager.py:upload",
+      "target": "func:frappe/utils/file_manager.py:save_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/file_manager.py:remove_all",
+      "target": "func:frappe/utils/file_manager.py:remove_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/global_search.py:rebuild_for_doctype",
+      "target": "func:frappe/utils/global_search.py:get_children_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/global_search.py:sync_global_search",
+      "target": "func:frappe/utils/global_search.py:search",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/file_manager.py:add_attachments",
+      "target": "func:frappe/utils/file_manager.py:save_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

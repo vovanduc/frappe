@@ -1,0 +1,164 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/date.js",
+      "type": "file",
+      "name": "date.js",
+      "summary": "ControlDate form control extending ControlData. Wraps flatpickr for date input with locale-aware parsing, formatting, min/max validation, and week-start configuration.",
+      "tags": ["form-control", "date", "flatpickr", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/controls/date.js"
+    },
+    {
+      "id": "class:ControlDate",
+      "type": "class",
+      "name": "ControlDate",
+      "summary": "Date picker control extending ControlData. Builds flatpickr instance, parses and validates date strings, enforces min/max dates, updates on keyboard input and picker change.",
+      "tags": ["class", "control", "date"],
+      "complexity": "L1-L272",
+      "filePath": "frappe/public/js/frappe/form/controls/date.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/date_range.js",
+      "type": "file",
+      "name": "date_range.js",
+      "summary": "ControlDateRange form control extending ControlData. Uses flatpickr in range mode to select two dates and persist them as JSON array value.",
+      "tags": ["form-control", "date-range", "flatpickr", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/form/controls/date_range.js"
+    },
+    {
+      "id": "class:ControlDateRange",
+      "type": "class",
+      "name": "ControlDateRange",
+      "summary": "Date range picker control. Overrides make_input to attach flatpickr with mode:'range', formats/parses ranges to/from JSON array strings.",
+      "tags": ["class", "control", "date-range"],
+      "complexity": "L1-L74",
+      "filePath": "frappe/public/js/frappe/form/controls/date_range.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/datepicker_i18n.js",
+      "type": "file",
+      "name": "datepicker_i18n.js",
+      "summary": "Localization data for flatpickr: weekday/month names, ordinals, and first-day-of-week for 40+ languages. Pure data module attached to frappe.datepicker_i18n.",
+      "tags": ["i18n", "datepicker", "flatpickr", "localization", "data", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/controls/datepicker_i18n.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/datetime.js",
+      "type": "file",
+      "name": "datetime.js",
+      "summary": "ControlDatetime form control extending ControlDate. Enables time picker in flatpickr, handles timezone conversion between user and system timezone, and formats sys_datetime values.",
+      "tags": ["form-control", "datetime", "timezone", "flatpickr", "javascript"],
+      "complexity": "moderate",
+      "filePath": "frappe/public/js/frappe/form/controls/datetime.js"
+    },
+    {
+      "id": "class:ControlDatetime",
+      "type": "class",
+      "name": "ControlDatetime",
+      "summary": "Datetime picker control. Adds time picker to ControlDate, converts between system and user timezones, and handles datetime formatting including 'Now' shortcut.",
+      "tags": ["class", "control", "datetime", "timezone"],
+      "complexity": "L1-L100",
+      "filePath": "frappe/public/js/frappe/form/controls/datetime.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/duration.js",
+      "type": "file",
+      "name": "duration.js",
+      "summary": "ControlDuration form control extending ControlData. Provides a dialog with day/hour/minute/second inputs for entering duration as total seconds, honoring hide_days and hide_seconds options.",
+      "tags": ["form-control", "duration", "dialog", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/controls/duration.js"
+    },
+    {
+      "id": "class:ControlDuration",
+      "type": "class",
+      "name": "ControlDuration",
+      "summary": "Duration control storing value as integer seconds. Opens picker dialog with day/hour/minute/second inputs, formats human-readable output via frappe.utils.get_formatted_duration, parses string input back to seconds.",
+      "tags": ["class", "control", "duration"],
+      "complexity": "L1-L226",
+      "filePath": "frappe/public/js/frappe/form/controls/duration.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/dynamic_link.js",
+      "type": "file",
+      "name": "dynamic_link.js",
+      "summary": "ControlDynamicLink form control extending ControlLink. Resolves target DocType dynamically from another field on the document (options points to fieldname).",
+      "tags": ["form-control", "dynamic-link", "link", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/controls/dynamic_link.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/float.js",
+      "type": "file",
+      "name": "float.js",
+      "summary": "ControlFloat form control extending ControlInt. Parses and formats float values with precision, applying currency-style decimal handling.",
+      "tags": ["form-control", "float", "numeric", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/controls/float.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/geolocation.js",
+      "type": "file",
+      "name": "geolocation.js",
+      "summary": "ControlGeolocation form control extending ControlData. Embeds a Leaflet map with draw controls for points/polygons, persisting GeoJSON as value. Handles locate-me, bounds, edit/read-only modes.",
+      "tags": ["form-control", "geolocation", "leaflet", "map", "geojson", "javascript"],
+      "complexity": "complex",
+      "filePath": "frappe/public/js/frappe/form/controls/geolocation.js"
+    },
+    {
+      "id": "class:ControlGeolocation",
+      "type": "class",
+      "name": "ControlGeolocation",
+      "summary": "Geolocation control. Lazily loads Leaflet and leaflet-draw assets, builds an interactive map with drawing tools, serializes features to GeoJSON FeatureCollection, and renders read-only preview on non-editable forms.",
+      "tags": ["class", "control", "geolocation", "leaflet"],
+      "complexity": "L3-L334",
+      "filePath": "frappe/public/js/frappe/form/controls/geolocation.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/heading.js",
+      "type": "file",
+      "name": "heading.js",
+      "summary": "ControlHeading form control extending ControlHTML. Trivial subclass used for heading section labels in forms.",
+      "tags": ["form-control", "heading", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/controls/heading.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/html.js",
+      "type": "file",
+      "name": "html.js",
+      "summary": "ControlHTML form control extending base Control. Renders arbitrary HTML content (from df.options or set_value) into the form area, supports get/set of raw HTML.",
+      "tags": ["form-control", "html", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/public/js/frappe/form/controls/html.js"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/frappe/form/controls/date.js", "target": "class:ControlDate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:ControlDate", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/frappe/form/controls/date.js", "target": "file:frappe/public/js/frappe/form/controls/datepicker_i18n.js", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/date_range.js", "target": "class:ControlDateRange", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:ControlDateRange", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/datetime.js", "target": "class:ControlDatetime", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:ControlDatetime", "target": "class:ControlDate", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/duration.js", "target": "class:ControlDuration", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:ControlDuration", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/dynamic_link.js", "target": "class:ControlLink", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/float.js", "target": "class:ControlInt", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/geolocation.js", "target": "class:ControlGeolocation", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:ControlGeolocation", "target": "class:ControlData", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/heading.js", "target": "class:ControlHTML", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/public/js/frappe/form/controls/html.js", "target": "class:Control", "type": "inherits", "direction": "forward", "weight": 1}
+  ]
+}

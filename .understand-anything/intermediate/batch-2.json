@@ -1,0 +1,320 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/activity_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Empty init file for the activity_log DocType package.",
+      "tags": ["init", "activity-log", "package"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/activity_log/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/activity_log/activity_log.js",
+      "type": "file",
+      "name": "activity_log.js",
+      "summary": "Client-side form controller for the Activity Log DocType. Disables form editing on refresh since activity logs are read-only records.",
+      "tags": ["javascript", "form-controller", "activity-log", "read-only"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/activity_log/activity_log.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "type": "file",
+      "name": "activity_log.py",
+      "summary": "Python controller for Activity Log DocType. Handles lifecycle hooks (before_insert, validate), log cleanup, index creation, and provides the add_authentication_log helper for login/logout tracking.",
+      "tags": ["python", "doctype-controller", "activity-log", "authentication", "logging"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/activity_log/activity_log.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/activity_log/activity_log_list.js",
+      "type": "file",
+      "name": "activity_log_list.js",
+      "summary": "List view settings for Activity Log DocType. Adds colored status indicators for login success/failure and displays log retention messages.",
+      "tags": ["javascript", "list-view", "activity-log", "ui"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/activity_log/activity_log_list.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/activity_log/feed.py",
+      "type": "file",
+      "name": "feed.py",
+      "summary": "Provides login_feed and logout_feed hook functions that create Activity Log entries when users log in or out of the system.",
+      "tags": ["python", "hooks", "authentication", "feed", "activity-log"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/activity_log/feed.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/activity_log/test_activity_log.py",
+      "type": "file",
+      "name": "test_activity_log.py",
+      "summary": "Integration tests for Activity Log DocType covering login/logout logging, failed authentication logging, and brute force security protection with consecutive login attempt limits.",
+      "tags": ["python", "test", "integration-test", "activity-log", "security"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/activity_log/test_activity_log.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/amended_document_naming_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Empty init file for the amended_document_naming_settings DocType package.",
+      "tags": ["init", "naming-settings", "package"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/amended_document_naming_settings/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py",
+      "type": "file",
+      "name": "amended_document_naming_settings.py",
+      "summary": "Python controller for Amended Document Naming Settings, a child DocType that configures how amended document names are generated (amend counter vs default naming).",
+      "tags": ["python", "doctype-controller", "naming", "child-doctype", "settings"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/api_request_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Empty init file for the api_request_log DocType package.",
+      "tags": ["init", "api-request-log", "package"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/api_request_log/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/api_request_log/api_request_log.js",
+      "type": "file",
+      "name": "api_request_log.js",
+      "summary": "Client-side form controller stub for API Request Log DocType with no active functionality (all code commented out).",
+      "tags": ["javascript", "form-controller", "api-request-log", "stub"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/api_request_log/api_request_log.js"
+    },
+    {
+      "id": "class:frappe/core/doctype/activity_log/activity_log.py:ActivityLog",
+      "type": "class",
+      "name": "ActivityLog",
+      "summary": "Document controller for Activity Log DocType. Implements before_insert and validate lifecycle hooks, status management, IP address tracking, and static method for clearing old logs.",
+      "tags": ["doctype-controller", "document", "activity-log", "lifecycle-hooks", "logging"],
+      "complexity": "moderate",
+      "lineRange": [12, 63]
+    },
+    {
+      "id": "func:frappe/core/doctype/activity_log/activity_log.py:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "summary": "Adds database indexes on reference_doctype/reference_name and timeline_doctype/timeline_name columns for the Activity Log table.",
+      "tags": ["database", "index", "migration", "activity-log"],
+      "complexity": "simple",
+      "lineRange": [66, 69]
+    },
+    {
+      "id": "func:frappe/core/doctype/activity_log/activity_log.py:add_authentication_log",
+      "type": "function",
+      "name": "add_authentication_log",
+      "summary": "Creates and inserts an Activity Log document for authentication events (login, logout) with the given subject, user, operation, and status.",
+      "tags": ["authentication", "logging", "helper", "activity-log"],
+      "complexity": "simple",
+      "lineRange": [72, 81]
+    },
+    {
+      "id": "func:frappe/core/doctype/activity_log/feed.py:login_feed",
+      "type": "function",
+      "name": "login_feed",
+      "summary": "Hook function called on user login that creates an authentication Activity Log entry for non-Guest users.",
+      "tags": ["hook", "login", "feed", "authentication"],
+      "complexity": "simple",
+      "lineRange": [11, 14]
+    },
+    {
+      "id": "func:frappe/core/doctype/activity_log/feed.py:logout_feed",
+      "type": "function",
+      "name": "logout_feed",
+      "summary": "Hook function called on user logout that creates an authentication Activity Log entry with the logout reason.",
+      "tags": ["hook", "logout", "feed", "authentication"],
+      "complexity": "simple",
+      "lineRange": [17, 20]
+    },
+    {
+      "id": "class:frappe/core/doctype/activity_log/test_activity_log.py:TestActivityLog",
+      "type": "class",
+      "name": "TestActivityLog",
+      "summary": "Integration test class for Activity Log that verifies login/logout logging, failed authentication tracking, and brute force security with consecutive login attempt limits.",
+      "tags": ["test", "integration-test", "activity-log", "authentication", "security"],
+      "complexity": "moderate",
+      "lineRange": [11, 93]
+    },
+    {
+      "id": "class:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py:AmendedDocumentNamingSettings",
+      "type": "class",
+      "name": "AmendedDocumentNamingSettings",
+      "summary": "Minimal Document controller for the Amended Document Naming Settings child DocType with no custom logic beyond type annotations.",
+      "tags": ["doctype-controller", "child-doctype", "naming", "settings"],
+      "complexity": "simple",
+      "lineRange": [8, 24]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "class:frappe/core/doctype/activity_log/activity_log.py:ActivityLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "func:frappe/core/doctype/activity_log/activity_log.py:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "func:frappe/core/doctype/activity_log/activity_log.py:add_authentication_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/feed.py",
+      "target": "func:frappe/core/doctype/activity_log/feed.py:login_feed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/feed.py",
+      "target": "func:frappe/core/doctype/activity_log/feed.py:logout_feed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/test_activity_log.py",
+      "target": "class:frappe/core/doctype/activity_log/test_activity_log.py:TestActivityLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py",
+      "target": "class:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py:AmendedDocumentNamingSettings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "file:frappe/core/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "file:frappe/query_builder/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/core/doctype/activity_log/activity_log.py:ActivityLog",
+      "target": "class:frappe/model/document.py:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/feed.py",
+      "target": "file:frappe/core/doctype/activity_log/activity_log.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/core/doctype/activity_log/feed.py:login_feed",
+      "target": "func:frappe/core/doctype/activity_log/activity_log.py:add_authentication_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/activity_log/feed.py:logout_feed",
+      "target": "func:frappe/core/doctype/activity_log/activity_log.py:add_authentication_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/feed.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/feed.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/test_activity_log.py",
+      "target": "file:frappe/auth.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/test_activity_log.py",
+      "target": "file:frappe/tests/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/activity_log/test_activity_log.py",
+      "target": "file:frappe/utils/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/core/doctype/activity_log/test_activity_log.py:TestActivityLog",
+      "target": "class:frappe/core/doctype/activity_log/activity_log.py:ActivityLog",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py:AmendedDocumentNamingSettings",
+      "target": "class:frappe/model/document.py:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

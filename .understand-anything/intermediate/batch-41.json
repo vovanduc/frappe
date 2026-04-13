@@ -1,0 +1,581 @@
+{
+  "nodes": [
+    {
+      "id": "frappe/exceptions.py",
+      "type": "file",
+      "name": "exceptions.py",
+      "filePath": "frappe/exceptions.py",
+      "summary": "Defines all framework-level exception classes used throughout Frappe, organized into HTTP-mapped exceptions (ValidationError 417, AuthenticationError 401, PermissionError 403, etc.), domain-specific validation errors (MandatoryError, LinkValidationError, TimestampMismatchError), and infrastructure errors (QueryTimeoutError, QueryDeadlockError, InReadOnlyMode). Most exceptions inherit from ValidationError or base Exception with HTTP status codes.",
+      "tags": ["exceptions", "error-handling", "http-status", "core"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/exceptions.py::ValidationError",
+      "type": "class",
+      "name": "ValidationError",
+      "summary": "Base validation error with HTTP 417 status code. Parent class for ~30 domain-specific validation errors including MandatoryError, LinkValidationError, UniqueValidationError, CharacterLengthExceededError, etc.",
+      "tags": ["exception", "validation", "http-417"],
+      "complexity": "low",
+      "lineRange": [24, 25]
+    },
+    {
+      "id": "frappe/exceptions.py::AuthenticationError",
+      "type": "class",
+      "name": "AuthenticationError",
+      "summary": "Authentication failure exception with HTTP 401 status code. Used when user credentials are invalid or session is not authenticated.",
+      "tags": ["exception", "auth", "http-401"],
+      "complexity": "low",
+      "lineRange": [32, 33]
+    },
+    {
+      "id": "frappe/exceptions.py::PermissionError",
+      "type": "class",
+      "name": "PermissionError",
+      "summary": "Permission denied exception with HTTP 403 status code. Raised when authenticated user lacks required permissions.",
+      "tags": ["exception", "permissions", "http-403"],
+      "complexity": "low",
+      "lineRange": [40, 41]
+    },
+    {
+      "id": "frappe/exceptions.py::DoesNotExistError",
+      "type": "class",
+      "name": "DoesNotExistError",
+      "summary": "Document not found exception (HTTP 404), inherits from ValidationError. Stores the doctype for error reporting context.",
+      "tags": ["exception", "not-found", "http-404"],
+      "complexity": "low",
+      "lineRange": [44, 49]
+    },
+    {
+      "id": "frappe/frappeclient.py",
+      "type": "file",
+      "name": "frappeclient.py",
+      "filePath": "frappe/frappeclient.py",
+      "summary": "HTTP client library for connecting to remote Frappe instances. Provides FrappeClient class with full CRUD operations (get_doc, get_list, insert, update, delete, submit, cancel), authentication via username/password or API key/secret, and a migrate_doctype utility for migrating records between sites.",
+      "tags": ["client", "api", "http", "remote", "integration"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/frappeclient.py::FrappeClient",
+      "type": "class",
+      "name": "FrappeClient",
+      "summary": "HTTP client for Frappe REST API with session-based auth (login/logout), key-based auth (API key/secret), CRUD methods (get_doc, get_list, insert, update, delete, submit, cancel), value operations (get_value, set_value), and data migration (migrate_doctype, migrate_single). Uses requests library with JSON processing.",
+      "tags": ["client", "rest-api", "crud", "auth"],
+      "complexity": "high",
+      "lineRange": [28, 403]
+    },
+    {
+      "id": "frappe/frappeclient.py::FrappeOAuth2Client",
+      "type": "class",
+      "name": "FrappeOAuth2Client",
+      "summary": "OAuth2 bearer token variant of FrappeClient. Simplified init that uses access_token for Authorization header instead of username/password login.",
+      "tags": ["client", "oauth2", "auth"],
+      "complexity": "low",
+      "lineRange": [406, 418]
+    },
+    {
+      "id": "frappe/handler.py",
+      "type": "file",
+      "name": "handler.py",
+      "filePath": "frappe/handler.py",
+      "summary": "Central request handler that dispatches API calls and RPC in Frappe. Routes commands through execute_cmd which resolves server scripts or Python methods, enforces whitelist and HTTP method checks. Provides upload_file, download_file, logout endpoints and run_doc_method for executing whitelisted document controller methods.",
+      "tags": ["handler", "api", "rpc", "request-dispatch", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/handler.py::handle",
+      "type": "function",
+      "name": "handle",
+      "summary": "Main entry point for handling requests. Reads cmd from form_dict, delegates to execute_cmd (skipping for 'login'), and sets response message with the return data.",
+      "tags": ["request", "dispatch", "entry-point"],
+      "complexity": "low",
+      "lineRange": [47, 63]
+    },
+    {
+      "id": "frappe/handler.py::execute_cmd",
+      "type": "function",
+      "name": "execute_cmd",
+      "summary": "Executes an RPC command by resolving it to a Python method or server script. Applies whitelist override, checks server script map, resolves method via get_attr, enforces is_whitelisted and is_valid_http_method, then calls the method with form_dict kwargs.",
+      "tags": ["rpc", "command-execution", "whitelist"],
+      "complexity": "medium",
+      "lineRange": [66, 87]
+    },
+    {
+      "id": "frappe/handler.py::upload_file",
+      "type": "function",
+      "name": "upload_file",
+      "summary": "Whitelisted POST endpoint for file uploads. Handles chunked uploads, image optimization, permission checks, MIME type validation for guests, and creates File documents. Supports library file references and custom upload methods.",
+      "tags": ["file-upload", "api-endpoint", "whitelist"],
+      "complexity": "high",
+      "lineRange": [126, 222]
+    },
+    {
+      "id": "frappe/handler.py::run_doc_method",
+      "type": "function",
+      "name": "run_doc_method",
+      "summary": "Executes a whitelisted controller method on a document. Loads doc by dt/dn or from JSON, checks permissions and freshness, inspects method signature to pass args correctly, supports CSV response output.",
+      "tags": ["rpc", "doc-method", "whitelist"],
+      "complexity": "high",
+      "lineRange": [277, 334]
+    },
+    {
+      "id": "frappe/hooks.py",
+      "type": "file",
+      "name": "hooks.py",
+      "filePath": "frappe/hooks.py",
+      "summary": "Frappe app's hooks configuration declaring all integration points: app metadata, JS/CSS bundles, website routes/redirects, doc_events (lifecycle callbacks for all doctypes), scheduler_events (cron, daily, hourly, weekly, monthly jobs), permission_query_conditions, has_permission handlers, request/job lifecycle hooks, override_whitelisted_methods, and global search doctypes.",
+      "tags": ["hooks", "configuration", "integration", "events", "scheduler"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/hooks.py::doc_events",
+      "type": "variable",
+      "name": "doc_events",
+      "summary": "Maps document lifecycle events to handler functions. The '*' wildcard applies to all doctypes with on_update, on_cancel, on_trash, on_change hooks for notifications, workflows, assignments, file attachments, and search indexing. Specific handlers for Event (Google Calendar sync), Contact (Google Contacts sync), DocType and Page (cache building).",
+      "tags": ["doc-events", "lifecycle", "hooks"],
+      "complexity": "medium",
+      "lineRange": [157, 206]
+    },
+    {
+      "id": "frappe/hooks.py::scheduler_events",
+      "type": "variable",
+      "name": "scheduler_events",
+      "summary": "Defines all scheduled background jobs: cron jobs every 5/10/15 min (email pull, global search sync, notifications), hourly maintenance (user settings, backups, OAuth cleanup), daily (email digests, auto-repeat, log cleanup), weekly (changelog, updates check), monthly (auto email reports).",
+      "tags": ["scheduler", "cron", "background-jobs"],
+      "complexity": "medium",
+      "lineRange": [208, 280]
+    },
+    {
+      "id": "frappe/hooks.py::permission_query_conditions",
+      "type": "variable",
+      "name": "permission_query_conditions",
+      "summary": "Maps doctypes to their permission query condition functions that generate SQL WHERE clauses for row-level security. Covers Event, ToDo, User, Dashboard, Notification, Note, Kanban, Contact, Address, Communication, Workflow Action, Prepared Report, File.",
+      "tags": ["permissions", "row-level-security", "hooks"],
+      "complexity": "medium",
+      "lineRange": [103, 122]
+    },
+    {
+      "id": "frappe/installer.py",
+      "type": "file",
+      "name": "installer.py",
+      "filePath": "frappe/installer.py",
+      "summary": "Site installation and management module. Handles creating new sites (_new_site), database setup (install_db), app installation/removal (install_app, remove_app), site configuration (make_site_config, update_site_config), backup validation, database restore, and MariaDB version compatibility. Core orchestrator for bench site lifecycle operations.",
+      "tags": ["installer", "site-management", "database", "setup", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/installer.py::_new_site",
+      "type": "function",
+      "name": "_new_site",
+      "summary": "Creates a new Frappe site: initializes directories, installs database, installs frappe app plus configured apps, enables scheduler. Uses filelock for concurrency safety. Supports custom DB type, host, port, socket, and SQL source for restore.",
+      "tags": ["site-creation", "installation"],
+      "complexity": "high",
+      "lineRange": [39, 118]
+    },
+    {
+      "id": "frappe/installer.py::install_app",
+      "type": "function",
+      "name": "install_app",
+      "summary": "Installs a Frappe app on a site: resolves required_apps recursively, syncs doctypes/schemas, runs before/after_install hooks, syncs jobs/fixtures/customizations/dashboards, marks patches as completed, and clears caches.",
+      "tags": ["app-install", "hooks", "schema-sync"],
+      "complexity": "high",
+      "lineRange": [270, 348]
+    },
+    {
+      "id": "frappe/installer.py::remove_app",
+      "type": "function",
+      "name": "remove_app",
+      "summary": "Uninstalls an app from a site: checks dependencies, runs before/after_uninstall hooks, deletes modules and their linked doctypes (dropping tables), removes from installed_apps, creates backup unless skipped.",
+      "tags": ["app-uninstall", "cleanup"],
+      "complexity": "high",
+      "lineRange": [379, 446]
+    },
+    {
+      "id": "frappe/installer.py::install_db",
+      "type": "function",
+      "name": "install_db",
+      "summary": "Sets up the database for a site: creates site config, sets up DB user/schema, bootstraps tables from SQL source or fresh, creates auth/global_search/user_settings tables.",
+      "tags": ["database", "setup", "installation"],
+      "complexity": "high",
+      "lineRange": [121, 182]
+    },
+    {
+      "id": "frappe/installer.py::update_site_config",
+      "type": "function",
+      "name": "update_site_config",
+      "summary": "Updates a key-value pair in site_config.json with filelock protection. Handles type coercion (string to int/bool) and key removal when value is None.",
+      "tags": ["configuration", "site-config"],
+      "complexity": "medium",
+      "lineRange": [630, 643]
+    },
+    {
+      "id": "frappe/locale.py",
+      "type": "file",
+      "name": "locale.py",
+      "filePath": "frappe/locale.py",
+      "summary": "Locale utilities for retrieving language-specific formatting preferences: number format, date format, time format, and first day of the week. Falls back to system defaults when language-specific values are not configured.",
+      "tags": ["locale", "i18n", "formatting", "utilities"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/middlewares.py",
+      "type": "file",
+      "name": "middlewares.py",
+      "filePath": "frappe/middlewares.py",
+      "summary": "WSGI middleware for serving static files. StaticDataMiddleware extends Werkzeug's SharedDataMiddleware to add Content-Disposition headers for forced download file types and resolve file paths safely within site-specific public/files directories.",
+      "tags": ["middleware", "wsgi", "static-files", "security"],
+      "complexity": "low"
+    },
+    {
+      "id": "frappe/middlewares.py::StaticDataMiddleware",
+      "type": "class",
+      "name": "StaticDataMiddleware",
+      "summary": "Extends SharedDataMiddleware to serve static files from site-specific directories with path traversal protection (is_relative_to check) and forced download headers for dangerous file extensions.",
+      "tags": ["middleware", "static-files", "security"],
+      "complexity": "low",
+      "lineRange": [14, 44]
+    },
+    {
+      "id": "frappe/migrate.py",
+      "type": "file",
+      "name": "migrate.py",
+      "filePath": "frappe/migrate.py",
+      "summary": "Site migration orchestrator that updates a site to the current code version. SiteMigration class runs pre-schema hooks, patches (pre and post model sync), schema sync, then post-schema tasks (jobs, fixtures, customizations, languages, dashboards). Includes atomic decorator for transactional safety and DBQueryProgressMonitor for long-running query visibility.",
+      "tags": ["migration", "schema-sync", "patches", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "frappe/migrate.py::SiteMigration",
+      "type": "class",
+      "name": "SiteMigration",
+      "summary": "Orchestrates full site migration: setUp (clear cache, kill idle connections, lower lock timeout) -> pre_schema_updates (before_migrate hooks) -> run_schema_updates (patches + schema sync) -> post_schema_updates (sync jobs/fixtures/dashboards/languages, after_migrate hooks) -> tearDown (clear caches, queue search index rebuild).",
+      "tags": ["migration", "orchestrator", "schema"],
+      "complexity": "high",
+      "lineRange": [63, 278]
+    },
+    {
+      "id": "frappe/migrate.py::atomic",
+      "type": "function",
+      "name": "atomic",
+      "summary": "Decorator that wraps a method in a database transaction: commits on success, rolls back on failure. Used on SiteMigration's schema update methods.",
+      "tags": ["decorator", "transaction", "database"],
+      "complexity": "low",
+      "lineRange": [46, 60]
+    },
+    {
+      "id": "frappe/migrate.py::DBQueryProgressMonitor",
+      "type": "class",
+      "name": "DBQueryProgressMonitor",
+      "summary": "Daemon thread that polls MariaDB processlist every 10 seconds to display progress of long-running migration queries (>5 seconds). Shows command, time, state, progress percentage, and truncated query text.",
+      "tags": ["monitoring", "database", "threading"],
+      "complexity": "medium",
+      "lineRange": [280, 339]
+    },
+    {
+      "id": "frappe/model/__init__.py",
+      "type": "file",
+      "name": "model/__init__.py",
+      "filePath": "frappe/model/__init__.py",
+      "summary": "Defines core model constants and field metadata used throughout the framework. Categorizes field types (data_fieldtypes, no_value_fields, numeric_fieldtypes, table_fields, display_fieldtypes), defines standard fields (name, owner, creation, modified, etc.), core doctypes list, log types, and provides utilities like delete_fields, get_permitted_fields, and is_default_field.",
+      "tags": ["model", "constants", "field-types", "metadata", "core"],
+      "complexity": "medium"
+    },
+    {
+      "id": "frappe/model/__init__.py::data_fieldtypes",
+      "type": "variable",
+      "name": "data_fieldtypes",
+      "summary": "Tuple of all field types that store data values (33 types including Currency, Int, Float, Date, Text, Data, Link, Select, etc.). Used to distinguish value-bearing fields from layout/display fields.",
+      "tags": ["field-types", "constants"],
+      "complexity": "low",
+      "lineRange": [8, 43]
+    },
+    {
+      "id": "frappe/model/__init__.py::default_fields",
+      "type": "variable",
+      "name": "default_fields",
+      "summary": "Tuple of 8 standard fields present on every document: doctype, name, owner, creation, modified, modified_by, docstatus, idx. Also exported as DEFAULT_FIELDS frozenset.",
+      "tags": ["standard-fields", "constants"],
+      "complexity": "low",
+      "lineRange": [82, 92]
+    },
+    {
+      "id": "frappe/model/__init__.py::get_permitted_fields",
+      "type": "function",
+      "name": "get_permitted_fields",
+      "summary": "Returns list of field names a user is permitted to access for a doctype based on permission level. Core doctypes bypass permission checks. Handles both 'select' and 'read' permission types with appropriate field sets.",
+      "tags": ["permissions", "fields", "access-control"],
+      "complexity": "medium",
+      "lineRange": [216, 262]
+    },
+    {
+      "id": "frappe/model/__init__.py::delete_fields",
+      "type": "function",
+      "name": "delete_fields",
+      "summary": "Deletes field definitions from DocField and optionally drops corresponding database columns or Singles records. Handles both single and regular doctypes, with explicit commit for MariaDB DDL.",
+      "tags": ["schema", "fields", "migration"],
+      "complexity": "medium",
+      "lineRange": [160, 213]
+    },
+    {
+      "id": "frappe/model/base_document.py",
+      "type": "file",
+      "name": "base_document.py",
+      "filePath": "frappe/model/base_document.py",
+      "summary": "Base class for ALL documents in Frappe (1657 lines). BaseDocument provides the foundational document API: dict-like access (get/set/update), child table management (append/extend/remove), database operations (db_insert/db_update), validation (mandatory fields, link validation, select validation, data field validation, length checks, constants), serialization (as_dict/as_json), password handling, formatting, and permission-level field filtering. Also includes get_controller for loading DocType controller classes.",
+      "tags": ["model", "document", "base-class", "orm", "validation", "core"],
+      "complexity": "very-high"
+    },
+    {
+      "id": "frappe/model/base_document.py::BaseDocument",
+      "type": "class",
+      "name": "BaseDocument",
+      "summary": "Core base class for all Frappe documents with 60+ methods. Provides dict-like document access, child table management (append/extend/remove with auto-init), database CRUD (db_insert with batch child inserts, db_update), comprehensive validation (mandatory fields, links, selects, data fields, constants, length, code fields), serialization (as_dict/as_json/get_valid_dict), password save/retrieval, precision handling, format data, and permission-level field reset.",
+      "tags": ["base-class", "document", "orm", "validation", "crud"],
+      "complexity": "very-high",
+      "lineRange": [268, 1657]
+    },
+    {
+      "id": "frappe/model/base_document.py::get_controller",
+      "type": "function",
+      "name": "get_controller",
+      "summary": "Returns the locally cached controller class for a DocType. Caches per-site. Delegates to import_controller which resolves custom types to Document class, handles class overrides from hooks, and creates extended classes.",
+      "tags": ["controller", "doctype", "class-loading"],
+      "complexity": "medium",
+      "lineRange": [116, 128]
+    },
+    {
+      "id": "frappe/model/base_document.py::import_controller",
+      "type": "function",
+      "name": "import_controller",
+      "summary": "Imports and returns a DocType's controller class. Handles custom doctypes (returns Document/NestedSet), loads module, applies override_doctype_class hooks with subclass validation, creates extended classes, and updates computed child table properties.",
+      "tags": ["controller", "import", "hooks", "class-resolution"],
+      "complexity": "high",
+      "lineRange": [131, 174]
+    }
+  ],
+  "edges": [
+    {
+      "source": "frappe/handler.py",
+      "target": "frappe/exceptions.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7,
+      "label": "Raises PermissionError on upload/access failures"
+    },
+    {
+      "source": "frappe/handler.py::execute_cmd",
+      "target": "frappe/handler.py::handle",
+      "type": "calledBy",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "handle() delegates to execute_cmd()"
+    },
+    {
+      "source": "frappe/handler.py::execute_cmd",
+      "target": "frappe/handler.py::run_doc_method",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7,
+      "label": "Dispatches run_doc_method via frappe.call"
+    },
+    {
+      "source": "frappe/handler.py::upload_file",
+      "target": "frappe/handler.py::handle",
+      "type": "calledBy",
+      "direction": "forward",
+      "weight": 0.6,
+      "label": "Whitelisted endpoint resolved by handler"
+    },
+    {
+      "source": "frappe/hooks.py",
+      "target": "frappe/handler.py",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.6,
+      "label": "override_whitelisted_methods references handler endpoints"
+    },
+    {
+      "source": "frappe/hooks.py::doc_events",
+      "target": "frappe/model/base_document.py::BaseDocument",
+      "type": "configures",
+      "direction": "forward",
+      "weight": 0.7,
+      "label": "doc_events fire on BaseDocument lifecycle methods"
+    },
+    {
+      "source": "frappe/hooks.py::scheduler_events",
+      "target": "frappe/installer.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.4,
+      "label": "Scheduler synced during app installation"
+    },
+    {
+      "source": "frappe/installer.py::_new_site",
+      "target": "frappe/installer.py::install_db",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "Site creation installs database first"
+    },
+    {
+      "source": "frappe/installer.py::_new_site",
+      "target": "frappe/installer.py::install_app",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "Installs frappe + configured apps after DB setup"
+    },
+    {
+      "source": "frappe/installer.py::install_app",
+      "target": "frappe/hooks.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Reads hooks for before/after_install, required_apps, overrides"
+    },
+    {
+      "source": "frappe/installer.py::remove_app",
+      "target": "frappe/hooks.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7,
+      "label": "Reads hooks for before/after_uninstall, required_apps checks"
+    },
+    {
+      "source": "frappe/migrate.py::SiteMigration",
+      "target": "frappe/hooks.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Runs before_migrate and after_migrate hooks"
+    },
+    {
+      "source": "frappe/migrate.py::SiteMigration",
+      "target": "frappe/installer.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5,
+      "label": "Both handle schema sync and app lifecycle"
+    },
+    {
+      "source": "frappe/migrate.py::SiteMigration",
+      "target": "frappe/migrate.py::atomic",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Schema update methods decorated with @atomic"
+    },
+    {
+      "source": "frappe/migrate.py::SiteMigration",
+      "target": "frappe/migrate.py::DBQueryProgressMonitor",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6,
+      "label": "Creates monitor in run() for query progress tracking"
+    },
+    {
+      "source": "frappe/model/base_document.py::BaseDocument",
+      "target": "frappe/model/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "Imports field type constants, default_fields, table_fields, get_permitted_fields"
+    },
+    {
+      "source": "frappe/model/base_document.py::BaseDocument",
+      "target": "frappe/exceptions.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Raises MandatoryError, LinkValidationError, ValidationError, etc. during validation"
+    },
+    {
+      "source": "frappe/model/base_document.py::get_controller",
+      "target": "frappe/model/base_document.py::import_controller",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "Delegates to import_controller on cache miss"
+    },
+    {
+      "source": "frappe/model/base_document.py::import_controller",
+      "target": "frappe/hooks.py",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6,
+      "label": "Reads override_doctype_class hooks for controller resolution"
+    },
+    {
+      "source": "frappe/handler.py::run_doc_method",
+      "target": "frappe/model/base_document.py::BaseDocument",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Loads and calls methods on document instances"
+    },
+    {
+      "source": "frappe/frappeclient.py::FrappeClient",
+      "target": "frappe/handler.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7,
+      "label": "HTTP calls to remote handler endpoints (api/resource, api/method)"
+    },
+    {
+      "source": "frappe/frappeclient.py::FrappeOAuth2Client",
+      "target": "frappe/frappeclient.py::FrappeClient",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "OAuth2 variant inheriting all FrappeClient methods"
+    },
+    {
+      "source": "frappe/middlewares.py::StaticDataMiddleware",
+      "target": "frappe/handler.py",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.4,
+      "label": "Both part of WSGI request handling pipeline"
+    },
+    {
+      "source": "frappe/model/__init__.py::get_permitted_fields",
+      "target": "frappe/model/__init__.py::default_fields",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.8,
+      "label": "Includes default_fields in permitted field results"
+    },
+    {
+      "source": "frappe/locale.py",
+      "target": "frappe/model/base_document.py::BaseDocument",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.3,
+      "label": "Locale formatting used by document display methods"
+    },
+    {
+      "source": "frappe/exceptions.py::DoesNotExistError",
+      "target": "frappe/exceptions.py::ValidationError",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9,
+      "label": "Inherits from ValidationError"
+    },
+    {
+      "source": "frappe/hooks.py::permission_query_conditions",
+      "target": "frappe/model/__init__.py::get_permitted_fields",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5,
+      "label": "Both enforce permission-based data access"
+    },
+    {
+      "source": "frappe/installer.py::install_db",
+      "target": "frappe/installer.py::update_site_config",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.5,
+      "label": "Both manage site configuration files"
+    }
+  ]
+}

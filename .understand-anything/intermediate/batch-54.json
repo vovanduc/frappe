@@ -1,0 +1,753 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/telemetry/__init__.py",
+      "type": "file",
+      "name": "__init__.py (telemetry)",
+      "summary": "Telemetry package init that aggregates PostHog and Pulse providers, exposing unified capture/bootinfo functions for both telemetry backends.",
+      "tags": ["telemetry", "posthog", "pulse", "analytics", "bootinfo"],
+      "complexity": "moderate",
+      "filePath": "frappe/utils/telemetry/__init__.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/posthog.py",
+      "type": "file",
+      "name": "posthog.py",
+      "summary": "PostHog telemetry provider integration that handles initialization, event capture, and document tracking with site-level analytics.",
+      "tags": ["telemetry", "posthog", "analytics", "event-tracking"],
+      "complexity": "moderate",
+      "filePath": "frappe/utils/telemetry/posthog.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/pulse/__init__.py",
+      "type": "file",
+      "name": "__init__.py (pulse)",
+      "summary": "Empty init file for the Pulse telemetry subpackage.",
+      "tags": ["telemetry", "pulse", "init"],
+      "complexity": "simple",
+      "filePath": "frappe/utils/telemetry/pulse/__init__.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/pulse/app_heartbeat_event.py",
+      "type": "file",
+      "name": "app_heartbeat_event.py",
+      "summary": "Captures app heartbeat events via Pulse telemetry, including app and frappe version info, with guards for standard users and error responses.",
+      "tags": ["telemetry", "pulse", "heartbeat", "monitoring"],
+      "complexity": "simple",
+      "filePath": "frappe/utils/telemetry/pulse/app_heartbeat_event.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/pulse/client.py",
+      "type": "file",
+      "name": "client.py (pulse)",
+      "summary": "Pulse telemetry client with Redis-backed event queue, rate limiting, batch processing with retries, and HTTP posting to the Pulse ingest endpoint.",
+      "tags": ["telemetry", "pulse", "redis", "queue", "rate-limiting"],
+      "complexity": "complex",
+      "filePath": "frappe/utils/telemetry/pulse/client.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "type": "file",
+      "name": "test_pulse_client.py",
+      "summary": "Comprehensive integration tests for the Pulse telemetry client covering queue operations, rate limiting, batch processing, capture, and utility functions.",
+      "tags": ["test", "telemetry", "pulse", "integration-test", "queue"],
+      "complexity": "complex",
+      "filePath": "frappe/utils/telemetry/pulse/test_pulse_client.py"
+    },
+    {
+      "id": "file:frappe/utils/telemetry/pulse/utils.py",
+      "type": "file",
+      "name": "utils.py (pulse)",
+      "summary": "Utility functions for Pulse telemetry including user anonymization via SHA-256 hashing, interval string parsing, UTC timestamp generation, and URL normalization.",
+      "tags": ["telemetry", "pulse", "utility", "anonymization", "hashing"],
+      "complexity": "moderate",
+      "filePath": "frappe/utils/telemetry/pulse/utils.py"
+    },
+    {
+      "id": "file:frappe/utils/testutils.py",
+      "type": "file",
+      "name": "testutils.py",
+      "summary": "Test utility helpers providing functions to add and clear Custom Fields on DocTypes for testing purposes.",
+      "tags": ["testing", "utility", "custom-field"],
+      "complexity": "simple",
+      "filePath": "frappe/utils/testutils.py"
+    },
+    {
+      "id": "file:frappe/utils/translations.py",
+      "type": "file",
+      "name": "translations.py",
+      "summary": "Translation utility providing the _() function for string translation, lazy translation via _lt(), and user language detection for i18n support.",
+      "tags": ["i18n", "translation", "localization", "utility"],
+      "complexity": "moderate",
+      "filePath": "frappe/utils/translations.py"
+    },
+    {
+      "id": "file:frappe/utils/typing_validations.py",
+      "type": "file",
+      "name": "typing_validations.py",
+      "summary": "Runtime type validation for whitelisted API methods using Pydantic TypeAdapter, with argument type checking, coercion, and enforcement of type annotations.",
+      "tags": ["typing", "validation", "pydantic", "api", "type-checking"],
+      "complexity": "complex",
+      "filePath": "frappe/utils/typing_validations.py"
+    },
+    {
+      "id": "func:frappe/utils/telemetry/__init__.py:add_bootinfo",
+      "type": "function",
+      "name": "add_bootinfo",
+      "summary": "Populates boot info with telemetry provider details (PostHog and Pulse) and site age for client-side initialization.",
+      "tags": ["telemetry", "bootinfo", "initialization"],
+      "complexity": "simple",
+      "lineRange": [23, 35]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/__init__.py:capture",
+      "type": "function",
+      "name": "capture (telemetry)",
+      "summary": "Unified telemetry capture function that dispatches events to both PostHog and Pulse providers if enabled.",
+      "tags": ["telemetry", "event-capture", "dispatch"],
+      "complexity": "simple",
+      "lineRange": [38, 43]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/posthog.py:init_telemetry",
+      "type": "function",
+      "name": "init_telemetry",
+      "summary": "Initializes the PostHog client on frappe.local, creating a cached instance and registering flush on background job completion.",
+      "tags": ["posthog", "initialization", "telemetry"],
+      "complexity": "moderate",
+      "lineRange": [21, 38]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/posthog.py:capture",
+      "type": "function",
+      "name": "capture (posthog)",
+      "summary": "Captures a telemetry event via PostHog with the site as distinct_id and app-prefixed event name.",
+      "tags": ["posthog", "event-capture", "telemetry"],
+      "complexity": "simple",
+      "lineRange": [51, 55]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/posthog.py:capture_doc",
+      "type": "function",
+      "name": "capture_doc",
+      "summary": "Captures document creation/modification events via PostHog for sites younger than 15 days.",
+      "tags": ["posthog", "document", "telemetry"],
+      "complexity": "simple",
+      "lineRange": [58, 69]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:capture_app_heartbeat",
+      "type": "function",
+      "name": "capture_app_heartbeat",
+      "summary": "Sends an app heartbeat event with version info to Pulse telemetry at 6-hour intervals for non-frappe apps.",
+      "tags": ["pulse", "heartbeat", "telemetry"],
+      "complexity": "simple",
+      "lineRange": [7, 21]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:should_capture",
+      "type": "function",
+      "name": "should_capture",
+      "summary": "Guards heartbeat capture by checking if Pulse is enabled, user is non-standard, and response status is successful.",
+      "tags": ["pulse", "guard", "validation"],
+      "complexity": "simple",
+      "lineRange": [24, 32]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/client.py:EventQueue",
+      "type": "class",
+      "name": "EventQueue",
+      "summary": "Redis-backed event queue for Pulse telemetry with rate limiting, FIFO ordering, batch processing with exponential backoff retries, and size limits.",
+      "tags": ["pulse", "queue", "redis", "rate-limiting", "batch-processing"],
+      "complexity": "complex",
+      "lineRange": [119, 234]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/client.py:capture",
+      "type": "function",
+      "name": "capture (pulse)",
+      "summary": "Whitelisted API method that captures a telemetry event into the Redis-backed EventQueue with optional rate limiting.",
+      "tags": ["pulse", "event-capture", "whitelist", "api"],
+      "complexity": "moderate",
+      "lineRange": [27, 53]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/client.py:bulk_capture",
+      "type": "function",
+      "name": "bulk_capture",
+      "summary": "Whitelisted API method that captures multiple telemetry events at once by iterating and calling capture for each.",
+      "tags": ["pulse", "bulk", "event-capture", "api"],
+      "complexity": "simple",
+      "lineRange": [56, 73]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/client.py:send_queued_events",
+      "type": "function",
+      "name": "send_queued_events",
+      "summary": "Processes and sends queued Pulse telemetry events via HTTP POST in batches of 100, up to 10 batches per invocation.",
+      "tags": ["pulse", "batch", "queue-processing"],
+      "complexity": "simple",
+      "lineRange": [76, 81]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/client.py:post",
+      "type": "function",
+      "name": "post",
+      "summary": "Posts a batch of telemetry events to the Pulse ingest endpoint via HTTP with error handling.",
+      "tags": ["pulse", "http", "ingest"],
+      "complexity": "simple",
+      "lineRange": [84, 93]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/client.py:get_debug_info",
+      "type": "function",
+      "name": "get_debug_info",
+      "summary": "Whitelisted System Manager-only endpoint returning Pulse queue status, queued events, and rate-limited event info for debugging.",
+      "tags": ["pulse", "debug", "whitelist", "admin"],
+      "complexity": "moderate",
+      "lineRange": [237, 258]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "class",
+      "name": "TestPulseClient",
+      "summary": "Base test class for Pulse client tests that handles queue cleanup in setUp/tearDown.",
+      "tags": ["test", "pulse", "base-class"],
+      "complexity": "simple",
+      "lineRange": [10, 25]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestEventQueue",
+      "type": "class",
+      "name": "TestEventQueue",
+      "summary": "Tests for EventQueue operations including add, collect, FIFO order, size limits, and requeue functionality.",
+      "tags": ["test", "pulse", "queue", "integration-test"],
+      "complexity": "moderate",
+      "lineRange": [28, 97]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestRateLimiting",
+      "type": "class",
+      "name": "TestRateLimiting",
+      "summary": "Tests for event rate limiting including basic limiting, per-event isolation, and expiry behavior.",
+      "tags": ["test", "pulse", "rate-limiting"],
+      "complexity": "moderate",
+      "lineRange": [100, 171]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestBatchProcessing",
+      "type": "class",
+      "name": "TestBatchProcessing",
+      "summary": "Tests for batch processing including success path, failure with retry, and max retry exceeded scenarios.",
+      "tags": ["test", "pulse", "batch-processing"],
+      "complexity": "moderate",
+      "lineRange": [174, 256]
+    },
+    {
+      "id": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestCapture",
+      "type": "class",
+      "name": "TestCapture",
+      "summary": "Tests for the capture function including disabled state, basic capture, and user anonymization.",
+      "tags": ["test", "pulse", "capture"],
+      "complexity": "moderate",
+      "lineRange": [259, 304]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/utils.py:anonymize_user",
+      "type": "function",
+      "name": "anonymize_user",
+      "summary": "Creates a deterministic anonymous ID from a user email using SHA-256 with a site-specific salt, preserving standard users.",
+      "tags": ["anonymization", "privacy", "hashing"],
+      "complexity": "simple",
+      "lineRange": [7, 23]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/utils.py:parse_interval",
+      "type": "function",
+      "name": "parse_interval",
+      "summary": "Parses interval strings (e.g., '1h', '30m', '7d') or integers into seconds, supporting seconds/minutes/hours/days/weeks/years.",
+      "tags": ["utility", "parsing", "time-interval"],
+      "complexity": "moderate",
+      "lineRange": [26, 78]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/utils.py:utc_iso",
+      "type": "function",
+      "name": "utc_iso",
+      "summary": "Returns the current UTC timestamp as an ISO 8601 formatted string.",
+      "tags": ["utility", "timestamp", "utc"],
+      "complexity": "simple",
+      "lineRange": [81, 82]
+    },
+    {
+      "id": "func:frappe/utils/telemetry/pulse/utils.py:ensure_http",
+      "type": "function",
+      "name": "ensure_http",
+      "summary": "Ensures a URL has an HTTP/HTTPS prefix, defaulting to HTTPS if missing.",
+      "tags": ["utility", "url", "normalization"],
+      "complexity": "simple",
+      "lineRange": [85, 86]
+    },
+    {
+      "id": "func:frappe/utils/translations.py:_",
+      "type": "function",
+      "name": "_ (translate)",
+      "summary": "Core translation function that looks up translated strings in the current language, handling HTML content and context-based translations.",
+      "tags": ["i18n", "translation", "localization"],
+      "complexity": "moderate",
+      "lineRange": [4, 45]
+    },
+    {
+      "id": "func:frappe/utils/translations.py:_lt",
+      "type": "function",
+      "name": "_lt",
+      "summary": "Returns a lazy translation wrapper that defers translation until string cast, useful for global scope strings before frappe.init().",
+      "tags": ["i18n", "lazy-translation", "deferred"],
+      "complexity": "simple",
+      "lineRange": [48, 62]
+    },
+    {
+      "id": "func:frappe/utils/translations.py:set_user_lang",
+      "type": "function",
+      "name": "set_user_lang",
+      "summary": "Sets the user's language for the current session on frappe.local.lang.",
+      "tags": ["i18n", "user-language", "session"],
+      "complexity": "simple",
+      "lineRange": [65, 69]
+    },
+    {
+      "id": "func:frappe/utils/typing_validations.py:validate_argument_types",
+      "type": "function",
+      "name": "validate_argument_types",
+      "summary": "Decorator that validates argument types of whitelisted functions using type annotations, with optional enforcement via hooks.",
+      "tags": ["typing", "validation", "decorator", "api"],
+      "complexity": "moderate",
+      "lineRange": [26, 51]
+    },
+    {
+      "id": "func:frappe/utils/typing_validations.py:transform_parameter_types",
+      "type": "function",
+      "name": "transform_parameter_types",
+      "summary": "Validates and coerces function argument types using Pydantic TypeAdapter, handling forward refs, slack types, default values, and Union types.",
+      "tags": ["typing", "validation", "pydantic", "coercion"],
+      "complexity": "complex",
+      "lineRange": [104, 197]
+    },
+    {
+      "id": "func:frappe/utils/typing_validations.py:raise_type_error",
+      "type": "function",
+      "name": "raise_type_error",
+      "summary": "Raises a FrappeTypeError with a descriptive message about argument type mismatch including expected and actual types.",
+      "tags": ["typing", "error-handling", "validation"],
+      "complexity": "simple",
+      "lineRange": [73, 89]
+    },
+    {
+      "id": "func:frappe/utils/typing_validations.py:TypeAdapter",
+      "type": "function",
+      "name": "TypeAdapter",
+      "summary": "Cached wrapper around Pydantic TypeAdapter that handles config errors for BaseModel/TypedDict/dataclass types.",
+      "tags": ["pydantic", "type-adapter", "caching"],
+      "complexity": "simple",
+      "lineRange": [92, 101]
+    },
+    {
+      "id": "func:frappe/utils/testutils.py:add_custom_field",
+      "type": "function",
+      "name": "add_custom_field",
+      "summary": "Helper to insert a Custom Field document for a given DocType with specified fieldname, type, and options.",
+      "tags": ["testing", "custom-field", "utility"],
+      "complexity": "simple",
+      "lineRange": [6, 15]
+    },
+    {
+      "id": "func:frappe/utils/testutils.py:clear_custom_fields",
+      "type": "function",
+      "name": "clear_custom_fields",
+      "summary": "Deletes all Custom Fields for a given DocType and clears its cache.",
+      "tags": ["testing", "custom-field", "cleanup"],
+      "complexity": "simple",
+      "lineRange": [18, 20]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/telemetry/__init__.py",
+      "target": "func:frappe/utils/telemetry/__init__.py:add_bootinfo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/__init__.py",
+      "target": "func:frappe/utils/telemetry/__init__.py:capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/__init__.py",
+      "target": "file:frappe/utils/telemetry/posthog.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/telemetry/__init__.py",
+      "target": "file:frappe/utils/telemetry/pulse/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/telemetry/posthog.py",
+      "target": "func:frappe/utils/telemetry/posthog.py:init_telemetry",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/posthog.py",
+      "target": "func:frappe/utils/telemetry/posthog.py:capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/posthog.py",
+      "target": "func:frappe/utils/telemetry/posthog.py:capture_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/app_heartbeat_event.py",
+      "target": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:capture_app_heartbeat",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/app_heartbeat_event.py",
+      "target": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:should_capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/app_heartbeat_event.py",
+      "target": "file:frappe/utils/telemetry/pulse/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:capture_app_heartbeat",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:capture",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:capture_app_heartbeat",
+      "target": "func:frappe/utils/telemetry/pulse/app_heartbeat_event.py:should_capture",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "class:frappe/utils/telemetry/pulse/client.py:EventQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:bulk_capture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:send_queued_events",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:post",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:get_debug_info",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/client.py",
+      "target": "file:frappe/utils/telemetry/pulse/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/telemetry/pulse/client.py:capture",
+      "target": "class:frappe/utils/telemetry/pulse/client.py:EventQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/pulse/client.py:send_queued_events",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:post",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/pulse/client.py:send_queued_events",
+      "target": "class:frappe/utils/telemetry/pulse/client.py:EventQueue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/__init__.py:capture",
+      "target": "func:frappe/utils/telemetry/posthog.py:capture",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/__init__.py:capture",
+      "target": "func:frappe/utils/telemetry/pulse/client.py:capture",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/telemetry/posthog.py:capture_doc",
+      "target": "func:frappe/utils/telemetry/posthog.py:capture",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestEventQueue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestRateLimiting",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestBatchProcessing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestCapture",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "file:frappe/utils/telemetry/pulse/client.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "file:frappe/utils/telemetry/pulse/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "file:frappe/utils/telemetry/pulse/client.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/test_pulse_client.py",
+      "target": "file:frappe/utils/telemetry/pulse/utils.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestEventQueue",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestRateLimiting",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestBatchProcessing",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestCapture",
+      "target": "class:frappe/utils/telemetry/pulse/test_pulse_client.py:TestPulseClient",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/utils.py",
+      "target": "func:frappe/utils/telemetry/pulse/utils.py:anonymize_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/utils.py",
+      "target": "func:frappe/utils/telemetry/pulse/utils.py:parse_interval",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/utils.py",
+      "target": "func:frappe/utils/telemetry/pulse/utils.py:utc_iso",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/telemetry/pulse/utils.py",
+      "target": "func:frappe/utils/telemetry/pulse/utils.py:ensure_http",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/testutils.py",
+      "target": "func:frappe/utils/testutils.py:add_custom_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/testutils.py",
+      "target": "func:frappe/utils/testutils.py:clear_custom_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/translations.py",
+      "target": "func:frappe/utils/translations.py:_",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/translations.py",
+      "target": "func:frappe/utils/translations.py:_lt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/translations.py",
+      "target": "func:frappe/utils/translations.py:set_user_lang",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/typing_validations.py",
+      "target": "func:frappe/utils/typing_validations.py:validate_argument_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/typing_validations.py",
+      "target": "func:frappe/utils/typing_validations.py:transform_parameter_types",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/typing_validations.py",
+      "target": "func:frappe/utils/typing_validations.py:raise_type_error",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/typing_validations.py",
+      "target": "func:frappe/utils/typing_validations.py:TypeAdapter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:frappe/utils/typing_validations.py:validate_argument_types",
+      "target": "func:frappe/utils/typing_validations.py:transform_parameter_types",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/typing_validations.py:transform_parameter_types",
+      "target": "func:frappe/utils/typing_validations.py:TypeAdapter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/typing_validations.py:transform_parameter_types",
+      "target": "func:frappe/utils/typing_validations.py:raise_type_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

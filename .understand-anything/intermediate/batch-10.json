@@ -1,0 +1,817 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/doctype/boilerplate/controller.js",
+      "type": "file",
+      "name": "controller.js (boilerplate)",
+      "summary": "Boilerplate template for DocType client-side JavaScript controllers. Provides a commented-out skeleton using frappe.ui.form.on with a refresh handler.",
+      "tags": ["boilerplate", "template", "javascript", "controller", "scaffold"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/boilerplate/controller.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/boilerplate/controller_calendar.js",
+      "type": "file",
+      "name": "controller_calendar.js (boilerplate)",
+      "summary": "Boilerplate template for DocType calendar view configuration. Defines frappe.views.calendar settings with field_map and gantt options.",
+      "tags": ["boilerplate", "template", "calendar", "gantt", "scaffold"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/boilerplate/controller_calendar.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/boilerplate/controller_list.js",
+      "type": "file",
+      "name": "controller_list.js (boilerplate)",
+      "summary": "Boilerplate template for DocType list view customization. Provides commented-out frappe.listview_settings with add_fields and filters options.",
+      "tags": ["boilerplate", "template", "listview", "scaffold", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/boilerplate/controller_list.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/boilerplate/controller_tree.js",
+      "type": "file",
+      "name": "controller_tree.js (boilerplate)",
+      "summary": "Boilerplate template for DocType tree view configuration. Provides commented-out frappe.treeview_settings skeleton.",
+      "tags": ["boilerplate", "template", "treeview", "scaffold", "javascript"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/boilerplate/controller_tree.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/doctype.js",
+      "type": "file",
+      "name": "doctype.js",
+      "summary": "Client-side controller for the DocType form. Handles form builder rendering, permission defaults, developer mode restrictions, and field event handlers for DocType editing UI.",
+      "tags": ["javascript", "controller", "form-builder", "doctype-editor", "desk-ui"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/doctype/doctype.js"
+    },
+    {
+      "id": "func:doctype.js:render_form_builder",
+      "type": "function",
+      "name": "render_form_builder",
+      "summary": "Initializes or refreshes the Form Builder Vue component for editing DocType fields visually. Lazy-loads form_builder.bundle.js on first use.",
+      "tags": ["form-builder", "vue", "lazy-load", "ui"],
+      "complexity": "moderate",
+      "lineRange": [153, 177]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/doctype.py",
+      "type": "file",
+      "name": "doctype.py",
+      "summary": "The most critical file in the Frappe framework defining the DocType Document class (the meta-DocType). Handles schema creation/validation, field management, permission validation, database table operations, naming rules, boilerplate generation, and export/import of DocType definitions.",
+      "tags": ["python", "core", "doctype", "schema", "meta-programming", "validation"],
+      "complexity": "complex",
+      "filePath": "frappe/core/doctype/doctype/doctype.py"
+    },
+    {
+      "id": "class:doctype.py:DocType",
+      "type": "class",
+      "name": "DocType",
+      "summary": "The Document subclass for DocType records - the meta-DocType that defines all other DocTypes. Contains extensive validation, schema management, lifecycle hooks (on_update, before_rename, after_rename, after_delete), field scrubbing, permission enforcement, and boilerplate code generation.",
+      "tags": ["core", "document", "meta-doctype", "schema-management", "lifecycle-hooks"],
+      "complexity": "complex",
+      "lineRange": [88, 1113]
+    },
+    {
+      "id": "func:doctype.py:DocType.validate",
+      "type": "function",
+      "name": "DocType.validate",
+      "summary": "Main validation entry point for DocType documents. Orchestrates developer mode checks, name validation, field scrubbing, series validation, permission validation, and numerous constraint checks before saving.",
+      "tags": ["validation", "lifecycle", "core"],
+      "complexity": "complex",
+      "lineRange": [185, 231]
+    },
+    {
+      "id": "func:doctype.py:DocType.on_update",
+      "type": "function",
+      "name": "DocType.on_update",
+      "summary": "Post-save handler that updates the database schema via frappe.db.updatedb, generates controller templates, exports DocType JSON, syncs layouts, clears caches, and triggers global search rebuilds.",
+      "tags": ["lifecycle", "schema-update", "export", "cache", "migration"],
+      "complexity": "complex",
+      "lineRange": [530, 575]
+    },
+    {
+      "id": "func:doctype.py:DocType.before_rename",
+      "type": "function",
+      "name": "DocType.before_rename",
+      "summary": "Pre-rename validation that ensures only Administrator can rename standard DocTypes, checks developer mode, and prevents merge operations.",
+      "tags": ["rename", "validation", "permissions"],
+      "complexity": "simple",
+      "lineRange": [662, 671]
+    },
+    {
+      "id": "func:doctype.py:DocType.after_rename",
+      "type": "function",
+      "name": "DocType.after_rename",
+      "summary": "Post-rename handler that renames the database table (or updates Singles), renames filesystem files and folders, and updates controller code references.",
+      "tags": ["rename", "database", "filesystem"],
+      "complexity": "moderate",
+      "lineRange": [673, 694]
+    },
+    {
+      "id": "func:doctype.py:DocType.make_controller_template",
+      "type": "function",
+      "name": "DocType.make_controller_template",
+      "summary": "Generates boilerplate controller files (Python, JS, test, tree, calendar, web templates) for a new DocType using the make_boilerplate utility.",
+      "tags": ["boilerplate", "code-generation", "scaffold"],
+      "complexity": "moderate",
+      "lineRange": [872, 895]
+    },
+    {
+      "id": "func:doctype.py:DocType.validate_name",
+      "type": "function",
+      "name": "DocType.validate_name",
+      "summary": "Validates DocType name constraints: max 61 characters (for table name limit), no leading/trailing whitespace, must start with a letter, and checks for route conflicts.",
+      "tags": ["validation", "naming", "constraints"],
+      "complexity": "moderate",
+      "lineRange": [1040, 1070]
+    },
+    {
+      "id": "func:doctype.py:DocType.scrub_field_names",
+      "type": "function",
+      "name": "DocType.scrub_field_names",
+      "summary": "Generates fieldnames from labels if not set, enforces restricted name exclusions, strips illegal characters, lowercases fieldnames, and auto-sets search_index for unique fields.",
+      "tags": ["field-management", "naming", "sanitization"],
+      "complexity": "moderate",
+      "lineRange": [474, 520]
+    },
+    {
+      "id": "func:doctype.py:DocType.setup_fields_to_fetch",
+      "type": "function",
+      "name": "DocType.setup_fields_to_fetch",
+      "summary": "Prepares SQL queries to backfill fetch_from values when new fetch fields are added to an existing DocType, handling both MariaDB and PostgreSQL syntax.",
+      "tags": ["fetch-from", "migration", "database", "backfill"],
+      "complexity": "complex",
+      "lineRange": [344, 398]
+    },
+    {
+      "id": "func:doctype.py:DocType.before_export",
+      "type": "function",
+      "name": "DocType.before_export",
+      "summary": "Prepares DocType data for JSON export by removing null fields, preserving field order in the old file, and adding a separate field_order list.",
+      "tags": ["export", "serialization", "json"],
+      "complexity": "moderate",
+      "lineRange": [795, 841]
+    },
+    {
+      "id": "func:doctype.py:DocType.make_amendable",
+      "type": "function",
+      "name": "DocType.make_amendable",
+      "summary": "Automatically adds the 'amended_from' Link field when a DocType is marked as submittable, enabling the amend workflow.",
+      "tags": ["submittable", "amend", "auto-field"],
+      "complexity": "simple",
+      "lineRange": [909, 928]
+    },
+    {
+      "id": "func:doctype.py:DocType.add_nestedset_fields",
+      "type": "function",
+      "name": "DocType.add_nestedset_fields",
+      "summary": "Adds lft, rgt, is_group, old_parent, and parent link fields required for nested set tree structure when is_tree is enabled.",
+      "tags": ["tree", "nested-set", "auto-field"],
+      "complexity": "moderate",
+      "lineRange": [963, 1017]
+    },
+    {
+      "id": "func:doctype.py:validate_fields",
+      "type": "function",
+      "name": "validate_fields",
+      "summary": "Comprehensive field validation function with 14+ nested check functions that validate fieldnames, types, options, dependencies, uniqueness, indexability, precision, fold placement, search/title/image fields, and more.",
+      "tags": ["validation", "fields", "constraints", "comprehensive"],
+      "complexity": "complex",
+      "lineRange": [1295, 1789]
+    },
+    {
+      "id": "func:doctype.py:validate_permissions",
+      "type": "function",
+      "name": "validate_permissions",
+      "summary": "Validates DocType permission rules ensuring at least one permission is set, no duplicates exist, level-zero prerequisites are met, submit/cancel/amend dependencies are correct, and single-type restrictions are enforced.",
+      "tags": ["permissions", "validation", "rbac"],
+      "complexity": "complex",
+      "lineRange": [1822, 1991]
+    },
+    {
+      "id": "func:doctype.py:validate_series",
+      "type": "function",
+      "name": "validate_series",
+      "summary": "Validates the autoname/naming series configuration, ensures naming_series fields exist, creates unique indexes for field-based autonames, and checks for series prefix conflicts across DocTypes.",
+      "tags": ["naming", "autoname", "series", "validation"],
+      "complexity": "moderate",
+      "lineRange": [1115, 1163]
+    },
+    {
+      "id": "func:doctype.py:validate_autoincrement_autoname",
+      "type": "function",
+      "name": "validate_autoincrement_autoname",
+      "summary": "Checks whether a DocType can transition to or from autoincrement naming, only allowing the change when the table is empty to prevent data corruption.",
+      "tags": ["autoincrement", "naming", "validation", "safety"],
+      "complexity": "moderate",
+      "lineRange": [1180, 1218]
+    },
+    {
+      "id": "func:doctype.py:make_module_and_roles",
+      "type": "function",
+      "name": "make_module_and_roles",
+      "summary": "Creates Module Def and Role records if they don't exist, used during DocType installation and updates to ensure required framework metadata is present.",
+      "tags": ["installation", "module", "role", "bootstrap"],
+      "complexity": "moderate",
+      "lineRange": [1994, 2031]
+    },
+    {
+      "id": "func:doctype.py:validate_links_table_fieldnames",
+      "type": "function",
+      "name": "validate_links_table_fieldnames",
+      "summary": "Validates the Document Links table entries ensuring link_doctype and link_fieldname are valid, and that child table links have proper parent_doctype and table_fieldname.",
+      "tags": ["validation", "links", "dashboard"],
+      "complexity": "moderate",
+      "lineRange": [1233, 1266]
+    },
+    {
+      "id": "func:doctype.py:check_email_append_to",
+      "type": "function",
+      "name": "check_email_append_to",
+      "summary": "Validates email_append_to configuration ensuring subject_field and sender_field are valid and correctly typed for creating documents from incoming emails.",
+      "tags": ["email", "validation", "configuration"],
+      "complexity": "simple",
+      "lineRange": [2050, 2078]
+    },
+    {
+      "id": "func:doctype.py:get_row_size_utilization",
+      "type": "function",
+      "name": "get_row_size_utilization",
+      "summary": "Whitelisted API endpoint that returns the database row size utilization as a percentage of the maximum allowed row size limit.",
+      "tags": ["api", "whitelist", "database", "monitoring"],
+      "complexity": "simple",
+      "lineRange": [2090, 2098]
+    },
+    {
+      "id": "class:doctype.py:InvalidFieldNameError",
+      "type": "class",
+      "name": "InvalidFieldNameError",
+      "summary": "Custom validation error raised when a field name is invalid (illegal characters, reserved names, or non-existent fieldnames).",
+      "tags": ["exception", "validation", "error"],
+      "complexity": "simple",
+      "lineRange": [49, 50]
+    },
+    {
+      "id": "class:doctype.py:UniqueFieldnameError",
+      "type": "class",
+      "name": "UniqueFieldnameError",
+      "summary": "Custom validation error raised when duplicate fieldnames are detected in a DocType's field list.",
+      "tags": ["exception", "validation", "error"],
+      "complexity": "simple",
+      "lineRange": [53, 54]
+    },
+    {
+      "id": "class:doctype.py:CannotCreateStandardDoctypeError",
+      "type": "class",
+      "name": "CannotCreateStandardDoctypeError",
+      "summary": "Custom validation error raised when attempting to create a standard (non-custom) DocType outside of developer mode.",
+      "tags": ["exception", "validation", "developer-mode"],
+      "complexity": "simple",
+      "lineRange": [81, 82]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/doctype_list.js",
+      "type": "file",
+      "name": "doctype_list.js",
+      "summary": "List view settings for the DocType DocType. Overrides the primary action to show a creation dialog with fields for name, module, submittable, child table, tree, virtual, and custom options.",
+      "tags": ["javascript", "listview", "creation-dialog", "ui", "doctype-management"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/doctype/doctype_list.js"
+    },
+    {
+      "id": "func:doctype_list.js:new_doctype_dialog",
+      "type": "function",
+      "name": "new_doctype_dialog",
+      "summary": "Displays a dialog for creating new DocTypes with options for name, module, submittable, child table, single, tree, virtual, and custom. Inserts via frappe.db.insert and redirects to the form.",
+      "tags": ["ui", "dialog", "creation", "doctype"],
+      "complexity": "moderate",
+      "lineRange": [6, 140]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/patches/set_route.py",
+      "type": "file",
+      "name": "set_route.py (patch)",
+      "summary": "Database migration patch that sets the route field for all non-table DocTypes that don't have a route, using the slug utility to generate URL-friendly paths.",
+      "tags": ["python", "patch", "migration", "route", "database"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/patches/set_route.py"
+    },
+    {
+      "id": "func:patches/set_route.py:execute",
+      "type": "function",
+      "name": "execute (set_route patch)",
+      "summary": "Iterates over all non-table DocTypes without routes and sets their route field using the slug utility function.",
+      "tags": ["patch", "migration", "route"],
+      "complexity": "simple",
+      "lineRange": [5, 8]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/test_doctype.py",
+      "type": "file",
+      "name": "test_doctype.py",
+      "summary": "Comprehensive test suite for the DocType DocType with 945 lines covering name validation, field constraints, uniqueness, linking, virtual doctypes, autoincrement transitions, JSON fields, permissions, export, deletion, and more.",
+      "tags": ["python", "test", "integration-test", "validation", "comprehensive"],
+      "complexity": "complex",
+      "filePath": "frappe/core/doctype/doctype/test_doctype.py"
+    },
+    {
+      "id": "class:test_doctype.py:TestDocType",
+      "type": "class",
+      "name": "TestDocType",
+      "summary": "Integration test class with 25+ test methods validating DocType creation, field validation, naming rules, linking, virtual doctypes, JSON fields, export, deletion, and cache clearing behaviors.",
+      "tags": ["test", "integration", "doctype", "validation"],
+      "complexity": "complex",
+      "lineRange": [32, 901]
+    },
+    {
+      "id": "func:test_doctype.py:new_doctype",
+      "type": "function",
+      "name": "new_doctype (test helper)",
+      "summary": "Test helper factory function that creates a new DocType document with sensible defaults (random name, Core module, System Manager permissions) for use in test cases.",
+      "tags": ["test", "helper", "factory", "fixture"],
+      "complexity": "simple",
+      "lineRange": [903, 945]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype_action/__init__.py",
+      "type": "file",
+      "name": "__init__.py (doctype_action)",
+      "summary": "Empty init file for the DocType Action module, marking it as a Python package for the DocTypeAction child table DocType.",
+      "tags": ["python", "init", "package", "doctype-action"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype_action/__init__.py"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "file:frappe/model/document.py",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/model/meta.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/database/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/custom/doctype/custom_field/custom_field.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/custom/doctype/property_setter/property_setter.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/cache_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/modules/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/desk/notifications.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.4
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/desk/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/model/base_document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/model/docfield.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.4
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "file:frappe/website/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.3
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:validate_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:validate_series",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:validate_autoincrement_autoname",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:validate_links_table_fieldnames",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:check_email_append_to",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:doctype.py:DocType.on_update",
+      "target": "func:doctype.py:DocType.make_controller_template",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:doctype.py:DocType.on_update",
+      "target": "func:doctype.py:make_module_and_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:doctype.py:DocType.make_controller_template",
+      "target": "file:frappe/core/doctype/doctype/boilerplate/controller.js",
+      "type": "generates",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:doctype.py:DocType.make_controller_template",
+      "target": "file:frappe/core/doctype/doctype/boilerplate/controller_calendar.js",
+      "type": "generates",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:doctype.py:DocType.make_controller_template",
+      "target": "file:frappe/core/doctype/doctype/boilerplate/controller_tree.js",
+      "type": "generates",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:doctype.py:DocType.make_controller_template",
+      "target": "file:frappe/core/doctype/doctype/boilerplate/controller_list.js",
+      "type": "generates",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.js",
+      "target": "class:doctype.py:DocType",
+      "type": "controls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.js",
+      "target": "func:doctype.js:render_form_builder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.js",
+      "target": "file:frappe/core/doctype/doctype/doctype_list.js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype_list.js",
+      "target": "func:doctype_list.js:new_doctype_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/test_doctype.py",
+      "target": "class:test_doctype.py:TestDocType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/test_doctype.py",
+      "target": "func:test_doctype.py:new_doctype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:test_doctype.py:TestDocType",
+      "target": "class:doctype.py:DocType",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:test_doctype.py:TestDocType",
+      "target": "func:doctype.py:validate_links_table_fieldnames",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:test_doctype.py:TestDocType",
+      "target": "class:doctype.py:InvalidFieldNameError",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:test_doctype.py:TestDocType",
+      "target": "class:doctype.py:UniqueFieldnameError",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:test_doctype.py:new_doctype",
+      "target": "class:doctype.py:DocType",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "class:doctype.py:DocType",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:validate_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:validate_permissions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:validate_series",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:validate_autoincrement_autoname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:make_module_and_roles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:validate_links_table_fieldnames",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:check_email_append_to",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "func:doctype.py:get_row_size_utilization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "class:doctype.py:InvalidFieldNameError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "class:doctype.py:UniqueFieldnameError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.py",
+      "target": "class:doctype.py:CannotCreateStandardDoctypeError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/patches/set_route.py",
+      "target": "func:patches/set_route.py:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:patches/set_route.py:execute",
+      "target": "class:doctype.py:DocType",
+      "type": "modifies",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype/doctype.js",
+      "target": "func:doctype.py:DocType.check_pending_migration",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:DocType.scrub_field_names",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:DocType.make_amendable",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:doctype.py:DocType.validate",
+      "target": "func:doctype.py:DocType.validate_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:doctype.py:DocType.on_update",
+      "target": "func:doctype.py:DocType.setup_fields_to_fetch",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.on_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.before_rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.after_rename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.make_controller_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.validate_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.scrub_field_names",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.setup_fields_to_fetch",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.before_export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.make_amendable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:doctype.py:DocType",
+      "target": "func:doctype.py:DocType.add_nestedset_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:doctype.py:validate_permissions",
+      "target": "file:frappe/permissions.py",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/doctype_action/__init__.py",
+      "target": "class:doctype.py:DocType",
+      "type": "child-of",
+      "direction": "forward",
+      "weight": 0.4
+    }
+  ]
+}

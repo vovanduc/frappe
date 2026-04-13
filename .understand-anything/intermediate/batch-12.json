@@ -1,0 +1,539 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/document_naming_rule_condition/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/__init__.py",
+      "summary": "Empty init file for Document Naming Rule Condition doctype package.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.js",
+      "type": "file",
+      "name": "document_naming_rule_condition.js",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.js",
+      "summary": "Client-side form controller for Document Naming Rule Condition doctype. Stub with no custom logic.",
+      "tags": ["core", "doctype", "javascript", "form-controller"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.py",
+      "type": "file",
+      "name": "document_naming_rule_condition.py",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.py",
+      "summary": "Python controller for Document Naming Rule Condition child doctype. Defines fields for condition matching (field, condition operator, value) used by Document Naming Rule.",
+      "tags": ["core", "doctype", "naming", "child-doctype", "python"],
+      "complexity": 1
+    },
+    {
+      "id": "class:DocumentNamingRuleCondition",
+      "type": "class",
+      "name": "DocumentNamingRuleCondition",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.py",
+      "lineRange": [8, 25],
+      "summary": "Child document model for naming rule conditions. Holds field name, comparison operator (=, !=, >, <, >=, <=), and value to match against documents.",
+      "tags": ["document", "naming", "condition", "child-doctype"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_rule_condition/test_document_naming_rule_condition.py",
+      "type": "file",
+      "name": "test_document_naming_rule_condition.py",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/test_document_naming_rule_condition.py",
+      "summary": "Empty test file for Document Naming Rule Condition doctype.",
+      "tags": ["core", "test", "naming"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestDocumentNamingRuleCondition",
+      "type": "class",
+      "name": "TestDocumentNamingRuleCondition",
+      "filePath": "frappe/core/doctype/document_naming_rule_condition/test_document_naming_rule_condition.py",
+      "lineRange": [7, 8],
+      "summary": "Empty integration test case for DocumentNamingRuleCondition.",
+      "tags": ["test", "naming"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_settings/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/document_naming_settings/__init__.py",
+      "summary": "Empty init file for Document Naming Settings doctype package.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.js",
+      "type": "file",
+      "name": "document_naming_settings.js",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.js",
+      "summary": "Client-side form controller for Document Naming Settings. Handles autocomplete setup for transaction types and prefixes, updating naming series options, changing series counters, and previewing naming series output.",
+      "tags": ["core", "doctype", "javascript", "form-controller", "naming"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "type": "file",
+      "name": "document_naming_settings.py",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "summary": "Python controller for Document Naming Settings. Provides whitelisted methods to manage naming series across all doctypes: listing transactions with naming series, getting/setting prefixes, updating series options, managing counters, handling amendment naming rules, and previewing series output.",
+      "tags": ["core", "doctype", "naming", "python", "settings", "naming-series"],
+      "complexity": 4
+    },
+    {
+      "id": "class:NamingSeriesNotSetError",
+      "type": "class",
+      "name": "NamingSeriesNotSetError",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [13, 14],
+      "summary": "Custom validation error raised when naming series is not configured.",
+      "tags": ["error", "naming", "validation"],
+      "complexity": 1
+    },
+    {
+      "id": "class:DocumentNamingSettings",
+      "type": "class",
+      "name": "DocumentNamingSettings",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [17, 256],
+      "summary": "Settings document for managing naming series across all doctypes. Provides whitelisted API methods: get_transactions_and_prefixes (lists doctypes with naming_series and their prefixes), update_series (validates and saves naming options), get_current/update_series_start (counter management), update_amendment_rule (amend naming config), and preview_series (generates sample names).",
+      "tags": ["document", "settings", "naming-series", "whitelisted-api"],
+      "complexity": 4
+    },
+    {
+      "id": "func:DocumentNamingSettings.get_transactions_and_prefixes",
+      "type": "function",
+      "name": "get_transactions_and_prefixes",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [40, 45],
+      "summary": "Whitelisted method returning dict of all doctypes with naming_series fields and their evaluated prefixes.",
+      "tags": ["whitelisted", "naming-series", "api"],
+      "complexity": 2
+    },
+    {
+      "id": "func:DocumentNamingSettings._get_transactions",
+      "type": "function",
+      "name": "_get_transactions",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [47, 53],
+      "summary": "Returns sorted list of doctypes that have a naming_series field (standard or custom) and are readable by the current user.",
+      "tags": ["naming-series", "permissions"],
+      "complexity": 2
+    },
+    {
+      "id": "func:DocumentNamingSettings._get_prefixes",
+      "type": "function",
+      "name": "_get_prefixes",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [55, 82],
+      "summary": "Collects all naming series templates from doctypes and custom autoname fields, then evaluates them to extract concrete prefixes.",
+      "tags": ["naming-series", "prefix"],
+      "complexity": 3
+    },
+    {
+      "id": "func:DocumentNamingSettings._evaluate_and_clean_templates",
+      "type": "function",
+      "name": "_evaluate_and_clean_templates",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [84, 102],
+      "summary": "Evaluates naming series templates by resolving date-based patterns and combining with existing prefixes from the Series table in the database.",
+      "tags": ["naming-series", "prefix", "evaluation"],
+      "complexity": 3
+    },
+    {
+      "id": "func:DocumentNamingSettings.update_series",
+      "type": "function",
+      "name": "update_series",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [107, 116],
+      "summary": "Whitelisted method that validates, checks for duplicates, and saves naming series options for a doctype via property setters.",
+      "tags": ["whitelisted", "naming-series", "update"],
+      "complexity": 2
+    },
+    {
+      "id": "func:DocumentNamingSettings.set_series_options_in_meta",
+      "type": "function",
+      "name": "set_series_options_in_meta",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [122, 143],
+      "summary": "Saves naming series options to a doctype's metadata using property setters, handling validation, default selection, and user_must_always_select flag.",
+      "tags": ["naming-series", "meta", "property-setter"],
+      "complexity": 3
+    },
+    {
+      "id": "func:DocumentNamingSettings.check_duplicate",
+      "type": "function",
+      "name": "check_duplicate",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [150, 171],
+      "summary": "Validates that the chosen naming series are not already used by other doctypes to prevent conflicts.",
+      "tags": ["naming-series", "validation", "duplicate-check"],
+      "complexity": 3
+    },
+    {
+      "id": "func:DocumentNamingSettings.get_options",
+      "type": "function",
+      "name": "get_options",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [176, 183],
+      "summary": "Whitelisted method returning the naming_series field options string for the given or selected doctype.",
+      "tags": ["whitelisted", "naming-series"],
+      "complexity": 1
+    },
+    {
+      "id": "func:DocumentNamingSettings.get_current",
+      "type": "function",
+      "name": "get_current",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [185, 190],
+      "summary": "Whitelisted method returning the current counter value for the selected naming series prefix.",
+      "tags": ["whitelisted", "naming-series", "counter"],
+      "complexity": 1
+    },
+    {
+      "id": "func:DocumentNamingSettings.update_amendment_rule",
+      "type": "function",
+      "name": "update_amendment_rule",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [192, 207],
+      "summary": "Whitelisted method to update document amendment naming rules, saving the default amendment naming strategy and per-doctype overrides.",
+      "tags": ["whitelisted", "naming", "amendment"],
+      "complexity": 2
+    },
+    {
+      "id": "func:DocumentNamingSettings.update_series_start",
+      "type": "function",
+      "name": "update_series_start",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [209, 226],
+      "summary": "Whitelisted method restricted to System Manager that updates the series counter value and creates a Version log of the change.",
+      "tags": ["whitelisted", "naming-series", "counter", "system-manager"],
+      "complexity": 2
+    },
+    {
+      "id": "func:DocumentNamingSettings.preview_series",
+      "type": "function",
+      "name": "preview_series",
+      "filePath": "frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "lineRange": [237, 249],
+      "summary": "Whitelisted method that generates a preview of what names a given naming series template would produce.",
+      "tags": ["whitelisted", "naming-series", "preview"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "type": "file",
+      "name": "test_document_naming_settings.py",
+      "filePath": "frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "summary": "Integration tests for Document Naming Settings. Tests naming series preview generation, transaction listing, default naming series, updating naming options, counter updates, and amended document naming rules.",
+      "tags": ["core", "test", "naming-series", "integration-test"],
+      "complexity": 3
+    },
+    {
+      "id": "class:TestNamingSeries",
+      "type": "class",
+      "name": "TestNamingSeries",
+      "filePath": "frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "lineRange": [14, 109],
+      "summary": "Integration test suite for DocumentNamingSettings covering preview, transactions listing, default naming, option updates, counter updates, and amendment naming rules. Creates a temporary submittable doctype for testing.",
+      "tags": ["test", "naming-series", "integration-test"],
+      "complexity": 3
+    },
+    {
+      "id": "file:frappe/core/doctype/document_share_key/document_share_key.js",
+      "type": "file",
+      "name": "document_share_key.js",
+      "filePath": "frappe/core/doctype/document_share_key/document_share_key.js",
+      "summary": "Client-side form controller for Document Share Key doctype. Stub with no custom logic.",
+      "tags": ["core", "doctype", "javascript", "form-controller"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/document_share_key/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/document_share_key/__init__.py",
+      "summary": "Empty init file for Document Share Key doctype package.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/document_naming_rule_condition/document_naming_rule_condition.py",
+      "target": "class:DocumentNamingRuleCondition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingRuleCondition",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_rule_condition/test_document_naming_rule_condition.py",
+      "target": "class:TestDocumentNamingRuleCondition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDocumentNamingRuleCondition",
+      "target": "class:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_rule_condition/test_document_naming_rule_condition.py",
+      "target": "class:DocumentNamingRuleCondition",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "class:NamingSeriesNotSetError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "class:DocumentNamingSettings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:NamingSeriesNotSetError",
+      "target": "class:frappe.ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.get_transactions_and_prefixes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings._get_transactions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings._get_prefixes",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings._evaluate_and_clean_templates",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.update_series",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.set_series_options_in_meta",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.check_duplicate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.get_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.get_current",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.update_amendment_rule",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.update_series_start",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocumentNamingSettings",
+      "target": "func:DocumentNamingSettings.preview_series",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "file:frappe/core/doctype/doctype/doctype.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "file:frappe/model/naming.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:DocumentNamingSettings._get_transactions",
+      "target": "func:get_doctypes_with_read",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings._evaluate_and_clean_templates",
+      "target": "class:NamingSeries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings.get_current",
+      "target": "class:NamingSeries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings.update_series_start",
+      "target": "class:NamingSeries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings.preview_series",
+      "target": "class:NamingSeries",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings.check_duplicate",
+      "target": "func:validate_series",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:DocumentNamingSettings.set_series_options_in_meta",
+      "target": "func:make_property_setter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "target": "class:TestNamingSeries",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestNamingSeries",
+      "target": "class:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "target": "class:DocumentNamingSettings",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "target": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "target": "file:frappe/model/naming.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/test_document_naming_settings.py",
+      "target": "file:frappe/core/doctype/doctype/test_doctype.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "target": "file:frappe/core/doctype/amended_document_naming_settings/amended_document_naming_settings.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.js",
+      "target": "file:frappe/core/doctype/document_naming_settings/document_naming_settings.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

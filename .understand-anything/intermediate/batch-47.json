@@ -1,0 +1,701 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/database/postgres/database.py",
+      "type": "file",
+      "name": "database.py (postgres)",
+      "filePath": "frappe/database/postgres/database.py",
+      "summary": "PostgreSQL database backend implementation extending the base Database class. Handles connection management, query modification for Postgres syntax compatibility, type mapping, and DDL operations.",
+      "tags": ["database", "postgres", "backend", "sql", "connection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/postgres/schema.py",
+      "type": "file",
+      "name": "schema.py (postgres)",
+      "filePath": "frappe/database/postgres/schema.py",
+      "summary": "PostgreSQL schema management for creating and altering database tables. Handles column type changes, index creation, unique constraints, and primary key alterations specific to PostgreSQL.",
+      "tags": ["database", "postgres", "schema", "ddl", "migration"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/postgres/setup_db.py",
+      "type": "file",
+      "name": "setup_db.py (postgres)",
+      "filePath": "frappe/database/postgres/setup_db.py",
+      "summary": "PostgreSQL database setup utilities for creating databases, users, bootstrapping from SQL, and managing root connections.",
+      "tags": ["database", "postgres", "setup", "bootstrap"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/query.py",
+      "type": "file",
+      "name": "query.py",
+      "filePath": "frappe/database/query.py",
+      "summary": "Core query builder engine that constructs pypika queries with permission enforcement, field validation, filter parsing, dynamic table joins, and support for link/child table field access.",
+      "tags": ["database", "query-builder", "permissions", "filters", "orm"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/schema.py",
+      "type": "file",
+      "name": "schema.py (base)",
+      "filePath": "frappe/database/schema.py",
+      "summary": "Base schema abstraction defining DBTable and DbColumn classes for managing database table structure, column definitions, type mapping, and validation across all database backends.",
+      "tags": ["database", "schema", "ddl", "abstraction", "column-definition"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/sequence.py",
+      "type": "file",
+      "name": "sequence.py",
+      "filePath": "frappe/database/sequence.py",
+      "summary": "Database sequence management for auto-increment functionality. Provides cross-database create, get_next_val, and set_next_val operations for MariaDB and PostgreSQL.",
+      "tags": ["database", "sequence", "autoincrement", "cross-database"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/sqlite/__init__.py",
+      "type": "file",
+      "name": "__init__.py (sqlite)",
+      "filePath": "frappe/database/sqlite/__init__.py",
+      "summary": "Empty package init file for the SQLite database backend module.",
+      "tags": ["database", "sqlite", "package"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/database/sqlite/database.py",
+      "type": "file",
+      "name": "database.py (sqlite)",
+      "filePath": "frappe/database/sqlite/database.py",
+      "summary": "SQLite database backend implementation providing connection management, query modification, WAL mode, custom regexp functions, and table operations adapted for SQLite's limitations.",
+      "tags": ["database", "sqlite", "backend", "sql", "connection"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/database/sqlite/schema.py",
+      "type": "file",
+      "name": "schema.py (sqlite)",
+      "filePath": "frappe/database/sqlite/schema.py",
+      "summary": "SQLite schema management handling table creation and alteration using SQLite's table-rebuild strategy since it lacks native ALTER COLUMN support.",
+      "tags": ["database", "sqlite", "schema", "ddl", "migration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/database/sqlite/setup_db.py",
+      "type": "file",
+      "name": "setup_db.py (sqlite)",
+      "filePath": "frappe/database/sqlite/setup_db.py",
+      "summary": "SQLite database setup utilities for creating databases by copying files, bootstrapping from backups, and managing root connections.",
+      "tags": ["database", "sqlite", "setup", "bootstrap"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:frappe/database/postgres/database.py:PostgresExceptionUtil",
+      "type": "class",
+      "name": "PostgresExceptionUtil",
+      "summary": "Utility mixin providing static methods to classify PostgreSQL error types (deadlock, timeout, missing table/column, duplicate entry, etc.) for consistent error handling.",
+      "tags": ["postgres", "error-handling", "mixin", "utility"],
+      "complexity": "moderate",
+      "lineRange": [47, 125]
+    },
+    {
+      "id": "class:frappe/database/postgres/database.py:PostgresDatabase",
+      "type": "class",
+      "name": "PostgresDatabase",
+      "summary": "Main PostgreSQL database class inheriting from both PostgresExceptionUtil and Database. Implements connection setup, type mapping, query execution, DDL operations, and table introspection specific to PostgreSQL.",
+      "tags": ["postgres", "database", "backend", "connection", "ddl"],
+      "complexity": "complex",
+      "lineRange": [127, 517]
+    },
+    {
+      "id": "class:frappe/database/postgres/schema.py:PostgresTable",
+      "type": "class",
+      "name": "PostgresTable",
+      "summary": "PostgreSQL table schema manager extending DBTable. Handles table creation with sequences/UUID support, column alteration with USING clauses, constraint management, and primary key type migration.",
+      "tags": ["postgres", "schema", "table", "ddl", "migration"],
+      "complexity": "complex",
+      "lineRange": [8, 281]
+    },
+    {
+      "id": "class:frappe/database/query.py:Engine",
+      "type": "class",
+      "name": "Engine",
+      "summary": "Core query engine that builds pypika queries with permission enforcement, field/filter parsing, dynamic table joins for link and child table access, and group/order-by validation. Central to frappe.qb.get_query().",
+      "tags": ["query-builder", "permissions", "filters", "orm", "engine"],
+      "complexity": "complex",
+      "lineRange": [210, 1930]
+    },
+    {
+      "id": "class:frappe/database/query.py:DynamicTableField",
+      "type": "class",
+      "name": "DynamicTableField",
+      "summary": "Base class for dynamic table field access patterns (link_field.target_field or child_table.field). Parses dot-notation field references and provides join/select interfaces.",
+      "tags": ["query-builder", "dynamic-field", "join", "parsing"],
+      "complexity": "moderate",
+      "lineRange": [1932, 2029]
+    },
+    {
+      "id": "class:frappe/database/query.py:ChildTableField",
+      "type": "class",
+      "name": "ChildTableField",
+      "summary": "Handles child table field access by applying LEFT JOIN on parenttype/parent/parentfield conditions. Extends DynamicTableField for child DocType field references.",
+      "tags": ["query-builder", "child-table", "join", "field-access"],
+      "complexity": "moderate",
+      "lineRange": [2032, 2063]
+    },
+    {
+      "id": "class:frappe/database/query.py:LinkTableField",
+      "type": "class",
+      "name": "LinkTableField",
+      "summary": "Handles linked DocType field access by applying LEFT JOIN on link field relationships with permission condition propagation. Extends DynamicTableField.",
+      "tags": ["query-builder", "link-field", "join", "permissions"],
+      "complexity": "moderate",
+      "lineRange": [2066, 2094]
+    },
+    {
+      "id": "class:frappe/database/query.py:ChildQuery",
+      "type": "class",
+      "name": "ChildQuery",
+      "summary": "Represents a sub-query for fetching child table data. Builds separate queries for child rows filtered by parent names, used for dict-style field specifications.",
+      "tags": ["query-builder", "child-table", "sub-query"],
+      "complexity": "moderate",
+      "lineRange": [2097, 2123]
+    },
+    {
+      "id": "class:frappe/database/query.py:RawCriterion",
+      "type": "class",
+      "name": "RawCriterion",
+      "summary": "Wraps raw SQL strings as pypika Term objects, enabling raw SQL conditions in query builder queries with AND/OR/NOT combination support.",
+      "tags": ["query-builder", "raw-sql", "criterion", "pypika"],
+      "complexity": "simple",
+      "lineRange": [2192, 2214]
+    },
+    {
+      "id": "class:frappe/database/query.py:SQLFunctionParser",
+      "type": "class",
+      "name": "SQLFunctionParser",
+      "summary": "Parses SQL function and arithmetic operator dictionaries (e.g., {'COUNT': '*'}, {'ADD': [1,2]}) into pypika function calls and expressions with permission and injection validation.",
+      "tags": ["query-builder", "sql-functions", "parsing", "validation"],
+      "complexity": "complex",
+      "lineRange": [2230, 2465]
+    },
+    {
+      "id": "class:frappe/database/schema.py:DBTable",
+      "type": "class",
+      "name": "DBTable",
+      "summary": "Base class for database table management. Loads column definitions from DocType metadata, validates schema changes, detects new/modified columns, and orchestrates sync/create/alter lifecycle.",
+      "tags": ["schema", "table", "base-class", "migration", "doctype"],
+      "complexity": "complex",
+      "lineRange": [22, 179]
+    },
+    {
+      "id": "class:frappe/database/schema.py:DbColumn",
+      "type": "class",
+      "name": "DbColumn",
+      "summary": "Represents a database column with fieldtype, default, index, unique, and nullability properties. Generates SQL column definitions and detects changes requiring ALTER TABLE operations.",
+      "tags": ["schema", "column", "definition", "alter-table", "validation"],
+      "complexity": "complex",
+      "lineRange": [185, 391]
+    },
+    {
+      "id": "class:frappe/database/sqlite/database.py:SQLiteExceptionUtil",
+      "type": "class",
+      "name": "SQLiteExceptionUtil",
+      "summary": "Utility mixin providing static methods to classify SQLite error types by parsing error message strings, since SQLite uses generic error classes.",
+      "tags": ["sqlite", "error-handling", "mixin", "utility"],
+      "complexity": "moderate",
+      "lineRange": [20, 99]
+    },
+    {
+      "id": "class:frappe/database/sqlite/database.py:SQLiteDatabase",
+      "type": "class",
+      "name": "SQLiteDatabase",
+      "summary": "SQLite database backend implementing connection management with WAL mode, custom regexp/regexp_replace functions, table-rebuild column operations, and query parameter adaptation.",
+      "tags": ["sqlite", "database", "backend", "connection", "wal"],
+      "complexity": "complex",
+      "lineRange": [101, 555]
+    },
+    {
+      "id": "class:frappe/database/sqlite/schema.py:SQLiteTable",
+      "type": "class",
+      "name": "SQLiteTable",
+      "summary": "SQLite table schema manager extending DBTable. Uses table-rebuild strategy for ALTER operations since SQLite lacks ALTER COLUMN support, handles index creation separately.",
+      "tags": ["sqlite", "schema", "table", "rebuild", "migration"],
+      "complexity": "moderate",
+      "lineRange": [7, 148]
+    },
+    {
+      "id": "func:frappe/database/postgres/database.py:modify_query",
+      "type": "function",
+      "name": "modify_query",
+      "summary": "Transforms SQL queries for PostgreSQL compatibility by replacing backticks with double quotes, converting LOCATE to STRPOS, fixing table references, and quoting integer literals.",
+      "tags": ["postgres", "query-transform", "sql-compat"],
+      "complexity": "moderate",
+      "lineRange": [520, 535]
+    },
+    {
+      "id": "func:frappe/database/postgres/database.py:modify_values",
+      "type": "function",
+      "name": "modify_values",
+      "summary": "Converts integer values to strings for PostgreSQL parameter binding compatibility, handling nested lists, tuples, and dicts recursively.",
+      "tags": ["postgres", "parameter-binding", "type-conversion"],
+      "complexity": "moderate",
+      "lineRange": [538, 563]
+    },
+    {
+      "id": "func:frappe/database/schema.py:get_definition",
+      "type": "function",
+      "name": "get_definition",
+      "summary": "Generates SQL column type definition strings from Frappe fieldtypes, handling configurable decimal precision, varchar length validation, and Link-to-UUID type resolution.",
+      "tags": ["schema", "column-type", "definition", "fieldtype"],
+      "complexity": "moderate",
+      "lineRange": [411, 459]
+    },
+    {
+      "id": "func:frappe/database/schema.py:add_column",
+      "type": "function",
+      "name": "add_column",
+      "summary": "Adds a new column to a DocType's database table with specified type, default value, and nullability, handling SQLite's lack of IF NOT EXISTS support.",
+      "tags": ["schema", "ddl", "alter-table", "column"],
+      "complexity": "moderate",
+      "lineRange": [462, 484]
+    },
+    {
+      "id": "func:frappe/database/sequence.py:create_sequence",
+      "type": "function",
+      "name": "create_sequence",
+      "summary": "Creates a database sequence for auto-increment naming with configurable increment, min/max values, cache, and cycle options across MariaDB and PostgreSQL.",
+      "tags": ["sequence", "autoincrement", "ddl", "cross-database"],
+      "complexity": "moderate",
+      "lineRange": [21, 72]
+    },
+    {
+      "id": "func:frappe/database/sequence.py:get_next_val",
+      "type": "function",
+      "name": "get_next_val",
+      "summary": "Returns the next value from a database sequence, handling different syntax for PostgreSQL vs MariaDB sequence name quoting.",
+      "tags": ["sequence", "autoincrement", "nextval"],
+      "complexity": "simple",
+      "lineRange": [75, 87]
+    },
+    {
+      "id": "func:frappe/database/sequence.py:set_next_val",
+      "type": "function",
+      "name": "set_next_val",
+      "summary": "Sets the next value for a database sequence using SETVAL, supporting both PostgreSQL and MariaDB syntax variants.",
+      "tags": ["sequence", "autoincrement", "setval"],
+      "complexity": "simple",
+      "lineRange": [89, 99]
+    },
+    {
+      "id": "func:frappe/database/query.py:get_nested_set_hierarchy_result",
+      "type": "function",
+      "name": "get_nested_set_hierarchy_result",
+      "summary": "Retrieves ancestor or descendant nodes from a nested set tree structure using lft/rgt values for hierarchical DocType queries.",
+      "tags": ["query-builder", "nested-set", "hierarchy", "tree"],
+      "complexity": "moderate",
+      "lineRange": [2126, 2155]
+    },
+    {
+      "id": "func:frappe/database/sqlite/database.py:modify_query",
+      "type": "function",
+      "name": "modify_query (sqlite)",
+      "summary": "Transforms SQL queries for SQLite compatibility by replacing backticks with double quotes, converting LOCATE to INSTR, and fixing table references.",
+      "tags": ["sqlite", "query-transform", "sql-compat"],
+      "complexity": "simple",
+      "lineRange": [557, 570]
+    },
+    {
+      "id": "func:frappe/database/postgres/setup_db.py:setup_database",
+      "type": "function",
+      "name": "setup_database (postgres)",
+      "summary": "Creates a PostgreSQL database and user with privileges, handling user existence checks and ownership for PostgreSQL 15+.",
+      "tags": ["postgres", "setup", "database-creation"],
+      "complexity": "moderate",
+      "lineRange": [9, 26]
+    },
+    {
+      "id": "func:frappe/database/sqlite/setup_db.py:setup_database",
+      "type": "function",
+      "name": "setup_database (sqlite)",
+      "summary": "Initializes SQLite database setup by creating root connection with Administrator session context.",
+      "tags": ["sqlite", "setup", "database-creation"],
+      "complexity": "simple",
+      "lineRange": [16, 21]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/database/postgres/database.py",
+      "target": "class:frappe/database/postgres/database.py:PostgresExceptionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/postgres/database.py",
+      "target": "class:frappe/database/postgres/database.py:PostgresDatabase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/postgres/database.py",
+      "target": "func:frappe/database/postgres/database.py:modify_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/postgres/database.py",
+      "target": "func:frappe/database/postgres/database.py:modify_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/postgres/schema.py",
+      "target": "class:frappe/database/postgres/schema.py:PostgresTable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/postgres/setup_db.py",
+      "target": "func:frappe/database/postgres/setup_db.py:setup_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:Engine",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:DynamicTableField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:ChildTableField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:LinkTableField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:ChildQuery",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:RawCriterion",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "class:frappe/database/query.py:SQLFunctionParser",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "func:frappe/database/query.py:get_nested_set_hierarchy_result",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/schema.py",
+      "target": "class:frappe/database/schema.py:DBTable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/schema.py",
+      "target": "class:frappe/database/schema.py:DbColumn",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/schema.py",
+      "target": "func:frappe/database/schema.py:get_definition",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/schema.py",
+      "target": "func:frappe/database/schema.py:add_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sequence.py",
+      "target": "func:frappe/database/sequence.py:create_sequence",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sequence.py",
+      "target": "func:frappe/database/sequence.py:get_next_val",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sequence.py",
+      "target": "func:frappe/database/sequence.py:set_next_val",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sqlite/database.py",
+      "target": "class:frappe/database/sqlite/database.py:SQLiteExceptionUtil",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sqlite/database.py",
+      "target": "class:frappe/database/sqlite/database.py:SQLiteDatabase",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sqlite/database.py",
+      "target": "func:frappe/database/sqlite/database.py:modify_query",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sqlite/schema.py",
+      "target": "class:frappe/database/sqlite/schema.py:SQLiteTable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/database/sqlite/setup_db.py",
+      "target": "func:frappe/database/sqlite/setup_db.py:setup_database",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/database/postgres/database.py:PostgresDatabase",
+      "target": "class:frappe/database/postgres/database.py:PostgresExceptionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/postgres/schema.py:PostgresTable",
+      "target": "class:frappe/database/schema.py:DBTable",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/sqlite/database.py:SQLiteDatabase",
+      "target": "class:frappe/database/sqlite/database.py:SQLiteExceptionUtil",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/sqlite/schema.py:SQLiteTable",
+      "target": "class:frappe/database/schema.py:DBTable",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/query.py:ChildTableField",
+      "target": "class:frappe/database/query.py:DynamicTableField",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/query.py:LinkTableField",
+      "target": "class:frappe/database/query.py:DynamicTableField",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/database/query.py:CombinedRawCriterion",
+      "target": "class:frappe/database/query.py:RawCriterion",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/database/postgres/database.py",
+      "target": "file:frappe/database/postgres/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/postgres/schema.py",
+      "target": "file:frappe/database/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/sqlite/database.py",
+      "target": "file:frappe/database/sqlite/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/sqlite/schema.py",
+      "target": "file:frappe/database/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/database/query.py",
+      "target": "file:frappe/database/schema.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/database/postgres/database.py:PostgresDatabase",
+      "target": "class:frappe/database/postgres/schema.py:PostgresTable",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/sqlite/database.py:SQLiteDatabase",
+      "target": "class:frappe/database/sqlite/schema.py:SQLiteTable",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:DynamicTableField",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:ChildTableField",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:LinkTableField",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:ChildQuery",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:RawCriterion",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "class:frappe/database/query.py:SQLFunctionParser",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/query.py:Engine",
+      "target": "func:frappe/database/query.py:get_nested_set_hierarchy_result",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/schema.py:DbColumn",
+      "target": "func:frappe/database/schema.py:get_definition",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/schema.py:DBTable",
+      "target": "class:frappe/database/schema.py:DbColumn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/database/postgres/schema.py:PostgresTable",
+      "target": "func:frappe/database/schema.py:get_definition",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/database/postgres/setup_db.py",
+      "target": "file:frappe/database/postgres/database.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/sqlite/setup_db.py",
+      "target": "file:frappe/database/sqlite/database.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/database/postgres/schema.py",
+      "target": "file:frappe/database/sequence.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

@@ -1,0 +1,119 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/lib/leaflet_easy_button/easy-button.js",
+      "type": "file",
+      "name": "easy-button.js",
+      "summary": "Third-party vendored Leaflet plugin adding easy-to-configure button controls to Leaflet maps.",
+      "tags": ["vendor", "leaflet", "third-party", "map"],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/lib/leaflet_easy_button/easy-button.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/moment.js",
+      "type": "file",
+      "name": "moment.js",
+      "summary": "Shim that imports moment-timezone (10-year data range) and binds it to window.moment so later bundle imports (datetime.js) can depend on it.",
+      "tags": ["shim", "datetime", "moment", "globals"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/lib/moment.js"
+    },
+    {
+      "id": "file:frappe/public/js/lib/posthog.js",
+      "type": "file",
+      "name": "posthog.js",
+      "summary": "Vendored PostHog JS snippet stub that lazy-loads the analytics array.js and installs a posthog stub on window.",
+      "tags": ["vendor", "analytics", "posthog", "third-party"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/lib/posthog.js"
+    },
+    {
+      "id": "file:frappe/public/js/libs.bundle.js",
+      "type": "file",
+      "name": "libs.bundle.js",
+      "summary": "Aggregator bundle entry importing jquery-bootstrap, moment, Leaflet and its plugins, Sortable and gemoji; exposes SetVueGlobals, Sortable, and gemoji on window.",
+      "tags": ["bundle", "entry", "aggregator", "globals"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/libs.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/list.bundle.js",
+      "type": "file",
+      "name": "list.bundle.js",
+      "summary": "Aggregator bundle entry for Desk list views: imports base list, list view, filters, indicator, tag/like widgets, and alternate views (gantt, calendar, dashboard, image, map, kanban, inbox, file, tree, interaction).",
+      "tags": ["bundle", "entry", "aggregator", "list-view"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/list.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/logtypes.bundle.js",
+      "type": "file",
+      "name": "logtypes.bundle.js",
+      "summary": "Tiny bundle entry that imports ./frappe/logtypes.",
+      "tags": ["bundle", "entry", "aggregator"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/logtypes.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/onboarding_tours.bundle.js",
+      "type": "file",
+      "name": "onboarding_tours.bundle.js",
+      "summary": "Tiny bundle entry that imports the onboarding_tours module.",
+      "tags": ["bundle", "entry", "aggregator", "onboarding"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/onboarding_tours.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/onboarding_tours/onboarding_tours.js",
+      "type": "file",
+      "name": "onboarding_tours.js",
+      "summary": "Defines frappe.ui.OnboardingTour which wraps driver.js to provide guided product tours with step persistence, offset handling, and navigation between form tours.",
+      "tags": ["onboarding", "ui", "tour", "driver.js"],
+      "complexity": "high",
+      "filePath": "frappe/public/js/onboarding_tours/onboarding_tours.js"
+    },
+    {
+      "id": "file:frappe/public/js/photoswipe.bundle.js",
+      "type": "file",
+      "name": "photoswipe.bundle.js",
+      "summary": "Bundle entry that imports PhotoSwipe and exposes it as frappe.PhotoSwipe.",
+      "tags": ["bundle", "entry", "image-gallery", "photoswipe"],
+      "complexity": "trivial",
+      "filePath": "frappe/public/js/photoswipe.bundle.js"
+    },
+    {
+      "id": "file:frappe/public/js/print_format_builder/ConfigureColumns.vue",
+      "type": "file",
+      "name": "ConfigureColumns.vue",
+      "summary": "Vue 3 SFC (script setup) for the print format builder: lets users drag-reorder table columns, edit labels and widths (percent, total capped at 100), and remove columns.",
+      "tags": ["vue", "print-format", "builder", "draggable"],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/print_format_builder/ConfigureColumns.vue"
+    },
+    {
+      "id": "class:frappe/public/js/onboarding_tours/onboarding_tours.js:OnboardingTour",
+      "type": "class",
+      "name": "OnboardingTour",
+      "summary": "frappe.ui.OnboardingTour - orchestrates a driver.js-based guided tour: builds steps from a tour record, handles highlighted popover positioning, persistent progress, and dynamic form-tour chaining.",
+      "tags": ["class", "onboarding", "driver.js"],
+      "complexity": "high",
+      "lineRange": "1-356"
+    },
+    {
+      "id": "func:frappe/public/js/print_format_builder/ConfigureColumns.vue:remove_column",
+      "type": "func",
+      "name": "remove_column",
+      "summary": "Removes the given column from df.table_columns by reassigning a filtered array.",
+      "tags": ["vue", "method"],
+      "complexity": "trivial",
+      "lineRange": "70-72"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/public/js/libs.bundle.js", "target": "file:frappe/public/js/lib/moment.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/libs.bundle.js", "target": "file:frappe/public/js/lib/leaflet_easy_button/easy-button.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/onboarding_tours.bundle.js", "target": "file:frappe/public/js/onboarding_tours/onboarding_tours.js", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/onboarding_tours/onboarding_tours.js", "target": "class:frappe/public/js/onboarding_tours/onboarding_tours.js:OnboardingTour", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/public/js/print_format_builder/ConfigureColumns.vue", "target": "func:frappe/public/js/print_format_builder/ConfigureColumns.vue:remove_column", "type": "contains", "direction": "forward", "weight": 1}
+  ]
+}

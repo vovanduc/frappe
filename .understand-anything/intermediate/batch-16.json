@@ -1,0 +1,338 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/installed_applications/installed_applications.js",
+      "type": "file",
+      "name": "installed_applications.js",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.js",
+      "summary": "Client-side form controller for Installed Applications DocType. Provides a UI dialog to reorder the hooks resolution order of installed apps via a draggable table interface.",
+      "tags": ["javascript", "form-controller", "doctype", "ui-dialog", "hooks-order"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "file",
+      "name": "installed_applications.py",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "summary": "Server-side controller for Installed Applications DocType. Manages tracking of installed apps, their versions, git branches, and setup wizard completion status. Provides whitelisted APIs to reorder app resolution order and query setup wizard state.",
+      "tags": ["python", "doctype-controller", "app-management", "setup-wizard", "hooks-order"],
+      "complexity": "high"
+    },
+    {
+      "id": "file:frappe/core/doctype/installed_applications/test_installed_applications.py",
+      "type": "file",
+      "name": "test_installed_applications.py",
+      "filePath": "frappe/core/doctype/installed_applications/test_installed_applications.py",
+      "summary": "Integration tests for Installed Applications. Tests that app order can be changed and that invalid orders (empty or with unknown apps) raise InvalidAppOrder.",
+      "tags": ["python", "test", "integration-test"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/language/language.py",
+      "type": "file",
+      "name": "language.py",
+      "filePath": "frappe/core/doctype/language/language.py",
+      "summary": "Server-side controller for Language DocType. Handles validation of language codes via regex, updates user defaults (date/time/number format, first day of week) when language settings change, and provides sync_languages() to populate languages from CSV.",
+      "tags": ["python", "doctype-controller", "i18n", "localization", "user-defaults"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/language/language.js",
+      "type": "file",
+      "name": "language.js",
+      "filePath": "frappe/core/doctype/language/language.js",
+      "summary": "Empty client-side form controller stub for Language DocType.",
+      "tags": ["javascript", "form-controller", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/language/test_language.py",
+      "type": "file",
+      "name": "test_language.py",
+      "filePath": "frappe/core/doctype/language/test_language.py",
+      "summary": "Empty integration test class for Language DocType.",
+      "tags": ["python", "test", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_setting_user/log_setting_user.py",
+      "type": "file",
+      "name": "log_setting_user.py",
+      "filePath": "frappe/core/doctype/log_setting_user/log_setting_user.py",
+      "summary": "Minimal child DocType controller for Log Setting User. A child table row linking a user to a log setting parent, with no custom logic.",
+      "tags": ["python", "doctype-controller", "child-doctype", "logging"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/log_setting_user/log_setting_user.js",
+      "type": "file",
+      "name": "log_setting_user.js",
+      "filePath": "frappe/core/doctype/log_setting_user/log_setting_user.js",
+      "summary": "Empty client-side form controller stub for Log Setting User DocType.",
+      "tags": ["javascript", "form-controller", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:InstalledApplications",
+      "type": "class",
+      "name": "InstalledApplications",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [16, 90],
+      "summary": "Document controller for Installed Applications. Tracks all installed Frappe apps with version info, git branch, and setup wizard completion status. Provides methods to update versions and query setup state.",
+      "tags": ["document-controller", "app-tracking", "setup-wizard"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:InstalledApplications.update_versions",
+      "type": "function",
+      "name": "update_versions",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [29, 70],
+      "summary": "Updates the installed applications child table with current app versions, git branches, and setup wizard completion status. Handles savepoint-based error recovery during save and updates System Settings setup_complete flag.",
+      "tags": ["lifecycle", "app-version", "setup-wizard", "database"],
+      "complexity": "high"
+    },
+    {
+      "id": "func:update_installed_apps_order",
+      "type": "function",
+      "name": "update_installed_apps_order",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [108, 136],
+      "summary": "Whitelisted API to change the ordering of installed_apps global which controls hooks resolution order. Validates that only reordering is allowed (no additions/removals), ensures frappe is always first, and creates a Version log entry for the change.",
+      "tags": ["whitelisted", "api", "hooks-order", "system-manager"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:get_installed_app_order",
+      "type": "function",
+      "name": "get_installed_app_order",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [149, 153],
+      "summary": "Whitelisted API returning the current list of installed apps in their resolution order. Restricted to System Manager role.",
+      "tags": ["whitelisted", "api", "system-manager"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_setup_wizard_completed_apps",
+      "type": "function",
+      "name": "get_setup_wizard_completed_apps",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [156, 159],
+      "summary": "Returns list of app names that have completed setup wizard, using client cache for the Installed Applications document.",
+      "tags": ["setup-wizard", "cache"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:get_apps_with_incomplete_dependencies",
+      "type": "function",
+      "name": "get_apps_with_incomplete_dependencies",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [168, 183],
+      "summary": "Finds apps whose required dependencies have not completed their setup wizard. Uses request_cache decorator and checks the 'required_apps' hook for dependency resolution.",
+      "tags": ["setup-wizard", "dependencies", "hooks"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class:Language",
+      "type": "class",
+      "name": "Language",
+      "filePath": "frappe/core/doctype/language/language.py",
+      "lineRange": [12, 72],
+      "summary": "Document controller for Language DocType. Validates language codes with regex, clears language caches on update, and propagates language setting changes (date format, time format, number format, first day of week) to all users with that language.",
+      "tags": ["document-controller", "i18n", "user-defaults", "cache"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:Language.update_user_defaults",
+      "type": "function",
+      "name": "update_user_defaults",
+      "filePath": "frappe/core/doctype/language/language.py",
+      "lineRange": [59, 72],
+      "summary": "Updates user defaults for date, time, number format and first day of week for all users with this language when any of those settings change on the language record.",
+      "tags": ["user-defaults", "settings-propagation"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func:sync_languages",
+      "type": "function",
+      "name": "sync_languages",
+      "filePath": "frappe/core/doctype/language/language.py",
+      "lineRange": [85, 95],
+      "summary": "Creates Language records from frappe/geo/languages.csv file, inserting any language codes that don't already exist in the database.",
+      "tags": ["data-import", "setup", "csv"],
+      "complexity": "low"
+    },
+    {
+      "id": "func:validate_with_regex",
+      "type": "function",
+      "name": "validate_with_regex",
+      "filePath": "frappe/core/doctype/language/language.py",
+      "lineRange": [75, 82],
+      "summary": "Validates that a language code or name begins and ends with letters and only contains letters, hyphens, or underscores.",
+      "tags": ["validation", "regex"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:LogSettingUser",
+      "type": "class",
+      "name": "LogSettingUser",
+      "filePath": "frappe/core/doctype/log_setting_user/log_setting_user.py",
+      "lineRange": [8, 23],
+      "summary": "Minimal child Document controller for Log Setting User. A child table DocType that links a user to a log setting parent with no custom behavior.",
+      "tags": ["document-controller", "child-doctype", "logging"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:InvalidAppOrder",
+      "type": "class",
+      "name": "InvalidAppOrder",
+      "filePath": "frappe/core/doctype/installed_applications/installed_applications.py",
+      "lineRange": [12, 13],
+      "summary": "Custom validation error raised when attempting to add or remove apps instead of just reordering them.",
+      "tags": ["exception", "validation"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:InstalledApplications",
+      "target": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:InstalledApplications.update_versions",
+      "target": "class:InstalledApplications",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:update_installed_apps_order",
+      "target": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_installed_app_order",
+      "target": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_setup_wizard_completed_apps",
+      "target": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_apps_with_incomplete_dependencies",
+      "target": "file:frappe/core/doctype/installed_applications/installed_applications.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_applications/installed_applications.js",
+      "target": "func:update_installed_apps_order",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_applications/installed_applications.js",
+      "target": "func:get_installed_app_order",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_applications/test_installed_applications.py",
+      "target": "func:update_installed_apps_order",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_applications/test_installed_applications.py",
+      "target": "class:InvalidAppOrder",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:InstalledApplications",
+      "target": "class:InvalidAppOrder",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:get_apps_with_incomplete_dependencies",
+      "target": "func:get_setup_wizard_completed_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Language",
+      "target": "file:frappe/core/doctype/language/language.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:Language.update_user_defaults",
+      "target": "class:Language",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:validate_with_regex",
+      "target": "file:frappe/core/doctype/language/language.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:sync_languages",
+      "target": "file:frappe/core/doctype/language/language.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:Language",
+      "target": "func:validate_with_regex",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:LogSettingUser",
+      "target": "file:frappe/core/doctype/log_setting_user/log_setting_user.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "func:InstalledApplications.update_versions",
+      "target": "class:Language",
+      "type": "related_to",
+      "direction": "forward",
+      "weight": 0.2
+    },
+    {
+      "source": "func:sync_languages",
+      "target": "class:Language",
+      "type": "creates",
+      "direction": "forward",
+      "weight": 0.9
+    }
+  ]
+}

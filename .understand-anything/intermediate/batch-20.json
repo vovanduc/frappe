@@ -1,0 +1,608 @@
+{
+  "nodes": [
+    {
+      "id": "file::frappe/core/doctype/package_import/package_import.py",
+      "type": "file",
+      "name": "package_import.py",
+      "filePath": "frappe/core/doctype/package_import/package_import.py",
+      "summary": "DocType controller for importing packages from attached tar.gz files. Extracts archives to site packages directory and imports all doc files found within.",
+      "tags": ["doctype", "package", "import", "core"],
+      "complexity": "medium"
+    },
+    {
+      "id": "class::PackageImport",
+      "type": "class",
+      "name": "PackageImport",
+      "filePath": "frappe/core/doctype/package_import/package_import.py",
+      "lineRange": [16, 80],
+      "summary": "Document controller that handles importing frappe packages from attached tar.gz archives. On validate (when activated), extracts the package, imports the package definition JSON, collects module doc files, and imports them all.",
+      "tags": ["doctype-controller", "package", "import", "document"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::PackageImport.validate",
+      "type": "function",
+      "name": "PackageImport.validate",
+      "filePath": "frappe/core/doctype/package_import/package_import.py",
+      "lineRange": [31, 33],
+      "summary": "Lifecycle hook that triggers package import when the activate checkbox is checked.",
+      "tags": ["lifecycle-hook", "validate"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::PackageImport.import_package",
+      "type": "function",
+      "name": "PackageImport.import_package",
+      "filePath": "frappe/core/doctype/package_import/package_import.py",
+      "lineRange": [35, 80],
+      "summary": "Extracts an attached tar.gz package to the site packages directory, reads the package JSON definition, imports it, then iterates through all module directories to import individual doc files. Logs each imported file.",
+      "tags": ["import", "tar", "subprocess", "file-system"],
+      "complexity": "high"
+    },
+    {
+      "id": "file::frappe/core/doctype/package_import/test_package_import.py",
+      "type": "file",
+      "name": "test_package_import.py",
+      "filePath": "frappe/core/doctype/package_import/test_package_import.py",
+      "summary": "Placeholder test file for PackageImport DocType with no test cases implemented.",
+      "tags": ["test", "placeholder"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/package_release/package_release.py",
+      "type": "file",
+      "name": "package_release.py",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "summary": "DocType controller for creating versioned package releases. Exports modules, writes package metadata files, and creates distributable tar.gz archives.",
+      "tags": ["doctype", "package", "release", "export", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class::PackageRelease",
+      "type": "class",
+      "name": "PackageRelease",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [14, 135],
+      "summary": "Document controller for package releases. Handles semantic versioning (auto-incrementing patch), exporting module documents, writing package files (README, LICENSE, JSON), and creating tar.gz archives with File attachments.",
+      "tags": ["doctype-controller", "package", "release", "versioning", "document"],
+      "complexity": "high"
+    },
+    {
+      "id": "func::PackageRelease.set_version",
+      "type": "function",
+      "name": "PackageRelease.set_version",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [32, 60],
+      "summary": "Sets semantic version (major.minor.patch) by querying the max existing values from previous releases of the same package, auto-incrementing patch by 1.",
+      "tags": ["versioning", "query-builder"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::PackageRelease.autoname",
+      "type": "function",
+      "name": "PackageRelease.autoname",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [62, 66],
+      "summary": "Generates the document name as 'package_name-major.minor.patch' format after setting the version.",
+      "tags": ["naming", "lifecycle-hook"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::PackageRelease.validate",
+      "type": "function",
+      "name": "PackageRelease.validate",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [68, 75],
+      "summary": "Validates the package path is within the site directory (path traversal protection) and triggers file export when publish is checked.",
+      "tags": ["lifecycle-hook", "validate", "security"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::PackageRelease.export_files",
+      "type": "function",
+      "name": "PackageRelease.export_files",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [77, 82],
+      "summary": "Orchestrates the full export: exports modules, writes package files, and creates the tarball.",
+      "tags": ["export", "orchestration"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::PackageRelease.export_modules",
+      "type": "function",
+      "name": "PackageRelease.export_modules",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [84, 92],
+      "summary": "Iterates through all Module Def documents in the package, finds linked DocTypes, and exports each document using export_doc.",
+      "tags": ["export", "modules"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::PackageRelease.export_package_files",
+      "type": "function",
+      "name": "PackageRelease.export_package_files",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [94, 109],
+      "summary": "Writes README.md, LICENSE.md, and package JSON definition file to the packages directory.",
+      "tags": ["export", "file-system"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::PackageRelease.make_tarfile",
+      "type": "function",
+      "name": "PackageRelease.make_tarfile",
+      "filePath": "frappe/core/doctype/package_release/package_release.py",
+      "lineRange": [111, 135],
+      "summary": "Creates a tar.gz archive of the package, moves it to the public files directory, and creates a File document attachment for download.",
+      "tags": ["archive", "tar", "subprocess", "file-attachment"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file::frappe/core/doctype/package_release/test_package_release.py",
+      "type": "file",
+      "name": "test_package_release.py",
+      "filePath": "frappe/core/doctype/package_release/test_package_release.py",
+      "summary": "Placeholder test file for PackageRelease DocType with no test cases implemented.",
+      "tags": ["test", "placeholder"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/package_release/package_release.js",
+      "type": "file",
+      "name": "package_release.js",
+      "filePath": "frappe/core/doctype/package_release/package_release.js",
+      "summary": "Empty client-side controller stub for PackageRelease DocType form.",
+      "tags": ["javascript", "client-script", "stub"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/page/page.py",
+      "type": "file",
+      "name": "page.py",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "summary": "DocType controller for custom pages in the Desk UI. Handles page naming, validation, asset loading (JS/CSS/HTML templates), permission checks, export on save, and cleanup on delete.",
+      "tags": ["doctype", "page", "desk", "ui", "core"],
+      "complexity": "high"
+    },
+    {
+      "id": "class::Page",
+      "type": "class",
+      "name": "Page",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [17, 196],
+      "summary": "Document controller for Desk UI pages. Manages auto-naming with URL-friendly slugs, developer-mode-only creation, Administrator-only editing, module JSON export on update, asset loading (JS, CSS, HTML-to-JS templates with Jinja support), role-based permission checks, and cleanup of page folders on trash.",
+      "tags": ["doctype-controller", "page", "desk", "ui", "document"],
+      "complexity": "high"
+    },
+    {
+      "id": "func::Page.autoname",
+      "type": "function",
+      "name": "Page.autoname",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [37, 56],
+      "summary": "Creates a URL-friendly name from page_name, limited to 20 chars, appending a counter suffix if a page with the same name already exists.",
+      "tags": ["naming", "lifecycle-hook"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::Page.validate",
+      "type": "function",
+      "name": "Page.validate",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [58, 66],
+      "summary": "Validates route conflict, restricts page creation to developer mode, and editing to Administrator only.",
+      "tags": ["lifecycle-hook", "validate", "permissions"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::Page.on_update",
+      "type": "function",
+      "name": "Page.on_update",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [72, 100],
+      "summary": "Exports the page as module JSON on save. Creates a default JS file with basic page scaffold if none exists.",
+      "tags": ["lifecycle-hook", "export", "module"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::Page.on_trash",
+      "type": "function",
+      "name": "Page.on_trash",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [108, 113],
+      "summary": "Restricts deletion to developer mode, deletes associated Custom Role, and schedules folder cleanup after commit.",
+      "tags": ["lifecycle-hook", "cleanup", "developer-mode"],
+      "complexity": "low"
+    },
+    {
+      "id": "func::Page.is_permitted",
+      "type": "function",
+      "name": "Page.is_permitted",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [125, 140],
+      "summary": "Checks if the current user has permission to access the page based on Has Role entries and custom roles. Returns True if no roles are set or user has a matching role.",
+      "tags": ["permissions", "rbac"],
+      "complexity": "medium"
+    },
+    {
+      "id": "func::Page.load_assets",
+      "type": "function",
+      "name": "Page.load_assets",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [142, 196],
+      "summary": "Loads page assets from the module directory: JS (with render_include support), CSS, and HTML files converted to JS templates (with optional Jinja rendering). Also loads additional JS via page_js hooks.",
+      "tags": ["assets", "javascript", "css", "templates", "jinja"],
+      "complexity": "high"
+    },
+    {
+      "id": "func::delete_custom_role",
+      "type": "function",
+      "name": "delete_custom_role",
+      "filePath": "frappe/core/doctype/page/page.py",
+      "lineRange": [199, 202],
+      "summary": "Utility function that deletes a Custom Role document associated with a given field and docname.",
+      "tags": ["utility", "permissions", "cleanup"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/page/page.js",
+      "type": "file",
+      "name": "page.js",
+      "filePath": "frappe/core/doctype/page/page.js",
+      "summary": "Client-side controller for Page DocType form. Sets form read-only for non-admin/non-developer users and adds a navigation button to visit the actual page.",
+      "tags": ["javascript", "client-script", "page", "desk"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/page/patches/drop_unused_pages.py",
+      "type": "file",
+      "name": "drop_unused_pages.py",
+      "filePath": "frappe/core/doctype/page/patches/drop_unused_pages.py",
+      "summary": "Migration patch that deletes the deprecated 'desktop' and 'space' pages.",
+      "tags": ["patch", "migration", "cleanup"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/package_release/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/package_release/__init__.py",
+      "summary": "Empty init file for the package_release DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file::frappe/core/doctype/page/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/page/__init__.py",
+      "summary": "Empty init file for the Page DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file::frappe/core/doctype/package_import/package_import.py",
+      "target": "class::PackageImport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::PackageImport",
+      "target": "func::PackageImport.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageImport",
+      "target": "func::PackageImport.import_package",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func::PackageImport.validate",
+      "target": "func::PackageImport.import_package",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class::PackageImport",
+      "target": "class::Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageImport.import_package",
+      "target": "func::frappe.desk.form.load.get_attachments",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::PackageImport.import_package",
+      "target": "func::frappe.modules.import_file.import_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func::PackageImport.import_package",
+      "target": "func::frappe.modules.import_file.import_file_by_path",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func::PackageImport.import_package",
+      "target": "func::frappe.model.sync.get_doc_files",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file::frappe/core/doctype/package_release/package_release.py",
+      "target": "class::PackageRelease",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.set_version",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.autoname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.export_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.export_modules",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.export_package_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "func::PackageRelease.make_tarfile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "class::Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.autoname",
+      "target": "func::PackageRelease.set_version",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.validate",
+      "target": "func::PackageRelease.export_files",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.export_files",
+      "target": "func::PackageRelease.export_modules",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.export_files",
+      "target": "func::PackageRelease.export_package_files",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.export_files",
+      "target": "func::PackageRelease.make_tarfile",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::PackageRelease.export_modules",
+      "target": "func::frappe.modules.export_file.export_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::PackageRelease",
+      "target": "class::PackageImport",
+      "type": "relatedTo",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file::frappe/core/doctype/page/page.py",
+      "target": "class::Page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file::frappe/core/doctype/page/page.py",
+      "target": "func::delete_custom_role",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.autoname",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.on_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.on_trash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.is_permitted",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "func::Page.load_assets",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class::Page",
+      "target": "class::Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::Page.on_trash",
+      "target": "func::delete_custom_role",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func::Page.validate",
+      "target": "func::frappe.desk.utils.validate_route_conflict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::Page.on_update",
+      "target": "func::frappe.modules.utils.export_module_json",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func::Page.on_update",
+      "target": "func::frappe.core.doctype.doctype.doctype.make_module_and_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::Page.is_permitted",
+      "target": "func::frappe.core.doctype.custom_role.custom_role.get_custom_allowed_roles",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::Page.load_assets",
+      "target": "func::frappe.build.html_to_js_template",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::Page.load_assets",
+      "target": "func::frappe.model.utils.render_include",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func::Page.load_assets",
+      "target": "func::frappe.desk.form.meta.get_code_files_via_hooks",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func::Page.load_assets",
+      "target": "func::frappe.desk.form.meta.get_js",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file::frappe/core/doctype/page/page.js",
+      "target": "class::Page",
+      "type": "clientScriptFor",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file::frappe/core/doctype/package_release/package_release.js",
+      "target": "class::PackageRelease",
+      "type": "clientScriptFor",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file::frappe/core/doctype/page/patches/drop_unused_pages.py",
+      "target": "class::Page",
+      "type": "patches",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

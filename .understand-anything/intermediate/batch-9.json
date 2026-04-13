@@ -1,0 +1,411 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/docfield/__init__.py",
+      "type": "file",
+      "name": "__init__.py (docfield)",
+      "summary": "Package init file for the DocField doctype module. Contains only license header.",
+      "tags": ["init", "docfield", "package", "core"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/docfield/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/docfield/docfield.py",
+      "type": "file",
+      "name": "docfield.py",
+      "summary": "Defines the DocField document class which represents field metadata for DocTypes, including field type definitions, link resolution, and select option extraction.",
+      "tags": ["docfield", "metadata", "field-definition", "core", "document"],
+      "complexity": "moderate",
+      "filePath": "frappe/core/doctype/docfield/docfield.py"
+    },
+    {
+      "id": "class:DocField",
+      "type": "class",
+      "name": "DocField",
+      "summary": "Document class representing a field definition within a DocType. Contains extensive type annotations for all field properties and methods to resolve linked doctypes and select options.",
+      "tags": ["docfield", "document", "metadata", "field-schema", "core"],
+      "complexity": "moderate",
+      "lineRange": [8, 163]
+    },
+    {
+      "id": "function:DocField.get_link_doctype",
+      "type": "function",
+      "name": "get_link_doctype",
+      "summary": "Returns the linked DocType for a field. For Link fields returns options directly; for Table MultiSelect fields queries the child table to find the Link field's options.",
+      "tags": ["link", "doctype-resolution", "query", "field-meta"],
+      "complexity": "moderate",
+      "lineRange": [129, 149]
+    },
+    {
+      "id": "function:DocField.get_select_options",
+      "type": "function",
+      "name": "get_select_options",
+      "summary": "Parses and returns the list of select options from a Select field's newline-separated options string.",
+      "tags": ["select", "options", "field-meta"],
+      "complexity": "simple",
+      "lineRange": [151, 154]
+    },
+    {
+      "id": "function:DocField.__repr__",
+      "type": "function",
+      "name": "__repr__",
+      "summary": "Custom string representation for DocField showing fieldtype, fieldname, docstatus, and parent information.",
+      "tags": ["repr", "debug", "display"],
+      "complexity": "simple",
+      "lineRange": [156, 163]
+    },
+    {
+      "id": "file:frappe/core/doctype/docperm/__init__.py",
+      "type": "file",
+      "name": "__init__.py (docperm)",
+      "summary": "Package init file for the DocPerm doctype module. Contains only license header.",
+      "tags": ["init", "docperm", "package", "core"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/docperm/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/docperm/docperm.py",
+      "type": "file",
+      "name": "docperm.py",
+      "summary": "Defines the DocPerm document class representing permission rules for DocTypes, with typed fields for each permission type (read, write, create, delete, submit, cancel, amend, share, etc.).",
+      "tags": ["docperm", "permissions", "rbac", "core", "document"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/docperm/docperm.py"
+    },
+    {
+      "id": "class:DocPerm",
+      "type": "class",
+      "name": "DocPerm",
+      "summary": "Document class representing a permission rule entry for a DocType. Defines role-based permission flags (read, write, create, delete, submit, cancel, amend, share, etc.) at a given permission level.",
+      "tags": ["docperm", "permissions", "rbac", "role", "core"],
+      "complexity": "simple",
+      "lineRange": [7, 38]
+    },
+    {
+      "id": "file:frappe/core/doctype/docshare/__init__.py",
+      "type": "file",
+      "name": "__init__.py (docshare)",
+      "summary": "Empty package init file for the DocShare doctype module.",
+      "tags": ["init", "docshare", "package", "core"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/docshare/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/docshare/docshare.js",
+      "type": "file",
+      "name": "docshare.js",
+      "summary": "Client-side form controller for DocShare with an empty refresh handler. Minimal placeholder for client-side customization.",
+      "tags": ["docshare", "javascript", "form-controller", "client"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/docshare/docshare.js"
+    },
+    {
+      "id": "file:frappe/core/doctype/docshare/docshare.py",
+      "type": "file",
+      "name": "docshare.py",
+      "summary": "Implements document sharing functionality with the DocShare document class handling validation, permission cascading, and comment tracking. Also defines database index creation for share tables.",
+      "tags": ["docshare", "sharing", "permissions", "document", "core"],
+      "complexity": "complex",
+      "filePath": "frappe/core/doctype/docshare/docshare.py"
+    },
+    {
+      "id": "class:DocShare",
+      "type": "class",
+      "name": "DocShare",
+      "summary": "Document class for sharing documents with specific users or everyone. Handles validation of share permissions, cascading of permission levels (submit implies write implies read), and audit trail via comments.",
+      "tags": ["docshare", "sharing", "permissions", "document", "core"],
+      "complexity": "complex",
+      "lineRange": [12, 92]
+    },
+    {
+      "id": "function:DocShare.validate",
+      "type": "function",
+      "name": "DocShare.validate",
+      "summary": "Validation lifecycle hook that checks user validity, share permissions, submittable status, cascades permissions downward, and runs the shared document's validate_share method.",
+      "tags": ["validate", "lifecycle", "permissions", "sharing"],
+      "complexity": "moderate",
+      "lineRange": [34, 39]
+    },
+    {
+      "id": "function:DocShare.cascade_permissions_downwards",
+      "type": "function",
+      "name": "cascade_permissions_downwards",
+      "summary": "Ensures permission hierarchy: share/write/submit implies read, submit implies write.",
+      "tags": ["permissions", "cascade", "hierarchy"],
+      "complexity": "simple",
+      "lineRange": [41, 45]
+    },
+    {
+      "id": "function:DocShare.check_share_permission",
+      "type": "function",
+      "name": "check_share_permission",
+      "summary": "Verifies the current user has 'share' permission on the target document, throwing PermissionError if not.",
+      "tags": ["permissions", "validation", "share"],
+      "complexity": "simple",
+      "lineRange": [58, 62]
+    },
+    {
+      "id": "function:DocShare.check_is_submittable",
+      "type": "function",
+      "name": "check_is_submittable",
+      "summary": "Validates that submit permission can only be shared for submittable DocTypes.",
+      "tags": ["submit", "validation", "doctype"],
+      "complexity": "simple",
+      "lineRange": [64, 70]
+    },
+    {
+      "id": "function:DocShare.after_insert",
+      "type": "function",
+      "name": "DocShare.after_insert",
+      "summary": "Lifecycle hook that adds a 'Shared' comment on the document after a share record is created, noting who shared with whom.",
+      "tags": ["lifecycle", "comment", "audit-trail", "sharing"],
+      "complexity": "simple",
+      "lineRange": [72, 81]
+    },
+    {
+      "id": "function:DocShare.on_trash",
+      "type": "function",
+      "name": "DocShare.on_trash",
+      "summary": "Lifecycle hook that checks share permission and adds an 'Unshared' comment when a share record is deleted.",
+      "tags": ["lifecycle", "delete", "audit-trail", "sharing"],
+      "complexity": "simple",
+      "lineRange": [83, 92]
+    },
+    {
+      "id": "function:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update (docshare)",
+      "summary": "Creates database indexes on the DocShare table for (user, share_doctype) and (share_doctype, share_name) for efficient querying.",
+      "tags": ["index", "database", "optimization", "migration"],
+      "complexity": "simple",
+      "lineRange": [95, 98]
+    },
+    {
+      "id": "file:frappe/core/doctype/docshare/test_docshare.py",
+      "type": "file",
+      "name": "test_docshare.py",
+      "summary": "Comprehensive integration test suite for document sharing functionality, covering add/remove sharing, permission cascading, share-with-everyone, submit permissions, disabled sharing, and permission-to-share validation.",
+      "tags": ["test", "docshare", "integration-test", "permissions", "sharing"],
+      "complexity": "complex",
+      "filePath": "frappe/core/doctype/docshare/test_docshare.py"
+    },
+    {
+      "id": "class:TestDocShare",
+      "type": "class",
+      "name": "TestDocShare",
+      "summary": "Integration test class with 14 test methods covering all aspects of document sharing: basic add/remove, permission cascading, share-with-everyone, submit permissions, disabled sharing settings, and protection against unauthorized sharing.",
+      "tags": ["test", "docshare", "integration-test", "permissions"],
+      "complexity": "complex",
+      "lineRange": [12, 249]
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/__init__.py",
+      "type": "file",
+      "name": "__init__.py (doctype)",
+      "summary": "Package init file for the DocType doctype module. Contains only license header.",
+      "tags": ["init", "doctype", "package", "core"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/__init__.py"
+    },
+    {
+      "id": "file:frappe/core/doctype/doctype/boilerplate/__init__.py",
+      "type": "file",
+      "name": "__init__.py (boilerplate)",
+      "summary": "Empty package init file for the DocType boilerplate module used for generating new DocType scaffolding.",
+      "tags": ["init", "boilerplate", "package", "doctype"],
+      "complexity": "simple",
+      "filePath": "frappe/core/doctype/doctype/boilerplate/__init__.py"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/docfield/docfield.py",
+      "target": "class:DocField",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocField",
+      "target": "function:DocField.get_link_doctype",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DocField",
+      "target": "function:DocField.get_select_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DocField",
+      "target": "function:DocField.__repr__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:DocField",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/docperm/docperm.py",
+      "target": "class:DocPerm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocPerm",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/docshare/docshare.py",
+      "target": "class:DocShare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/docshare/docshare.py",
+      "target": "function:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:DocShare",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.cascade_permissions_downwards",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.check_share_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.check_is_submittable",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.after_insert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DocShare",
+      "target": "function:DocShare.on_trash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/docshare/test_docshare.py",
+      "target": "class:TestDocShare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDocShare",
+      "target": "class:DocShare",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/docshare/test_docshare.py",
+      "target": "file:frappe/core/doctype/docshare/docshare.py",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:DocField.get_link_doctype",
+      "target": "class:DocField",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:DocShare",
+      "target": "class:DocPerm",
+      "type": "relates_to",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:DocField",
+      "target": "class:DocPerm",
+      "type": "relates_to",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/docshare/docshare.js",
+      "target": "class:DocShare",
+      "type": "client_controller",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "function:DocShare.validate",
+      "target": "function:DocShare.cascade_permissions_downwards",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:DocShare.validate",
+      "target": "function:DocShare.check_share_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:DocShare.validate",
+      "target": "function:DocShare.check_is_submittable",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:DocShare.on_trash",
+      "target": "function:DocShare.check_share_permission",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

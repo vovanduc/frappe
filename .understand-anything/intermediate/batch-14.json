@@ -1,0 +1,509 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "type": "file",
+      "name": "dynamic_link.py",
+      "filePath": "frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "summary": "Dynamic Link DocType controller providing deduplication of dynamic links and database index creation for link_doctype/link_name pairs.",
+      "tags": ["doctype", "core", "dynamic-link", "child-table"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:DynamicLink",
+      "type": "class",
+      "name": "DynamicLink",
+      "summary": "Document subclass for Dynamic Link child table entries. Empty controller with auto-generated type hints for link_doctype, link_name, link_title fields.",
+      "tags": ["doctype", "document", "child-table"],
+      "complexity": "low",
+      "lineRange": [8, 25]
+    },
+    {
+      "id": "func:dynamic_link:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "summary": "Adds a composite database index on (link_doctype, link_name) columns of Dynamic Link table.",
+      "tags": ["index", "database", "migration"],
+      "complexity": "low",
+      "lineRange": [28, 29]
+    },
+    {
+      "id": "func:dynamic_link:deduplicate_dynamic_links",
+      "type": "function",
+      "name": "deduplicate_dynamic_links",
+      "summary": "Removes duplicate dynamic link entries from a document's links child table by comparing (link_doctype, link_name) tuples.",
+      "tags": ["utility", "deduplication"],
+      "complexity": "low",
+      "lineRange": [32, 44]
+    },
+    {
+      "id": "file:frappe/core/doctype/error_log/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/error_log/__init__.py",
+      "summary": "Empty init file for the Error Log DocType module.",
+      "tags": ["init"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/error_log/error_log.js",
+      "type": "file",
+      "name": "error_log.js",
+      "filePath": "frappe/core/doctype/error_log/error_log.js",
+      "summary": "Client-side form controller for Error Log DocType. Disables save, adds buttons to show related errors and open reference document when reference fields are set.",
+      "tags": ["doctype", "javascript", "form-controller"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/error_log/error_log.py",
+      "type": "file",
+      "name": "error_log.py",
+      "filePath": "frappe/core/doctype/error_log/error_log.py",
+      "summary": "Error Log DocType controller with validation, auto-mark-as-seen on load, log retention cleanup, and a whitelisted function to truncate all error logs.",
+      "tags": ["doctype", "core", "error-handling", "logging"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:ErrorLog",
+      "type": "class",
+      "name": "ErrorLog",
+      "summary": "Document subclass for Error Log. Validates/truncates method field to 140 chars, marks logs as seen on load, and provides static method to clear old logs using query builder.",
+      "tags": ["doctype", "document", "error-handling"],
+      "complexity": "low",
+      "lineRange": [10, 44]
+    },
+    {
+      "id": "func:error_log:clear_error_logs",
+      "type": "function",
+      "name": "clear_error_logs",
+      "summary": "Whitelisted function that truncates the Error Log table. Restricted to System Manager role.",
+      "tags": ["whitelisted", "api", "cleanup"],
+      "complexity": "low",
+      "lineRange": [47, 51]
+    },
+    {
+      "id": "file:frappe/core/doctype/error_log/error_log_list.js",
+      "type": "file",
+      "name": "error_log_list.js",
+      "filePath": "frappe/core/doctype/error_log/error_log_list.js",
+      "summary": "List view settings for Error Log showing seen/not-seen indicators, ordered by creation desc, with a menu item to clear all error logs and log retention message.",
+      "tags": ["doctype", "javascript", "list-view"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/error_log/test_error_log.py",
+      "type": "file",
+      "name": "test_error_log.py",
+      "filePath": "frappe/core/doctype/error_log/test_error_log.py",
+      "summary": "Integration tests for Error Log creation and LDAP exception detection, plus tests for guessing exception source from tracebacks (erpnext vs frappe).",
+      "tags": ["test", "error-handling"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:TestErrorLog",
+      "type": "class",
+      "name": "TestErrorLog",
+      "summary": "Test case verifying error log creation and LDAP exception identification.",
+      "tags": ["test"],
+      "complexity": "low",
+      "lineRange": [12, 23]
+    },
+    {
+      "id": "class:TestExceptionSourceGuessing",
+      "type": "class",
+      "name": "TestExceptionSourceGuessing",
+      "summary": "Test case verifying that guess_exception_source correctly identifies the originating app from raw and throw-style exception tracebacks.",
+      "tags": ["test"],
+      "complexity": "low",
+      "lineRange": [65, 70]
+    },
+    {
+      "id": "file:frappe/core/doctype/file/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/file/__init__.py",
+      "summary": "Init file for the File DocType module, re-exports from exceptions and utils submodules.",
+      "tags": ["init", "exports"],
+      "complexity": "low"
+    },
+    {
+      "id": "file:frappe/core/doctype/file/exceptions.py",
+      "type": "file",
+      "name": "exceptions.py",
+      "filePath": "frappe/core/doctype/file/exceptions.py",
+      "summary": "Custom exception classes for the File DocType: MaxFileSizeReachedError, FolderNotEmpty, and FileTypeNotAllowed, all extending frappe.ValidationError.",
+      "tags": ["exceptions", "file-management"],
+      "complexity": "low"
+    },
+    {
+      "id": "class:MaxFileSizeReachedError",
+      "type": "class",
+      "name": "MaxFileSizeReachedError",
+      "summary": "Raised when an uploaded file exceeds the maximum allowed file size.",
+      "tags": ["exception", "validation"],
+      "complexity": "low",
+      "lineRange": [4, 5]
+    },
+    {
+      "id": "class:FolderNotEmpty",
+      "type": "class",
+      "name": "FolderNotEmpty",
+      "summary": "Raised when attempting to delete a folder that still contains files.",
+      "tags": ["exception", "validation"],
+      "complexity": "low",
+      "lineRange": [8, 9]
+    },
+    {
+      "id": "class:FileTypeNotAllowed",
+      "type": "class",
+      "name": "FileTypeNotAllowed",
+      "summary": "Raised when an uploaded file's type is not in the allowed file extensions list.",
+      "tags": ["exception", "validation"],
+      "complexity": "low",
+      "lineRange": [12, 13]
+    },
+    {
+      "id": "file:frappe/core/doctype/file/file.js",
+      "type": "file",
+      "name": "file.js",
+      "filePath": "frappe/core/doctype/file/file.js",
+      "summary": "Client-side form controller for File DocType. Handles file viewing, downloading, preview (image/video/PDF/audio), optimization, unzipping, and public file access warnings.",
+      "tags": ["doctype", "javascript", "form-controller", "file-management"],
+      "complexity": "medium"
+    },
+    {
+      "id": "file:frappe/core/doctype/file/file.py",
+      "type": "file",
+      "name": "file.py",
+      "filePath": "frappe/core/doctype/file/file.py",
+      "summary": "Core File DocType controller (939 lines). Manages file upload, storage, deduplication via content hashing, privacy toggle with physical file moves, thumbnails, zip/unzip, validation of size/type/path, attachment tracking, permission checks, and rollback support.",
+      "tags": ["doctype", "core", "file-management", "storage", "permissions"],
+      "complexity": "high"
+    },
+    {
+      "id": "class:File",
+      "type": "class",
+      "name": "File",
+      "summary": "Main Document subclass for file management. Implements full lifecycle: autoname, before_insert (save to disk), validate (privacy, path, URL, size), after_insert (attachment record), on_trash (cleanup), plus methods for thumbnails, zip/unzip, optimization, content hashing, and rollback handling.",
+      "tags": ["doctype", "document", "file-management", "storage"],
+      "complexity": "high",
+      "lineRange": [49, 874]
+    },
+    {
+      "id": "func:file:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "summary": "Adds database indexes on File table for (attached_to_doctype, attached_to_name) and file_url columns.",
+      "tags": ["index", "database", "migration"],
+      "complexity": "low",
+      "lineRange": [877, 879]
+    },
+    {
+      "id": "func:file:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "summary": "Custom permission check for File documents. Grants access based on: Administrator role, public files for read/select, file ownership, sharing rules, or permissions on the attached reference document.",
+      "tags": ["permissions", "security"],
+      "complexity": "medium",
+      "lineRange": [882, 919]
+    },
+    {
+      "id": "func:file:get_permission_query_conditions",
+      "type": "function",
+      "name": "get_permission_query_conditions",
+      "summary": "Returns SQL WHERE conditions for File list queries. Non-system users see only own files; system users see public files, unattached own files, and files attached to readable doctypes.",
+      "tags": ["permissions", "security", "query"],
+      "complexity": "medium",
+      "lineRange": [922, 935]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "target": "class:DynamicLink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "target": "func:dynamic_link:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "target": "func:dynamic_link:deduplicate_dynamic_links",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DynamicLink",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/dynamic_link/dynamic_link.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/error_log.py",
+      "target": "class:ErrorLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/error_log.py",
+      "target": "func:error_log:clear_error_logs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:ErrorLog",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/error_log.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/error_log.py",
+      "target": "file:frappe/query_builder/__init__.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/error_log_list.js",
+      "target": "func:error_log:clear_error_logs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/test_error_log.py",
+      "target": "class:TestErrorLog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/test_error_log.py",
+      "target": "class:TestExceptionSourceGuessing",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestErrorLog",
+      "target": "class:ErrorLog",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/error_log/test_error_log.py",
+      "target": "file:frappe/utils/error.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/__init__.py",
+      "target": "file:frappe/core/doctype/file/exceptions.py",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/file/exceptions.py",
+      "target": "class:MaxFileSizeReachedError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/exceptions.py",
+      "target": "class:FolderNotEmpty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/exceptions.py",
+      "target": "class:FileTypeNotAllowed",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:MaxFileSizeReachedError",
+      "target": "class:frappe.ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:FolderNotEmpty",
+      "target": "class:frappe.ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:FileTypeNotAllowed",
+      "target": "class:frappe.ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "class:File",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "func:file:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "func:file:has_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "func:file:get_permission_query_conditions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:File",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/core/doctype/file/exceptions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/utils/image.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/utils/file_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/utils/pdf.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/database/schema.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.py",
+      "target": "file:frappe/core/api/file.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:File",
+      "target": "class:MaxFileSizeReachedError",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:File",
+      "target": "class:FolderNotEmpty",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:File",
+      "target": "class:FileTypeNotAllowed",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/file/file.js",
+      "target": "file:frappe/core/api/file.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:file:has_permission",
+      "target": "file:frappe/share.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:file:get_permission_query_conditions",
+      "target": "file:frappe/permissions.py",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

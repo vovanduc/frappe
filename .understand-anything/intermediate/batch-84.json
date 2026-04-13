@@ -1,0 +1,2228 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/header_size.js",
+      "type": "file",
+      "name": "header_size.js",
+      "summary": "1 class(es): HeaderSize; 125 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/header_size.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "type": "class",
+      "name": "HeaderSize",
+      "summary": "Class HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        124
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.constructor",
+      "type": "function",
+      "name": "HeaderSize.constructor",
+      "summary": "Method constructor of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        17,
+        17
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.render",
+      "type": "function",
+      "name": "HeaderSize.render",
+      "summary": "Method render of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        26,
+        26
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.checkState",
+      "type": "function",
+      "name": "HeaderSize.checkState",
+      "summary": "Method checkState of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        38,
+        38
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.change_size",
+      "type": "function",
+      "name": "HeaderSize.change_size",
+      "summary": "Method change_size of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        54,
+        54
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.remove_parent_tag",
+      "type": "function",
+      "name": "HeaderSize.remove_parent_tag",
+      "summary": "Method remove_parent_tag of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        69,
+        69
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.surround",
+      "type": "function",
+      "name": "HeaderSize.surround",
+      "summary": "Method surround of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        89,
+        89
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.renderActions",
+      "type": "function",
+      "name": "HeaderSize.renderActions",
+      "summary": "Method renderActions of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        96,
+        96
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.destroy",
+      "type": "function",
+      "name": "HeaderSize.destroy",
+      "summary": "Method destroy of HeaderSize",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        118,
+        118
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "type": "file",
+      "name": "index.js",
+      "summary": "34 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/index.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/number_card.js",
+      "type": "file",
+      "name": "number_card.js",
+      "summary": "1 class(es): NumberCard; 64 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/number_card.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "type": "class",
+      "name": "NumberCard",
+      "summary": "Class NumberCard extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        63
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.constructor",
+      "type": "function",
+      "name": "NumberCard.constructor",
+      "summary": "Method constructor of NumberCard",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.render",
+      "type": "function",
+      "name": "NumberCard.render",
+      "summary": "Method render of NumberCard",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        29,
+        29
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.validate",
+      "type": "function",
+      "name": "NumberCard.validate",
+      "summary": "Method validate of NumberCard",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        47,
+        47
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.save",
+      "type": "function",
+      "name": "NumberCard.save",
+      "summary": "Method save of NumberCard",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        55,
+        55
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/onboarding.js",
+      "type": "file",
+      "name": "onboarding.js",
+      "summary": "1 class(es): Onboarding; 141 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/onboarding.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "type": "class",
+      "name": "Onboarding",
+      "summary": "Class Onboarding extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        3,
+        140
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.constructor",
+      "type": "function",
+      "name": "Onboarding.constructor",
+      "summary": "Method constructor of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        14,
+        14
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.rendered",
+      "type": "function",
+      "name": "Onboarding.rendered",
+      "summary": "Method rendered of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        28,
+        28
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.make",
+      "type": "function",
+      "name": "Onboarding.make",
+      "summary": "Method make of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        76,
+        76
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.render",
+      "type": "function",
+      "name": "Onboarding.render",
+      "summary": "Method render of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        107,
+        107
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.validate",
+      "type": "function",
+      "name": "Onboarding.validate",
+      "summary": "Method validate of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        124,
+        124
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.save",
+      "type": "function",
+      "name": "Onboarding.save",
+      "summary": "Method save of Onboarding",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        132,
+        132
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/paragraph.js",
+      "type": "file",
+      "name": "paragraph.js",
+      "summary": "1 class(es): Paragraph; 225 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/paragraph.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "type": "class",
+      "name": "Paragraph",
+      "summary": "Class Paragraph extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "high",
+      "lineRange": [
+        2,
+        224
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.constructor",
+      "type": "function",
+      "name": "Paragraph.constructor",
+      "summary": "Method constructor of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        6,
+        6
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.onKeyUp",
+      "type": "function",
+      "name": "Paragraph.onKeyUp",
+      "summary": "Method onKeyUp of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        30,
+        30
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.show_hide_block_list",
+      "type": "function",
+      "name": "Paragraph.show_hide_block_list",
+      "summary": "Method show_hide_block_list of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        45,
+        45
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.drawView",
+      "type": "function",
+      "name": "Paragraph.drawView",
+      "summary": "Method drawView of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        54,
+        54
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.open_block_list",
+      "type": "function",
+      "name": "Paragraph.open_block_list",
+      "summary": "Method open_block_list of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        76,
+        76
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.render",
+      "type": "function",
+      "name": "Paragraph.render",
+      "summary": "Method render of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        116,
+        116
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.merge",
+      "type": "function",
+      "name": "Paragraph.merge",
+      "summary": "Method merge of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        145,
+        145
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.validate",
+      "type": "function",
+      "name": "Paragraph.validate",
+      "summary": "Method validate of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        153,
+        153
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.save",
+      "type": "function",
+      "name": "Paragraph.save",
+      "summary": "Method save of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        161,
+        161
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.rendered",
+      "type": "function",
+      "name": "Paragraph.rendered",
+      "summary": "Method rendered of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        169,
+        169
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.onPaste",
+      "type": "function",
+      "name": "Paragraph.onPaste",
+      "summary": "Method onPaste of Paragraph",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        173,
+        173
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/quick_list.js",
+      "type": "file",
+      "name": "quick_list.js",
+      "summary": "1 class(es): QuickList; 64 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/quick_list.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "type": "class",
+      "name": "QuickList",
+      "summary": "Class QuickList extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        63
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.constructor",
+      "type": "function",
+      "name": "QuickList.constructor",
+      "summary": "Method constructor of QuickList",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.render",
+      "type": "function",
+      "name": "QuickList.render",
+      "summary": "Method render of QuickList",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        29,
+        29
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.validate",
+      "type": "function",
+      "name": "QuickList.validate",
+      "summary": "Method validate of QuickList",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        47,
+        47
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.save",
+      "type": "function",
+      "name": "QuickList.save",
+      "summary": "Method save of QuickList",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        55,
+        55
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/shortcut.js",
+      "type": "file",
+      "name": "shortcut.js",
+      "summary": "1 class(es): Shortcut; 82 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/shortcut.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "type": "class",
+      "name": "Shortcut",
+      "summary": "Class Shortcut extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        81
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.constructor",
+      "type": "function",
+      "name": "Shortcut.constructor",
+      "summary": "Method constructor of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.rendered",
+      "type": "function",
+      "name": "Shortcut.rendered",
+      "summary": "Method rendered of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        27,
+        27
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.remove_last_divider",
+      "type": "function",
+      "name": "Shortcut.remove_last_divider",
+      "summary": "Method remove_last_divider of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        36,
+        36
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.render",
+      "type": "function",
+      "name": "Shortcut.render",
+      "summary": "Method render of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        48,
+        48
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.validate",
+      "type": "function",
+      "name": "Shortcut.validate",
+      "summary": "Method validate of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        65,
+        65
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.save",
+      "type": "function",
+      "name": "Shortcut.save",
+      "summary": "Method save of Shortcut",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        73,
+        73
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/blocks/spacer.js",
+      "type": "file",
+      "name": "spacer.js",
+      "summary": "1 class(es): Spacer; 58 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/views/workspace/blocks/spacer.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "type": "class",
+      "name": "Spacer",
+      "summary": "Class Spacer extends Block",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        2,
+        57
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.constructor",
+      "type": "function",
+      "name": "Spacer.constructor",
+      "summary": "Method constructor of Spacer",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.render",
+      "type": "function",
+      "name": "Spacer.render",
+      "summary": "Method render of Spacer",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        18,
+        18
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.save",
+      "type": "function",
+      "name": "Spacer.save",
+      "summary": "Method save of Spacer",
+      "tags": [
+        "javascript",
+        "workspace",
+        "editorjs-block",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        51,
+        51
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/views/workspace/workspace.js",
+      "type": "file",
+      "name": "workspace.js",
+      "summary": "841 lines",
+      "tags": [
+        "javascript",
+        "workspace",
+        "desk"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/views/workspace/workspace.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/web_form/web_form.js",
+      "type": "file",
+      "name": "web_form.js",
+      "summary": "1 class(es): WebForm; 482 lines",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/web_form/web_form.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "type": "class",
+      "name": "WebForm",
+      "summary": "Class WebForm extends frappe.ui.FieldGroup",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "class"
+      ],
+      "complexity": "high",
+      "lineRange": [
+        4,
+        481
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.constructor",
+      "type": "function",
+      "name": "WebForm.constructor",
+      "summary": "Method constructor of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.prepare",
+      "type": "function",
+      "name": "WebForm.prepare",
+      "summary": "Method prepare of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        14,
+        14
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.make",
+      "type": "function",
+      "name": "WebForm.make",
+      "summary": "Method make of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_listeners",
+      "type": "function",
+      "name": "WebForm.setup_listeners",
+      "summary": "Method setup_listeners of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        52,
+        52
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.make_form_dirty",
+      "type": "function",
+      "name": "WebForm.make_form_dirty",
+      "summary": "Method make_form_dirty of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        64,
+        64
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_page_breaks",
+      "type": "function",
+      "name": "WebForm.set_page_breaks",
+      "summary": "Method set_page_breaks of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        69,
+        69
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_previous_next_button",
+      "type": "function",
+      "name": "WebForm.setup_previous_next_button",
+      "summary": "Method setup_previous_next_button of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        84,
+        84
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_field_values",
+      "type": "function",
+      "name": "WebForm.set_field_values",
+      "summary": "Method set_field_values of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        147,
+        147
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_default_values",
+      "type": "function",
+      "name": "WebForm.set_default_values",
+      "summary": "Method set_default_values of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        152,
+        152
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_primary_action",
+      "type": "function",
+      "name": "WebForm.setup_primary_action",
+      "summary": "Method setup_primary_action of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        165,
+        165
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_discard_action",
+      "type": "function",
+      "name": "WebForm.setup_discard_action",
+      "summary": "Method setup_discard_action of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        169,
+        169
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_delete_action",
+      "type": "function",
+      "name": "WebForm.setup_delete_action",
+      "summary": "Method setup_delete_action of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        173,
+        173
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.discard_form",
+      "type": "function",
+      "name": "WebForm.discard_form",
+      "summary": "Method discard_form of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        177,
+        177
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.delete_form",
+      "type": "function",
+      "name": "WebForm.delete_form",
+      "summary": "Method delete_form of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        195,
+        195
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.validate_section",
+      "type": "function",
+      "name": "WebForm.validate_section",
+      "summary": "Method validate_section of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        213,
+        213
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_section",
+      "type": "function",
+      "name": "WebForm.toggle_section",
+      "summary": "Method toggle_section of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        267,
+        267
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.render_progress_dots",
+      "type": "function",
+      "name": "WebForm.render_progress_dots",
+      "summary": "Method render_progress_dots of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        277,
+        277
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_buttons",
+      "type": "function",
+      "name": "WebForm.toggle_buttons",
+      "summary": "Method toggle_buttons of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        313,
+        313
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.is_next_section_empty",
+      "type": "function",
+      "name": "WebForm.is_next_section_empty",
+      "summary": "Method is_next_section_empty of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        324,
+        324
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.is_previous_section_empty",
+      "type": "function",
+      "name": "WebForm.is_previous_section_empty",
+      "summary": "Method is_previous_section_empty of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        333,
+        333
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_save_and_hide_next_button",
+      "type": "function",
+      "name": "WebForm.show_save_and_hide_next_button",
+      "summary": "Method show_save_and_hide_next_button of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        342,
+        342
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_next_and_hide_save_button",
+      "type": "function",
+      "name": "WebForm.show_next_and_hide_save_button",
+      "summary": "Method show_next_and_hide_save_button of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        347,
+        347
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_previous_button",
+      "type": "function",
+      "name": "WebForm.toggle_previous_button",
+      "summary": "Method toggle_previous_button of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        352,
+        352
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.get_page",
+      "type": "function",
+      "name": "WebForm.get_page",
+      "summary": "Method get_page of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        356,
+        356
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_form_page",
+      "type": "function",
+      "name": "WebForm.show_form_page",
+      "summary": "Method show_form_page of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        360,
+        360
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.hide_form_pages",
+      "type": "function",
+      "name": "WebForm.hide_form_pages",
+      "summary": "Method hide_form_pages of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        364,
+        364
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.save",
+      "type": "function",
+      "name": "WebForm.save",
+      "summary": "Method save of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        372,
+        372
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.handle_success",
+      "type": "function",
+      "name": "WebForm.handle_success",
+      "summary": "Method handle_success of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        438,
+        438
+      ]
+    },
+    {
+      "id": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.render_success_page",
+      "type": "function",
+      "name": "WebForm.render_success_page",
+      "summary": "Method render_success_page of WebForm",
+      "tags": [
+        "javascript",
+        "web-form",
+        "public",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        462,
+        462
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/header_size.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.checkState",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.change_size",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.remove_parent_tag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.surround",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.renderActions",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/header_size.js:HeaderSize.destroy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./header",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./paragraph",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./card",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./chart",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./shortcut",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./spacer",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./onboarding",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./quick_list",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./number_card",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./custom_block",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/index.js",
+      "target": "import:./header_size",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/number_card.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/number_card.js:NumberCard.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/number_card.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/onboarding.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.rendered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/onboarding.js:Onboarding.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/onboarding.js",
+      "target": "import:../../../widgets/widget_dialog.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/onboarding.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/paragraph.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.onKeyUp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.show_hide_block_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.drawView",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.open_block_list",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.merge",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.rendered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/paragraph.js:Paragraph.onPaste",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/paragraph.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/quick_list.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/quick_list.js:QuickList.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/quick_list.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/shortcut.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.rendered",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.remove_last_divider",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/shortcut.js:Shortcut.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/shortcut.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/spacer.js",
+      "target": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "target": "external:Block",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.render",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer",
+      "target": "method:frappe/public/js/frappe/views/workspace/blocks/spacer.js:Spacer.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/blocks/spacer.js",
+      "target": "import:./block.js",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/workspace.js",
+      "target": "import:@editorjs/editorjs",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/views/workspace/workspace.js",
+      "target": "import:editorjs-undo",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/frappe/web_form/web_form.js",
+      "target": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "external:frappe.ui.FieldGroup",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.constructor",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.prepare",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_listeners",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.make_form_dirty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_page_breaks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_previous_next_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_field_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.set_default_values",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_primary_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_discard_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.setup_delete_action",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.discard_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.delete_form",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.validate_section",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_section",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.render_progress_dots",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_buttons",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.is_next_section_empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.is_previous_section_empty",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_save_and_hide_next_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_next_and_hide_save_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.toggle_previous_button",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.get_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.show_form_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.hide_form_pages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.save",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.handle_success",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/public/js/frappe/web_form/web_form.js:WebForm",
+      "target": "method:frappe/public/js/frappe/web_form/web_form.js:WebForm.render_success_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/frappe/web_form/web_form.js",
+      "target": "import:../../frappe/event_emitter",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

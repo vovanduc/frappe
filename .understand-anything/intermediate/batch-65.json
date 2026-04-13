@@ -1,0 +1,2005 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/html_editor.js",
+      "type": "file",
+      "name": "html_editor.js",
+      "summary": "Thin subclass of TextEditor for HTML field type.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/html_editor.js",
+        "loc": 15
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/icon.js",
+      "type": "file",
+      "name": "icon.js",
+      "summary": "Icon picker control with searchable modal popover of available icons.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/icon.js",
+        "loc": 102
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "type": "class",
+      "name": "ControlIcon",
+      "summary": "Class ControlIcon extends frappe.ui.form.ControlData",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          3,
+          102
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.make_input:4",
+      "type": "function",
+      "name": "ControlIcon.make_input",
+      "summary": "Method make_input of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.get_all_icons:11",
+      "type": "function",
+      "name": "ControlIcon.get_all_icons",
+      "summary": "Method get_all_icons of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          11,
+          11
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.$:13",
+      "type": "function",
+      "name": "ControlIcon.$",
+      "summary": "Method $ of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          13,
+          13
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.make_icon_input:18",
+      "type": "function",
+      "name": "ControlIcon.make_icon_input",
+      "summary": "Method make_icon_input of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          18,
+          18
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.refresh:83",
+      "type": "function",
+      "name": "ControlIcon.refresh",
+      "summary": "Method refresh of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          83,
+          83
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.set_formatted_input:92",
+      "type": "function",
+      "name": "ControlIcon.set_formatted_input",
+      "summary": "Method set_formatted_input of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          92,
+          92
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.get_icon:99",
+      "type": "function",
+      "name": "ControlIcon.get_icon",
+      "summary": "Method get_icon of ControlIcon",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          99,
+          99
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/image.js",
+      "type": "file",
+      "name": "image.js",
+      "summary": "Read-only image display control referencing another image field.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/image.js",
+        "loc": 23
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "type": "class",
+      "name": "ControlImage",
+      "summary": "Class ControlImage extends frappe.ui.form.Control",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          23
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.make:2",
+      "type": "function",
+      "name": "ControlImage.make",
+      "summary": "Method make of ControlImage",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.$:6",
+      "type": "function",
+      "name": "ControlImage.$",
+      "summary": "Method $ of ControlImage",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          6,
+          6
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.refresh_input:8",
+      "type": "function",
+      "name": "ControlImage.refresh_input",
+      "summary": "Method refresh_input of ControlImage",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          8,
+          8
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/int.js",
+      "type": "file",
+      "name": "int.js",
+      "summary": "Integer input control with cint parsing and format validation.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/int.js",
+        "loc": 27
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "type": "class",
+      "name": "ControlInt",
+      "summary": "Class ControlInt extends frappe.ui.form.ControlData",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          25
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.make:4",
+      "type": "function",
+      "name": "ControlInt.make",
+      "summary": "Method make of ControlInt",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          4,
+          4
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.make_input:7",
+      "type": "function",
+      "name": "ControlInt.make_input",
+      "summary": "Method make_input of ControlInt",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          7,
+          7
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.validate:14",
+      "type": "function",
+      "name": "ControlInt.validate",
+      "summary": "Method validate of ControlInt",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          14,
+          14
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.eval_expression:17",
+      "type": "function",
+      "name": "ControlInt.eval_expression",
+      "summary": "Method eval_expression of ControlInt",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          17,
+          17
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.parse:22",
+      "type": "function",
+      "name": "ControlInt.parse",
+      "summary": "Method parse of ControlInt",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          22,
+          22
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/json.js",
+      "type": "file",
+      "name": "json.js",
+      "summary": "JSON field control (subclass of Code editor with JSON mode).",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/json.js",
+        "loc": 6
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/json.js:ControlCode",
+      "type": "class",
+      "name": "ControlCode",
+      "summary": "Class ControlCode extends frappe.ui.form.ControlCode",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          6
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/json.js:ControlCode.set_language:2",
+      "type": "function",
+      "name": "ControlCode.set_language",
+      "summary": "Method set_language of ControlCode",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          2,
+          2
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/link.js",
+      "type": "file",
+      "name": "link.js",
+      "summary": "Link field control: autocomplete dropdown, advanced search, create-new dialog, value validation.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/link.js",
+        "loc": 1059
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "type": "class",
+      "name": "ControlLink",
+      "summary": "Class ControlLink extends frappe.ui.form.ControlData",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          10,
+          1051
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.make_input:12",
+      "type": "function",
+      "name": "ControlLink.make_input",
+      "summary": "Method make_input of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          12,
+          12
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.$:14",
+      "type": "function",
+      "name": "ControlLink.$",
+      "summary": "Method $ of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          14,
+          14
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.show_link_and_clear_buttons:64",
+      "type": "function",
+      "name": "ControlLink.show_link_and_clear_buttons",
+      "summary": "Method show_link_and_clear_buttons of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          64,
+          64
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.hide_link_and_clear_buttons:73",
+      "type": "function",
+      "name": "ControlLink.hide_link_and_clear_buttons",
+      "summary": "Method hide_link_and_clear_buttons of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          73,
+          73
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_options:77",
+      "type": "function",
+      "name": "ControlLink.get_options",
+      "summary": "Method get_options of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          77,
+          77
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_reference_doctype:80",
+      "type": "function",
+      "name": "ControlLink.get_reference_doctype",
+      "summary": "Method get_reference_doctype of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          80,
+          80
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.setup_buttons:89",
+      "type": "function",
+      "name": "ControlLink.setup_buttons",
+      "summary": "Method setup_buttons of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          89,
+          89
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_formatted_input:94",
+      "type": "function",
+      "name": "ControlLink.set_formatted_input",
+      "summary": "Method set_formatted_input of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          94,
+          94
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_translated:103",
+      "type": "function",
+      "name": "ControlLink.get_translated",
+      "summary": "Method get_translated of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          103,
+          103
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.is_translatable:106",
+      "type": "function",
+      "name": "ControlLink.is_translatable",
+      "summary": "Method is_translatable of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          106,
+          106
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.is_title_link:109",
+      "type": "function",
+      "name": "ControlLink.is_title_link",
+      "summary": "Method is_title_link of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          109,
+          109
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_link_title:112",
+      "type": "function",
+      "name": "ControlLink.set_link_title",
+      "summary": "Method set_link_title of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          112,
+          112
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.translate_and_set_input_value:126",
+      "type": "function",
+      "name": "ControlLink.translate_and_set_input_value",
+      "summary": "Method translate_and_set_input_value of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          126,
+          126
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse_validate_and_set_in_model:132",
+      "type": "function",
+      "name": "ControlLink.parse_validate_and_set_in_model",
+      "summary": "Method parse_validate_and_set_in_model of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          132,
+          132
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse:141",
+      "type": "function",
+      "name": "ControlLink.parse",
+      "summary": "Method parse of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          141,
+          141
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_input_value:144",
+      "type": "function",
+      "name": "ControlLink.get_input_value",
+      "summary": "Method get_input_value of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          144,
+          144
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_label_value:151",
+      "type": "function",
+      "name": "ControlLink.get_label_value",
+      "summary": "Method get_label_value of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          151,
+          151
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_input_value:154",
+      "type": "function",
+      "name": "ControlLink.set_input_value",
+      "summary": "Method set_input_value of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          154,
+          154
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.open_advanced_search:157",
+      "type": "function",
+      "name": "ControlLink.open_advanced_search",
+      "summary": "Method open_advanced_search of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          157,
+          157
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.new_doc:167",
+      "type": "function",
+      "name": "ControlLink.new_doc",
+      "summary": "Method new_doc of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          167,
+          167
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.setup_awesomeplete:203",
+      "type": "function",
+      "name": "ControlLink.setup_awesomeplete",
+      "summary": "Method setup_awesomeplete of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          203,
+          203
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.input_matches_item:376",
+      "type": "function",
+      "name": "ControlLink.input_matches_item",
+      "summary": "Method input_matches_item of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          376,
+          376
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.are_filters_large:387",
+      "type": "function",
+      "name": "ControlLink.are_filters_large",
+      "summary": "Method are_filters_large of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          387,
+          387
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_search_args:405",
+      "type": "function",
+      "name": "ControlLink.get_search_args",
+      "summary": "Method get_search_args of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          405,
+          405
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.on_input:431",
+      "type": "function",
+      "name": "ControlLink.on_input",
+      "summary": "Method on_input of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          431,
+          431
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.show_untranslated:531",
+      "type": "function",
+      "name": "ControlLink.show_untranslated",
+      "summary": "Method show_untranslated of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          531,
+          531
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.merge_duplicates:536",
+      "type": "function",
+      "name": "ControlLink.merge_duplicates",
+      "summary": "Method merge_duplicates of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          536,
+          536
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.toggle_href:555",
+      "type": "function",
+      "name": "ControlLink.toggle_href",
+      "summary": "Method toggle_href of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          555,
+          555
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_filter_description:564",
+      "type": "function",
+      "name": "ControlLink.get_filter_description",
+      "summary": "Method get_filter_description of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          564,
+          564
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_custom_query:746",
+      "type": "function",
+      "name": "ControlLink.set_custom_query",
+      "summary": "Method set_custom_query of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          746,
+          746
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.apply_link_field_filters:836",
+      "type": "function",
+      "name": "ControlLink.apply_link_field_filters",
+      "summary": "Method apply_link_field_filters of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          836,
+          836
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse_filters:847",
+      "type": "function",
+      "name": "ControlLink.parse_filters",
+      "summary": "Method parse_filters of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          847,
+          847
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.validate:866",
+      "type": "function",
+      "name": "ControlLink.validate",
+      "summary": "Method validate of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          866,
+          866
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.after_set_value:874",
+      "type": "function",
+      "name": "ControlLink.after_set_value",
+      "summary": "Method after_set_value of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          874,
+          874
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.validate_link_and_fetch:879",
+      "type": "function",
+      "name": "ControlLink.validate_link_and_fetch",
+      "summary": "Method validate_link_and_fetch of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          879,
+          879
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.fetch_map_for_quick_entry:966",
+      "type": "function",
+      "name": "ControlLink.fetch_map_for_quick_entry",
+      "summary": "Method fetch_map_for_quick_entry of ControlLink",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          966,
+          966
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:formatValueForDisplay:583",
+      "type": "function",
+      "name": "formatValueForDisplay",
+      "summary": "Function formatValueForDisplay",
+      "tags": [
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          583,
+          583
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:add_fetch:969",
+      "type": "function",
+      "name": "add_fetch",
+      "summary": "Function add_fetch",
+      "tags": [
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          969,
+          969
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/link.js:setup_add_fetch:981",
+      "type": "function",
+      "name": "setup_add_fetch",
+      "summary": "Function setup_add_fetch",
+      "tags": [
+        "function"
+      ],
+      "complexity": {
+        "lineRange": [
+          981,
+          981
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/markdown_editor.js",
+      "type": "file",
+      "name": "markdown_editor.js",
+      "summary": "Markdown editor control with textarea + preview and EasyMDE integration.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/markdown_editor.js",
+        "loc": 104
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/multicheck.js",
+      "type": "file",
+      "name": "multicheck.js",
+      "summary": "Grid of checkboxes for multi-value selection with select-all and column layout.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/multicheck.js",
+        "loc": 190
+      }
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "type": "class",
+      "name": "ControlMultiCheck",
+      "summary": "Class ControlMultiCheck extends frappe.ui.form.Control",
+      "tags": [
+        "class",
+        "control"
+      ],
+      "complexity": {
+        "lineRange": [
+          1,
+          190
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.make:6",
+      "type": "function",
+      "name": "ControlMultiCheck.make",
+      "summary": "Method make of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          6,
+          6
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.refresh:27",
+      "type": "function",
+      "name": "ControlMultiCheck.refresh",
+      "summary": "Method refresh of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          27,
+          27
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.refresh_input:33",
+      "type": "function",
+      "name": "ControlMultiCheck.refresh_input",
+      "summary": "Method refresh_input of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          33,
+          33
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.set_options:37",
+      "type": "function",
+      "name": "ControlMultiCheck.set_options",
+      "summary": "Method set_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          37,
+          37
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.parse_df_options:57",
+      "type": "function",
+      "name": "ControlMultiCheck.parse_df_options",
+      "summary": "Method parse_df_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          57,
+          57
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.make_checkboxes:76",
+      "type": "function",
+      "name": "ControlMultiCheck.make_checkboxes",
+      "summary": "Method make_checkboxes of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          76,
+          76
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.bind_checkboxes:100",
+      "type": "function",
+      "name": "ControlMultiCheck.bind_checkboxes",
+      "summary": "Method bind_checkboxes of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          100,
+          100
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.$:101",
+      "type": "function",
+      "name": "ControlMultiCheck.$",
+      "summary": "Method $ of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          101,
+          101
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.set_checked_options:117",
+      "type": "function",
+      "name": "ControlMultiCheck.set_checked_options",
+      "summary": "Method set_checked_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          117,
+          117
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.setup_select_all:122",
+      "type": "function",
+      "name": "ControlMultiCheck.setup_select_all",
+      "summary": "Method setup_select_all of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          122,
+          122
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.select_all:132",
+      "type": "function",
+      "name": "ControlMultiCheck.select_all",
+      "summary": "Method select_all of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          132,
+          132
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.$:133",
+      "type": "function",
+      "name": "ControlMultiCheck.$",
+      "summary": "Method $ of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          133,
+          133
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.select_options:144",
+      "type": "function",
+      "name": "ControlMultiCheck.select_options",
+      "summary": "Method select_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          144,
+          144
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_value:153",
+      "type": "function",
+      "name": "ControlMultiCheck.get_value",
+      "summary": "Method get_value of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          153,
+          153
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_checked_options:157",
+      "type": "function",
+      "name": "ControlMultiCheck.get_checked_options",
+      "summary": "Method get_checked_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          157,
+          157
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_unchecked_options:161",
+      "type": "function",
+      "name": "ControlMultiCheck.get_unchecked_options",
+      "summary": "Method get_unchecked_options of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          161,
+          161
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_checkbox_element:167",
+      "type": "function",
+      "name": "ControlMultiCheck.get_checkbox_element",
+      "summary": "Method get_checkbox_element of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          167,
+          167
+        ]
+      }
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_select_buttons:178",
+      "type": "function",
+      "name": "ControlMultiCheck.get_select_buttons",
+      "summary": "Method get_select_buttons of ControlMultiCheck",
+      "tags": [
+        "method"
+      ],
+      "complexity": {
+        "lineRange": [
+          178,
+          178
+        ]
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/multiselect.js",
+      "type": "file",
+      "name": "multiselect.js",
+      "summary": "Multi-value Link control using awesomplete tag input.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/multiselect.js",
+        "loc": 126
+      }
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/controls/multiselect_list.js",
+      "type": "file",
+      "name": "multiselect_list.js",
+      "summary": "Multi-select list control with checkbox list, search filtering, async options loading.",
+      "tags": [
+        "javascript",
+        "form-control",
+        "frontend"
+      ],
+      "complexity": {
+        "filePath": "frappe/public/js/frappe/form/controls/multiselect_list.js",
+        "loc": 315
+      }
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/icon.js",
+      "target": "module:../../icon_picker/icon_picker",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/icon.js",
+      "target": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/icon.js",
+      "target": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "symbol:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.make_input:4",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.get_all_icons:11",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.$:13",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.make_icon_input:18",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.refresh:83",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.set_formatted_input:92",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/icon.js:ControlIcon",
+      "target": "func:frappe/public/js/frappe/form/controls/icon.js:ControlIcon.get_icon:99",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/image.js",
+      "target": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/image.js",
+      "target": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "target": "symbol:frappe.ui.form.Control",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "target": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.make:2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "target": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.$:6",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/image.js:ControlImage",
+      "target": "func:frappe/public/js/frappe/form/controls/image.js:ControlImage.refresh_input:8",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/int.js",
+      "target": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/int.js",
+      "target": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "symbol:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.make:4",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.make_input:7",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.validate:14",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.eval_expression:17",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/int.js:ControlInt",
+      "target": "func:frappe/public/js/frappe/form/controls/int.js:ControlInt.parse:22",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/json.js",
+      "target": "class:frappe/public/js/frappe/form/controls/json.js:ControlCode",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/json.js",
+      "target": "class:frappe/public/js/frappe/form/controls/json.js:ControlCode",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/json.js:ControlCode",
+      "target": "symbol:frappe.ui.form.ControlCode",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/json.js:ControlCode",
+      "target": "func:frappe/public/js/frappe/form/controls/json.js:ControlCode.set_language:2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "module:awesomplete",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "symbol:frappe.ui.form.ControlData",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.make_input:12",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.$:14",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.show_link_and_clear_buttons:64",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.hide_link_and_clear_buttons:73",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_options:77",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_reference_doctype:80",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.setup_buttons:89",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_formatted_input:94",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_translated:103",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.is_translatable:106",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.is_title_link:109",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_link_title:112",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.translate_and_set_input_value:126",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse_validate_and_set_in_model:132",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse:141",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_input_value:144",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_label_value:151",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_input_value:154",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.open_advanced_search:157",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.new_doc:167",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.setup_awesomeplete:203",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.input_matches_item:376",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.are_filters_large:387",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_search_args:405",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.on_input:431",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.show_untranslated:531",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.merge_duplicates:536",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.toggle_href:555",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.get_filter_description:564",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.set_custom_query:746",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.apply_link_field_filters:836",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.parse_filters:847",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.validate:866",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.after_set_value:874",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.validate_link_and_fetch:879",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/link.js:ControlLink",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:ControlLink.fetch_map_for_quick_entry:966",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:formatValueForDisplay:583",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:add_fetch:969",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/link.js",
+      "target": "func:frappe/public/js/frappe/form/controls/link.js:setup_add_fetch:981",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/multicheck.js",
+      "target": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/multicheck.js",
+      "target": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "symbol:frappe.ui.form.Control",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.make:6",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.refresh:27",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.refresh_input:33",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.set_options:37",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.parse_df_options:57",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.make_checkboxes:76",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.bind_checkboxes:100",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.$:101",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.set_checked_options:117",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.setup_select_all:122",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.select_all:132",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.$:133",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.select_options:144",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_value:153",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_checked_options:157",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_unchecked_options:161",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_checkbox_element:167",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck",
+      "target": "func:frappe/public/js/frappe/form/controls/multicheck.js:ControlMultiCheck.get_select_buttons:178",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/controls/multiselect.js",
+      "target": "module:awesomplete",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

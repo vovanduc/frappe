@@ -1,0 +1,73 @@
+{
+  "nodes": [
+    {"id":"file:frappe/public/js/frappe/form/undo_manager.js","type":"file","name":"undo_manager.js","summary":"Undo/redo manager for form field changes","tags":["javascript","form","undo"],"complexity":"low","filePath":"frappe/public/js/frappe/form/undo_manager.js"},
+    {"id":"class:frappe/public/js/frappe/form/undo_manager.js:UndoManager","type":"class","name":"UndoManager","summary":"Tracks form changes in undo/redo stacks","tags":["class"],"complexity":"low","lineRange":"1-74"},
+
+    {"id":"file:frappe/public/js/frappe/form/workflow.js","type":"file","name":"workflow.js","summary":"Applies DocType workflow state transitions on forms","tags":["javascript","form","workflow"],"complexity":"medium","filePath":"frappe/public/js/frappe/form/workflow.js"},
+    {"id":"class:frappe/public/js/frappe/form/workflow.js:FormWorkflow","type":"class","name":"FormWorkflow","summary":"Loads workflow meta, renders transition buttons, updates state on form","tags":["class","workflow"],"complexity":"medium","lineRange":"1-171"},
+
+    {"id":"file:frappe/public/js/frappe/format.js","type":"file","name":"format.js","summary":"Legacy format.js stub re-exporting formatters","tags":["javascript","format"],"complexity":"low","filePath":"frappe/public/js/frappe/format.js"},
+
+    {"id":"file:frappe/public/js/frappe/icon_picker/icon_picker.js","type":"file","name":"icon_picker.js","summary":"Dialog-based icon picker widget","tags":["javascript","ui","icon"],"complexity":"medium","filePath":"frappe/public/js/frappe/icon_picker/icon_picker.js"},
+    {"id":"class:frappe/public/js/frappe/icon_picker/icon_picker.js:IconPicker","type":"class","name":"IconPicker","summary":"Renders icon grid, search, selection dialog","tags":["class","ui"],"complexity":"medium","lineRange":"1-186"},
+
+    {"id":"file:frappe/public/js/frappe/list/base_list.js","type":"file","name":"base_list.js","summary":"Base class for all list views (ListView, ReportView, etc.) — filters, pagination, sorting, rendering","tags":["javascript","list","base"],"complexity":"high","filePath":"frappe/public/js/frappe/list/base_list.js"},
+    {"id":"class:frappe/public/js/frappe/list/base_list.js:BaseList","type":"class","name":"BaseList","summary":"Base list view: setup, fetch, filters, sort, pagination, freeze, refresh","tags":["class","list","base"],"complexity":"high","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:setup_defaults","type":"func","name":"setup_defaults","summary":"Initialize default page length, filters, sort","tags":["method"],"complexity":"low","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:refresh","type":"func","name":"refresh","summary":"Reload list data and re-render","tags":["method"],"complexity":"medium","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:get_args","type":"func","name":"get_args","summary":"Build filter/sort/fields args for server call","tags":["method"],"complexity":"medium","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:get_call_args","type":"func","name":"get_call_args","summary":"Construct frappe.call arguments for list fetch","tags":["method"],"complexity":"low","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:setup_filter_area","type":"func","name":"setup_filter_area","summary":"Initialize filter UI area","tags":["method"],"complexity":"medium","lineRange":"1-1421"},
+    {"id":"func:frappe/public/js/frappe/list/base_list.js:setup_sort_selector","type":"func","name":"setup_sort_selector","summary":"Setup sort selector widget","tags":["method"],"complexity":"low","lineRange":"1-1421"},
+
+    {"id":"file:frappe/public/js/frappe/list/bulk_operations.js","type":"file","name":"bulk_operations.js","summary":"Bulk edit, delete, assign, print, submit, cancel, workflow actions","tags":["javascript","list","bulk"],"complexity":"high","filePath":"frappe/public/js/frappe/list/bulk_operations.js"},
+    {"id":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","type":"class","name":"BulkOperations","summary":"Handles bulk operations on list selection","tags":["class","bulk"],"complexity":"high","lineRange":"1-489"},
+    {"id":"func:frappe/public/js/frappe/list/bulk_operations.js:edit","type":"func","name":"edit","summary":"Bulk edit field value across documents","tags":["method"],"complexity":"medium","lineRange":"1-489"},
+    {"id":"func:frappe/public/js/frappe/list/bulk_operations.js:delete","type":"func","name":"delete","summary":"Bulk delete documents","tags":["method"],"complexity":"low","lineRange":"1-489"},
+    {"id":"func:frappe/public/js/frappe/list/bulk_operations.js:assign","type":"func","name":"assign","summary":"Bulk assign documents to users","tags":["method"],"complexity":"medium","lineRange":"1-489"},
+    {"id":"func:frappe/public/js/frappe/list/bulk_operations.js:print","type":"func","name":"print","summary":"Bulk print selected documents","tags":["method"],"complexity":"medium","lineRange":"1-489"},
+    {"id":"func:frappe/public/js/frappe/list/bulk_operations.js:submit","type":"func","name":"submit","summary":"Bulk submit docs","tags":["method"],"complexity":"low","lineRange":"1-489"},
+
+    {"id":"file:frappe/public/js/frappe/list/list_factory.js","type":"file","name":"list_factory.js","summary":"Factory that routes to appropriate list view type","tags":["javascript","list","factory"],"complexity":"low","filePath":"frappe/public/js/frappe/list/list_factory.js"},
+    {"id":"class:frappe/public/js/frappe/list/list_factory.js:ListFactory","type":"class","name":"ListFactory","summary":"Resolves and instantiates list view from route","tags":["class","factory"],"complexity":"low","lineRange":"1-99"},
+
+    {"id":"file:frappe/public/js/frappe/list/list_filter.js","type":"file","name":"list_filter.js","summary":"Saved list filters management","tags":["javascript","list","filter"],"complexity":"medium","filePath":"frappe/public/js/frappe/list/list_filter.js"},
+    {"id":"class:frappe/public/js/frappe/list/list_filter.js:ListFilter","type":"class","name":"ListFilter","summary":"Save/load/share filter presets","tags":["class","filter"],"complexity":"medium","lineRange":"1-206"},
+
+    {"id":"file:frappe/public/js/frappe/list/list_settings.js","type":"file","name":"list_settings.js","summary":"Per-user list view settings dialog (columns, fields, page length)","tags":["javascript","list","settings"],"complexity":"medium","filePath":"frappe/public/js/frappe/list/list_settings.js"},
+    {"id":"class:frappe/public/js/frappe/list/list_settings.js:ListSettings","type":"class","name":"ListSettings","summary":"Dialog to customize list view settings","tags":["class","settings"],"complexity":"medium","lineRange":"1-410"},
+
+    {"id":"file:frappe/public/js/frappe/list/list_sidebar_group_by.js","type":"file","name":"list_sidebar_group_by.js","summary":"Sidebar group-by filters (e.g., assignee, status)","tags":["javascript","list","sidebar"],"complexity":"medium","filePath":"frappe/public/js/frappe/list/list_sidebar_group_by.js"},
+    {"id":"class:frappe/public/js/frappe/list/list_sidebar_group_by.js:ListSidebarGroupBy","type":"class","name":"ListSidebarGroupBy","summary":"Renders group-by facet sidebar for list","tags":["class","sidebar"],"complexity":"medium","lineRange":"1-220"}
+  ],
+  "edges": [
+    {"source":"file:frappe/public/js/frappe/form/undo_manager.js","target":"class:frappe/public/js/frappe/form/undo_manager.js:UndoManager","type":"contains","direction":"forward","weight":1},
+    {"source":"file:frappe/public/js/frappe/form/workflow.js","target":"class:frappe/public/js/frappe/form/workflow.js:FormWorkflow","type":"contains","direction":"forward","weight":1},
+    {"source":"file:frappe/public/js/frappe/icon_picker/icon_picker.js","target":"class:frappe/public/js/frappe/icon_picker/icon_picker.js:IconPicker","type":"contains","direction":"forward","weight":1},
+
+    {"source":"file:frappe/public/js/frappe/list/base_list.js","target":"class:frappe/public/js/frappe/list/base_list.js:BaseList","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:setup_defaults","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:refresh","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:get_args","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:get_call_args","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:setup_filter_area","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/base_list.js:BaseList","target":"func:frappe/public/js/frappe/list/base_list.js:setup_sort_selector","type":"contains","direction":"forward","weight":1},
+    {"source":"func:frappe/public/js/frappe/list/base_list.js:refresh","target":"func:frappe/public/js/frappe/list/base_list.js:get_call_args","type":"calls","direction":"forward","weight":1},
+    {"source":"func:frappe/public/js/frappe/list/base_list.js:get_call_args","target":"func:frappe/public/js/frappe/list/base_list.js:get_args","type":"calls","direction":"forward","weight":1},
+
+    {"source":"file:frappe/public/js/frappe/list/bulk_operations.js","target":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"func:frappe/public/js/frappe/list/bulk_operations.js:edit","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"func:frappe/public/js/frappe/list/bulk_operations.js:delete","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"func:frappe/public/js/frappe/list/bulk_operations.js:assign","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"func:frappe/public/js/frappe/list/bulk_operations.js:print","type":"contains","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"func:frappe/public/js/frappe/list/bulk_operations.js:submit","type":"contains","direction":"forward","weight":1},
+
+    {"source":"file:frappe/public/js/frappe/list/list_factory.js","target":"class:frappe/public/js/frappe/list/list_factory.js:ListFactory","type":"contains","direction":"forward","weight":1},
+    {"source":"file:frappe/public/js/frappe/list/list_filter.js","target":"class:frappe/public/js/frappe/list/list_filter.js:ListFilter","type":"contains","direction":"forward","weight":1},
+    {"source":"file:frappe/public/js/frappe/list/list_settings.js","target":"class:frappe/public/js/frappe/list/list_settings.js:ListSettings","type":"contains","direction":"forward","weight":1},
+    {"source":"file:frappe/public/js/frappe/list/list_sidebar_group_by.js","target":"class:frappe/public/js/frappe/list/list_sidebar_group_by.js:ListSidebarGroupBy","type":"contains","direction":"forward","weight":1},
+
+    {"source":"class:frappe/public/js/frappe/list/list_factory.js:ListFactory","target":"class:frappe/public/js/frappe/list/base_list.js:BaseList","type":"calls","direction":"forward","weight":1},
+    {"source":"class:frappe/public/js/frappe/list/bulk_operations.js:BulkOperations","target":"class:frappe/public/js/frappe/list/base_list.js:BaseList","type":"calls","direction":"forward","weight":1}
+  ]
+}

@@ -1,0 +1,831 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/file/file_list.js",
+      "type": "file",
+      "name": "file_list.js",
+      "filePath": "frappe/core/doctype/file/file_list.js",
+      "summary": "List view settings for the File DocType. Configures a custom formatter for the file_name column that escapes HTML to prevent XSS.",
+      "tags": ["javascript", "listview", "file", "ui"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/file/test_file.py",
+      "type": "file",
+      "name": "test_file.py",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "summary": "Comprehensive integration test suite for the File DocType covering file save, base64 encoding, duplicate filenames, same content deduplication, file operations (copy, move, rename, zip/unzip), folder management, attachment limits, symlinks, guest file access, file optimization, and public file restrictions.",
+      "tags": ["test", "integration", "file", "core"],
+      "complexity": 4
+    },
+    {
+      "id": "file:frappe/core/doctype/file/utils.py",
+      "type": "file",
+      "name": "utils.py (file)",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "summary": "Utility functions for File DocType operations including home folder creation, file extension detection, image extraction from HTML content, content hashing for deduplication, file name conflict resolution, attachment linking/relinking, and file deletion.",
+      "tags": ["utility", "file", "core", "images", "attachments"],
+      "complexity": 3
+    },
+    {
+      "id": "file:frappe/core/doctype/has_domain/__init__.py",
+      "type": "file",
+      "name": "__init__.py (has_domain)",
+      "filePath": "frappe/core/doctype/has_domain/__init__.py",
+      "summary": "Empty init file for the HasDomain DocType module.",
+      "tags": ["init", "has_domain"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/has_domain/has_domain.py",
+      "type": "file",
+      "name": "has_domain.py",
+      "filePath": "frappe/core/doctype/has_domain/has_domain.py",
+      "summary": "Controller for the HasDomain child DocType, a link table associating a parent document with a Domain. Used as a child table in DocTypes that need domain-based filtering.",
+      "tags": ["doctype", "child-table", "domain", "core"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/has_role/__init__.py",
+      "type": "file",
+      "name": "__init__.py (has_role)",
+      "filePath": "frappe/core/doctype/has_role/__init__.py",
+      "summary": "Empty init file for the HasRole DocType module.",
+      "tags": ["init", "has_role"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/has_role/has_role.py",
+      "type": "file",
+      "name": "has_role.py",
+      "filePath": "frappe/core/doctype/has_role/has_role.py",
+      "summary": "Controller for the HasRole child DocType, a link table associating a parent (e.g., User) with a Role. Includes a before_insert hook that prevents duplicate role assignments by throwing an error if the parent already has the specified role.",
+      "tags": ["doctype", "child-table", "role", "permissions", "core"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/installed_application/__init__.py",
+      "type": "file",
+      "name": "__init__.py (installed_application)",
+      "filePath": "frappe/core/doctype/installed_application/__init__.py",
+      "summary": "Empty init file for the InstalledApplication DocType module.",
+      "tags": ["init", "installed_application"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/installed_application/installed_application.py",
+      "type": "file",
+      "name": "installed_application.py",
+      "filePath": "frappe/core/doctype/installed_application/installed_application.py",
+      "summary": "Controller for the InstalledApplication child DocType, which stores metadata about a single installed Frappe app (name, version, git branch, setup wizard status). Used as a child table in the InstalledApplications parent DocType.",
+      "tags": ["doctype", "child-table", "application", "core"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/installed_applications/__init__.py",
+      "type": "file",
+      "name": "__init__.py (installed_applications)",
+      "filePath": "frappe/core/doctype/installed_applications/__init__.py",
+      "summary": "Empty init file for the InstalledApplications DocType module.",
+      "tags": ["init", "installed_applications"],
+      "complexity": 1
+    },
+    {
+      "id": "class:HasDomain",
+      "type": "class",
+      "name": "HasDomain",
+      "filePath": "frappe/core/doctype/has_domain/has_domain.py",
+      "lineRange": [7, 22],
+      "summary": "Document subclass for the HasDomain child table DocType. A pass-through controller with auto-generated type annotations for domain link field.",
+      "tags": ["doctype", "child-table", "domain"],
+      "complexity": 1
+    },
+    {
+      "id": "class:HasRole",
+      "type": "class",
+      "name": "HasRole",
+      "filePath": "frappe/core/doctype/has_role/has_role.py",
+      "lineRange": [8, 25],
+      "summary": "Document subclass for the HasRole child table DocType. Implements before_insert lifecycle hook to prevent duplicate role assignments for a parent document.",
+      "tags": ["doctype", "child-table", "role", "validation"],
+      "complexity": 1
+    },
+    {
+      "id": "class:InstalledApplication",
+      "type": "class",
+      "name": "InstalledApplication",
+      "filePath": "frappe/core/doctype/installed_application/installed_application.py",
+      "lineRange": [8, 27],
+      "summary": "Document subclass for the InstalledApplication child table. Stores app metadata fields: app_name, app_version, git_branch, has_setup_wizard, is_setup_complete.",
+      "tags": ["doctype", "child-table", "application"],
+      "complexity": 1
+    },
+    {
+      "id": "func:make_home_folder",
+      "type": "function",
+      "name": "make_home_folder",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [26, 39],
+      "summary": "Creates the default Home folder and Attachments subfolder in the File tree structure if they don't already exist.",
+      "tags": ["file", "setup", "folder"],
+      "complexity": 1
+    },
+    {
+      "id": "func:setup_folder_path",
+      "type": "function",
+      "name": "setup_folder_path",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [42, 50],
+      "summary": "Moves a file to a new parent folder. If the file is itself a folder, renames it based on the new parent path.",
+      "tags": ["file", "folder", "move"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_extension",
+      "type": "function",
+      "name": "get_extension",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [53, 82],
+      "summary": "Determines file extension from multiple sources: HTTP response Content-Type header, explicit extension parameter, or content-based detection using the filetype library.",
+      "tags": ["file", "extension", "mimetype"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_local_image",
+      "type": "function",
+      "name": "get_local_image",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [85, 114],
+      "summary": "Opens a local image file from the site's public or private directory using PIL, returning the image object, filename, and extension.",
+      "tags": ["file", "image", "local"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_web_image",
+      "type": "function",
+      "name": "get_web_image",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [117, 149],
+      "summary": "Downloads and opens a remote image from a URL using requests and PIL, returning the image object, filename, and extension.",
+      "tags": ["file", "image", "remote", "http"],
+      "complexity": 2
+    },
+    {
+      "id": "func:delete_file",
+      "type": "function",
+      "name": "delete_file",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [152, 169],
+      "summary": "Deletes a physical file from the site's public or private files directory. Includes path traversal protection by checking for '..' in the path.",
+      "tags": ["file", "delete", "security"],
+      "complexity": 2
+    },
+    {
+      "id": "func:remove_file_by_url",
+      "type": "function",
+      "name": "remove_file_by_url",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [172, 188],
+      "summary": "Removes a File document identified by its URL, optionally scoped to a specific attached doctype/name.",
+      "tags": ["file", "delete", "url"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_content_hash",
+      "type": "function",
+      "name": "get_content_hash",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [191, 194],
+      "summary": "Computes an MD5 hash of file content for deduplication purposes.",
+      "tags": ["file", "hash", "deduplication"],
+      "complexity": 1
+    },
+    {
+      "id": "func:generate_file_name",
+      "type": "function",
+      "name": "generate_file_name",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [197, 220],
+      "summary": "Generates a conflict-free file name by checking if a file with different content already exists at the target path. Appends a suffix or random hash to avoid collisions.",
+      "tags": ["file", "naming", "deduplication"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_file_name",
+      "type": "function",
+      "name": "get_file_name",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [223, 229],
+      "summary": "Constructs a file name by inserting a suffix (or random hash) between the base name and extension.",
+      "tags": ["file", "naming"],
+      "complexity": 1
+    },
+    {
+      "id": "func:extract_images_from_doc",
+      "type": "function",
+      "name": "extract_images_from_doc",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [232, 238],
+      "summary": "Extracts base64-encoded inline images from a document field's HTML content and saves them as File attachments.",
+      "tags": ["file", "image", "html", "extraction"],
+      "complexity": 2
+    },
+    {
+      "id": "func:extract_images_from_html",
+      "type": "function",
+      "name": "extract_images_from_html",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [241, 298],
+      "summary": "Parses HTML content for data-URI img tags, decodes the base64 content, saves each as a File document, and replaces the src with the file URL. Handles corrupted images gracefully.",
+      "tags": ["file", "image", "html", "base64"],
+      "complexity": 3
+    },
+    {
+      "id": "func:update_existing_file_docs",
+      "type": "function",
+      "name": "update_existing_file_docs",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [313, 322],
+      "summary": "Updates file_url and is_private for all File documents sharing the same content_hash as the given file, ensuring consistency across deduplicated files.",
+      "tags": ["file", "deduplication", "update"],
+      "complexity": 2
+    },
+    {
+      "id": "func:attach_files_to_document",
+      "type": "function",
+      "name": "attach_files_to_document",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [325, 386],
+      "summary": "Hook function (on_update) that scans Attach/Attach Image fields on a document and creates or links File records for any unattached file URLs.",
+      "tags": ["file", "attachment", "hook", "on_update"],
+      "complexity": 3
+    },
+    {
+      "id": "func:relink_files",
+      "type": "function",
+      "name": "relink_files",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [389, 420],
+      "summary": "Relinks a file attachment from a temporary document name to the actual document name, handling cases where files were attached during document creation before the final name was assigned.",
+      "tags": ["file", "relink", "attachment"],
+      "complexity": 2
+    },
+    {
+      "id": "func:relink_mismatched_files",
+      "type": "function",
+      "name": "relink_mismatched_files",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [423, 454],
+      "summary": "Relinks all mismatched file attachments on a document and its child tables from a temporary name to the final name, then clears the temporary name flag.",
+      "tags": ["file", "relink", "child-table"],
+      "complexity": 3
+    },
+    {
+      "id": "func:decode_file_content",
+      "type": "function",
+      "name": "decode_file_content",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [457, 462],
+      "summary": "Decodes base64-encoded file content, handling comma-separated data URI prefix.",
+      "tags": ["file", "base64", "decode"],
+      "complexity": 1
+    },
+    {
+      "id": "func:find_file_by_url",
+      "type": "function",
+      "name": "find_file_by_url",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [465, 478],
+      "summary": "Finds a downloadable File document by its URL. Checks all matching files and returns the first one that passes the downloadability check.",
+      "tags": ["file", "search", "permissions"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_safe_file_name",
+      "type": "function",
+      "name": "get_safe_file_name",
+      "filePath": "frappe/core/doctype/file/utils.py",
+      "lineRange": [481, 482],
+      "summary": "Sanitizes a file name by replacing potentially dangerous characters (/, \\, %, ?, #) with underscores.",
+      "tags": ["file", "sanitize", "security"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestSimpleFile",
+      "type": "class",
+      "name": "TestSimpleFile",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [64, 83],
+      "summary": "Tests basic file save and content retrieval for simple text files attached to a document.",
+      "tags": ["test", "file", "basic"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestFSRollbacks",
+      "type": "class",
+      "name": "TestFSRollbacks",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [86, 93],
+      "summary": "Tests that filesystem changes (file creation) are properly rolled back when a database rollback occurs.",
+      "tags": ["test", "file", "rollback", "transaction"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestExtensionValidations",
+      "type": "class",
+      "name": "TestExtensionValidations",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [96, 106],
+      "summary": "Tests file extension validation against the allowed extensions list in System Settings.",
+      "tags": ["test", "file", "validation", "extension"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestBase64File",
+      "type": "class",
+      "name": "TestBase64File",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [109, 129],
+      "summary": "Tests file save and retrieval with base64-encoded content.",
+      "tags": ["test", "file", "base64"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestSameFileName",
+      "type": "class",
+      "name": "TestSameFileName",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [132, 189],
+      "summary": "Tests that files with the same name but different content are stored correctly with unique paths.",
+      "tags": ["test", "file", "naming", "deduplication"],
+      "complexity": 2
+    },
+    {
+      "id": "class:TestSameContent",
+      "type": "class",
+      "name": "TestSameContent",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [192, 274],
+      "summary": "Tests content deduplication: files with the same content share a single physical file. Also tests attachment limits and UTF-8 BOM handling.",
+      "tags": ["test", "file", "deduplication", "attachment"],
+      "complexity": 2
+    },
+    {
+      "id": "class:TestFile",
+      "type": "class",
+      "name": "TestFile",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [277, 585],
+      "summary": "Main test class for File DocType covering file operations: copy, move, rename, zip/unzip, folder hierarchy, URL validation, cascading permissions, symlink handling, and unique URL generation.",
+      "tags": ["test", "file", "operations", "comprehensive"],
+      "complexity": 4
+    },
+    {
+      "id": "class:TestAttachment",
+      "type": "class",
+      "name": "TestAttachment",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [598, 642],
+      "summary": "Tests file attachment functionality including auto-attachment of files referenced in Attach fields and comment attachments.",
+      "tags": ["test", "file", "attachment"],
+      "complexity": 2
+    },
+    {
+      "id": "class:TestFileUtils",
+      "type": "class",
+      "name": "TestFileUtils",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [781, 864],
+      "summary": "Tests for file utility functions including extract_images_from_html, get_extension, and inline image extraction with various data URI formats.",
+      "tags": ["test", "file", "utils"],
+      "complexity": 2
+    },
+    {
+      "id": "class:TestFileOptimization",
+      "type": "class",
+      "name": "TestFileOptimization",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [866, 916],
+      "summary": "Tests image optimization features including JPEG/PNG compression and WebP conversion for the File DocType.",
+      "tags": ["test", "file", "optimization", "image"],
+      "complexity": 2
+    },
+    {
+      "id": "class:TestGuestFileAndAttachments",
+      "type": "class",
+      "name": "TestGuestFileAndAttachments",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [918, 1032],
+      "summary": "Tests guest user file upload and attachment scenarios including web form submissions, with permission and rate limit validations.",
+      "tags": ["test", "file", "guest", "permissions", "security"],
+      "complexity": 3
+    },
+    {
+      "id": "class:TestPublicFileRestriction",
+      "type": "class",
+      "name": "TestPublicFileRestriction",
+      "filePath": "frappe/core/doctype/file/test_file.py",
+      "lineRange": [1034, 1125],
+      "summary": "Tests restrictions on public file access including system manager override capabilities and guest access controls.",
+      "tags": ["test", "file", "public", "restriction", "security"],
+      "complexity": 2
+    },
+    {
+      "id": "func:HasRole.before_insert",
+      "type": "function",
+      "name": "HasRole.before_insert",
+      "filePath": "frappe/core/doctype/has_role/has_role.py",
+      "lineRange": [23, 25],
+      "summary": "Lifecycle hook that prevents duplicate role assignments by checking if the parent already has the specified role.",
+      "tags": ["validation", "lifecycle", "role"],
+      "complexity": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/has_domain/has_domain.py",
+      "target": "class:HasDomain",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/has_role/has_role.py",
+      "target": "class:HasRole",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:HasRole",
+      "target": "func:HasRole.before_insert",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_application/installed_application.py",
+      "target": "class:InstalledApplication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:make_home_folder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:setup_folder_path",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_extension",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_local_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_web_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:delete_file",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:remove_file_by_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_content_hash",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:generate_file_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_file_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:extract_images_from_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:extract_images_from_html",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:update_existing_file_docs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:attach_files_to_document",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:relink_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:relink_mismatched_files",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:decode_file_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:find_file_by_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "func:get_safe_file_name",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestSimpleFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestFSRollbacks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestExtensionValidations",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestBase64File",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestSameFileName",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestSameContent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestFile",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestAttachment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestFileUtils",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestFileOptimization",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestGuestFileAndAttachments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "class:TestPublicFileRestriction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:HasDomain",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:HasRole",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:InstalledApplication",
+      "target": "class:Document",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/has_domain/has_domain.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/has_role/has_role.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/installed_application/installed_application.py",
+      "target": "file:frappe/model/document.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/utils.py",
+      "target": "file:frappe/utils/file_manager.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "file:frappe/core/doctype/file/utils.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "file:frappe/core/api/file.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/file/test_file.py",
+      "target": "file:frappe/core/doctype/file/exceptions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestFileUtils",
+      "target": "func:extract_images_from_html",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "class:TestFileUtils",
+      "target": "func:get_extension",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "func:extract_images_from_doc",
+      "target": "func:extract_images_from_html",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:generate_file_name",
+      "target": "func:get_file_name",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:generate_file_name",
+      "target": "func:get_content_hash",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_local_image",
+      "target": "func:get_extension",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_web_image",
+      "target": "func:get_extension",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:relink_mismatched_files",
+      "target": "func:relink_files",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:setup_folder_path",
+      "target": "file:frappe/model/rename_doc.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:remove_file_by_url",
+      "target": "file:frappe/utils/file_manager.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

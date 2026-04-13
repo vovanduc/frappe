@@ -1,0 +1,497 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/form_builder/components/Autocomplete.vue",
+      "type": "file",
+      "name": "Autocomplete.vue",
+      "summary": "Autocomplete dropdown input component using Headless UI Combobox for fieldtype selection",
+      "tags": [
+        "vue",
+        "autocomplete",
+        "ui",
+        "combobox"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Autocomplete.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Column.vue",
+      "type": "file",
+      "name": "Column.vue",
+      "summary": "Column container supporting drag-and-drop field reordering within sections",
+      "tags": [
+        "vue",
+        "column",
+        "draggable",
+        "layout"
+      ],
+      "complexity": 5,
+      "filePath": "frappe/public/js/form_builder/components/Column.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Dropdown.vue",
+      "type": "file",
+      "name": "Dropdown.vue",
+      "summary": "Reusable Popper-based dropdown menu for fieldtype actions",
+      "tags": [
+        "vue",
+        "dropdown",
+        "popper",
+        "ui"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Dropdown.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/EditableInput.vue",
+      "type": "file",
+      "name": "EditableInput.vue",
+      "summary": "Inline editable text input used for labels in form builder",
+      "tags": [
+        "vue",
+        "editable",
+        "input",
+        "form"
+      ],
+      "complexity": 3,
+      "filePath": "frappe/public/js/form_builder/components/EditableInput.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Field.vue",
+      "type": "file",
+      "name": "Field.vue",
+      "summary": "Field component rendering individual form field with edit, duplicate, remove, and filter dialog",
+      "tags": [
+        "vue",
+        "field",
+        "form-builder",
+        "dialog"
+      ],
+      "complexity": 8,
+      "filePath": "frappe/public/js/form_builder/components/Field.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/FieldProperties.vue",
+      "type": "file",
+      "name": "FieldProperties.vue",
+      "summary": "Sidebar properties panel showing configurable attributes of a selected field",
+      "tags": [
+        "vue",
+        "properties",
+        "sidebar",
+        "form"
+      ],
+      "complexity": 5,
+      "filePath": "frappe/public/js/form_builder/components/FieldProperties.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/SearchBox.vue",
+      "type": "file",
+      "name": "SearchBox.vue",
+      "summary": "Simple searchbox input component for filtering",
+      "tags": [
+        "vue",
+        "search",
+        "input",
+        "ui"
+      ],
+      "complexity": 2,
+      "filePath": "frappe/public/js/form_builder/components/SearchBox.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Section.vue",
+      "type": "file",
+      "name": "Section.vue",
+      "summary": "Section component managing columns and drag-drop layout with add/delete operations",
+      "tags": [
+        "vue",
+        "section",
+        "draggable",
+        "layout"
+      ],
+      "complexity": 8,
+      "filePath": "frappe/public/js/form_builder/components/Section.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Sidebar.vue",
+      "type": "file",
+      "name": "Sidebar.vue",
+      "summary": "Resizable sidebar container for field properties panel",
+      "tags": [
+        "vue",
+        "sidebar",
+        "resize",
+        "layout"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Sidebar.vue"
+    },
+    {
+      "id": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "type": "file",
+      "name": "Tabs.vue",
+      "summary": "Tab container managing sections within form builder tabs with drag support",
+      "tags": [
+        "vue",
+        "tabs",
+        "draggable",
+        "layout"
+      ],
+      "complexity": 7,
+      "filePath": "frappe/public/js/form_builder/components/Tabs.vue"
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Dropdown.vue:setupPopper",
+      "type": "function",
+      "name": "setupPopper",
+      "summary": "Function setupPopper in Dropdown.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 3,
+      "filePath": "frappe/public/js/form_builder/components/Dropdown.vue",
+      "lineRange": [
+        70,
+        86
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Field.vue:edit_filters",
+      "type": "function",
+      "name": "edit_filters",
+      "summary": "Function edit_filters in Field.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 3,
+      "filePath": "frappe/public/js/form_builder/components/Field.vue",
+      "lineRange": [
+        153,
+        171
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Field.vue:make_dialog",
+      "type": "function",
+      "name": "make_dialog",
+      "summary": "Function make_dialog in Field.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 8,
+      "filePath": "frappe/public/js/form_builder/components/Field.vue",
+      "lineRange": [
+        78,
+        134
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Field.vue:duplicate_field",
+      "type": "function",
+      "name": "duplicate_field",
+      "summary": "Function duplicate_field in Field.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Field.vue",
+      "lineRange": [
+        53,
+        76
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Field.vue:is_filter_applied",
+      "type": "function",
+      "name": "is_filter_applied",
+      "summary": "Function is_filter_applied in Field.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 2,
+      "filePath": "frappe/public/js/form_builder/components/Field.vue",
+      "lineRange": [
+        173,
+        183
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Section.vue:remove_column",
+      "type": "function",
+      "name": "remove_column",
+      "summary": "Function remove_column in Section.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Section.vue",
+      "lineRange": [
+        188,
+        208
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Section.vue:remove_section",
+      "type": "function",
+      "name": "remove_section",
+      "summary": "Function remove_section in Section.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 4,
+      "filePath": "frappe/public/js/form_builder/components/Section.vue",
+      "lineRange": [
+        115,
+        137
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Section.vue:delete_section",
+      "type": "function",
+      "name": "delete_section",
+      "summary": "Function delete_section in Section.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 5,
+      "filePath": "frappe/public/js/form_builder/components/Section.vue",
+      "lineRange": [
+        139,
+        164
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Section.vue:delete_column",
+      "type": "function",
+      "name": "delete_column",
+      "summary": "Function delete_column in Section.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 8,
+      "filePath": "frappe/public/js/form_builder/components/Section.vue",
+      "lineRange": [
+        210,
+        258
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Sidebar.vue:resize",
+      "type": "function",
+      "name": "resize",
+      "summary": "Function resize in Sidebar.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 2,
+      "filePath": "frappe/public/js/form_builder/components/Sidebar.vue",
+      "lineRange": [
+        20,
+        32
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Tabs.vue:remove_tab",
+      "type": "function",
+      "name": "remove_tab",
+      "summary": "Function remove_tab in Tabs.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 5,
+      "filePath": "frappe/public/js/form_builder/components/Tabs.vue",
+      "lineRange": [
+        51,
+        76
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/form_builder/components/Tabs.vue:delete_tab",
+      "type": "function",
+      "name": "delete_tab",
+      "summary": "Function delete_tab in Tabs.vue",
+      "tags": [
+        "vue",
+        "function",
+        "form-builder"
+      ],
+      "complexity": 5,
+      "filePath": "frappe/public/js/form_builder/components/Tabs.vue",
+      "lineRange": [
+        78,
+        107
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/form_builder/components/Dropdown.vue",
+      "target": "func:frappe/public/js/form_builder/components/Dropdown.vue:setupPopper",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Field.vue",
+      "target": "func:frappe/public/js/form_builder/components/Field.vue:edit_filters",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Field.vue",
+      "target": "func:frappe/public/js/form_builder/components/Field.vue:make_dialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Field.vue",
+      "target": "func:frappe/public/js/form_builder/components/Field.vue:duplicate_field",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Field.vue",
+      "target": "func:frappe/public/js/form_builder/components/Field.vue:is_filter_applied",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "func:frappe/public/js/form_builder/components/Section.vue:remove_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "func:frappe/public/js/form_builder/components/Section.vue:remove_section",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "func:frappe/public/js/form_builder/components/Section.vue:delete_section",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "func:frappe/public/js/form_builder/components/Section.vue:delete_column",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Sidebar.vue",
+      "target": "func:frappe/public/js/form_builder/components/Sidebar.vue:resize",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "target": "func:frappe/public/js/form_builder/components/Tabs.vue:remove_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "target": "func:frappe/public/js/form_builder/components/Tabs.vue:delete_tab",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Column.vue",
+      "target": "file:frappe/public/js/form_builder/components/Field.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Field.vue",
+      "target": "file:frappe/public/js/form_builder/components/EditableInput.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/FieldProperties.vue",
+      "target": "file:frappe/public/js/form_builder/components/SearchBox.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "file:frappe/public/js/form_builder/components/Column.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "file:frappe/public/js/form_builder/components/EditableInput.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Section.vue",
+      "target": "file:frappe/public/js/form_builder/components/Dropdown.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Sidebar.vue",
+      "target": "file:frappe/public/js/form_builder/components/FieldProperties.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "target": "file:frappe/public/js/form_builder/components/Section.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/public/js/form_builder/components/Tabs.vue",
+      "target": "file:frappe/public/js/form_builder/components/EditableInput.vue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    }
+  ]
+}

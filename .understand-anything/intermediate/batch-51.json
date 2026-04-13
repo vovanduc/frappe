@@ -1,0 +1,746 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/utils/install.py",
+      "type": "file",
+      "name": "install.py",
+      "filePath": "frappe/utils/install.py",
+      "summary": "Handles Frappe framework installation lifecycle including before/after install hooks, creating default users, roles, workflow states, and navbar items.",
+      "tags": ["installation", "setup", "lifecycle", "database", "configuration"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/install.py:before_install",
+      "type": "function",
+      "name": "before_install",
+      "summary": "Reloads core DocType definitions and clears cache before installation begins.",
+      "tags": ["installation", "setup", "reload"],
+      "complexity": "simple",
+      "lineRange": [12, 21]
+    },
+    {
+      "id": "func:frappe/utils/install.py:after_install",
+      "type": "function",
+      "name": "after_install",
+      "summary": "Performs post-installation setup including creating user types, basic docs, home folder, country/currency import, language sync, and admin password setup.",
+      "tags": ["installation", "setup", "initialization"],
+      "complexity": "complex",
+      "lineRange": [24, 61]
+    },
+    {
+      "id": "func:frappe/utils/install.py:install_basic_docs",
+      "type": "function",
+      "name": "install_basic_docs",
+      "summary": "Creates default Administrator and Guest users, workflow states (Pending/Approved/Rejected), and workflow actions.",
+      "tags": ["installation", "users", "workflow", "defaults"],
+      "complexity": "moderate",
+      "lineRange": [71, 123]
+    },
+    {
+      "id": "func:frappe/utils/install.py:before_tests",
+      "type": "function",
+      "name": "before_tests",
+      "summary": "Prepares the environment before running tests by truncating tables, clearing cache, and completing setup wizard if needed.",
+      "tags": ["testing", "setup", "initialization"],
+      "complexity": "moderate",
+      "lineRange": [130, 146]
+    },
+    {
+      "id": "func:frappe/utils/install.py:add_standard_navbar_items",
+      "type": "function",
+      "name": "add_standard_navbar_items",
+      "summary": "Populates navbar settings and help dropdown items from hooks configuration.",
+      "tags": ["navbar", "UI", "hooks", "configuration"],
+      "complexity": "simple",
+      "lineRange": [166, 182]
+    },
+    {
+      "id": "file:frappe/utils/jinja.py",
+      "type": "file",
+      "name": "jinja.py",
+      "filePath": "frappe/utils/jinja.py",
+      "summary": "Provides Jinja2 template environment setup including sandboxed rendering, template loading, custom filters, and hook-based method/filter injection for the Frappe framework.",
+      "tags": ["jinja", "templates", "rendering", "sandbox", "filters"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:get_jenv",
+      "type": "function",
+      "name": "get_jenv",
+      "summary": "Returns the request-specific Jinja environment by overlaying a cached base environment with safe globals and hook-based methods/filters.",
+      "tags": ["jinja", "environment", "caching", "request-local"],
+      "complexity": "moderate",
+      "lineRange": [7, 32]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:_get_jenv",
+      "type": "function",
+      "name": "_get_jenv",
+      "summary": "Creates and caches the base Jinja2 SandboxedEnvironment with unsafe attribute restrictions, template loader, and default filters.",
+      "tags": ["jinja", "sandbox", "caching", "security"],
+      "complexity": "moderate",
+      "lineRange": [35, 59]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:render_template",
+      "type": "function",
+      "name": "render_template",
+      "summary": "Renders a Jinja template from either a path or inline HTML string with safe rendering protection and timing logs.",
+      "tags": ["jinja", "rendering", "templates", "logging"],
+      "complexity": "moderate",
+      "lineRange": [101, 154]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:get_jinja_hooks",
+      "type": "function",
+      "name": "get_jinja_hooks",
+      "summary": "Resolves Jinja hook declarations from all installed apps, returning dicts of custom template methods and filters.",
+      "tags": ["jinja", "hooks", "extensibility"],
+      "complexity": "moderate",
+      "lineRange": [212, 245]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:get_jloader",
+      "type": "function",
+      "name": "get_jloader",
+      "summary": "Creates a Jinja2 ChoiceLoader that searches templates across all installed Frappe apps with prefix and direct loading.",
+      "tags": ["jinja", "loader", "templates", "apps"],
+      "complexity": "moderate",
+      "lineRange": [168, 194]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:get_email_from_template",
+      "type": "function",
+      "name": "get_email_from_template",
+      "summary": "Loads and renders HTML and optional text email templates from the templates/emails directory.",
+      "tags": ["email", "templates", "rendering"],
+      "complexity": "simple",
+      "lineRange": [69, 83]
+    },
+    {
+      "id": "func:frappe/utils/jinja.py:validate_template",
+      "type": "function",
+      "name": "validate_template",
+      "summary": "Validates Jinja template syntax and throws an exception with line number on error.",
+      "tags": ["validation", "jinja", "templates"],
+      "complexity": "simple",
+      "lineRange": [86, 98]
+    },
+    {
+      "id": "file:frappe/utils/jinja_globals.py",
+      "type": "file",
+      "name": "jinja_globals.py",
+      "filePath": "frappe/utils/jinja_globals.py",
+      "summary": "Provides Jinja2 global helper functions for CSS class resolution, HTML inspection, web blocks rendering, asset bundling, and script/style inclusion.",
+      "tags": ["jinja", "globals", "assets", "web-blocks", "helpers"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/jinja_globals.py:resolve_class",
+      "type": "function",
+      "name": "resolve_class",
+      "summary": "Resolves CSS class names from various input types (string, list, dict) into a single space-separated string.",
+      "tags": ["CSS", "templates", "utility"],
+      "complexity": "simple",
+      "lineRange": [5, 20]
+    },
+    {
+      "id": "func:frappe/utils/jinja_globals.py:web_blocks",
+      "type": "function",
+      "name": "web_blocks",
+      "summary": "Renders web page blocks with their templates, scripts, and styles, deduplicating script/style inclusions.",
+      "tags": ["web-blocks", "rendering", "templates", "website"],
+      "complexity": "moderate",
+      "lineRange": [40, 89]
+    },
+    {
+      "id": "func:frappe/utils/jinja_globals.py:bundled_asset",
+      "type": "function",
+      "name": "bundled_asset",
+      "summary": "Resolves bundled asset paths using the assets manifest, supporting RTL stylesheet variants.",
+      "tags": ["assets", "bundling", "RTL"],
+      "complexity": "simple",
+      "lineRange": [147, 157]
+    },
+    {
+      "id": "func:frappe/utils/jinja_globals.py:include_script",
+      "type": "function",
+      "name": "include_script",
+      "summary": "Returns an HTML script tag for a bundled JS file and optionally registers it for preloading.",
+      "tags": ["assets", "scripts", "preloading"],
+      "complexity": "simple",
+      "lineRange": [98, 110]
+    },
+    {
+      "id": "func:frappe/utils/jinja_globals.py:include_style",
+      "type": "function",
+      "name": "include_style",
+      "summary": "Returns an HTML link tag for a bundled CSS file and optionally registers it for preloading.",
+      "tags": ["assets", "styles", "preloading"],
+      "complexity": "simple",
+      "lineRange": [132, 144]
+    },
+    {
+      "id": "file:frappe/utils/lazy_loader.py",
+      "type": "file",
+      "name": "lazy_loader.py",
+      "filePath": "frappe/utils/lazy_loader.py",
+      "summary": "Provides lazy module importing that defers actual loading until the module's attributes are first accessed.",
+      "tags": ["lazy-loading", "imports", "performance", "modules"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/lazy_loader.py:lazy_import",
+      "type": "function",
+      "name": "lazy_import",
+      "summary": "Lazily imports a Python module using importlib LazyLoader, deferring execution until an attribute is accessed.",
+      "tags": ["lazy-loading", "imports", "performance"],
+      "complexity": "simple",
+      "lineRange": [5, 35]
+    },
+    {
+      "id": "file:frappe/utils/local.py",
+      "type": "file",
+      "name": "local.py",
+      "filePath": "frappe/utils/local.py",
+      "summary": "Implements thread-local state management using Python ContextVars, providing Local and LocalProxy classes that wrap Werkzeug equivalents for request-scoped data.",
+      "tags": ["context", "thread-local", "state-management", "werkzeug", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/utils/local.py:Local",
+      "type": "class",
+      "name": "Local",
+      "summary": "Context-variable-backed local storage class that stores request-scoped data using Python ContextVars instead of threading locals.",
+      "tags": ["context", "thread-local", "state-management", "core"],
+      "complexity": "moderate",
+      "lineRange": [12, 59]
+    },
+    {
+      "id": "class:frappe/utils/local.py:LocalProxy",
+      "type": "class",
+      "name": "LocalProxy",
+      "summary": "Extended Werkzeug LocalProxy with additional dunder methods for attribute, item, bool, contains, and string operations on proxied objects.",
+      "tags": ["proxy", "werkzeug", "state-management"],
+      "complexity": "moderate",
+      "lineRange": [62, 94]
+    },
+    {
+      "id": "file:frappe/utils/logger.py",
+      "type": "file",
+      "name": "logger.py",
+      "filePath": "frappe/utils/logger.py",
+      "summary": "Configures Python logging for Frappe with rotating file handlers, site-specific log files, context filtering, and sensitive data sanitization.",
+      "tags": ["logging", "configuration", "security", "rotating-files"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/utils/logger.py:get_logger",
+      "type": "function",
+      "name": "get_logger",
+      "summary": "Creates or retrieves a cached Python logger with site-aware rotating file handlers and optional context filtering.",
+      "tags": ["logging", "configuration", "caching"],
+      "complexity": "moderate",
+      "lineRange": [38, 95]
+    },
+    {
+      "id": "func:frappe/utils/logger.py:create_handler",
+      "type": "function",
+      "name": "create_handler",
+      "summary": "Creates logging handlers (file-based RotatingFileHandler or StreamHandler) with optional site-specific log files.",
+      "tags": ["logging", "handlers", "file-rotation"],
+      "complexity": "simple",
+      "lineRange": [16, 35]
+    },
+    {
+      "id": "class:frappe/utils/logger.py:SiteContextFilter",
+      "type": "class",
+      "name": "SiteContextFilter",
+      "summary": "Logging filter that injects current site name and sanitized form dict into log records for debugging context.",
+      "tags": ["logging", "filter", "context", "debugging"],
+      "complexity": "simple",
+      "lineRange": [98, 107]
+    },
+    {
+      "id": "func:frappe/utils/logger.py:sanitized_dict",
+      "type": "function",
+      "name": "sanitized_dict",
+      "summary": "Redacts sensitive fields (password, secret, token, key) from form dictionaries before logging.",
+      "tags": ["security", "sanitization", "logging"],
+      "complexity": "simple",
+      "lineRange": [115, 134]
+    },
+    {
+      "id": "file:frappe/utils/make_random.py",
+      "type": "file",
+      "name": "make_random.py",
+      "filePath": "frappe/utils/make_random.py",
+      "summary": "Utility functions for generating random test data including random document selection, child row generation, and probability-based generation decisions.",
+      "tags": ["testing", "random", "data-generation", "utilities"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/make_random.py:get_random",
+      "type": "function",
+      "name": "get_random",
+      "summary": "Fetches a random document name (or doc) of a given DocType from the database using SQL RAND()/RANDOM().",
+      "tags": ["random", "database", "testing"],
+      "complexity": "simple",
+      "lineRange": [36, 53]
+    },
+    {
+      "id": "func:frappe/utils/make_random.py:add_random_children",
+      "type": "function",
+      "name": "add_random_children",
+      "summary": "Appends a random number of child rows with randomized field values to a document's child table.",
+      "tags": ["random", "testing", "child-tables"],
+      "complexity": "simple",
+      "lineRange": [16, 33]
+    },
+    {
+      "id": "file:frappe/utils/messages.py",
+      "type": "file",
+      "name": "messages.py",
+      "filePath": "frappe/utils/messages.py",
+      "summary": "Core messaging system for Frappe providing msgprint, throw, and toast functions that send user-facing messages via HTTP response or websocket with HTML sanitization and exception handling.",
+      "tags": ["messaging", "user-feedback", "exceptions", "HTTP", "core"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/utils/messages.py:msgprint",
+      "type": "function",
+      "name": "msgprint",
+      "summary": "Sends a message to the user via HTTP response or realtime websocket, supporting tables, lists, indicators, and optional exception raising with HTML sanitization.",
+      "tags": ["messaging", "user-feedback", "HTTP", "websocket"],
+      "complexity": "complex",
+      "lineRange": [11, 118]
+    },
+    {
+      "id": "func:frappe/utils/messages.py:throw",
+      "type": "function",
+      "name": "throw",
+      "summary": "Raises an exception while displaying a message to the user via msgprint with a red indicator.",
+      "tags": ["exceptions", "messaging", "validation"],
+      "complexity": "simple",
+      "lineRange": [138, 169]
+    },
+    {
+      "id": "file:frappe/utils/modules.py",
+      "type": "file",
+      "name": "modules.py",
+      "filePath": "frappe/utils/modules.py",
+      "summary": "Provides functions to list available modules across installed Frappe apps, filtered by user permissions and blocked module settings.",
+      "tags": ["modules", "permissions", "apps", "filtering"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/modules.py:get_modules_from_all_apps_for_user",
+      "type": "function",
+      "name": "get_modules_from_all_apps_for_user",
+      "summary": "Returns modules from all installed apps filtered by administrator and user-level blocked module lists.",
+      "tags": ["modules", "permissions", "filtering"],
+      "complexity": "simple",
+      "lineRange": [6, 14]
+    },
+    {
+      "id": "file:frappe/utils/momentjs.py",
+      "type": "file",
+      "name": "momentjs.py",
+      "filePath": "frappe/utils/momentjs.py",
+      "summary": "Contains comprehensive timezone data (zones, rules, links) for moment.js date handling, with helper functions to look up and extract timezone information.",
+      "tags": ["timezone", "moment.js", "date-formatting", "data", "i18n"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/utils/momentjs.py:update",
+      "type": "function",
+      "name": "update",
+      "summary": "Populates output dict with timezone zone data, links, and associated rules for a given timezone identifier.",
+      "tags": ["timezone", "data-extraction"],
+      "complexity": "simple",
+      "lineRange": [2, 10]
+    },
+    {
+      "id": "func:frappe/utils/momentjs.py:get_all_timezones",
+      "type": "function",
+      "name": "get_all_timezones",
+      "summary": "Returns a sorted list of all available timezone identifiers from the embedded timezone data.",
+      "tags": ["timezone", "utility"],
+      "complexity": "simple",
+      "lineRange": [16, 17]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "func:frappe/utils/install.py:before_install",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "func:frappe/utils/install.py:after_install",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "func:frappe/utils/install.py:install_basic_docs",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "func:frappe/utils/install.py:before_tests",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "func:frappe/utils/install.py:add_standard_navbar_items",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:get_jenv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:_get_jenv",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:render_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:get_jinja_hooks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:get_jloader",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:get_email_from_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "func:frappe/utils/jinja.py:validate_template",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "func:frappe/utils/jinja_globals.py:resolve_class",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "func:frappe/utils/jinja_globals.py:web_blocks",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "func:frappe/utils/jinja_globals.py:bundled_asset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "func:frappe/utils/jinja_globals.py:include_script",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "func:frappe/utils/jinja_globals.py:include_style",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/lazy_loader.py",
+      "target": "func:frappe/utils/lazy_loader.py:lazy_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/local.py",
+      "target": "class:frappe/utils/local.py:Local",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/local.py",
+      "target": "class:frappe/utils/local.py:LocalProxy",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/logger.py",
+      "target": "func:frappe/utils/logger.py:get_logger",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/logger.py",
+      "target": "func:frappe/utils/logger.py:create_handler",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/logger.py",
+      "target": "class:frappe/utils/logger.py:SiteContextFilter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/logger.py",
+      "target": "func:frappe/utils/logger.py:sanitized_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/make_random.py",
+      "target": "func:frappe/utils/make_random.py:get_random",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/make_random.py",
+      "target": "func:frappe/utils/make_random.py:add_random_children",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/messages.py",
+      "target": "func:frappe/utils/messages.py:msgprint",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/messages.py",
+      "target": "func:frappe/utils/messages.py:throw",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/modules.py",
+      "target": "func:frappe/utils/modules.py:get_modules_from_all_apps_for_user",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/momentjs.py",
+      "target": "func:frappe/utils/momentjs.py:update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/momentjs.py",
+      "target": "func:frappe/utils/momentjs.py:get_all_timezones",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "file:frappe/utils/messages.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:get_jenv",
+      "target": "func:frappe/utils/jinja.py:_get_jenv",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:get_jenv",
+      "target": "func:frappe/utils/jinja.py:get_jinja_hooks",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:_get_jenv",
+      "target": "func:frappe/utils/jinja.py:get_jloader",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:render_template",
+      "target": "func:frappe/utils/jinja.py:get_jenv",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:render_template",
+      "target": "func:frappe/utils/logger.py:get_logger",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:get_email_from_template",
+      "target": "func:frappe/utils/jinja.py:get_jenv",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja.py:validate_template",
+      "target": "func:frappe/utils/jinja.py:get_jenv",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "file:frappe/utils/logger.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/utils/jinja.py",
+      "target": "file:frappe/utils/jinja_globals.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/jinja_globals.py:include_script",
+      "target": "func:frappe/utils/jinja_globals.py:bundled_asset",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/jinja_globals.py:include_style",
+      "target": "func:frappe/utils/jinja_globals.py:bundled_asset",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/jinja_globals.py",
+      "target": "file:frappe/utils/jinja.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:frappe/utils/messages.py:throw",
+      "target": "func:frappe/utils/messages.py:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/messages.py",
+      "target": "file:frappe/utils/jinja.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/install.py:after_install",
+      "target": "func:frappe/utils/install.py:install_basic_docs",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/install.py:after_install",
+      "target": "func:frappe/utils/install.py:add_standard_navbar_items",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/modules.py",
+      "target": "file:frappe/utils/messages.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:frappe/utils/logger.py:get_logger",
+      "target": "func:frappe/utils/logger.py:create_handler",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/utils/logger.py:get_logger",
+      "target": "class:frappe/utils/logger.py:SiteContextFilter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/utils/logger.py:SiteContextFilter",
+      "target": "func:frappe/utils/logger.py:sanitized_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/utils/install.py",
+      "target": "file:frappe/utils/install.py",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 0.8
+    }
+  ]
+}

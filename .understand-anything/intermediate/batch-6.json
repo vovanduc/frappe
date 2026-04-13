@@ -1,0 +1,686 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/custom_role/custom_role.js",
+      "type": "file",
+      "name": "custom_role.js",
+      "filePath": "frappe/core/doctype/custom_role/custom_role.js",
+      "summary": "Client-side form controller for the Custom Role DocType with an empty refresh handler.",
+      "tags": ["javascript", "form-controller", "custom-role", "client-side", "stub"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_role/custom_role.py",
+      "type": "file",
+      "name": "custom_role.py",
+      "filePath": "frappe/core/doctype/custom_role/custom_role.py",
+      "summary": "Server-side controller for Custom Role DocType, allowing role-based access overrides for Reports and Pages. Includes a utility function to retrieve custom allowed roles.",
+      "tags": ["python", "doctype", "permissions", "custom-role", "rbac"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:CustomRole",
+      "type": "class",
+      "name": "CustomRole",
+      "summary": "Document controller for Custom Role that validates report references and provides permission logging options for Reports and Pages.",
+      "tags": ["document", "permissions", "custom-role", "controller"],
+      "complexity": "simple",
+      "lineRange": [8, 31]
+    },
+    {
+      "id": "function:CustomRole.validate",
+      "type": "function",
+      "name": "validate",
+      "summary": "Lifecycle hook that auto-fills ref_doctype from the linked Report if not already set.",
+      "tags": ["lifecycle", "validation", "auto-populate"],
+      "complexity": "simple",
+      "lineRange": [24, 26]
+    },
+    {
+      "id": "function:CustomRole.get_permission_log_options",
+      "type": "function",
+      "name": "get_permission_log_options",
+      "summary": "Returns permission log metadata indicating whether this custom role applies to a Report or Page.",
+      "tags": ["permissions", "logging", "audit"],
+      "complexity": "simple",
+      "lineRange": [28, 31]
+    },
+    {
+      "id": "function:get_custom_allowed_roles",
+      "type": "function",
+      "name": "get_custom_allowed_roles",
+      "summary": "Utility function that retrieves the list of roles allowed by a Custom Role document for a given Report or Page.",
+      "tags": ["permissions", "utility", "roles", "lookup"],
+      "complexity": "simple",
+      "lineRange": [34, 41]
+    },
+    {
+      "id": "file:frappe/core/doctype/custom_role/test_custom_role.py",
+      "type": "file",
+      "name": "test_custom_role.py",
+      "filePath": "frappe/core/doctype/custom_role/test_custom_role.py",
+      "summary": "Empty integration test case placeholder for the Custom Role DocType.",
+      "tags": ["python", "test", "custom-role", "placeholder"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:TestCustomRole",
+      "type": "class",
+      "name": "TestCustomRole",
+      "summary": "Placeholder test class for Custom Role with no test methods implemented.",
+      "tags": ["test", "integration", "placeholder"],
+      "complexity": "simple",
+      "lineRange": [6, 7]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_export/data_export.js",
+      "type": "file",
+      "name": "data_export.js",
+      "filePath": "frappe/core/doctype/data_export/data_export.js",
+      "summary": "Client-side controller for Data Export DocType providing UI for selecting fields, applying filters, and triggering CSV/Excel data exports via the exporter API.",
+      "tags": ["javascript", "form-controller", "data-export", "ui", "export"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "function:js:can_export",
+      "type": "function",
+      "name": "can_export",
+      "summary": "Validates that a doctype is selected and at least one parent field is checked before allowing export.",
+      "tags": ["validation", "export", "client-side"],
+      "complexity": "simple",
+      "lineRange": [35, 49]
+    },
+    {
+      "id": "function:js:export_data",
+      "type": "function",
+      "name": "export_data",
+      "summary": "Constructs export parameters from selected columns and filters, then triggers a POST download to the server-side exporter endpoint.",
+      "tags": ["export", "api-call", "download"],
+      "complexity": "moderate",
+      "lineRange": [51, 71]
+    },
+    {
+      "id": "function:js:set_field_options",
+      "type": "function",
+      "name": "set_field_options",
+      "summary": "Builds the field selection UI with multicheck controls for parent and child DocTypes, and initializes the filter group.",
+      "tags": ["ui", "form", "field-selection", "multicheck"],
+      "complexity": "moderate",
+      "lineRange": [82, 106]
+    },
+    {
+      "id": "function:js:make_multiselect_buttons",
+      "type": "function",
+      "name": "make_multiselect_buttons",
+      "summary": "Creates Select All and Unselect All buttons for toggling all field checkboxes in the export form.",
+      "tags": ["ui", "buttons", "multiselect"],
+      "complexity": "simple",
+      "lineRange": [108, 139]
+    },
+    {
+      "id": "function:js:add_doctype_field_multicheck_control",
+      "type": "function",
+      "name": "add_doctype_field_multicheck_control",
+      "summary": "Creates a MultiCheck form control for selecting exportable fields of a given DocType, including standard fields like owner and creation.",
+      "tags": ["ui", "form-control", "multicheck", "fields"],
+      "complexity": "moderate",
+      "lineRange": [145, 177]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_export/data_export.py",
+      "type": "file",
+      "name": "data_export.py",
+      "filePath": "frappe/core/doctype/data_export/data_export.py",
+      "summary": "Minimal server-side Document controller for the Data Export DocType with type annotations for file_type, reference_doctype, and export options.",
+      "tags": ["python", "doctype", "data-export", "controller"],
+      "complexity": "simple"
+    },
+    {
+      "id": "class:DataExport",
+      "type": "class",
+      "name": "DataExport",
+      "summary": "Empty Document controller for Data Export DocType; all export logic resides in the separate exporter module.",
+      "tags": ["document", "controller", "data-export"],
+      "complexity": "simple",
+      "lineRange": [7, 21]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_export/exporter.py",
+      "type": "file",
+      "name": "exporter.py",
+      "filePath": "frappe/core/doctype/data_export/exporter.py",
+      "summary": "Core data export engine that builds CSV/Excel export files from DocType data, handling field selection, column metadata, child table relationships, and data formatting.",
+      "tags": ["python", "export", "csv", "excel", "data-processing"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:get_data_keys",
+      "type": "function",
+      "name": "get_data_keys",
+      "summary": "Returns a dictionary of translated label keys used as markers in the export template (data separator, table headers, column names).",
+      "tags": ["utility", "i18n", "template"],
+      "complexity": "simple",
+      "lineRange": [20, 29]
+    },
+    {
+      "id": "function:export_data",
+      "type": "function",
+      "name": "export_data",
+      "summary": "Whitelisted API endpoint that creates a DataExporter instance with the given parameters and triggers the export response, logging access.",
+      "tags": ["api", "whitelist", "export", "endpoint"],
+      "complexity": "moderate",
+      "lineRange": [32, 74]
+    },
+    {
+      "id": "class:DataExporter",
+      "type": "class",
+      "name": "DataExporter",
+      "summary": "Main export engine class that constructs CSV or Excel export files from DocType data, handling parent/child table relationships, field metadata columns, data formatting, and permission checks.",
+      "tags": ["export", "csv", "excel", "data-processing", "permissions"],
+      "complexity": "complex",
+      "lineRange": [77, 483]
+    },
+    {
+      "id": "function:DataExporter.prepare_args",
+      "type": "function",
+      "name": "prepare_args",
+      "summary": "Parses and normalizes initialization arguments including JSON deserialization of select_columns and filters, and discovers child DocTypes.",
+      "tags": ["initialization", "parsing", "child-tables"],
+      "complexity": "moderate",
+      "lineRange": [103, 128]
+    },
+    {
+      "id": "function:DataExporter.build_response",
+      "type": "function",
+      "name": "build_response",
+      "summary": "Orchestrates the full export process: writes headers, builds field columns for parent and child tables, adds data rows, and outputs CSV or Excel response.",
+      "tags": ["export", "orchestration", "response"],
+      "complexity": "complex",
+      "lineRange": [129, 173]
+    },
+    {
+      "id": "function:DataExporter.build_field_columns",
+      "type": "function",
+      "name": "build_field_columns",
+      "summary": "Constructs column metadata arrays (labels, field names, types, mandatory indicators) from database table columns for a given DocType.",
+      "tags": ["columns", "metadata", "field-mapping"],
+      "complexity": "complex",
+      "lineRange": [208, 288]
+    },
+    {
+      "id": "function:DataExporter.add_data",
+      "type": "function",
+      "name": "add_data",
+      "summary": "Fetches permitted document data using frappe.get_list with filters, processes parent and child table rows, and writes formatted data to the export output.",
+      "tags": ["data-fetching", "permissions", "query-builder"],
+      "complexity": "complex",
+      "lineRange": [362, 424]
+    },
+    {
+      "id": "function:DataExporter.add_data_row",
+      "type": "function",
+      "name": "add_data_row",
+      "summary": "Formats a single document row for export, applying date/duration/HTML formatting to field values and placing them in correct column positions.",
+      "tags": ["formatting", "data-row", "field-types"],
+      "complexity": "moderate",
+      "lineRange": [426, 452]
+    },
+    {
+      "id": "function:DataExporter.build_response_as_excel",
+      "type": "function",
+      "name": "build_response_as_excel",
+      "summary": "Converts the CSV writer output to an Excel .xlsx file using make_xlsx and sends it as a binary download response.",
+      "tags": ["excel", "xlsx", "binary-download"],
+      "complexity": "moderate",
+      "lineRange": [454, 468]
+    },
+    {
+      "id": "function:DataExporter.getinforow",
+      "type": "function",
+      "name": "getinforow",
+      "summary": "Static method that generates informational comments for export column headers based on field type (Select options, Link targets, date formats, etc.).",
+      "tags": ["metadata", "field-info", "static"],
+      "complexity": "simple",
+      "lineRange": [325, 344]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_export/test_data_exporter.py",
+      "type": "file",
+      "name": "test_data_exporter.py",
+      "filePath": "frappe/core/doctype/data_export/test_data_exporter.py",
+      "summary": "Integration tests for the DataExporter class, verifying CSV and Excel export output content and response types using a dynamically created test DocType with child tables.",
+      "tags": ["python", "test", "data-export", "integration", "csv"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:TestDataExporter",
+      "type": "class",
+      "name": "TestDataExporter",
+      "summary": "Integration test case that creates a test DocType with child tables and verifies that DataExporter correctly exports data in CSV and Excel formats.",
+      "tags": ["test", "integration", "data-export", "fixtures"],
+      "complexity": "moderate",
+      "lineRange": [8, 113]
+    },
+    {
+      "id": "function:TestDataExporter.test_export_content",
+      "type": "function",
+      "name": "test_export_content",
+      "summary": "Tests that CSV export contains expected child table data with correct response type and doctype.",
+      "tags": ["test", "csv", "assertion"],
+      "complexity": "simple",
+      "lineRange": [84, 92]
+    },
+    {
+      "id": "function:TestDataExporter.test_export_type",
+      "type": "function",
+      "name": "test_export_type",
+      "summary": "Tests both CSV and Excel export types, verifying correct response type, filename, and content presence.",
+      "tags": ["test", "csv", "excel", "subtest"],
+      "complexity": "moderate",
+      "lineRange": [94, 111]
+    },
+    {
+      "id": "file:frappe/core/doctype/data_import/data_import.js",
+      "type": "file",
+      "name": "data_import.js",
+      "filePath": "frappe/core/doctype/data_import/data_import.js",
+      "summary": "Comprehensive client-side controller for Data Import DocType, handling real-time import progress tracking, file preview, import warnings display, error reporting, and import log rendering.",
+      "tags": ["javascript", "form-controller", "data-import", "realtime", "ui"],
+      "complexity": "complex"
+    },
+    {
+      "id": "function:js:data_import:setup",
+      "type": "function",
+      "name": "setup",
+      "summary": "Initializes realtime event listeners for import progress and refresh, sets query filters for reference_doctype, and configures file upload restrictions.",
+      "tags": ["setup", "realtime", "websocket", "initialization"],
+      "complexity": "moderate",
+      "lineRange": [5, 72]
+    },
+    {
+      "id": "function:js:data_import:refresh",
+      "type": "function",
+      "name": "refresh",
+      "summary": "Handles form refresh by updating indicators, triggering preview/warnings/logs display, and adding contextual action buttons based on import status.",
+      "tags": ["refresh", "ui-state", "action-buttons"],
+      "complexity": "moderate",
+      "lineRange": [74, 97]
+    },
+    {
+      "id": "function:js:data_import:start_import",
+      "type": "function",
+      "name": "start_import",
+      "summary": "Initiates the data import process by calling the server-side form_start_import method.",
+      "tags": ["import", "api-call", "action"],
+      "complexity": "simple",
+      "lineRange": [223, 233]
+    },
+    {
+      "id": "function:js:data_import:show_import_preview",
+      "type": "function",
+      "name": "show_import_preview",
+      "summary": "Renders the import file preview using the frappe.data_import.ImportPreview component, supporting column remapping and template options.",
+      "tags": ["preview", "ui-component", "column-mapping"],
+      "complexity": "moderate",
+      "lineRange": [305, 333]
+    },
+    {
+      "id": "function:js:data_import:show_import_warnings",
+      "type": "function",
+      "name": "show_import_warnings",
+      "summary": "Displays import validation warnings grouped by row number and column, rendering HTML warning panels in the form.",
+      "tags": ["warnings", "validation", "ui-rendering"],
+      "complexity": "complex",
+      "lineRange": [354, 425]
+    },
+    {
+      "id": "function:js:data_import:render_import_log",
+      "type": "function",
+      "name": "render_import_log",
+      "summary": "Fetches and renders the import log table showing success/failure status for each imported row with expandable tracebacks.",
+      "tags": ["logging", "ui-table", "error-display"],
+      "complexity": "complex",
+      "lineRange": [431, 521]
+    },
+    {
+      "id": "function:js:data_import:show_import_log",
+      "type": "function",
+      "name": "show_import_log",
+      "summary": "Controls import log visibility, rendering inline for fewer than 5000 entries or offering an export button for large logs.",
+      "tags": ["logging", "performance", "conditional-render"],
+      "complexity": "moderate",
+      "lineRange": [523, 550]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/custom_role/custom_role.py",
+      "target": "class:CustomRole",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_role/custom_role.py",
+      "target": "function:get_custom_allowed_roles",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:CustomRole",
+      "target": "function:CustomRole.validate",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:CustomRole",
+      "target": "function:CustomRole.get_permission_log_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:CustomRole",
+      "target": "file:frappe/core/doctype/custom_role/custom_role.js",
+      "type": "pairs_with",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/custom_role/test_custom_role.py",
+      "target": "class:CustomRole",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "function:js:can_export",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "function:js:export_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "function:js:set_field_options",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "function:js:make_multiselect_buttons",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "function:js:add_doctype_field_multicheck_control",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:js:export_data",
+      "target": "function:export_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:js:set_field_options",
+      "target": "function:js:make_multiselect_buttons",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:js:set_field_options",
+      "target": "function:js:add_doctype_field_multicheck_control",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.py",
+      "target": "class:DataExport",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/data_export.js",
+      "target": "class:DataExport",
+      "type": "pairs_with",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/exporter.py",
+      "target": "function:get_data_keys",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/exporter.py",
+      "target": "function:export_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/exporter.py",
+      "target": "class:DataExporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.prepare_args",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.build_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.build_field_columns",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.add_data",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.add_data_row",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.build_response_as_excel",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:DataExporter",
+      "target": "function:DataExporter.getinforow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:export_data",
+      "target": "class:DataExporter",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "function:DataExporter.build_response",
+      "target": "function:DataExporter.build_field_columns",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:DataExporter.build_response",
+      "target": "function:DataExporter.add_data",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:DataExporter.build_response",
+      "target": "function:DataExporter.build_response_as_excel",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "function:DataExporter.add_data",
+      "target": "function:DataExporter.add_data_row",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/exporter.py",
+      "target": "file:frappe/core/doctype/data_export/data_export.py",
+      "type": "supports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/test_data_exporter.py",
+      "target": "class:DataExporter",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/data_export/test_data_exporter.py",
+      "target": "class:TestDataExporter",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:TestDataExporter",
+      "target": "function:TestDataExporter.test_export_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestDataExporter",
+      "target": "function:TestDataExporter.test_export_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:setup",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:refresh",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:start_import",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:show_import_preview",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:show_import_warnings",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:render_import_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "function:js:data_import:show_import_log",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:js:data_import:show_import_log",
+      "target": "function:js:data_import:render_import_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "function:js:data_import:refresh",
+      "target": "function:js:data_import:show_import_log",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "function:js:data_import:show_import_preview",
+      "target": "function:js:data_import:show_import_warnings",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/data_import/data_import.js",
+      "target": "file:frappe/core/doctype/data_export/exporter.py",
+      "type": "references",
+      "direction": "forward",
+      "weight": 0.5
+    }
+  ]
+}

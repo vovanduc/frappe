@@ -1,0 +1,606 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/comment/comment.py",
+      "type": "file",
+      "name": "comment.py",
+      "filePath": "frappe/core/doctype/comment/comment.py",
+      "summary": "Comment DocType controller handling comment creation, caching in parent documents via _comments JSON field, and real-time notifications for likes, assignments, and attachments.",
+      "tags": ["doctype", "comment", "realtime", "cache", "document-lifecycle"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/core/doctype/comment/comment.py:Comment",
+      "type": "class",
+      "name": "Comment",
+      "lineRange": [14, 106],
+      "summary": "Document controller for Comment DocType with lifecycle hooks for inserting, validating, updating, and deleting comments, including real-time publish and cache management.",
+      "tags": ["doctype-controller", "document", "lifecycle-hooks", "realtime"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/comment/comment.py:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "lineRange": [108, 109],
+      "summary": "Adds a database index on reference_doctype and reference_name columns for the Comment table.",
+      "tags": ["database", "index", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/comment/comment.py:update_comment_in_doc",
+      "type": "function",
+      "name": "update_comment_in_doc",
+      "lineRange": [112, 152],
+      "summary": "Updates the _comments JSON cache in a parent document when a comment is added or modified, maintaining a truncated list of recent comments.",
+      "tags": ["cache", "comment", "parent-document", "json"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/comment/comment.py:get_comments_from_parent",
+      "type": "function",
+      "name": "get_comments_from_parent",
+      "lineRange": [155, 176],
+      "summary": "Retrieves the cached _comments JSON list from a parent document, handling missing tables/columns gracefully.",
+      "tags": ["cache", "database", "json", "error-handling"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/comment/comment.py:update_comments_in_parent",
+      "type": "function",
+      "name": "update_comments_in_parent",
+      "lineRange": [179, 212],
+      "summary": "Writes updated _comments JSON back to the parent document using raw SQL, limited to the last 100 comments, and clears route cache.",
+      "tags": ["cache", "database", "sql", "route-cache"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/comment/test_comment.py",
+      "type": "file",
+      "name": "test_comment.py",
+      "filePath": "frappe/core/doctype/comment/test_comment.py",
+      "summary": "Integration tests for the Comment DocType covering comment creation, _comments cache updates, public blog comments with spam/XSS filtering, and guest user restrictions.",
+      "tags": ["test", "integration-test", "comment", "security"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "class:frappe/core/doctype/comment/test_comment.py:TestComment",
+      "type": "class",
+      "name": "TestComment",
+      "lineRange": [14, 118],
+      "summary": "Integration test class for Comment DocType validating comment creation, cache consistency, public comment filtering, and permission checks for guest users.",
+      "tags": ["test-class", "integration-test", "comment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/communication/__init__.py",
+      "summary": "Empty init module for the Communication DocType package.",
+      "tags": ["init", "module", "communication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/communication.js",
+      "type": "file",
+      "name": "communication.js",
+      "filePath": "frappe/core/doctype/communication/communication.js",
+      "summary": "Client-side form controller for Communication DocType providing email actions (reply, reply all, forward), relink/move dialogs, spam/trash marking, and read/unread toggling.",
+      "tags": ["javascript", "form-controller", "email", "ui", "communication"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/communication.py",
+      "type": "file",
+      "name": "communication.py",
+      "filePath": "frappe/core/doctype/communication/communication.py",
+      "summary": "Communication DocType controller managing email communications with validation, timeline links, delivery status tracking, permission queries, and parent document updates for response time metrics.",
+      "tags": ["doctype", "communication", "email", "permissions", "timeline"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "type": "class",
+      "name": "Communication",
+      "lineRange": [34, 472],
+      "summary": "Document controller for Communication DocType with email validation, timeline link management, sender resolution, delivery status tracking, and class methods for finding communications.",
+      "tags": ["doctype-controller", "document", "email", "timeline-links", "mixin"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:on_doctype_update",
+      "type": "function",
+      "name": "on_doctype_update",
+      "lineRange": [474, 483],
+      "summary": "Adds database indexes on Communication table for status, message_id, and reference fields to optimize queries.",
+      "tags": ["database", "index", "migration"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "lineRange": [485, 495],
+      "summary": "Custom permission check for Communication that delegates read access to the referenced document's permissions.",
+      "tags": ["permissions", "security", "communication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:get_permission_query_conditions_for_communication",
+      "type": "function",
+      "name": "get_permission_query_conditions_for_communication",
+      "lineRange": [498, 520],
+      "summary": "Returns SQL conditions to filter communications based on user's email accounts, with bypass for Super Email User and System Manager roles.",
+      "tags": ["permissions", "sql", "email-account", "role-based"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:get_contacts",
+      "type": "function",
+      "name": "get_contacts",
+      "lineRange": [523, 549],
+      "summary": "Extracts contact names from email strings, optionally auto-creating Contact records for unknown email addresses.",
+      "tags": ["contacts", "email", "auto-create"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:parse_email",
+      "type": "function",
+      "name": "parse_email",
+      "lineRange": [574, 609],
+      "summary": "Parses email addresses to extract embedded DocType and document name references for automatic timeline linking per RFC5233 sub-addressing.",
+      "tags": ["email-parsing", "timeline-links", "rfc5233"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:get_email_without_link",
+      "type": "function",
+      "name": "get_email_without_link",
+      "lineRange": [612, 635],
+      "summary": "Strips DocType link information from an email address, returning the base email per RFC5233 sub-addressing convention.",
+      "tags": ["email-parsing", "rfc5233", "utility"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:update_parent_document_on_communication",
+      "type": "function",
+      "name": "update_parent_document_on_communication",
+      "lineRange": [638, 663],
+      "summary": "Updates the parent document's status, first response time, and average response time when a communication is received or sent.",
+      "tags": ["parent-document", "status", "response-time", "assignment"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:update_first_response_time",
+      "type": "function",
+      "name": "update_first_response_time",
+      "lineRange": [666, 680],
+      "summary": "Calculates and sets the first_response_time on a parent document when a system user sends the first reply communication.",
+      "tags": ["metrics", "response-time", "parent-document"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/communication.py:set_avg_response_time",
+      "type": "function",
+      "name": "set_avg_response_time",
+      "lineRange": [683, 707],
+      "summary": "Computes average response time across all sent communications for a parent document by comparing consecutive received-sent pairs.",
+      "tags": ["metrics", "response-time", "statistics"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/communication_list.js",
+      "type": "file",
+      "name": "communication_list.js",
+      "filePath": "frappe/core/doctype/communication/communication_list.js",
+      "summary": "List view settings for Communication DocType adding mark as read/unread menu actions and a compose button.",
+      "tags": ["javascript", "list-view", "communication", "email"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/email.py",
+      "type": "file",
+      "name": "email.py",
+      "filePath": "frappe/core/doctype/communication/email.py",
+      "summary": "Email communication factory providing whitelisted make() API to create Communication documents and send emails, plus email validation, attachment handling, read tracking, and undo functionality.",
+      "tags": ["email", "api", "whitelist", "attachments", "communication"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:make",
+      "type": "function",
+      "name": "make",
+      "lineRange": [33, 135],
+      "summary": "Whitelisted API endpoint to create a Communication document and optionally send it as email, with permission checks and parameter validation.",
+      "tags": ["api", "whitelist", "email", "communication"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:_make",
+      "type": "function",
+      "name": "_make",
+      "lineRange": [138, 230],
+      "summary": "Internal function to create a Communication document, add attachments, and trigger email sending without permission checks.",
+      "tags": ["email", "communication", "internal", "attachments"],
+      "complexity": "complex"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:validate_email",
+      "type": "function",
+      "name": "validate_email",
+      "lineRange": [233, 251],
+      "summary": "Validates email addresses in recipients, CC, and BCC fields of a Communication document.",
+      "tags": ["validation", "email", "communication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:add_attachments",
+      "type": "function",
+      "name": "add_attachments",
+      "lineRange": [270, 304],
+      "summary": "Attaches files to a Communication by creating File documents from file references or raw content dictionaries.",
+      "tags": ["attachments", "file", "communication"],
+      "complexity": "moderate"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:mark_email_as_seen",
+      "type": "function",
+      "name": "mark_email_as_seen",
+      "lineRange": [307, 310],
+      "summary": "Whitelisted guest-accessible GET endpoint returning a tracking pixel response and marking the email as read by recipient.",
+      "tags": ["api", "whitelist", "tracking-pixel", "read-receipt"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/email.py:undo_email_send",
+      "type": "function",
+      "name": "undo_email_send",
+      "lineRange": [337, 393],
+      "summary": "Whitelisted API to undo a recently sent email within a 10-second window by deleting the email queue and communication document.",
+      "tags": ["api", "whitelist", "undo", "email-queue"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/mixins.py",
+      "type": "file",
+      "name": "mixins.py",
+      "filePath": "frappe/core/doctype/communication/mixins.py",
+      "summary": "CommunicationEmailMixin class providing email composition logic including recipient/CC/BCC list building with display names, sender resolution, attachment handling, unsubscribe messages, and sendmail input construction.",
+      "tags": ["mixin", "email", "recipients", "sender", "attachments"],
+      "complexity": "complex"
+    },
+    {
+      "id": "class:frappe/core/doctype/communication/mixins.py:CommunicationEmailMixin",
+      "type": "class",
+      "name": "CommunicationEmailMixin",
+      "lineRange": [12, 355],
+      "summary": "Mixin class providing comprehensive email handling for Communication including recipient/CC/BCC filtering, thread notification preferences, outgoing/incoming account resolution, attachment building, and sendmail dict construction.",
+      "tags": ["mixin", "email", "recipients", "sender", "thread-notify"],
+      "complexity": "complex"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/patches/__init__.py",
+      "type": "file",
+      "name": "patches/__init__.py",
+      "filePath": "frappe/core/doctype/communication/patches/__init__.py",
+      "summary": "Empty init module for Communication patches package.",
+      "tags": ["init", "patches", "communication"],
+      "complexity": "simple"
+    },
+    {
+      "id": "file:frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py",
+      "type": "file",
+      "name": "drop_ref_dt_dn_index.py",
+      "filePath": "frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py",
+      "summary": "Database migration patch that drops an obsolete index on reference_doctype and reference_name columns from the Communication table.",
+      "tags": ["patch", "migration", "database", "index"],
+      "complexity": "simple"
+    },
+    {
+      "id": "func:frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py:execute",
+      "type": "function",
+      "name": "execute",
+      "lineRange": [5, 8],
+      "summary": "Executes the patch to drop the reference_doctype/reference_name index from the Communication table.",
+      "tags": ["patch", "migration", "database"],
+      "complexity": "simple"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "class:frappe/core/doctype/comment/comment.py:Comment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "func:frappe/core/doctype/comment/comment.py:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "func:frappe/core/doctype/comment/comment.py:update_comment_in_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "func:frappe/core/doctype/comment/comment.py:get_comments_from_parent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "func:frappe/core/doctype/comment/comment.py:update_comments_in_parent",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/test_comment.py",
+      "target": "class:frappe/core/doctype/comment/test_comment.py:TestComment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:on_doctype_update",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:has_permission",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:get_permission_query_conditions_for_communication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:get_contacts",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:parse_email",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:get_email_without_link",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:update_parent_document_on_communication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:update_first_response_time",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/communication.py:set_avg_response_time",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:_make",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:validate_email",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:add_attachments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:mark_email_as_seen",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "func:frappe/core/doctype/communication/email.py:undo_email_send",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/mixins.py",
+      "target": "class:frappe/core/doctype/communication/mixins.py:CommunicationEmailMixin",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py",
+      "target": "func:frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py:execute",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "target": "class:frappe/core/doctype/communication/mixins.py:CommunicationEmailMixin",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/comment/comment.py:update_comment_in_doc",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "func:frappe/core/doctype/communication/email.py:validate_email",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.py",
+      "target": "class:frappe/core/doctype/communication/mixins.py:CommunicationEmailMixin",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "target": "func:frappe/core/doctype/comment/comment.py:update_comment_in_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "target": "func:frappe/core/doctype/communication/email.py:validate_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/communication/email.py:make",
+      "target": "func:frappe/core/doctype/communication/email.py:_make",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/communication/email.py:_make",
+      "target": "func:frappe/core/doctype/communication/email.py:add_attachments",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/communication/email.py:mark_email_as_seen",
+      "target": "func:frappe/core/doctype/communication/email.py:mark_email_as_seen",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/communication/communication.py:update_parent_document_on_communication",
+      "target": "func:frappe/core/doctype/communication/communication.py:update_first_response_time",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:frappe/core/doctype/communication/communication.py:update_parent_document_on_communication",
+      "target": "func:frappe/core/doctype/communication/communication.py:set_avg_response_time",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/test_comment.py",
+      "target": "file:frappe/core/doctype/comment/comment.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 0.5
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication.js",
+      "target": "file:frappe/core/doctype/communication/communication.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/communication_list.js",
+      "target": "file:frappe/core/doctype/communication/communication.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/email.py",
+      "target": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/communication/patches/drop_ref_dt_dn_index.py",
+      "target": "file:frappe/core/doctype/communication/communication.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "class:frappe/core/doctype/communication/mixins.py:CommunicationEmailMixin",
+      "target": "class:frappe/core/doctype/communication/communication.py:Communication",
+      "type": "implements",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "file:frappe/core/doctype/comment/comment.py",
+      "target": "file:frappe/core/doctype/communication/communication.py",
+      "type": "depends_on",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}

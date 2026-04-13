@@ -1,0 +1,3484 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/assign_to.js",
+      "type": "file",
+      "name": "assign_to.js",
+      "summary": "Assign-to sidebar panel: add/remove assignees, dialog UI",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/form/sidebar/assign_to.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "type": "class",
+      "name": "AssignTo",
+      "summary": "Class AssignTo in assign_to.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        4,
+        97
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.constructor:5",
+      "type": "func",
+      "name": "AssignTo.constructor",
+      "summary": "Method constructor of AssignTo",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.refresh:13",
+      "type": "func",
+      "name": "AssignTo.refresh",
+      "summary": "Method refresh of AssignTo",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.render:28",
+      "type": "func",
+      "name": "AssignTo.render",
+      "summary": "Method render of AssignTo",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        28,
+        28
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.add:59",
+      "type": "func",
+      "name": "AssignTo.add",
+      "summary": "Method add of AssignTo",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        59,
+        59
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.remove:81",
+      "type": "func",
+      "name": "AssignTo.remove",
+      "summary": "Method remove of AssignTo",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        81,
+        81
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "type": "class",
+      "name": "AssignToDialog",
+      "summary": "Class AssignToDialog in assign_to.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        99,
+        249
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.constructor:100",
+      "type": "func",
+      "name": "AssignToDialog.constructor",
+      "summary": "Method constructor of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        100,
+        100
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.make:106",
+      "type": "func",
+      "name": "AssignToDialog.make",
+      "summary": "Method make of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        106,
+        106
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.assign_to_me:139",
+      "type": "func",
+      "name": "AssignToDialog.assign_to_me",
+      "summary": "Method assign_to_me of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        139,
+        139
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.user_group_list:149",
+      "type": "func",
+      "name": "AssignToDialog.user_group_list",
+      "summary": "Method user_group_list of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        149,
+        149
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.set_description_from_doc:168",
+      "type": "func",
+      "name": "AssignToDialog.set_description_from_doc",
+      "summary": "Method set_description_from_doc of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        168,
+        168
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.get_fields:175",
+      "type": "func",
+      "name": "AssignToDialog.get_fields",
+      "summary": "Method get_fields of AssignToDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        175,
+        175
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "type": "class",
+      "name": "AssignmentClass",
+      "summary": "Class AssignmentClass in assign_to.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        251,
+        355
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.constructor:252",
+      "type": "func",
+      "name": "AssignmentClass.constructor",
+      "summary": "Method constructor of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        252,
+        252
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.make_assignment_section:258",
+      "type": "func",
+      "name": "AssignmentClass.make_assignment_section",
+      "summary": "Method make_assignment_section of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        258,
+        258
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.get_assignment_row:279",
+      "type": "func",
+      "name": "AssignmentClass.get_assignment_row",
+      "summary": "Method get_assignment_row of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        279,
+        279
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.remove_assignment:336",
+      "type": "func",
+      "name": "AssignmentClass.remove_assignment",
+      "summary": "Method remove_assignment of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        336,
+        336
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.close_assignment:344",
+      "type": "func",
+      "name": "AssignmentClass.close_assignment",
+      "summary": "Method close_assignment of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        344,
+        344
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.render:352",
+      "type": "func",
+      "name": "AssignmentClass.render",
+      "summary": "Method render of AssignmentClass",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        352,
+        352
+      ]
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "type": "class",
+      "name": "AssignmentDialog",
+      "summary": "Class AssignmentDialog in assign_to.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        357,
+        425
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.constructor:358",
+      "type": "func",
+      "name": "AssignmentDialog.constructor",
+      "summary": "Method constructor of AssignmentDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        358,
+        358
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.make:363",
+      "type": "func",
+      "name": "AssignmentDialog.make",
+      "summary": "Method make of AssignmentDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        363,
+        363
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.add_assignment:407",
+      "type": "func",
+      "name": "AssignmentDialog.add_assignment",
+      "summary": "Method add_assignment of AssignmentDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        407,
+        407
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.update_assignment:419",
+      "type": "func",
+      "name": "AssignmentDialog.update_assignment",
+      "summary": "Method update_assignment of AssignmentDialog",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        419,
+        419
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/attachments.js",
+      "type": "file",
+      "name": "attachments.js",
+      "summary": "Attachments sidebar panel: upload, list, remove attachments",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/form/sidebar/attachments.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "type": "class",
+      "name": "Attachments",
+      "summary": "Class Attachments in attachments.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        3,
+        300
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.constructor:4",
+      "type": "func",
+      "name": "Attachments.constructor",
+      "summary": "Method constructor of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        4,
+        4
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.make:12",
+      "type": "func",
+      "name": "Attachments.make",
+      "summary": "Method make of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        12,
+        12
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.max_reached:30",
+      "type": "func",
+      "name": "Attachments.max_reached",
+      "summary": "Method max_reached of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        30,
+        30
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.refresh:46",
+      "type": "func",
+      "name": "Attachments.refresh",
+      "summary": "Method refresh of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        46,
+        46
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.setup_show_all_button:63",
+      "type": "func",
+      "name": "Attachments.setup_show_all_button",
+      "summary": "Method setup_show_all_button of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        63,
+        63
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_attachments:82",
+      "type": "func",
+      "name": "Attachments.get_attachments",
+      "summary": "Method get_attachments of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        82,
+        82
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.render_attachments:86",
+      "type": "func",
+      "name": "Attachments.render_attachments",
+      "summary": "Method render_attachments of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        86,
+        86
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.add_attachment:115",
+      "type": "func",
+      "name": "Attachments.add_attachment",
+      "summary": "Method add_attachment of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        115,
+        115
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.can_delete_attachment:159",
+      "type": "func",
+      "name": "Attachments.can_delete_attachment",
+      "summary": "Method can_delete_attachment of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        159,
+        159
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_file_url:174",
+      "type": "func",
+      "name": "Attachments.get_file_url",
+      "summary": "Method get_file_url of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        174,
+        174
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_file_id_from_file_url:196",
+      "type": "func",
+      "name": "Attachments.get_file_id_from_file_url",
+      "summary": "Method get_file_id_from_file_url of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        196,
+        196
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_attachment_by_filename:206",
+      "type": "func",
+      "name": "Attachments.remove_attachment_by_filename",
+      "summary": "Method remove_attachment_by_filename of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        206,
+        206
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_attachment:209",
+      "type": "func",
+      "name": "Attachments.remove_attachment",
+      "summary": "Method remove_attachment of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        209,
+        209
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.new_attachment:235",
+      "type": "func",
+      "name": "Attachments.new_attachment",
+      "summary": "Method new_attachment of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        235,
+        235
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_args:259",
+      "type": "func",
+      "name": "Attachments.get_args",
+      "summary": "Method get_args of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        259,
+        259
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.attachment_uploaded:266",
+      "type": "func",
+      "name": "Attachments.attachment_uploaded",
+      "summary": "Method attachment_uploaded of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        266,
+        266
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.update_attachment:275",
+      "type": "func",
+      "name": "Attachments.update_attachment",
+      "summary": "Method update_attachment of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        275,
+        275
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.add_to_attachments:281",
+      "type": "func",
+      "name": "Attachments.add_to_attachments",
+      "summary": "Method add_to_attachments of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        281,
+        281
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_fileid:289",
+      "type": "func",
+      "name": "Attachments.remove_fileid",
+      "summary": "Method remove_fileid of Attachments",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        289,
+        289
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/document_follow.js",
+      "type": "file",
+      "name": "document_follow.js",
+      "summary": "Document follow toggle in sidebar",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/form/sidebar/document_follow.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "type": "class",
+      "name": "DocumentFollow",
+      "summary": "Class DocumentFollow in document_follow.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        6,
+        153
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.constructor:7",
+      "type": "func",
+      "name": "DocumentFollow.constructor",
+      "summary": "Method constructor of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        7,
+        7
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.refresh:20",
+      "type": "func",
+      "name": "DocumentFollow.refresh",
+      "summary": "Method refresh of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        20,
+        20
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.render_sidebar:25",
+      "type": "func",
+      "name": "DocumentFollow.render_sidebar",
+      "summary": "Method render_sidebar of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        25,
+        25
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.bind_events:52",
+      "type": "func",
+      "name": "DocumentFollow.bind_events",
+      "summary": "Method bind_events of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        52,
+        52
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.hide_follow_section:89",
+      "type": "func",
+      "name": "DocumentFollow.hide_follow_section",
+      "summary": "Method hide_follow_section of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        89,
+        89
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.set_followers:93",
+      "type": "func",
+      "name": "DocumentFollow.set_followers",
+      "summary": "Method set_followers of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        93,
+        93
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.get_followed_user:102",
+      "type": "func",
+      "name": "DocumentFollow.get_followed_user",
+      "summary": "Method get_followed_user of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        102,
+        102
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.follow_action:129",
+      "type": "func",
+      "name": "DocumentFollow.follow_action",
+      "summary": "Method follow_action of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        129,
+        129
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.unfollow_action:142",
+      "type": "func",
+      "name": "DocumentFollow.unfollow_action",
+      "summary": "Method unfollow_action of DocumentFollow",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        142,
+        142
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/form_sidebar.js",
+      "type": "file",
+      "name": "form_sidebar.js",
+      "summary": "Form sidebar container orchestrating all panels",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/form/sidebar/form_sidebar.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "type": "class",
+      "name": "Sidebar",
+      "summary": "Class Sidebar in form_sidebar.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        9,
+        283
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.constructor:10",
+      "type": "func",
+      "name": "Sidebar.constructor",
+      "summary": "Method constructor of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make:14",
+      "type": "func",
+      "name": "Sidebar.make",
+      "summary": "Method make of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        14,
+        14
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_keyboard_shortcuts:48",
+      "type": "func",
+      "name": "Sidebar.setup_keyboard_shortcuts",
+      "summary": "Method setup_keyboard_shortcuts of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        48,
+        48
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh:54",
+      "type": "func",
+      "name": "Sidebar.refresh",
+      "summary": "Method refresh of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        54,
+        54
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_copy_event:74",
+      "type": "func",
+      "name": "Sidebar.setup_copy_event",
+      "summary": "Method setup_copy_event of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        74,
+        74
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_editable_title:83",
+      "type": "func",
+      "name": "Sidebar.setup_editable_title",
+      "summary": "Method setup_editable_title of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        83,
+        83
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_print:89",
+      "type": "func",
+      "name": "Sidebar.setup_print",
+      "summary": "Method setup_print of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        89,
+        89
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_like:116",
+      "type": "func",
+      "name": "Sidebar.make_like",
+      "summary": "Method make_like of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        116,
+        116
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_like:128",
+      "type": "func",
+      "name": "Sidebar.refresh_like",
+      "summary": "Method refresh_like of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        128,
+        128
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_web_view_count:143",
+      "type": "func",
+      "name": "Sidebar.refresh_web_view_count",
+      "summary": "Method refresh_web_view_count of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        143,
+        143
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_creation_modified:155",
+      "type": "func",
+      "name": "Sidebar.refresh_creation_modified",
+      "summary": "Method refresh_creation_modified of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        155,
+        155
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.show_auto_repeat_status:180",
+      "type": "func",
+      "name": "Sidebar.show_auto_repeat_status",
+      "summary": "Method show_auto_repeat_status of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        180,
+        180
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_tags:205",
+      "type": "func",
+      "name": "Sidebar.make_tags",
+      "summary": "Method make_tags of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        205,
+        205
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_attachments:223",
+      "type": "func",
+      "name": "Sidebar.make_attachments",
+      "summary": "Method make_attachments of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        223,
+        223
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_assignments:231",
+      "type": "func",
+      "name": "Sidebar.make_assignments",
+      "summary": "Method make_assignments of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        231,
+        231
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_shared:238",
+      "type": "func",
+      "name": "Sidebar.make_shared",
+      "summary": "Method make_shared of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        238,
+        238
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.add_user_action:245",
+      "type": "func",
+      "name": "Sidebar.add_user_action",
+      "summary": "Method add_user_action of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        245,
+        245
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.clear_user_actions:259",
+      "type": "func",
+      "name": "Sidebar.clear_user_actions",
+      "summary": "Method clear_user_actions of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        259,
+        259
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_image:265",
+      "type": "func",
+      "name": "Sidebar.refresh_image",
+      "summary": "Method refresh_image of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        265,
+        265
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.reload_docinfo:267",
+      "type": "func",
+      "name": "Sidebar.reload_docinfo",
+      "summary": "Method reload_docinfo of Sidebar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        267,
+        267
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js",
+      "type": "file",
+      "name": "form_sidebar_users.js",
+      "summary": "Shows users currently viewing the form",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/form/sidebar/form_sidebar_users.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "type": "class",
+      "name": "SidebarUsers",
+      "summary": "Class SidebarUsers in form_sidebar_users.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        1,
+        77
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.constructor:2",
+      "type": "func",
+      "name": "SidebarUsers.constructor",
+      "summary": "Method constructor of SidebarUsers",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        2,
+        2
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.get_users:6",
+      "type": "func",
+      "name": "SidebarUsers.get_users",
+      "summary": "Method get_users of SidebarUsers",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        6,
+        6
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.refresh:11",
+      "type": "func",
+      "name": "SidebarUsers.refresh",
+      "summary": "Method refresh of SidebarUsers",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        11,
+        11
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.show_in_sidebar:22",
+      "type": "func",
+      "name": "SidebarUsers.show_in_sidebar",
+      "summary": "Method show_in_sidebar of SidebarUsers",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        22,
+        22
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.show_alert:66",
+      "type": "func",
+      "name": "SidebarUsers.show_alert",
+      "summary": "Method show_alert of SidebarUsers",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        66,
+        66
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/share.js",
+      "type": "file",
+      "name": "share.js",
+      "summary": "Share sidebar panel with permission management",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "medium",
+      "filePath": "frappe/public/js/frappe/form/sidebar/share.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "type": "class",
+      "name": "Share",
+      "summary": "Class Share in share.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        4,
+        232
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.constructor:5",
+      "type": "func",
+      "name": "Share.constructor",
+      "summary": "Method constructor of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.refresh:9",
+      "type": "func",
+      "name": "Share.refresh",
+      "summary": "Method refresh of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        9,
+        9
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.render_sidebar:12",
+      "type": "func",
+      "name": "Share.render_sidebar",
+      "summary": "Method render_sidebar of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        12,
+        12
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.show:53",
+      "type": "func",
+      "name": "Share.show",
+      "summary": "Method show of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        53,
+        53
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.render_shared:82",
+      "type": "func",
+      "name": "Share.render_shared",
+      "summary": "Method render_shared of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        82,
+        82
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.make_user_input:113",
+      "type": "func",
+      "name": "Share.make_user_input",
+      "summary": "Method make_user_input of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        113,
+        113
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.add_share_button:131",
+      "type": "func",
+      "name": "Share.add_share_button",
+      "summary": "Method add_share_button of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        131,
+        131
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.set_edit_share_events:185",
+      "type": "func",
+      "name": "Share.set_edit_share_events",
+      "summary": "Method set_edit_share_events of Share",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        185,
+        185
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/sidebar/user_image.js",
+      "type": "file",
+      "name": "user_image.js",
+      "summary": "User image/avatar rendering for sidebar",
+      "tags": [
+        "javascript",
+        "form",
+        "sidebar"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/form/sidebar/user_image.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/success_action.js",
+      "type": "file",
+      "name": "success_action.js",
+      "summary": "Post-submit success action UI",
+      "tags": [
+        "javascript",
+        "form"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/form/success_action.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "type": "class",
+      "name": "SuccessAction",
+      "summary": "Class SuccessAction in success_action.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        4,
+        106
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.constructor:5",
+      "type": "func",
+      "name": "SuccessAction.constructor",
+      "summary": "Method constructor of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        5,
+        5
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.load_setting:10",
+      "type": "func",
+      "name": "SuccessAction.load_setting",
+      "summary": "Method load_setting of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        10,
+        10
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.show:16",
+      "type": "func",
+      "name": "SuccessAction.show",
+      "summary": "Method show of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        16,
+        16
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.prepare_dom:24",
+      "type": "func",
+      "name": "SuccessAction.prepare_dom",
+      "summary": "Method prepare_dom of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        24,
+        24
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.show_alert:31",
+      "type": "func",
+      "name": "SuccessAction.show_alert",
+      "summary": "Method show_alert of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        31,
+        31
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.get_actions:60",
+      "type": "func",
+      "name": "SuccessAction.get_actions",
+      "summary": "Method get_actions of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        60,
+        60
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.is_first_creation:97",
+      "type": "func",
+      "name": "SuccessAction.is_first_creation",
+      "summary": "Method is_first_creation of SuccessAction",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        97,
+        97
+      ]
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/tab.js",
+      "type": "file",
+      "name": "tab.js",
+      "summary": "Form tab rendering and state",
+      "tags": [
+        "javascript",
+        "form"
+      ],
+      "complexity": "low",
+      "filePath": "frappe/public/js/frappe/form/tab.js"
+    },
+    {
+      "id": "file:frappe/public/js/frappe/form/toolbar.js",
+      "type": "file",
+      "name": "toolbar.js",
+      "summary": "Form toolbar: save/delete/menu/actions buttons",
+      "tags": [
+        "javascript",
+        "form",
+        "toolbar"
+      ],
+      "complexity": "high",
+      "filePath": "frappe/public/js/frappe/form/toolbar.js"
+    },
+    {
+      "id": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "type": "class",
+      "name": "Toolbar",
+      "summary": "Class Toolbar in toolbar.js",
+      "tags": [
+        "javascript",
+        "class"
+      ],
+      "complexity": "medium",
+      "lineRange": [
+        7,
+        951
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.constructor:8",
+      "type": "func",
+      "name": "Toolbar.constructor",
+      "summary": "Method constructor of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        8,
+        8
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.refresh:13",
+      "type": "func",
+      "name": "Toolbar.refresh",
+      "summary": "Method refresh of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        13,
+        13
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_title:44",
+      "type": "func",
+      "name": "Toolbar.set_title",
+      "summary": "Method set_title of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        44,
+        44
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.is_title_editable:82",
+      "type": "func",
+      "name": "Toolbar.is_title_editable",
+      "summary": "Method is_title_editable of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        82,
+        82
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_rename:107",
+      "type": "func",
+      "name": "Toolbar.can_rename",
+      "summary": "Method can_rename of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        107,
+        107
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_unchanged_document_alert:110",
+      "type": "func",
+      "name": "Toolbar.show_unchanged_document_alert",
+      "summary": "Method show_unchanged_document_alert of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        110,
+        110
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.rename_document_title:116",
+      "type": "func",
+      "name": "Toolbar.rename_document_title",
+      "summary": "Method rename_document_title of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        116,
+        116
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_editable_title:204",
+      "type": "func",
+      "name": "Toolbar.setup_editable_title",
+      "summary": "Method setup_editable_title of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        204,
+        204
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_editable_title_click_event:222",
+      "type": "func",
+      "name": "Toolbar.setup_editable_title_click_event",
+      "summary": "Method setup_editable_title_click_event of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        222,
+        222
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_dropdown_menu:306",
+      "type": "func",
+      "name": "Toolbar.get_dropdown_menu",
+      "summary": "Method get_dropdown_menu of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        306,
+        306
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_indicator:309",
+      "type": "func",
+      "name": "Toolbar.set_indicator",
+      "summary": "Method set_indicator of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        309,
+        309
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_menu:327",
+      "type": "func",
+      "name": "Toolbar.make_menu",
+      "summary": "Method make_menu of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        327,
+        327
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_navigation:340",
+      "type": "func",
+      "name": "Toolbar.make_navigation",
+      "summary": "Method make_navigation of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        340,
+        340
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_menu_items:362",
+      "type": "func",
+      "name": "Toolbar.make_menu_items",
+      "summary": "Method make_menu_items of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        362,
+        362
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_discard:385",
+      "type": "func",
+      "name": "Toolbar.add_discard",
+      "summary": "Method add_discard of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        385,
+        385
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_email:401",
+      "type": "func",
+      "name": "Toolbar.add_email",
+      "summary": "Method add_email of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        401,
+        401
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_jump_to_field:418",
+      "type": "func",
+      "name": "Toolbar.add_jump_to_field",
+      "summary": "Method add_jump_to_field of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        418,
+        418
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_show_links:430",
+      "type": "func",
+      "name": "Toolbar.add_show_links",
+      "summary": "Method add_show_links of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        430,
+        430
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_duplicate:442",
+      "type": "func",
+      "name": "Toolbar.add_duplicate",
+      "summary": "Method add_duplicate of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        442,
+        442
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_rename:455",
+      "type": "func",
+      "name": "Toolbar.add_rename",
+      "summary": "Method add_rename of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        455,
+        455
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_open_sidebar:467",
+      "type": "func",
+      "name": "Toolbar.add_open_sidebar",
+      "summary": "Method add_open_sidebar of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        467,
+        467
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_reload:480",
+      "type": "func",
+      "name": "Toolbar.add_reload",
+      "summary": "Method add_reload of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        480,
+        480
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_delete:491",
+      "type": "func",
+      "name": "Toolbar.add_delete",
+      "summary": "Method add_delete of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        491,
+        491
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_remind_me:513",
+      "type": "func",
+      "name": "Toolbar.add_remind_me",
+      "summary": "Method add_remind_me of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        513,
+        513
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_follow:528",
+      "type": "func",
+      "name": "Toolbar.add_follow",
+      "summary": "Method add_follow of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        528,
+        528
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_copy_to_clipboard:540",
+      "type": "func",
+      "name": "Toolbar.add_copy_to_clipboard",
+      "summary": "Method add_copy_to_clipboard of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        540,
+        540
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_undo_redo:551",
+      "type": "func",
+      "name": "Toolbar.add_undo_redo",
+      "summary": "Method add_undo_redo of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        551,
+        551
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_auto_repeat:579",
+      "type": "func",
+      "name": "Toolbar.add_auto_repeat",
+      "summary": "Method add_auto_repeat of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        579,
+        579
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_new:592",
+      "type": "func",
+      "name": "Toolbar.add_new",
+      "summary": "Method add_new of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        592,
+        592
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_audit_trail:610",
+      "type": "func",
+      "name": "Toolbar.add_audit_trail",
+      "summary": "Method add_audit_trail of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        610,
+        610
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_customize_buttons:625",
+      "type": "func",
+      "name": "Toolbar.make_customize_buttons",
+      "summary": "Method make_customize_buttons of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        625,
+        625
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_repeat:665",
+      "type": "func",
+      "name": "Toolbar.can_repeat",
+      "summary": "Method can_repeat of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        665,
+        665
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_save:668",
+      "type": "func",
+      "name": "Toolbar.can_save",
+      "summary": "Method can_save of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        668,
+        668
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_submit:671",
+      "type": "func",
+      "name": "Toolbar.can_submit",
+      "summary": "Method can_submit of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        671,
+        671
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_update:681",
+      "type": "func",
+      "name": "Toolbar.can_update",
+      "summary": "Method can_update of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        681,
+        681
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_cancel:689",
+      "type": "func",
+      "name": "Toolbar.can_cancel",
+      "summary": "Method can_cancel of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        689,
+        689
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_amend:692",
+      "type": "func",
+      "name": "Toolbar.can_amend",
+      "summary": "Method can_amend of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        692,
+        692
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.has_workflow:695",
+      "type": "func",
+      "name": "Toolbar.has_workflow",
+      "summary": "Method has_workflow of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        695,
+        695
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_docstatus:700",
+      "type": "func",
+      "name": "Toolbar.get_docstatus",
+      "summary": "Method get_docstatus of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        700,
+        700
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_linked_with:703",
+      "type": "func",
+      "name": "Toolbar.show_linked_with",
+      "summary": "Method show_linked_with of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        703,
+        703
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_primary_action:711",
+      "type": "func",
+      "name": "Toolbar.set_primary_action",
+      "summary": "Method set_primary_action of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        711,
+        711
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_action_status:750",
+      "type": "func",
+      "name": "Toolbar.get_action_status",
+      "summary": "Method get_action_status of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        750,
+        750
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_page_actions:772",
+      "type": "func",
+      "name": "Toolbar.set_page_actions",
+      "summary": "Method set_page_actions of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        772,
+        772
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_update_button_on_dirty:835",
+      "type": "func",
+      "name": "Toolbar.add_update_button_on_dirty",
+      "summary": "Method add_update_button_on_dirty of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        835,
+        835
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_title_as_dirty:849",
+      "type": "func",
+      "name": "Toolbar.show_title_as_dirty",
+      "summary": "Method show_title_as_dirty of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        849,
+        849
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_jump_to_field_dialog:859",
+      "type": "func",
+      "name": "Toolbar.show_jump_to_field_dialog",
+      "summary": "Method show_jump_to_field_dialog of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        859,
+        859
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_sidebar_toggle:891",
+      "type": "func",
+      "name": "Toolbar.setup_sidebar_toggle",
+      "summary": "Method setup_sidebar_toggle of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        891,
+        891
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_overlay_sidebar:900",
+      "type": "func",
+      "name": "Toolbar.setup_overlay_sidebar",
+      "summary": "Method setup_overlay_sidebar of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        900,
+        900
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.follow:920",
+      "type": "func",
+      "name": "Toolbar.follow",
+      "summary": "Method follow of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        920,
+        920
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_follow_text:941",
+      "type": "func",
+      "name": "Toolbar.get_follow_text",
+      "summary": "Method get_follow_text of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        941,
+        941
+      ]
+    },
+    {
+      "id": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.refresh_follow:948",
+      "type": "func",
+      "name": "Toolbar.refresh_follow",
+      "summary": "Method refresh_follow of Toolbar",
+      "tags": [
+        "javascript",
+        "method"
+      ],
+      "complexity": "low",
+      "lineRange": [
+        948,
+        948
+      ]
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/assign_to.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.constructor:5",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.refresh:13",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.render:28",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.add:59",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignTo.remove:81",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/assign_to.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.constructor:100",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.make:106",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.assign_to_me:139",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.user_group_list:149",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.set_description_from_doc:168",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignToDialog.get_fields:175",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/assign_to.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.constructor:252",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.make_assignment_section:258",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.get_assignment_row:279",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.remove_assignment:336",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.close_assignment:344",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentClass.render:352",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/assign_to.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "target": "class:?:frappe.ui.form.AssignmentClass",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.constructor:358",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.make:363",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.add_assignment:407",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog",
+      "target": "func:frappe/public/js/frappe/form/sidebar/assign_to.js:AssignmentDialog.update_assignment:419",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/attachments.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.constructor:4",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.make:12",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.max_reached:30",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.refresh:46",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.setup_show_all_button:63",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_attachments:82",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.render_attachments:86",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.add_attachment:115",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.can_delete_attachment:159",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_file_url:174",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_file_id_from_file_url:196",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_attachment_by_filename:206",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_attachment:209",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.new_attachment:235",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.get_args:259",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.attachment_uploaded:266",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.update_attachment:275",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.add_to_attachments:281",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments",
+      "target": "func:frappe/public/js/frappe/form/sidebar/attachments.js:Attachments.remove_fileid:289",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/document_follow.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.constructor:7",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.refresh:20",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.render_sidebar:25",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.bind_events:52",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.hide_follow_section:89",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.set_followers:93",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.get_followed_user:102",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.follow_action:129",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow",
+      "target": "func:frappe/public/js/frappe/form/sidebar/document_follow.js:DocumentFollow.unfollow_action:142",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/form_sidebar.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.constructor:10",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make:14",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_keyboard_shortcuts:48",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh:54",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_copy_event:74",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_editable_title:83",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.setup_print:89",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_like:116",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_like:128",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_web_view_count:143",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_creation_modified:155",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.show_auto_repeat_status:180",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_tags:205",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_attachments:223",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_assignments:231",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.make_shared:238",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.add_user_action:245",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.clear_user_actions:259",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.refresh_image:265",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar.js:Sidebar.reload_docinfo:267",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/form_sidebar.js",
+      "target": "module:../footer/version_timeline_content_builder",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.constructor:2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.get_users:6",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.refresh:11",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.show_in_sidebar:22",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers",
+      "target": "func:frappe/public/js/frappe/form/sidebar/form_sidebar_users.js:SidebarUsers.show_alert:66",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/sidebar/share.js",
+      "target": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.constructor:5",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.refresh:9",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.render_sidebar:12",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.show:53",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.render_shared:82",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.make_user_input:113",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.add_share_button:131",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/sidebar/share.js:Share",
+      "target": "func:frappe/public/js/frappe/form/sidebar/share.js:Share.set_edit_share_events:185",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/success_action.js",
+      "target": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.constructor:5",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.load_setting:10",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.show:16",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.prepare_dom:24",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.show_alert:31",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.get_actions:60",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/success_action.js:SuccessAction",
+      "target": "func:frappe/public/js/frappe/form/success_action.js:SuccessAction.is_first_creation:97",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/tab.js",
+      "target": "file:frappe/public/js/frappe/form/tab.js",
+      "type": "exports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/toolbar.js",
+      "target": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.constructor:8",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.refresh:13",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_title:44",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.is_title_editable:82",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_rename:107",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_unchanged_document_alert:110",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.rename_document_title:116",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_editable_title:204",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_editable_title_click_event:222",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_dropdown_menu:306",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_indicator:309",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_menu:327",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_navigation:340",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_menu_items:362",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_discard:385",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_email:401",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_jump_to_field:418",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_show_links:430",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_duplicate:442",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_rename:455",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_open_sidebar:467",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_reload:480",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_delete:491",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_remind_me:513",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_follow:528",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_copy_to_clipboard:540",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_undo_redo:551",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_auto_repeat:579",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_new:592",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_audit_trail:610",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.make_customize_buttons:625",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_repeat:665",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_save:668",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_submit:671",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_update:681",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_cancel:689",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.can_amend:692",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.has_workflow:695",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_docstatus:700",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_linked_with:703",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_primary_action:711",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_action_status:750",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.set_page_actions:772",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.add_update_button_on_dirty:835",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_title_as_dirty:849",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.show_jump_to_field_dialog:859",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_sidebar_toggle:891",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.setup_overlay_sidebar:900",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.follow:920",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.get_follow_text:941",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "class:frappe/public/js/frappe/form/toolbar.js:Toolbar",
+      "target": "func:frappe/public/js/frappe/form/toolbar.js:Toolbar.refresh_follow:948",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/public/js/frappe/form/toolbar.js",
+      "target": "module:./reminders",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    }
+  ]
+}

@@ -1,0 +1,561 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/core/doctype/user_group_member/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_group_member/__init__.py",
+      "summary": "Empty init file for user_group_member module.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group_member/test_user_group_member.py",
+      "type": "file",
+      "name": "test_user_group_member.py",
+      "filePath": "frappe/core/doctype/user_group_member/test_user_group_member.py",
+      "summary": "Empty test stub for UserGroupMember doctype.",
+      "tags": ["core", "doctype", "test"],
+      "complexity": 1
+    },
+    {
+      "id": "class:TestUserGroupMember",
+      "type": "class",
+      "name": "TestUserGroupMember",
+      "filePath": "frappe/core/doctype/user_group_member/test_user_group_member.py",
+      "lineRange": [7, 8],
+      "summary": "Empty integration test case for UserGroupMember doctype.",
+      "tags": ["test", "integration"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group_member/user_group_member.js",
+      "type": "file",
+      "name": "user_group_member.js",
+      "filePath": "frappe/core/doctype/user_group_member/user_group_member.js",
+      "summary": "Empty client-side form controller for UserGroupMember doctype.",
+      "tags": ["core", "doctype", "javascript", "form"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_group_member/user_group_member.py",
+      "type": "file",
+      "name": "user_group_member.py",
+      "filePath": "frappe/core/doctype/user_group_member/user_group_member.py",
+      "summary": "Python controller for UserGroupMember doctype - a child table row representing a member in a User Group with a link to User.",
+      "tags": ["core", "doctype", "model", "child-table"],
+      "complexity": 1
+    },
+    {
+      "id": "class:UserGroupMember",
+      "type": "class",
+      "name": "UserGroupMember",
+      "filePath": "frappe/core/doctype/user_group_member/user_group_member.py",
+      "lineRange": [8, 23],
+      "summary": "Child document representing a user group member. Has a 'user' Link field. No custom logic (pass-through).",
+      "tags": ["doctype", "child-table", "model"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_invitation/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_invitation/__init__.py",
+      "summary": "Empty init file for user_invitation module.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/user_invitation/user_invitation.py",
+      "type": "file",
+      "name": "user_invitation.py",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "summary": "Python controller for UserInvitation doctype. Handles full invitation lifecycle: creation with validation, email sending, acceptance (user upsert with roles), cancellation, expiration, and permission checks. Includes module-level functions for marking expired invitations, computing allowed apps, and permission query conditions.",
+      "tags": ["core", "doctype", "invitation", "email", "permissions", "lifecycle"],
+      "complexity": 4
+    },
+    {
+      "id": "class:UserInvitation",
+      "type": "class",
+      "name": "UserInvitation",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [11, 204],
+      "summary": "Document controller for user invitations. Manages invitation workflow: validates email/roles/app, sends invitation email with hashed key link, handles accept (creates or updates User with roles), cancel (sends cancellation email), and expire (notifies inviter). Uses hooks system for app-specific role restrictions and after-accept callbacks.",
+      "tags": ["doctype", "invitation", "lifecycle", "email", "hooks", "permissions"],
+      "complexity": 4
+    },
+    {
+      "id": "func:UserInvitation.before_insert",
+      "type": "function",
+      "name": "before_insert",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [33, 36],
+      "summary": "Lifecycle hook that validates the invitation, sets invited_by and status to Pending before insert.",
+      "tags": ["lifecycle", "validation"],
+      "complexity": 1
+    },
+    {
+      "id": "func:UserInvitation.accept",
+      "type": "function",
+      "name": "accept",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [41, 48],
+      "summary": "Accepts the invitation: updates status, upserts the User document with assigned roles, saves both documents, and runs after_accept hooks.",
+      "tags": ["invitation", "accept", "user-management"],
+      "complexity": 3
+    },
+    {
+      "id": "func:UserInvitation.cancel_invite",
+      "type": "function",
+      "name": "cancel_invite",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [50, 64],
+      "summary": "Whitelisted method to cancel a pending invitation. Sets status to Cancelled and sends cancellation notification email.",
+      "tags": ["invitation", "cancel", "email", "whitelisted"],
+      "complexity": 2
+    },
+    {
+      "id": "func:UserInvitation.expire",
+      "type": "function",
+      "name": "expire",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [66, 80],
+      "summary": "Whitelisted method to expire a pending invitation. Sets status to Expired and notifies the inviter via email.",
+      "tags": ["invitation", "expire", "email", "whitelisted"],
+      "complexity": 2
+    },
+    {
+      "id": "func:UserInvitation._validate_invite",
+      "type": "function",
+      "name": "_validate_invite",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [82, 102],
+      "summary": "Validates invitation: checks app name, roles, email format, ensures no duplicate accepted/pending invitations exist, and verifies user is not disabled.",
+      "tags": ["validation", "invitation"],
+      "complexity": 3
+    },
+    {
+      "id": "func:UserInvitation._after_insert",
+      "type": "function",
+      "name": "_after_insert",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [104, 119],
+      "summary": "Generates a hashed key, constructs an invitation link, sends the invitation email, and records the email_sent_at timestamp.",
+      "tags": ["email", "invitation", "hash"],
+      "complexity": 2
+    },
+    {
+      "id": "func:UserInvitation._upsert_user",
+      "type": "function",
+      "name": "_upsert_user",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [133, 147],
+      "summary": "Creates a new User if one doesn't exist, or fetches the existing one. Appends invitation roles to the user.",
+      "tags": ["user-management", "upsert"],
+      "complexity": 2
+    },
+    {
+      "id": "func:mark_expired_invitations",
+      "type": "function",
+      "name": "mark_expired_invitations",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [207, 217],
+      "summary": "Scheduled job that marks pending invitations older than 3 days as expired, committing after each to avoid timeout data loss.",
+      "tags": ["scheduled-job", "invitation", "expiry"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_allowed_apps",
+      "type": "function",
+      "name": "get_allowed_apps",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [220, 230],
+      "summary": "Returns list of installed apps where the user's roles intersect with the app's user_invitation allowed_roles hook.",
+      "tags": ["permissions", "hooks", "apps"],
+      "complexity": 2
+    },
+    {
+      "id": "func:get_permission_query_conditions",
+      "type": "function",
+      "name": "get_permission_query_conditions",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [233, 242],
+      "summary": "Returns SQL WHERE clause restricting User Invitation visibility to allowed apps. System Managers see all.",
+      "tags": ["permissions", "query", "sql"],
+      "complexity": 2
+    },
+    {
+      "id": "func:has_permission",
+      "type": "function",
+      "name": "has_permission",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.py",
+      "lineRange": [245, 248],
+      "summary": "Document-level permission check: allows all except delete if app_name is in user's allowed apps.",
+      "tags": ["permissions"],
+      "complexity": 1
+    },
+    {
+      "id": "file:frappe/core/doctype/user_invitation/user_invitation.js",
+      "type": "file",
+      "name": "user_invitation.js",
+      "filePath": "frappe/core/doctype/user_invitation/user_invitation.js",
+      "summary": "Client-side form controller for UserInvitation. On refresh, fetches installed apps to populate app_name dropdown and adds a Cancel button for pending invitations.",
+      "tags": ["core", "doctype", "javascript", "form", "invitation"],
+      "complexity": 2
+    },
+    {
+      "id": "file:frappe/core/doctype/user_invitation/test_user_invitation.py",
+      "type": "file",
+      "name": "test_user_invitation.py",
+      "filePath": "frappe/core/doctype/user_invitation/test_user_invitation.py",
+      "summary": "Comprehensive integration tests for UserInvitation: tests insert, expire, cancel, accept with redirect, invite-by-email API, pending invitations API, and disabled user handling.",
+      "tags": ["test", "integration", "invitation"],
+      "complexity": 4
+    },
+    {
+      "id": "class:IntegrationTestUserInvitation",
+      "type": "class",
+      "name": "IntegrationTestUserInvitation",
+      "filePath": "frappe/core/doctype/user_invitation/test_user_invitation.py",
+      "lineRange": [27, 291],
+      "summary": "Integration test class with 12 test methods covering the full UserInvitation lifecycle: insertion, expiration, cancellation, acceptance (with password redirect and direct redirect), invite-by-email API, pending invitations query, and cancel API.",
+      "tags": ["test", "integration", "invitation"],
+      "complexity": 4
+    },
+    {
+      "id": "file:frappe/core/doctype/user_permission/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "filePath": "frappe/core/doctype/user_permission/__init__.py",
+      "summary": "Empty init file for user_permission module.",
+      "tags": ["core", "doctype", "init"],
+      "complexity": 0
+    },
+    {
+      "id": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "type": "file",
+      "name": "test_user_permission.py",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "summary": "Integration tests for UserPermission doctype: tests default validation, apply-to-all vs applicable doctypes toggling, nested doctype visibility with hide_descendants, and user permission impact on frappe.new_doc defaults (both field defaults and session defaults).",
+      "tags": ["test", "integration", "permissions", "user-permission"],
+      "complexity": 4
+    },
+    {
+      "id": "class:TestUserPermission",
+      "type": "class",
+      "name": "TestUserPermission",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [14, 286],
+      "summary": "Integration tests for UserPermission with 8 test methods covering: default permission validation, apply-to-all creation/updates, applicable doctype switching, nested tree doctype visibility (including hide_descendants), and new_doc default value behavior with field and session defaults.",
+      "tags": ["test", "integration", "permissions"],
+      "complexity": 4
+    },
+    {
+      "id": "func:test_user_perm_for_nested_doctype",
+      "type": "function",
+      "name": "test_user_perm_for_nested_doctype",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [146, 202],
+      "summary": "Tests user permission on tree (nested) doctypes: verifies that permissions on a parent group record cascade to children, and that hide_descendants flag properly restricts child visibility.",
+      "tags": ["test", "permissions", "tree", "nested"],
+      "complexity": 4
+    },
+    {
+      "id": "func:test_user_perm_on_new_doc_with_field_default",
+      "type": "function",
+      "name": "test_user_perm_on_new_doc_with_field_default",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [204, 237],
+      "summary": "Tests that user permissions restricted to a specific applicable doctype don't interfere with field default values on unrelated doctypes when creating new documents.",
+      "tags": ["test", "permissions", "defaults"],
+      "complexity": 3
+    },
+    {
+      "id": "func:test_user_perm_on_new_doc_with_user_default",
+      "type": "function",
+      "name": "test_user_perm_on_new_doc_with_user_default",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [239, 286],
+      "summary": "Tests that user permissions restricted to a specific applicable doctype don't interfere with session default values on unrelated doctypes when creating new documents.",
+      "tags": ["test", "permissions", "defaults", "session"],
+      "complexity": 3
+    },
+    {
+      "id": "func:create_user_helper",
+      "type": "function",
+      "name": "create_user",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [289, 303],
+      "summary": "Test helper function to create a User with specified roles (defaults to System Manager). Returns existing user if already created.",
+      "tags": ["test", "helper", "user"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_params_helper",
+      "type": "function",
+      "name": "get_params",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [306, 320],
+      "summary": "Test helper that builds parameter dict for add_user_permissions with user, doctype, docname, default flag, hide_descendants, and optional applicable doctypes.",
+      "tags": ["test", "helper"],
+      "complexity": 1
+    },
+    {
+      "id": "func:get_exists_param_helper",
+      "type": "function",
+      "name": "get_exists_param",
+      "filePath": "frappe/core/doctype/user_permission/test_user_permission.py",
+      "lineRange": [323, 334],
+      "summary": "Test helper that builds parameter dict for checking if a User Permission document exists.",
+      "tags": ["test", "helper"],
+      "complexity": 1
+    }
+  ],
+  "edges": [
+    {
+      "source": "class:UserGroupMember",
+      "target": "file:frappe/core/doctype/user_group_member/user_group_member.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserGroupMember",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:TestUserGroupMember",
+      "target": "class:UserGroupMember",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:UserInvitation",
+      "target": "file:frappe/core/doctype/user_invitation/user_invitation.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "class:UserInvitation",
+      "target": "class:Document",
+      "type": "extends",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:UserInvitation.before_insert",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:UserInvitation.accept",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:UserInvitation.cancel_invite",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:UserInvitation.expire",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:UserInvitation._validate_invite",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:UserInvitation._after_insert",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:UserInvitation._upsert_user",
+      "target": "class:UserInvitation",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:UserInvitation.accept",
+      "target": "func:UserInvitation._upsert_user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:UserInvitation.before_insert",
+      "target": "func:UserInvitation._validate_invite",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:mark_expired_invitations",
+      "target": "class:UserInvitation",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:mark_expired_invitations",
+      "target": "func:UserInvitation.expire",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:get_allowed_apps",
+      "target": "class:UserInvitation",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "func:get_permission_query_conditions",
+      "target": "func:get_allowed_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:has_permission",
+      "target": "func:get_allowed_apps",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "class:IntegrationTestUserInvitation",
+      "target": "class:UserInvitation",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "class:IntegrationTestUserInvitation",
+      "target": "func:mark_expired_invitations",
+      "type": "tests",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_invitation/test_user_invitation.py",
+      "target": "file:frappe/core/doctype/user_invitation/user_invitation.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "file:frappe/core/doctype/user_invitation/user_invitation.js",
+      "target": "class:UserInvitation",
+      "type": "client_controller_for",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestUserPermission",
+      "target": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 1.0
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "target": "file:frappe/core/doctype/user_permission/user_permission.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.8
+    },
+    {
+      "source": "func:test_user_perm_for_nested_doctype",
+      "target": "class:TestUserPermission",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:test_user_perm_on_new_doc_with_field_default",
+      "target": "class:TestUserPermission",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:test_user_perm_on_new_doc_with_user_default",
+      "target": "class:TestUserPermission",
+      "type": "method_of",
+      "direction": "forward",
+      "weight": 0.9
+    },
+    {
+      "source": "func:create_user_helper",
+      "target": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_params_helper",
+      "target": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "func:get_exists_param_helper",
+      "target": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "type": "defined_in",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestUserPermission",
+      "target": "func:create_user_helper",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "class:TestUserPermission",
+      "target": "func:get_params_helper",
+      "type": "uses",
+      "direction": "forward",
+      "weight": 0.7
+    },
+    {
+      "source": "file:frappe/core/doctype/user_invitation/user_invitation.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    },
+    {
+      "source": "file:frappe/core/doctype/user_permission/test_user_permission.py",
+      "target": "file:frappe/permissions.py",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 0.6
+    }
+  ]
+}
