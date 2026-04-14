@@ -1,0 +1,30 @@
+{
+  "nodes": [
+    {"id": "file:frappe/printing/print_style/classic/__init__.py", "type": "file", "name": "classic/__init__.py", "summary": "Empty init for classic print style package", "tags": ["printing", "print-style"], "complexity": {"filePath": "frappe/printing/print_style/classic/__init__.py"}},
+    {"id": "file:frappe/printing/print_style/modern/__init__.py", "type": "file", "name": "modern/__init__.py", "summary": "Empty init for modern print style package", "tags": ["printing", "print-style"], "complexity": {"filePath": "frappe/printing/print_style/modern/__init__.py"}},
+    {"id": "file:frappe/printing/print_style/monochrome/__init__.py", "type": "file", "name": "monochrome/__init__.py", "summary": "Empty init for monochrome print style package", "tags": ["printing", "print-style"], "complexity": {"filePath": "frappe/printing/print_style/monochrome/__init__.py"}},
+    {"id": "file:frappe/printing/print_style/redesign/__init__.py", "type": "file", "name": "redesign/__init__.py", "summary": "Empty init for redesign print style package", "tags": ["printing", "print-style"], "complexity": {"filePath": "frappe/printing/print_style/redesign/__init__.py"}},
+    {"id": "file:frappe/website/__init__.py", "type": "file", "name": "website/__init__.py", "summary": "Website subsystem package init", "tags": ["website"], "complexity": {"filePath": "frappe/website/__init__.py"}},
+    {"id": "file:frappe/website/dashboard_fixtures.py", "type": "file", "name": "dashboard_fixtures.py", "summary": "Provides default Website dashboard and chart fixtures (Website Analytics)", "tags": ["website", "dashboard", "fixtures"], "complexity": {"filePath": "frappe/website/dashboard_fixtures.py"}},
+    {"id": "func:frappe/website/dashboard_fixtures.py:get_data", "type": "function", "name": "get_data", "summary": "Returns dashboards, charts, number_cards dict for Website module", "tags": ["fixtures"], "complexity": {"lineRange": "4-11"}},
+    {"id": "func:frappe/website/dashboard_fixtures.py:get_dashboards", "type": "function", "name": "get_dashboards", "summary": "Returns the Website dashboard definition", "tags": ["fixtures"], "complexity": {"lineRange": "14-21"}},
+    {"id": "func:frappe/website/dashboard_fixtures.py:get_charts", "type": "function", "name": "get_charts", "summary": "Returns Website Analytics chart definition", "tags": ["fixtures"], "complexity": {"lineRange": "24-43"}},
+    {"id": "file:frappe/website/doctype/__init__.py", "type": "file", "name": "doctype/__init__.py", "summary": "Website doctypes package init", "tags": ["website", "doctype"], "complexity": {"filePath": "frappe/website/doctype/__init__.py"}},
+    {"id": "file:frappe/website/doctype/about_us_settings/__init__.py", "type": "file", "name": "about_us_settings/__init__.py", "summary": "About Us Settings package init", "tags": ["website", "doctype"], "complexity": {"filePath": "frappe/website/doctype/about_us_settings/__init__.py"}},
+    {"id": "file:frappe/website/doctype/about_us_settings/about_us_settings.js", "type": "file", "name": "about_us_settings.js", "summary": "Client-side controller for About Us Settings DocType", "tags": ["website", "doctype", "client"], "complexity": {"filePath": "frappe/website/doctype/about_us_settings/about_us_settings.js"}},
+    {"id": "file:frappe/website/doctype/about_us_settings/about_us_settings.py", "type": "file", "name": "about_us_settings.py", "summary": "Server controller for About Us Settings single DocType; clears 'about' page cache on update", "tags": ["website", "doctype", "controller"], "complexity": {"filePath": "frappe/website/doctype/about_us_settings/about_us_settings.py"}},
+    {"id": "class:frappe/website/doctype/about_us_settings/about_us_settings.py:AboutUsSettings", "type": "class", "name": "AboutUsSettings", "summary": "Single DocType controller for About Us page content (intro, team, history); triggers cache clear on update", "tags": ["doctype", "controller"], "complexity": {"lineRange": "10-35"}},
+    {"id": "func:frappe/website/doctype/about_us_settings/about_us_settings.py:get_args", "type": "function", "name": "get_args", "summary": "Template helper returning About Us Settings doc as context obj", "tags": ["template"], "complexity": {"lineRange": "38-40"}}
+  ],
+  "edges": [
+    {"source": "file:frappe/website/dashboard_fixtures.py", "target": "func:frappe/website/dashboard_fixtures.py:get_data", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/dashboard_fixtures.py", "target": "func:frappe/website/dashboard_fixtures.py:get_dashboards", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/dashboard_fixtures.py", "target": "func:frappe/website/dashboard_fixtures.py:get_charts", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/dashboard_fixtures.py", "target": "module:frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/doctype/about_us_settings/about_us_settings.py", "target": "class:frappe/website/doctype/about_us_settings/about_us_settings.py:AboutUsSettings", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/doctype/about_us_settings/about_us_settings.py", "target": "func:frappe/website/doctype/about_us_settings/about_us_settings.py:get_args", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/doctype/about_us_settings/about_us_settings.py", "target": "module:frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/website/doctype/about_us_settings/about_us_settings.py", "target": "module:frappe.model.document", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "class:frappe/website/doctype/about_us_settings/about_us_settings.py:AboutUsSettings", "target": "class:frappe.model.document.Document", "type": "inherits", "direction": "forward", "weight": 1}
+  ]
+}

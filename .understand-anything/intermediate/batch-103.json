@@ -1,0 +1,113 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/printing/page/print/print.js",
+      "type": "file",
+      "name": "print.js",
+      "summary": "Desk page UI for print preview: renders a document via selected Print Format, handles PDF/HTML preview, language, letterhead, and print settings.",
+      "tags": ["printing", "ui", "page", "preview"],
+      "complexity": "high",
+      "filePath": "frappe/printing/page/print/print.js"
+    },
+    {
+      "id": "file:frappe/printing/page/print/print.py",
+      "type": "file",
+      "name": "print.py",
+      "summary": "Server endpoint returning print settings fields to show for a given document, based on its get_print_settings method.",
+      "tags": ["printing", "backend", "whitelist"],
+      "complexity": "low",
+      "filePath": "frappe/printing/page/print/print.py"
+    },
+    {
+      "id": "func:frappe/printing/page/print/print.py:get_print_settings_to_show",
+      "type": "function",
+      "name": "get_print_settings_to_show",
+      "summary": "Whitelisted: returns list of Print Settings fields (with defaults) that a given doctype/docname wants surfaced in the print UI.",
+      "tags": ["whitelist", "print-settings"],
+      "complexity": "low",
+      "lineRange": "4-22"
+    },
+    {
+      "id": "file:frappe/printing/page/print_format_builder/print_format_builder.js",
+      "type": "file",
+      "name": "print_format_builder.js",
+      "summary": "Legacy jQuery-based Print Format Builder page: lets users drag/drop fields, add sections/columns, configure HTML and custom formats on Print Format documents.",
+      "tags": ["printing", "print-format-builder", "legacy", "jquery"],
+      "complexity": "high",
+      "filePath": "frappe/printing/page/print_format_builder/print_format_builder.js"
+    },
+    {
+      "id": "file:frappe/printing/page/print_format_builder/print_format_builder.py",
+      "type": "file",
+      "name": "print_format_builder.py",
+      "summary": "Server helper to create a new custom Print Format document, optionally based on an existing format, for legacy or beta builder.",
+      "tags": ["printing", "backend", "whitelist"],
+      "complexity": "low",
+      "filePath": "frappe/printing/page/print_format_builder/print_format_builder.py"
+    },
+    {
+      "id": "func:frappe/printing/page/print_format_builder/print_format_builder.py:create_custom_format",
+      "type": "function",
+      "name": "create_custom_format",
+      "summary": "Whitelisted: creates a new Print Format doc tied to a doctype, with builder or beta-builder flag, optionally copying format_data from a base format.",
+      "tags": ["whitelist", "print-format"],
+      "complexity": "low",
+      "lineRange": "4-21"
+    },
+    {
+      "id": "file:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js",
+      "type": "file",
+      "name": "print_format_builder_beta.js",
+      "summary": "Bootstrap for the Vue-based Print Format Builder page: handles on_page_load/show, hot-reload, and a dialog to create/edit a Print Format before loading the bundle.",
+      "tags": ["printing", "print-format-builder", "vue", "bootstrap"],
+      "complexity": "medium",
+      "filePath": "frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js"
+    },
+    {
+      "id": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:load_print_format_builder_beta",
+      "type": "function",
+      "name": "load_print_format_builder_beta",
+      "summary": "Loads the beta builder: if route has a print format, requires bundle and instantiates PrintFormatBuilder; otherwise shows a create/edit dialog.",
+      "tags": ["vue", "bundle", "dialog"],
+      "complexity": "medium",
+      "lineRange": "19-110"
+    },
+    {
+      "id": "file:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py",
+      "type": "file",
+      "name": "print_format_builder_beta.py",
+      "summary": "Server endpoint exposing cached Google Fonts JSON data to the beta Print Format Builder.",
+      "tags": ["printing", "backend", "fonts"],
+      "complexity": "low",
+      "filePath": "frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py"
+    },
+    {
+      "id": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:get_google_fonts",
+      "type": "function",
+      "name": "get_google_fonts",
+      "summary": "Whitelisted wrapper returning the cached Google Fonts list for use in the Print Format Builder.",
+      "tags": ["whitelist", "fonts"],
+      "complexity": "low",
+      "lineRange": "10-12"
+    },
+    {
+      "id": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:_get_google_fonts",
+      "type": "function",
+      "name": "_get_google_fonts",
+      "summary": "lru_cached loader that reads frappe/data/google_fonts.json and returns its parsed contents.",
+      "tags": ["cache", "fonts"],
+      "complexity": "low",
+      "lineRange": "15-18"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/printing/page/print/print.py", "target": "func:frappe/printing/page/print/print.py:get_print_settings_to_show", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print_format_builder/print_format_builder.py", "target": "func:frappe/printing/page/print_format_builder/print_format_builder.py:create_custom_format", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js", "target": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.js:load_print_format_builder_beta", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py", "target": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:get_google_fonts", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py", "target": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:_get_google_fonts", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:get_google_fonts", "target": "func:frappe/printing/page/print_format_builder_beta/print_format_builder_beta.py:_get_google_fonts", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print/print.js", "target": "func:frappe/printing/page/print/print.py:get_print_settings_to_show", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/printing/page/print_format_builder/print_format_builder.js", "target": "func:frappe/printing/page/print_format_builder/print_format_builder.py:create_custom_format", "type": "imports", "direction": "forward", "weight": 1}
+  ]
+}

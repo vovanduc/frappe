@@ -1,0 +1,5648 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/email/queue.py",
+      "type": "file",
+      "name": "queue.py",
+      "summary": "Python file frappe/email/queue.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 206,
+      "filePath": "frappe/email/queue.py"
+    },
+    {
+      "id": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "type": "function",
+      "name": "get_emails_sent_this_month",
+      "summary": "Get count of emails sent from a specific email account.",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 18,
+      "lineRange": [
+        17,
+        34
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:get_emails_sent_today",
+      "type": "function",
+      "name": "get_emails_sent_today",
+      "summary": "Get count of emails sent from a specific email account.",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 27,
+      "lineRange": [
+        37,
+        63
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:get_unsubscribe_message",
+      "type": "function",
+      "name": "get_unsubscribe_message",
+      "summary": "Function get_unsubscribe_message",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 16,
+      "lineRange": [
+        66,
+        81
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "type": "function",
+      "name": "get_unsubcribed_url",
+      "summary": "Function get_unsubcribed_url",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 10,
+      "lineRange": [
+        84,
+        93
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:unsubscribe",
+      "type": "function",
+      "name": "unsubscribe",
+      "summary": "Function unsubscribe",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 22,
+      "lineRange": [
+        97,
+        118
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:return_unsubscribed_page",
+      "type": "function",
+      "name": "return_unsubscribed_page",
+      "summary": "Function return_unsubscribed_page",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 6,
+      "lineRange": [
+        121,
+        126
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:flush",
+      "type": "function",
+      "name": "flush",
+      "summary": "flush email queue, every time: called from scheduler.",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 33,
+      "lineRange": [
+        129,
+        161
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:get_queue",
+      "type": "function",
+      "name": "get_queue",
+      "summary": "Function get_queue",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 19,
+      "lineRange": [
+        164,
+        182
+      ]
+    },
+    {
+      "id": "sym:frappe/email/queue.py:retry_sending_emails",
+      "type": "function",
+      "name": "retry_sending_emails",
+      "summary": "Function retry_sending_emails",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 22,
+      "lineRange": [
+        185,
+        206
+      ]
+    },
+    {
+      "id": "file:frappe/email/receive.py",
+      "type": "file",
+      "name": "receive.py",
+      "summary": "Python file frappe/email/receive.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 986,
+      "filePath": "frappe/email/receive.py"
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailSizeExceededError",
+      "type": "class",
+      "name": "EmailSizeExceededError",
+      "summary": "Class EmailSizeExceededError",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        54,
+        55
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:LoginLimitExceeded",
+      "type": "class",
+      "name": "LoginLimitExceeded",
+      "summary": "Class LoginLimitExceeded",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        58,
+        59
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:SentEmailInInboxError",
+      "type": "class",
+      "name": "SentEmailInInboxError",
+      "summary": "Class SentEmailInInboxError",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        62,
+        63
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer",
+      "type": "class",
+      "name": "EmailServer",
+      "summary": "Wrapper for POP server to pull emails.",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 328,
+      "lineRange": [
+        66,
+        393
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.__init__",
+      "type": "function",
+      "name": "EmailServer.__init__",
+      "summary": "Method __init__",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 7,
+      "lineRange": [
+        69,
+        75
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.connect",
+      "type": "function",
+      "name": "EmailServer.connect",
+      "summary": "Connect to **Email Account**.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        77,
+        79
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "type": "function",
+      "name": "EmailServer.connect_imap",
+      "summary": "Connect to IMAP",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 36,
+      "lineRange": [
+        81,
+        116
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "type": "function",
+      "name": "EmailServer.connect_pop",
+      "summary": "Method connect_pop",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 44,
+      "lineRange": [
+        118,
+        161
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.select_imap_folder",
+      "type": "function",
+      "name": "EmailServer.select_imap_folder",
+      "summary": "Method select_imap_folder",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        163,
+        165
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.logout",
+      "type": "function",
+      "name": "EmailServer.logout",
+      "summary": "Method logout",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 10,
+      "lineRange": [
+        167,
+        176
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "type": "function",
+      "name": "EmailServer.get_messages",
+      "summary": "Return new email messages.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 23,
+      "lineRange": [
+        178,
+        200
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "type": "function",
+      "name": "EmailServer.get_new_mails",
+      "summary": "Return list of new mails",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 16,
+      "lineRange": [
+        202,
+        217
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "type": "function",
+      "name": "EmailServer.check_imap_uidvalidity",
+      "summary": "Method check_imap_uidvalidity",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 47,
+      "lineRange": [
+        219,
+        265
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.parse_imap_response",
+      "type": "function",
+      "name": "EmailServer.parse_imap_response",
+      "summary": "Method parse_imap_response",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 5,
+      "lineRange": [
+        267,
+        271
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "type": "function",
+      "name": "EmailServer.retrieve_message",
+      "summary": "Method retrieve_message",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 42,
+      "lineRange": [
+        273,
+        314
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "type": "function",
+      "name": "EmailServer.get_email_seen_status",
+      "summary": "parse the email FLAGS response",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 14,
+      "lineRange": [
+        316,
+        329
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.has_login_limit_exceeded",
+      "type": "function",
+      "name": "EmailServer.has_login_limit_exceeded",
+      "summary": "Method has_login_limit_exceeded",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        331,
+        332
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "type": "function",
+      "name": "EmailServer.is_temporary_system_problem",
+      "summary": "Method is_temporary_system_problem",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 9,
+      "lineRange": [
+        341,
+        349
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "type": "function",
+      "name": "EmailServer.make_error_msg",
+      "summary": "Method make_error_msg",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 24,
+      "lineRange": [
+        351,
+        374
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "type": "function",
+      "name": "EmailServer.update_flag",
+      "summary": "set all uids mails the flag as seen",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 18,
+      "lineRange": [
+        376,
+        393
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email",
+      "type": "class",
+      "name": "Email",
+      "summary": "Wrapper for an email.",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 258,
+      "lineRange": [
+        396,
+        653
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.__init__",
+      "type": "function",
+      "name": "Email.__init__",
+      "summary": "Parses headers, content, attachments from given raw message.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 33,
+      "lineRange": [
+        399,
+        431
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.in_reply_to",
+      "type": "function",
+      "name": "Email.in_reply_to",
+      "summary": "Method in_reply_to",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        434,
+        436
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.parse",
+      "type": "function",
+      "name": "Email.parse",
+      "summary": "Walk and process multi-part email.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        438,
+        441
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.set_subject",
+      "type": "function",
+      "name": "Email.set_subject",
+      "summary": "Parse and decode `Subject` header.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 23,
+      "lineRange": [
+        443,
+        465
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.set_from",
+      "type": "function",
+      "name": "Email.set_from",
+      "summary": "Method set_from",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 24,
+      "lineRange": [
+        467,
+        490
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.decode_email",
+      "type": "function",
+      "name": "Email.decode_email",
+      "summary": "Method decode_email",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 18,
+      "lineRange": [
+        493,
+        510
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.set_content_and_type",
+      "type": "function",
+      "name": "Email.set_content_and_type",
+      "summary": "Method set_content_and_type",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 9,
+      "lineRange": [
+        512,
+        520
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.process_part",
+      "type": "function",
+      "name": "Email.process_part",
+      "summary": "Parse email `part` and set it to `text_content`, `html_content` or `attachments`.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 19,
+      "lineRange": [
+        522,
+        540
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "type": "function",
+      "name": "Email.show_attached_email_headers_in_content",
+      "summary": "Method show_attached_email_headers_in_content",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 19,
+      "lineRange": [
+        542,
+        560
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.get_charset",
+      "type": "function",
+      "name": "Email.get_charset",
+      "summary": "Method get_charset",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        562,
+        563
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.get_payload",
+      "type": "function",
+      "name": "Email.get_payload",
+      "summary": "Method get_payload",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 11,
+      "lineRange": [
+        565,
+        575
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.get_attachment",
+      "type": "function",
+      "name": "Email.get_attachment",
+      "summary": "Method get_attachment",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 36,
+      "lineRange": [
+        577,
+        612
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "type": "function",
+      "name": "Email.save_attachments_in_doc",
+      "summary": "Save email attachments in given document.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 32,
+      "lineRange": [
+        614,
+        645
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.get_thread_id",
+      "type": "function",
+      "name": "Email.get_thread_id",
+      "summary": "Extract thread ID from `[]`",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        647,
+        650
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:Email.is_reply",
+      "type": "function",
+      "name": "Email.is_reply",
+      "summary": "Method is_reply",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        652,
+        653
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail",
+      "type": "class",
+      "name": "InboundMail",
+      "summary": "Class representation of incoming mail along with mail handlers.",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 331,
+      "lineRange": [
+        656,
+        986
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.__init__",
+      "type": "function",
+      "name": "InboundMail.__init__",
+      "summary": "Method __init__",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 13,
+      "lineRange": [
+        659,
+        671
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_content",
+      "type": "function",
+      "name": "InboundMail.get_content",
+      "summary": "Method get_content",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        673,
+        675
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.process",
+      "type": "function",
+      "name": "InboundMail.process",
+      "summary": "Create communication record from email.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 18,
+      "lineRange": [
+        677,
+        694
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.replace_inline_images",
+      "type": "function",
+      "name": "InboundMail.replace_inline_images",
+      "summary": "Method replace_inline_images",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 7,
+      "lineRange": [
+        734,
+        740
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.is_notification",
+      "type": "function",
+      "name": "InboundMail.is_notification",
+      "summary": "Method is_notification",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        742,
+        744
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.is_exist_in_system",
+      "type": "function",
+      "name": "InboundMail.is_exist_in_system",
+      "summary": "Check if this email already exists in the system(as communication document).",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 13,
+      "lineRange": [
+        746,
+        758
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.is_sender_same_as_receiver",
+      "type": "function",
+      "name": "InboundMail.is_sender_same_as_receiver",
+      "summary": "Method is_sender_same_as_receiver",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        760,
+        761
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.is_reply_to_system_sent_mail",
+      "type": "function",
+      "name": "InboundMail.is_reply_to_system_sent_mail",
+      "summary": "Is it a reply to already sent mail.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        763,
+        765
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.parent_email_queue",
+      "type": "function",
+      "name": "InboundMail.parent_email_queue",
+      "summary": "Get parent record from `Email Queue`.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 16,
+      "lineRange": [
+        767,
+        782
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "type": "function",
+      "name": "InboundMail.parent_communication",
+      "summary": "Find a related communication so that we can prepare a mail thread.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 34,
+      "lineRange": [
+        784,
+        817
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "type": "function",
+      "name": "InboundMail.reference_document",
+      "summary": "Reference document is a document to which mail relate to.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 31,
+      "lineRange": [
+        819,
+        849
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_reference_name_from_subject",
+      "type": "function",
+      "name": "InboundMail.get_reference_name_from_subject",
+      "summary": "Ex: \"Re: Your email (#OPP-2020-2334343)\"",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 5,
+      "lineRange": [
+        851,
+        855
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "type": "function",
+      "name": "InboundMail.match_record_by_subject_and_sender",
+      "summary": "Find a record in the given doctype that matches with email subject and sender.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 35,
+      "lineRange": [
+        857,
+        891
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_doc",
+      "type": "function",
+      "name": "InboundMail.get_doc",
+      "summary": "Method get_doc",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 7,
+      "lineRange": [
+        920,
+        926
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_relative_dt",
+      "type": "function",
+      "name": "InboundMail.get_relative_dt",
+      "summary": "Get relative to current datetime. Only relative days are supported.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        929,
+        931
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_users_linked_to_account",
+      "type": "function",
+      "name": "InboundMail.get_users_linked_to_account",
+      "summary": "Get list of users who linked to Email account.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        934,
+        937
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.clean_subject",
+      "type": "function",
+      "name": "InboundMail.clean_subject",
+      "summary": "Remove Prefixes like 'fw', FWD', 're' etc from subject.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 5,
+      "lineRange": [
+        940,
+        944
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "type": "function",
+      "name": "InboundMail.get_email_fields",
+      "summary": "Return Email related fields of a doctype.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 11,
+      "lineRange": [
+        947,
+        957
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.get_document",
+      "type": "function",
+      "name": "InboundMail.get_document",
+      "summary": "Is same as frappe.get_doc but suppresses the DoesNotExist error.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 6,
+      "lineRange": [
+        960,
+        965
+      ]
+    },
+    {
+      "id": "sym:frappe/email/receive.py:InboundMail.as_dict",
+      "type": "function",
+      "name": "InboundMail.as_dict",
+      "summary": "Method as_dict",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 20,
+      "lineRange": [
+        967,
+        986
+      ]
+    },
+    {
+      "id": "file:frappe/email/smtp.py",
+      "type": "file",
+      "name": "smtp.py",
+      "summary": "Python file frappe/email/smtp.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 149,
+      "filePath": "frappe/email/smtp.py"
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:InvalidEmailCredentials",
+      "type": "class",
+      "name": "InvalidEmailCredentials",
+      "summary": "Class InvalidEmailCredentials",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        13,
+        14
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer",
+      "type": "class",
+      "name": "SMTPServer",
+      "summary": "Class SMTPServer",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 133,
+      "lineRange": [
+        17,
+        149
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.__init__",
+      "type": "function",
+      "name": "SMTPServer.__init__",
+      "summary": "Method __init__",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 30,
+      "lineRange": [
+        18,
+        47
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.port",
+      "type": "function",
+      "name": "SMTPServer.port",
+      "summary": "Method port",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        50,
+        52
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.server",
+      "type": "function",
+      "name": "SMTPServer.server",
+      "summary": "Method server",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 2,
+      "lineRange": [
+        55,
+        56
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.secure_session",
+      "type": "function",
+      "name": "SMTPServer.secure_session",
+      "summary": "Secure the connection incase of TLS.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 6,
+      "lineRange": [
+        58,
+        63
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "type": "function",
+      "name": "SMTPServer.session",
+      "summary": "Get SMTP session.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 45,
+      "lineRange": [
+        66,
+        110
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.is_session_active",
+      "type": "function",
+      "name": "SMTPServer.is_session_active",
+      "summary": "Method is_session_active",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 6,
+      "lineRange": [
+        123,
+        128
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.quit",
+      "type": "function",
+      "name": "SMTPServer.quit",
+      "summary": "Method quit",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        130,
+        133
+      ]
+    },
+    {
+      "id": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "type": "function",
+      "name": "SMTPServer.throw_invalid_credentials_exception",
+      "summary": "Method throw_invalid_credentials_exception",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 14,
+      "lineRange": [
+        136,
+        149
+      ]
+    },
+    {
+      "id": "file:frappe/email/test_email_attachments.py",
+      "type": "file",
+      "name": "test_email_attachments.py",
+      "summary": "Python file frappe/email/test_email_attachments.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 89,
+      "filePath": "frappe/email/test_email_attachments.py"
+    },
+    {
+      "id": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments",
+      "type": "class",
+      "name": "TestEmailAttachments",
+      "summary": "Class TestEmailAttachments",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 55,
+      "lineRange": [
+        35,
+        89
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "type": "function",
+      "name": "TestEmailAttachments.test_email_attachment_percent_encoded",
+      "summary": "Method test_email_attachment_percent_encoded",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 14,
+      "lineRange": [
+        36,
+        49
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "type": "function",
+      "name": "TestEmailAttachments.test_file_with_percent_in_filename",
+      "summary": "Method test_file_with_percent_in_filename",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 39,
+      "lineRange": [
+        51,
+        89
+      ]
+    },
+    {
+      "id": "file:frappe/email/test_email_body.py",
+      "type": "file",
+      "name": "test_email_body.py",
+      "summary": "Python file frappe/email/test_email_body.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 296,
+      "filePath": "frappe/email/test_email_body.py"
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "type": "class",
+      "name": "TestEmailBody",
+      "summary": "Class TestEmailBody",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 271,
+      "lineRange": [
+        21,
+        291
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "type": "function",
+      "name": "TestEmailBody.setUp",
+      "summary": "Method setUp",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 32,
+      "lineRange": [
+        22,
+        53
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "type": "function",
+      "name": "TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "summary": "Method test_prepare_message_returns_already_encoded_string",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 15,
+      "lineRange": [
+        55,
+        69
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "type": "function",
+      "name": "TestEmailBody.test_prepare_message_returns_cr_lf",
+      "summary": "Method test_prepare_message_returns_cr_lf",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 13,
+      "lineRange": [
+        71,
+        83
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_image",
+      "type": "function",
+      "name": "TestEmailBody.test_image",
+      "summary": "Method test_image",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 9,
+      "lineRange": [
+        85,
+        93
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_text_content",
+      "type": "function",
+      "name": "TestEmailBody.test_text_content",
+      "summary": "Method test_text_content",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 11,
+      "lineRange": [
+        95,
+        105
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_content",
+      "type": "function",
+      "name": "TestEmailBody.test_email_content",
+      "summary": "Method test_email_content",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 15,
+      "lineRange": [
+        107,
+        121
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "type": "function",
+      "name": "TestEmailBody.test_replace_filename_with_cid",
+      "summary": "Method test_replace_filename_with_cid",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 16,
+      "lineRange": [
+        123,
+        138
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "type": "function",
+      "name": "TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "summary": "Test that inline_images parameter works through sendmail.",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 36,
+      "lineRange": [
+        140,
+        175
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_inline_styling",
+      "type": "function",
+      "name": "TestEmailBody.test_inline_styling",
+      "summary": "Method test_inline_styling",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 10,
+      "lineRange": [
+        177,
+        186
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "type": "function",
+      "name": "TestEmailBody.test_email_header",
+      "summary": "Method test_email_header",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 19,
+      "lineRange": [
+        188,
+        206
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_get_email_header",
+      "type": "function",
+      "name": "TestEmailBody.test_get_email_header",
+      "summary": "Method test_get_email_header",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 10,
+      "lineRange": [
+        208,
+        217
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_8bit_utf_8_decoding",
+      "type": "function",
+      "name": "TestEmailBody.test_8bit_utf_8_decoding",
+      "summary": "Method test_8bit_utf_8_decoding",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 17,
+      "lineRange": [
+        219,
+        235
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages",
+      "type": "function",
+      "name": "TestEmailBody.test_poorly_encoded_messages",
+      "summary": "Method test_poorly_encoded_messages",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 5,
+      "lineRange": [
+        237,
+        241
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages2",
+      "type": "function",
+      "name": "TestEmailBody.test_poorly_encoded_messages2",
+      "summary": "Method test_poorly_encoded_messages2",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        243,
+        245
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "type": "function",
+      "name": "TestEmailBody.test_quotes_in_email_sender",
+      "summary": "Method test_quotes_in_email_sender",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 22,
+      "lineRange": [
+        247,
+        268
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "type": "function",
+      "name": "TestEmailBody.test_quotes_in_email_recipients",
+      "summary": "Method test_quotes_in_email_recipients",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 22,
+      "lineRange": [
+        270,
+        291
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_email_body.py:fixed_column_width",
+      "type": "function",
+      "name": "fixed_column_width",
+      "summary": "Function fixed_column_width",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        294,
+        296
+      ]
+    },
+    {
+      "id": "file:frappe/email/test_smtp.py",
+      "type": "file",
+      "name": "test_smtp.py",
+      "summary": "Python file frappe/email/test_smtp.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 88,
+      "filePath": "frappe/email/test_smtp.py"
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "type": "class",
+      "name": "TestSMTP",
+      "summary": "Class TestSMTP",
+      "tags": [
+        "python",
+        "class"
+      ],
+      "complexity": 55,
+      "lineRange": [
+        10,
+        64
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_ssl_session",
+      "type": "function",
+      "name": "TestSMTP.test_smtp_ssl_session",
+      "summary": "Method test_smtp_ssl_session",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        11,
+        13
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_tls_session",
+      "type": "function",
+      "name": "TestSMTP.test_smtp_tls_session",
+      "summary": "Method test_smtp_tls_session",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 3,
+      "lineRange": [
+        15,
+        17
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "type": "function",
+      "name": "TestSMTP.test_get_email_account",
+      "summary": "Method test_get_email_account",
+      "tags": [
+        "python",
+        "method"
+      ],
+      "complexity": 46,
+      "lineRange": [
+        19,
+        64
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:create_email_account",
+      "type": "function",
+      "name": "create_email_account",
+      "summary": "Function create_email_account",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 16,
+      "lineRange": [
+        67,
+        82
+      ]
+    },
+    {
+      "id": "sym:frappe/email/test_smtp.py:make_server",
+      "type": "function",
+      "name": "make_server",
+      "summary": "Function make_server",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 4,
+      "lineRange": [
+        85,
+        88
+      ]
+    },
+    {
+      "id": "file:frappe/email/utils.py",
+      "type": "file",
+      "name": "utils.py",
+      "summary": "Python file frappe/email/utils.py",
+      "tags": [
+        "python",
+        "email"
+      ],
+      "complexity": 18,
+      "filePath": "frappe/email/utils.py"
+    },
+    {
+      "id": "sym:frappe/email/utils.py:get_port",
+      "type": "function",
+      "name": "get_port",
+      "summary": "Function get_port",
+      "tags": [
+        "python",
+        "function"
+      ],
+      "complexity": 9,
+      "lineRange": [
+        10,
+        18
+      ]
+    },
+    {
+      "id": "file:frappe/printing/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Python file frappe/printing/__init__.py",
+      "tags": [
+        "python",
+        "printing"
+      ],
+      "complexity": 0,
+      "filePath": "frappe/printing/__init__.py"
+    },
+    {
+      "id": "file:frappe/printing/doctype/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Python file frappe/printing/doctype/__init__.py",
+      "tags": [
+        "python",
+        "printing"
+      ],
+      "complexity": 0,
+      "filePath": "frappe/printing/doctype/__init__.py"
+    },
+    {
+      "id": "file:frappe/printing/doctype/letter_head/__init__.py",
+      "type": "file",
+      "name": "__init__.py",
+      "summary": "Python file frappe/printing/doctype/letter_head/__init__.py",
+      "tags": [
+        "python",
+        "printing"
+      ],
+      "complexity": 0,
+      "filePath": "frappe/printing/doctype/letter_head/__init__.py"
+    }
+  ],
+  "edges": [
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:datetime",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:frappe.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:frappe.utils.data",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:frappe.utils.verified_command",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "module:frappe.email.doctype.email_queue.email_queue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "target": "call:getdate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "target": "call:replace",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "target": "call:count",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_emails_sent_this_month",
+      "target": "call:str",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:get_emails_sent_today",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_emails_sent_today",
+      "target": "call:sql",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:get_unsubscribe_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubscribe_message",
+      "target": "call:format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubscribe_message",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "target": "call:get_url",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "target": "call:parse_json",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_unsubcribed_url",
+      "target": "call:get_signed_params",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:unsubscribe",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:whitelist",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:return_unsubscribed_page",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:insert",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:commit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:verify_request",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:rollback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:unsubscribe",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:return_unsubscribed_page",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:return_unsubscribed_page",
+      "target": "call:respond_as_web_page",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:return_unsubscribed_page",
+      "target": "call:format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:flush",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:are_emails_muted",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:get_queue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:get_default",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:send",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:log_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:throw",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:flush",
+      "target": "call:len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:get_queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_queue",
+      "target": "call:add_to_date",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_queue",
+      "target": "call:sql",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_queue",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:get_queue",
+      "target": "call:now_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "sym:frappe/email/queue.py:retry_sending_emails",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:get_all",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:timedelta",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:any",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:update_status",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:now_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:is_mail_sent",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/queue.py:retry_sending_emails",
+      "target": "call:get_system_setting",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:_socket",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:datetime",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:email",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:email.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:imaplib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:json",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:poplib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:re",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:ssl",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:contextlib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:email.errors",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:email.header",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:urllib.parse",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:chardet",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:email_reply_parser",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.core.doctype.file.exceptions",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.core.doctype.file.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.email.oauth",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.utils.html_utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.utils.user",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:html",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.core.doctype.communication.communication",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "module:frappe.email.doctype.email_queue.email_queue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:EmailSizeExceededError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailSizeExceededError",
+      "target": "class:ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:LoginLimitExceeded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:LoginLimitExceeded",
+      "target": "class:ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:SentEmailInInboxError",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:SentEmailInInboxError",
+      "target": "class:Exception",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:EmailServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.__init__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.__init__",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.connect",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect",
+      "target": "call:connect_imap",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect",
+      "target": "call:connect_pop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:IMAP4_SSL",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:IMAP4",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:login",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:starttls",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:create_default_context",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_imap",
+      "target": "call:Oauth",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:POP3_SSL",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:POP3",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:pass_",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:log_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:is_temporary_system_problem",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:create_default_context",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.connect_pop",
+      "target": "call:Oauth",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.select_imap_folder",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.select_imap_folder",
+      "target": "call:select",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.logout",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.logout",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.logout",
+      "target": "call:logout",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.logout",
+      "target": "call:quit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.logout",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "target": "call:get_new_mails",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "target": "call:enumerate",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_messages",
+      "target": "call:retrieve_message",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:check_imap_uidvalidity",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:select",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:uid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:split",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_new_mails",
+      "target": "call:list",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "target": "call:status",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "target": "call:int",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "target": "call:set_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.check_imap_uidvalidity",
+      "target": "call:parse_imap_response",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.parse_imap_response",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.parse_imap_response",
+      "target": "call:search",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.parse_imap_response",
+      "target": "call:decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:_post_retrieve_cleanup",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:uid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:next",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:retr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:has_login_limit_exceeded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:log_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:get_email_seen_status",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:get_messages",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:LoginLimitExceeded",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:make_error_msg",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.retrieve_message",
+      "target": "call:isinstance",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:ParseFlags",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:search",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:isinstance",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:as_unicode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.get_email_seen_status",
+      "target": "call:group",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.has_login_limit_exceeded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.has_login_limit_exceeded",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.has_login_limit_exceeded",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "target": "call:any",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.is_temporary_system_problem",
+      "target": "call:getattr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:get_traceback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:suppress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:Email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:top",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.make_error_msg",
+      "target": "call:uid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer",
+      "target": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "target": "call:select",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "target": "call:items",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:EmailServer.update_flag",
+      "target": "call:uid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:Email",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.__init__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:isinstance",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:parse",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:set_content_and_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:set_subject",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:set_from",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:get_string_between",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:message_from_bytes",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:message_from_string",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:now",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:mktime_tz",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:fromtimestamp",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:strftime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:parsedate_tz",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.__init__",
+      "target": "call:convert_utc_to_system_timezone",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.in_reply_to",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.in_reply_to",
+      "target": "call:get_string_between",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.in_reply_to",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.parse",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.parse",
+      "target": "call:walk",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.parse",
+      "target": "call:process_part",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.set_subject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:decode_header",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:isinstance",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_subject",
+      "target": "call:decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.set_from",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:decode_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:lower",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:log_error",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:extract_email_id",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:str",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:get_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:parse_addr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_from",
+      "target": "call:getattr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.decode_email",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:as_unicode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:decode_header",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:findall",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.decode_email",
+      "target": "call:safe_decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.set_content_and_type",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_content_and_type",
+      "target": "call:replace",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.set_content_and_type",
+      "target": "call:read",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.process_part",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.process_part",
+      "target": "call:get_content_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.process_part",
+      "target": "call:get_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.process_part",
+      "target": "call:get_filename",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.process_part",
+      "target": "call:get_attachment",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.process_part",
+      "target": "call:show_attached_email_headers_in_content",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:list",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:get_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:markdown",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:walk",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:is_multipart",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:get_content_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.show_attached_email_headers_in_content",
+      "target": "call:escape",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.get_charset",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_charset",
+      "target": "call:get_content_charset",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_charset",
+      "target": "call:detect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_charset",
+      "target": "call:safe_encode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_charset",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.get_payload",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_payload",
+      "target": "call:get_charset",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_payload",
+      "target": "call:str",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_payload",
+      "target": "call:get_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_payload",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.get_attachment",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:get_payload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:get_content_type",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:get_filename",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:get_random_filename",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:replace",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_attachment",
+      "target": "call:decode_header",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "target": "call:save",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "target": "call:append",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.save_attachments_in_doc",
+      "target": "call:unquote",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.get_thread_id",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.get_thread_id",
+      "target": "call:findall",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email",
+      "target": "sym:frappe/email/receive.py:Email.is_reply",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:Email.is_reply",
+      "target": "call:bool",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/receive.py",
+      "target": "sym:frappe/email/receive.py:InboundMail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "class:Email",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.__init__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.__init__",
+      "target": "call:__init__",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.__init__",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.__init__",
+      "target": "call:super",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_content",
+      "target": "call:clean_email_html",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.process",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:is_exist_in_system",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:_build_communication_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:is_sender_same_as_receiver",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:update_db",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:as_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:reload",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:is_reply",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:print",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.process",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.replace_inline_images",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.replace_inline_images",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.replace_inline_images",
+      "target": "call:replace",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.is_notification",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.is_notification",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.is_exist_in_system",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.is_exist_in_system",
+      "target": "call:find_one_by_filters",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.is_sender_same_as_receiver",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.is_reply_to_system_sent_mail",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.is_reply_to_system_sent_mail",
+      "target": "call:is_reply",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.parent_email_queue",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_email_queue",
+      "target": "call:is_reply_to_system_sent_mail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_email_queue",
+      "target": "call:find_one_by_filters",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "target": "call:find_one_by_filters",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "target": "call:is_reply",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "target": "call:parent_email_queue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "target": "call:find",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.parent_communication",
+      "target": "call:split",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "target": "call:parent_email_queue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "target": "call:parent_communication",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "target": "call:match_record_by_subject_and_sender",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.reference_document",
+      "target": "call:is_reply_to_system_sent_mail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_reference_name_from_subject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_reference_name_from_subject",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_reference_name_from_subject",
+      "target": "call:rsplit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:get_reference_name_from_subject",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:get_email_fields",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:clean_subject",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:get_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:get_relative_dt",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:is_system_user",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.match_record_by_subject_and_sender",
+      "target": "call:len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_doc",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_doc",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_relative_dt",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_relative_dt",
+      "target": "call:add_days",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_relative_dt",
+      "target": "call:get_datetime",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_users_linked_to_account",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_users_linked_to_account",
+      "target": "call:get_all",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_users_linked_to_account",
+      "target": "call:list",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_users_linked_to_account",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.clean_subject",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.clean_subject",
+      "target": "call:as_unicode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.clean_subject",
+      "target": "call:strip",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.clean_subject",
+      "target": "call:sub",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "target": "call:get_meta",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "target": "call:hasattr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_email_fields",
+      "target": "call:getattr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.get_document",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.get_document",
+      "target": "call:get_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail",
+      "target": "sym:frappe/email/receive.py:InboundMail.as_dict",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.as_dict",
+      "target": "call:get_content",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.as_dict",
+      "target": "call:decode_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/receive.py:InboundMail.as_dict",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:smtplib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:contextlib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:frappe.email.oauth",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:frappe.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "module:atexit",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "sym:frappe/email/smtp.py:InvalidEmailCredentials",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:InvalidEmailCredentials",
+      "target": "class:ValidationError",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "sym:frappe/email/smtp.py:SMTPServer",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.__init__",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.__init__",
+      "target": "call:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.port",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.port",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.server",
+      "target": "call:cstr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.secure_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.secure_session",
+      "target": "call:ehlo",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.secure_session",
+      "target": "call:starttls",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:is_session_active",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:SMTP",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:secure_session",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:ehlo",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:_enqueue_connection_closure",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:msgprint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:connect",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:throw_invalid_credentials_exception",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:throw",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:login",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:Oauth",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.session",
+      "target": "call:str",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.is_session_active",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.is_session_active",
+      "target": "call:noop",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.quit",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.quit",
+      "target": "call:suppress",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.quit",
+      "target": "call:is_session_active",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.quit",
+      "target": "call:quit",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer",
+      "target": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "target": "call:throw",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "target": "call:get_traceback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "target": "call:format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/smtp.py:SMTPServer.throw_invalid_credentials_exception",
+      "target": "call:splitlines",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:typing",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:urllib.parse",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:requests",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:frappe.email.receive",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:frappe.tests",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:frappe.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "module:frappe.core.doctype.file.file",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_attachments.py",
+      "target": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments",
+      "target": "class:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments",
+      "target": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:InboundMail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:get_last_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_email_attachment_percent_encoded",
+      "target": "call:save",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments",
+      "target": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:make_and_check_file",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:new_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:save",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:raise_for_status",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:as_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:get_url",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_attachments.py:TestEmailAttachments.test_file_with_percent_in_filename",
+      "target": "call:quote",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:base64",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:os",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe.core.doctype.communication.communication",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe.email.doctype.email_queue.email_queue",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe.email.email_body",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe.email.receive",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "module:frappe.tests",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "class:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:abspath",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:fixed_column_width",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:replace",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:open",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:read",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:as_string",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:b64encode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.setUp",
+      "target": "call:get_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:chr",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:get_last_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:SendMailContext",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:build_message",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_already_encoded_string",
+      "target": "call:QueueBuilder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:get_last_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:SendMailContext",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:safe_decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:build_message",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:QueueBuilder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_prepare_message_returns_cr_lf",
+      "target": "call:count",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_image",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_image",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_text_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_text_content",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_content",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_content",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "target": "call:replace_filename_with_cid",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "target": "call:format",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_replace_filename_with_cid",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "target": "call:QueueBuilder",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "target": "call:prepare_email_content",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "target": "call:as_string",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "target": "call:assertIn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_sendmail_inline_images_parameter_respected",
+      "target": "call:assertNotIn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_inline_styling",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_inline_styling",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_inline_styling",
+      "target": "call:inline_style_in_html",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "target": "call:as_string",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "target": "call:assertIn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_email_header",
+      "target": "call:get_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_get_email_header",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_get_email_header",
+      "target": "call:get_header",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_get_email_header",
+      "target": "call:assertTrue",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_8bit_utf_8_decoding",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_8bit_utf_8_decoding",
+      "target": "call:decode",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_8bit_utf_8_decoding",
+      "target": "call:Email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_8bit_utf_8_decoding",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages",
+      "target": "call:decode_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages",
+      "target": "call:assertIn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages2",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages2",
+      "target": "call:decode_email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_poorly_encoded_messages2",
+      "target": "call:assertIn",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "target": "call:Email",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "target": "call:InboundMail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_sender",
+      "target": "call:process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody",
+      "target": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "target": "call:_dict",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "target": "call:InboundMail",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "target": "call:process",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:TestEmailBody.test_quotes_in_email_recipients",
+      "target": "call:rollback",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_email_body.py",
+      "target": "sym:frappe/email/test_email_body.py:fixed_column_width",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:fixed_column_width",
+      "target": "call:join",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:fixed_column_width",
+      "target": "call:range",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_email_body.py:fixed_column_width",
+      "target": "call:len",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "module:frappe",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "module:frappe.email.doctype.email_account.email_account",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "module:frappe.email.smtp",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "module:frappe.tests",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "target": "class:IntegrationTestCase",
+      "type": "inherits",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "target": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_ssl_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_ssl_session",
+      "target": "call:make_server",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "target": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_tls_session",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_smtp_tls_session",
+      "target": "call:make_server",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP",
+      "target": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:get_all",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:get",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:create_email_account",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:assertEqual",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:set_value",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:TestSMTP.test_get_email_account",
+      "target": "call:find_outgoing",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "sym:frappe/email/test_smtp.py:create_email_account",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:create_email_account",
+      "target": "call:new_doc",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:create_email_account",
+      "target": "call:update",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:create_email_account",
+      "target": "call:save",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/test_smtp.py",
+      "target": "sym:frappe/email/test_smtp.py:make_server",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/test_smtp.py:make_server",
+      "target": "call:SMTPServer",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/utils.py",
+      "target": "module:imaplib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/utils.py",
+      "target": "module:poplib",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/utils.py",
+      "target": "module:frappe.utils",
+      "type": "imports",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/utils.py",
+      "target": "sym:frappe/email/utils.py:get_port",
+      "type": "contains",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "sym:frappe/email/utils.py:get_port",
+      "target": "call:cint",
+      "type": "calls",
+      "direction": "forward",
+      "weight": 1
+    },
+    {
+      "source": "file:frappe/email/smtp.py",
+      "target": "file:frappe/email/test_smtp.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 2
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "file:frappe/email/test_email_attachments.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 2
+    },
+    {
+      "source": "file:frappe/email/queue.py",
+      "target": "file:frappe/email/test_email_body.py",
+      "type": "tested_by",
+      "direction": "forward",
+      "weight": 2
+    }
+  ]
+}

@@ -1,0 +1,106 @@
+{
+  "nodes": [
+    {"id": "file:frappe/email/doctype/email_unsubscribe/email_unsubscribe.py", "type": "file", "name": "email_unsubscribe.py", "summary": "EmailUnsubscribe DocType controller: validates and records global or per-document email unsubscribes.", "tags": ["email", "doctype", "unsubscribe"], "complexity": "low", "filePath": "frappe/email/doctype/email_unsubscribe/email_unsubscribe.py"},
+    {"id": "class:EmailUnsubscribe", "type": "class", "name": "EmailUnsubscribe", "summary": "Document controller enforcing unsubscribe uniqueness and adding a comment on the referenced doc.", "tags": ["doctype", "email"], "complexity": "low", "lineRange": "9-58"},
+
+    {"id": "file:frappe/email/doctype/email_unsubscribe/test_email_unsubscribe.py", "type": "file", "name": "test_email_unsubscribe.py", "summary": "Test stub for EmailUnsubscribe.", "tags": ["test"], "complexity": "low", "filePath": "frappe/email/doctype/email_unsubscribe/test_email_unsubscribe.py"},
+
+    {"id": "file:frappe/email/doctype/imap_folder/imap_folder.py", "type": "file", "name": "imap_folder.py", "summary": "IMAPFolder child DocType controller (stub) for Email Account IMAP folder mappings.", "tags": ["email", "doctype", "imap"], "complexity": "low", "filePath": "frappe/email/doctype/imap_folder/imap_folder.py"},
+    {"id": "class:IMAPFolder", "type": "class", "name": "IMAPFolder", "summary": "Child table row for an IMAP folder on an Email Account.", "tags": ["child-table", "imap"], "complexity": "low", "lineRange": "8-26"},
+
+    {"id": "file:frappe/email/doctype/notification/notification.js", "type": "file", "name": "notification.js", "summary": "Client controller for Notification DocType: channel toggles, preview, field/role helpers.", "tags": ["js", "form-controller", "notification"], "complexity": "medium", "filePath": "frappe/email/doctype/notification/notification.js"},
+
+    {"id": "file:frappe/email/doctype/notification/notification.py", "type": "file", "name": "notification.py", "summary": "Rule-based notification engine: evaluates conditions on doc events and dispatches Email/Slack/SMS/System notifications.", "tags": ["notification", "engine", "email", "slack", "sms"], "complexity": "high", "filePath": "frappe/email/doctype/notification/notification.py"},
+    {"id": "class:Notification", "type": "class", "name": "Notification", "summary": "Main Notification Document controller: validation, scheduling, sending across channels, templating and attachments.", "tags": ["doctype", "notification", "engine"], "complexity": "high", "lineRange": "27-740"},
+    {"id": "func:Notification.validate", "type": "func", "name": "Notification.validate", "summary": "Validates standard notification, filters, condition, templates and forbidden doctypes.", "tags": ["validate"], "complexity": "medium", "lineRange": "148-177"},
+    {"id": "func:Notification.get_documents_for_today", "type": "func", "name": "Notification.get_documents_for_today", "summary": "Selects documents matching date-based events (Days Before/After) for daily alerts.", "tags": ["scheduler", "date-event"], "complexity": "medium", "lineRange": "244-282"},
+    {"id": "func:Notification.get_documents_for_this_moment", "type": "func", "name": "Notification.get_documents_for_this_moment", "summary": "Selects documents matching minute-offset events (Minutes Before/After) for offset alerts.", "tags": ["scheduler", "offset"], "complexity": "medium", "lineRange": "283-339"},
+    {"id": "func:Notification.queue_send", "type": "func", "name": "Notification.queue_send", "summary": "Enqueues send() via background jobs after commit.", "tags": ["enqueue", "background-job"], "complexity": "low", "lineRange": "340-376"},
+    {"id": "func:Notification.send", "type": "func", "name": "Notification.send", "summary": "Core dispatch: builds context, resolves recipients, sends via channel, applies post-alert property updates.", "tags": ["send", "dispatch"], "complexity": "high", "lineRange": "377-416"},
+    {"id": "func:Notification.send_notification_by_channel", "type": "func", "name": "Notification.send_notification_by_channel", "summary": "Routes to email/slack/sms/system notification senders based on channel.", "tags": ["dispatch", "channel"], "complexity": "medium", "lineRange": "417-435"},
+    {"id": "func:Notification.create_system_notification", "type": "func", "name": "Notification.create_system_notification", "summary": "Creates in-app Notification Log entries for recipients.", "tags": ["system-notification"], "complexity": "medium", "lineRange": "436-460"},
+    {"id": "func:Notification.send_an_email", "type": "func", "name": "Notification.send_an_email", "summary": "Renders subject/message and sends email with optional print attachment.", "tags": ["email", "send"], "complexity": "high", "lineRange": "461-523"},
+    {"id": "func:Notification.send_a_slack_msg", "type": "func", "name": "Notification.send_a_slack_msg", "summary": "Posts message to configured Slack webhook.", "tags": ["slack"], "complexity": "low", "lineRange": "524-531"},
+    {"id": "func:Notification.send_sms", "type": "func", "name": "Notification.send_sms", "summary": "Sends SMS via SMS Settings gateway.", "tags": ["sms"], "complexity": "low", "lineRange": "532-538"},
+    {"id": "func:Notification.get_list_of_recipients", "type": "func", "name": "Notification.get_list_of_recipients", "summary": "Resolves email recipients (roles, doc fields, assignees, cc, bcc) with per-recipient condition evaluation.", "tags": ["recipients"], "complexity": "high", "lineRange": "569-607"},
+    {"id": "func:Notification.get_receiver_list", "type": "func", "name": "Notification.get_receiver_list", "summary": "Builds receivers list for SMS/system notification channels.", "tags": ["recipients"], "complexity": "medium", "lineRange": "608-642"},
+    {"id": "func:Notification.get_attachment", "type": "func", "name": "Notification.get_attachment", "summary": "Returns print format or file field attachments for email.", "tags": ["attachment", "print"], "complexity": "medium", "lineRange": "643-690"},
+    {"id": "func:Notification.get_template", "type": "func", "name": "Notification.get_template", "summary": "Loads the standard notification template file (md/html/txt).", "tags": ["template"], "complexity": "low", "lineRange": "691-711"},
+    {"id": "func:trigger_notifications", "type": "func", "name": "trigger_notifications", "summary": "Scheduler/doc-event hook entry that evaluates and runs matching notifications for a doc.", "tags": ["hook", "trigger"], "complexity": "medium", "lineRange": "761-790"},
+    {"id": "func:evaluate_alert", "type": "func", "name": "evaluate_alert", "summary": "Evaluates condition/filters for an alert and dispatches the Notification.", "tags": ["evaluator"], "complexity": "high", "lineRange": "791-838"},
+    {"id": "func:trigger_daily_alerts", "type": "func", "name": "trigger_daily_alerts", "summary": "Cron entry: runs enabled date-based notifications daily.", "tags": ["cron"], "complexity": "low", "lineRange": "757-760"},
+    {"id": "func:trigger_offset_alerts", "type": "func", "name": "trigger_offset_alerts", "summary": "Cron entry: runs minute-offset notifications.", "tags": ["cron"], "complexity": "low", "lineRange": "753-756"},
+    {"id": "func:create_notifications", "type": "func", "name": "create_notifications", "summary": "Bulk-creates Notification docs from template dict list.", "tags": ["bootstrap"], "complexity": "medium", "lineRange": "886-917"},
+    {"id": "func:install_notification_templates", "type": "func", "name": "install_notification_templates", "summary": "Installs bundled notification templates at app install.", "tags": ["install"], "complexity": "low", "lineRange": "952-955"},
+
+    {"id": "file:frappe/email/doctype/notification/test_notification.py", "type": "file", "name": "test_notification.py", "summary": "Integration tests covering notification triggers, channels, filters, and attachments.", "tags": ["test", "integration"], "complexity": "high", "filePath": "frappe/email/doctype/notification/test_notification.py"},
+    {"id": "class:TestNotification", "type": "class", "name": "TestNotification", "summary": "IntegrationTestCase suite for Notification behaviors across events and channels.", "tags": ["test"], "complexity": "high", "lineRange": "73-877"},
+
+    {"id": "file:frappe/email/doctype/notification_recipient/notification_recipient.py", "type": "file", "name": "notification_recipient.py", "summary": "Child table row defining a notification recipient (role, doc field, cc, bcc, condition).", "tags": ["child-table", "notification"], "complexity": "low", "filePath": "frappe/email/doctype/notification_recipient/notification_recipient.py"},
+    {"id": "class:NotificationRecipient", "type": "class", "name": "NotificationRecipient", "summary": "Child DocType controller (stub) for Notification recipients table.", "tags": ["child-table"], "complexity": "low", "lineRange": "7-26"}
+  ],
+  "edges": [
+    {"source": "file:frappe/email/doctype/email_unsubscribe/email_unsubscribe.py", "target": "class:EmailUnsubscribe", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:EmailUnsubscribe", "target": "Document", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/email/doctype/email_unsubscribe/test_email_unsubscribe.py", "target": "file:frappe/email/doctype/email_unsubscribe/email_unsubscribe.py", "type": "tested_by", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/email/doctype/imap_folder/imap_folder.py", "target": "class:IMAPFolder", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:IMAPFolder", "target": "Document", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "class:Notification", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:trigger_notifications", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:evaluate_alert", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:trigger_daily_alerts", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:trigger_offset_alerts", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:create_notifications", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "func:install_notification_templates", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "class:Notification", "target": "func:Notification.validate", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_documents_for_today", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_documents_for_this_moment", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.queue_send", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.send", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.send_notification_by_channel", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.create_system_notification", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.send_an_email", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.send_a_slack_msg", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.send_sms", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_list_of_recipients", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_receiver_list", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_attachment", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "func:Notification.get_template", "type": "contains", "direction": "forward", "weight": 1.0},
+
+    {"source": "class:Notification", "target": "Document", "type": "inherits", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.core.doctype.sms_settings.sms_settings", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.desk.doctype.notification_log.notification_log", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.integrations.doctype.slack_webhook_url.slack_webhook_url", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.model.document", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.utils.jinja", "type": "imports", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/notification.py", "target": "frappe.utils.safe_exec", "type": "imports", "direction": "forward", "weight": 1.0},
+
+    {"source": "func:trigger_notifications", "target": "func:evaluate_alert", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:trigger_daily_alerts", "target": "func:evaluate_alert", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "func:trigger_offset_alerts", "target": "func:evaluate_alert", "type": "calls", "direction": "forward", "weight": 0.8},
+    {"source": "func:evaluate_alert", "target": "func:Notification.send", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.queue_send", "target": "func:Notification.send", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send", "target": "func:Notification.send_notification_by_channel", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send", "target": "func:Notification.get_list_of_recipients", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_notification_by_channel", "target": "func:Notification.send_an_email", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_notification_by_channel", "target": "func:Notification.send_a_slack_msg", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_notification_by_channel", "target": "func:Notification.send_sms", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_notification_by_channel", "target": "func:Notification.create_system_notification", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_an_email", "target": "func:Notification.get_attachment", "type": "calls", "direction": "forward", "weight": 1.0},
+    {"source": "func:Notification.send_an_email", "target": "func:Notification.get_list_of_recipients", "type": "calls", "direction": "forward", "weight": 0.8},
+
+    {"source": "file:frappe/email/doctype/notification/test_notification.py", "target": "class:TestNotification", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "file:frappe/email/doctype/notification/test_notification.py", "target": "file:frappe/email/doctype/notification/notification.py", "type": "tested_by", "direction": "forward", "weight": 1.0},
+
+    {"source": "file:frappe/email/doctype/notification/notification.js", "target": "file:frappe/email/doctype/notification/notification.py", "type": "contains", "direction": "forward", "weight": 0.5},
+
+    {"source": "file:frappe/email/doctype/notification_recipient/notification_recipient.py", "target": "class:NotificationRecipient", "type": "contains", "direction": "forward", "weight": 1.0},
+    {"source": "class:NotificationRecipient", "target": "Document", "type": "inherits", "direction": "forward", "weight": 1.0},
+    {"source": "class:Notification", "target": "class:NotificationRecipient", "type": "contains", "direction": "forward", "weight": 0.8}
+  ]
+}

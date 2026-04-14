@@ -1,0 +1,493 @@
+{
+  "nodes": [
+    {
+      "id": "file:frappe/email/doctype/email_account/__init__.py",
+      "type": "file",
+      "name": "email_account/__init__.py",
+      "summary": "Empty package marker for EmailAccount DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "frappe/email/doctype/email_account/__init__.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_account/email_account.js",
+      "type": "file",
+      "name": "email_account.js",
+      "summary": "Client-side form controller for Email Account DocType. Handles UI toggles for IMAP/POP/SMTP/OAuth/Frappe Mail service, domain refresh, authorize button, and test connectivity actions.",
+      "tags": ["doctype-js", "form-controller", "email", "oauth"],
+      "complexity": "frappe/email/doctype/email_account/email_account.js"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_account/email_account.py",
+      "type": "file",
+      "name": "email_account.py",
+      "summary": "Core Email Account DocType controller (1165 lines). Manages IMAP/POP3/SMTP server config, OAuth tokens, Frappe Mail client, inbound mail pulling, auto-reply, notifications for unreplied mails, and user inbox setup.",
+      "tags": ["doctype", "email", "imap", "smtp", "oauth", "core"],
+      "complexity": "frappe/email/doctype/email_account/email_account.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_account/email_account_list.js",
+      "type": "file",
+      "name": "email_account_list.js",
+      "summary": "List view customization for Email Account: indicator formatter based on enabled/default flags.",
+      "tags": ["list-view", "indicator"],
+      "complexity": "frappe/email/doctype/email_account/email_account_list.js"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_account/test_email_account.py",
+      "type": "file",
+      "name": "test_email_account.py",
+      "summary": "Integration tests for EmailAccount: incoming/outgoing flows, attachments, threading, auto-reply, bad email handling, IMAP folders, append-to, and InboundMail parsing.",
+      "tags": ["tests", "integration", "email"],
+      "complexity": "frappe/email/doctype/email_account/test_email_account.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_domain/__init__.py",
+      "type": "file",
+      "name": "email_domain/__init__.py",
+      "summary": "Empty package marker for EmailDomain DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "frappe/email/doctype/email_domain/__init__.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_domain/email_domain.js",
+      "type": "file",
+      "name": "email_domain.js",
+      "summary": "Client-side controller for Email Domain form - toggles IMAP/POP UI.",
+      "tags": ["doctype-js", "form-controller"],
+      "complexity": "frappe/email/doctype/email_domain/email_domain.js"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_domain/email_domain.py",
+      "type": "file",
+      "name": "email_domain.py",
+      "summary": "EmailDomain DocType: shared IMAP/POP/SMTP server settings template. Validates connections on save and propagates updated settings to linked Email Accounts.",
+      "tags": ["doctype", "email", "imap", "smtp", "template"],
+      "complexity": "frappe/email/doctype/email_domain/email_domain.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_domain/test_email_domain.py",
+      "type": "file",
+      "name": "test_email_domain.py",
+      "summary": "Integration tests for EmailDomain DocType.",
+      "tags": ["tests", "integration"],
+      "complexity": "frappe/email/doctype/email_domain/test_email_domain.py"
+    },
+    {
+      "id": "file:frappe/email/doctype/email_flag_queue/__init__.py",
+      "type": "file",
+      "name": "email_flag_queue/__init__.py",
+      "summary": "Empty package marker for EmailFlagQueue DocType module.",
+      "tags": ["init", "package"],
+      "complexity": "frappe/email/doctype/email_flag_queue/__init__.py"
+    },
+
+    {
+      "id": "class:EmailAccount",
+      "type": "class",
+      "name": "EmailAccount",
+      "summary": "Central DocType controller for email accounts. Extends Document; manages naming, validation of IMAP/SMTP/OAuth/Frappe Mail settings, server connection test, inbound pulling, outbound sending, auto-reply and user-inbox provisioning.",
+      "tags": ["class", "doctype-controller", "email"],
+      "complexity": "53-895"
+    },
+    {
+      "id": "class:SentEmailInInbox",
+      "type": "class",
+      "name": "SentEmailInInbox",
+      "summary": "Exception raised when a sent email is found during inbound sync.",
+      "tags": ["exception"],
+      "complexity": "27-28"
+    },
+    {
+      "id": "func:cache_email_account",
+      "type": "function",
+      "name": "cache_email_account",
+      "summary": "Decorator factory caching EmailAccount classmethod lookups in frappe.local.email_accounts keyed by cache_name.",
+      "tags": ["decorator", "cache"],
+      "complexity": "31-50"
+    },
+    {
+      "id": "method:EmailAccount.autoname",
+      "type": "function",
+      "name": "EmailAccount.autoname",
+      "summary": "Derives Email Account name from email_account_name or email_id.",
+      "tags": ["lifecycle", "naming"],
+      "complexity": "134-141"
+    },
+    {
+      "id": "method:EmailAccount.validate",
+      "type": "function",
+      "name": "EmailAccount.validate",
+      "summary": "Primary validation: domain settings, SMTP/IMAP config, default flags, reply-to, append-to linking, sender fields, IMAP folders.",
+      "tags": ["lifecycle", "validate"],
+      "complexity": "143-220"
+    },
+    {
+      "id": "method:EmailAccount.validate_imap_folders_exist",
+      "type": "function",
+      "name": "EmailAccount.validate_imap_folders_exist",
+      "summary": "Live-checks via IMAP that each configured child-table folder exists on server.",
+      "tags": ["validation", "imap"],
+      "complexity": "227-276"
+    },
+    {
+      "id": "method:EmailAccount.validate_smtp_conn",
+      "type": "function",
+      "name": "EmailAccount.validate_smtp_conn",
+      "summary": "Opens SMTP session to verify outgoing credentials.",
+      "tags": ["validation", "smtp"],
+      "complexity": "278-285"
+    },
+    {
+      "id": "method:EmailAccount.before_save",
+      "type": "function",
+      "name": "EmailAccount.before_save",
+      "summary": "Pre-save hook: set defaults for notify fields, validate connection, encrypt password.",
+      "tags": ["lifecycle"],
+      "complexity": "305-332"
+    },
+    {
+      "id": "method:EmailAccount.on_update",
+      "type": "function",
+      "name": "EmailAccount.on_update",
+      "summary": "Post-save hook: clear cache and setup user inbox.",
+      "tags": ["lifecycle"],
+      "complexity": "334-344"
+    },
+    {
+      "id": "method:EmailAccount.there_must_be_only_one_default",
+      "type": "function",
+      "name": "EmailAccount.there_must_be_only_one_default",
+      "summary": "Ensures only one default_incoming/default_outgoing account exists.",
+      "tags": ["validation", "default"],
+      "complexity": "350-363"
+    },
+    {
+      "id": "method:EmailAccount.get_incoming_server",
+      "type": "function",
+      "name": "EmailAccount.get_incoming_server",
+      "summary": "Builds EmailServer with connect args (host/user/pass/port/ssl/oauth) and optional live connection check.",
+      "tags": ["imap", "pop3", "server"],
+      "complexity": "368-403"
+    },
+    {
+      "id": "method:EmailAccount.check_email_server_connection",
+      "type": "function",
+      "name": "EmailAccount.check_email_server_connection",
+      "summary": "Connects to server, increments failed_attempts, disables account if threshold exceeded.",
+      "tags": ["connection", "error-handling"],
+      "complexity": "405-454"
+    },
+    {
+      "id": "method:EmailAccount.find_outgoing",
+      "type": "function",
+      "name": "EmailAccount.find_outgoing",
+      "summary": "Classmethod that resolves an outgoing EmailAccount by email or doctype, falling back to default outgoing.",
+      "tags": ["classmethod", "lookup", "cache"],
+      "complexity": "499-526"
+    },
+    {
+      "id": "method:EmailAccount.find_incoming",
+      "type": "function",
+      "name": "EmailAccount.find_incoming",
+      "summary": "Classmethod resolving an incoming EmailAccount by email/doctype, falls back to default incoming.",
+      "tags": ["classmethod", "lookup"],
+      "complexity": "535-550"
+    },
+    {
+      "id": "method:EmailAccount.get_account_details_from_site_config",
+      "type": "function",
+      "name": "EmailAccount.get_account_details_from_site_config",
+      "summary": "Builds dummy EmailAccount dict from mail_server/mail_login/etc keys in site_config.json.",
+      "tags": ["site-config", "fallback"],
+      "complexity": "556-593"
+    },
+    {
+      "id": "method:EmailAccount.get_smtp_server",
+      "type": "function",
+      "name": "EmailAccount.get_smtp_server",
+      "summary": "Constructs cached SMTPServer from smtp_server/port/login/password/OAuth token.",
+      "tags": ["smtp", "factory"],
+      "complexity": "617-624"
+    },
+    {
+      "id": "method:EmailAccount.get_frappe_mail_client",
+      "type": "function",
+      "name": "EmailAccount.get_frappe_mail_client",
+      "summary": "Returns cached FrappeMail client for accounts using the Frappe Mail service.",
+      "tags": ["frappe-mail", "factory"],
+      "complexity": "630-648"
+    },
+    {
+      "id": "method:EmailAccount.receive",
+      "type": "function",
+      "name": "EmailAccount.receive",
+      "summary": "Main inbound loop: fetches inbound mails, processes each via InboundMail.process(), commits, dispatches auto-replies.",
+      "tags": ["pull", "inbound", "core-loop"],
+      "complexity": "684-717"
+    },
+    {
+      "id": "method:EmailAccount.get_inbound_mails",
+      "type": "function",
+      "name": "EmailAccount.get_inbound_mails",
+      "summary": "Retrieves raw inbound messages from IMAP/POP server or Frappe Mail client, wraps them into InboundMail objects.",
+      "tags": ["inbound", "imap"],
+      "complexity": "719-769"
+    },
+    {
+      "id": "method:EmailAccount.handle_bad_emails",
+      "type": "function",
+      "name": "EmailAccount.handle_bad_emails",
+      "summary": "Stores unparseable messages into Unhandled Email doctype for later debugging.",
+      "tags": ["error-handling"],
+      "complexity": "771-805"
+    },
+    {
+      "id": "method:EmailAccount.send_auto_reply",
+      "type": "function",
+      "name": "EmailAccount.send_auto_reply",
+      "summary": "Sends templated auto-reply message for incoming mail when enabled.",
+      "tags": ["auto-reply", "outbound"],
+      "complexity": "807-829"
+    },
+    {
+      "id": "method:EmailAccount.append_email_to_sent_folder",
+      "type": "function",
+      "name": "EmailAccount.append_email_to_sent_folder",
+      "summary": "Appends a sent message to IMAP Sent folder after outbound send.",
+      "tags": ["imap", "sent"],
+      "complexity": "870-883"
+    },
+    {
+      "id": "method:EmailAccount.get_oauth_token",
+      "type": "function",
+      "name": "EmailAccount.get_oauth_token",
+      "summary": "Returns a decrypted OAuth access token for this account's Connected App session.",
+      "tags": ["oauth"],
+      "complexity": "885-895"
+    },
+    {
+      "id": "func:notify_unreplied",
+      "type": "function",
+      "name": "notify_unreplied",
+      "summary": "Scheduled job that scans inbound Communications past SLA and notifies configured recipients or assigns them.",
+      "tags": ["scheduled", "notification"],
+      "complexity": "924-978"
+    },
+    {
+      "id": "func:pull",
+      "type": "function",
+      "name": "pull",
+      "summary": "Scheduled entrypoint enqueuing pull_emails job for every enabled incoming Email Account.",
+      "tags": ["scheduled", "enqueue"],
+      "complexity": "980-1025"
+    },
+    {
+      "id": "func:pull_emails",
+      "type": "function",
+      "name": "pull_emails",
+      "summary": "Background job wrapper: loads EmailAccount and invokes its receive().",
+      "tags": ["background-job"],
+      "complexity": "1027-1038"
+    },
+    {
+      "id": "func:pull_from_email_account",
+      "type": "function",
+      "name": "pull_from_email_account",
+      "summary": "Whitelisted RPC to manually trigger pull for a named email account.",
+      "tags": ["whitelisted", "rpc"],
+      "complexity": "1040-1044"
+    },
+    {
+      "id": "func:get_max_email_uid",
+      "type": "function",
+      "name": "get_max_email_uid",
+      "summary": "Returns the max stored IMAP UID for an email account (used for incremental sync).",
+      "tags": ["imap", "uid"],
+      "complexity": "1046-1060"
+    },
+    {
+      "id": "func:setup_user_email_inbox",
+      "type": "function",
+      "name": "setup_user_email_inbox",
+      "summary": "Creates/updates User Email rows so users have inbox access to this account.",
+      "tags": ["user", "inbox"],
+      "complexity": "1062-1115"
+    },
+    {
+      "id": "func:remove_user_email_inbox",
+      "type": "function",
+      "name": "remove_user_email_inbox",
+      "summary": "Cleans up User Email rows when an Email Account is deleted or renamed.",
+      "tags": ["user", "inbox", "cleanup"],
+      "complexity": "1117-1135"
+    },
+    {
+      "id": "func:set_email_password",
+      "type": "function",
+      "name": "set_email_password",
+      "summary": "Whitelisted helper that validates and stores an encrypted password for an email account.",
+      "tags": ["whitelisted", "password"],
+      "complexity": "1137-1149"
+    },
+    {
+      "id": "func:get_append_to",
+      "type": "function",
+      "name": "get_append_to",
+      "summary": "Whitelisted RPC returning doctype choices valid as append-to targets for communications.",
+      "tags": ["whitelisted", "metadata"],
+      "complexity": "897-922"
+    },
+
+    {
+      "id": "class:EmailDomain",
+      "type": "class",
+      "name": "EmailDomain",
+      "summary": "DocType representing a reusable IMAP/POP/SMTP server template. Validates credentials on save and propagates config to linked Email Accounts.",
+      "tags": ["class", "doctype-controller"],
+      "complexity": "55-127"
+    },
+    {
+      "id": "method:EmailDomain.validate",
+      "type": "function",
+      "name": "EmailDomain.validate",
+      "summary": "Validates email_id, normalizes ports, runs incoming/outgoing server connection checks.",
+      "tags": ["lifecycle", "validate"],
+      "complexity": "81-88"
+    },
+    {
+      "id": "method:EmailDomain.on_update",
+      "type": "function",
+      "name": "EmailDomain.on_update",
+      "summary": "Updates linked Email Accounts with any changed shared settings.",
+      "tags": ["lifecycle", "propagate"],
+      "complexity": "90-103"
+    },
+    {
+      "id": "method:EmailDomain.validate_incoming_server_conn",
+      "type": "function",
+      "name": "EmailDomain.validate_incoming_server_conn",
+      "summary": "Opens IMAP or POP3 connection to verify incoming server credentials.",
+      "tags": ["imap", "pop3", "validation"],
+      "complexity": "105-116"
+    },
+    {
+      "id": "method:EmailDomain.validate_outgoing_server_conn",
+      "type": "function",
+      "name": "EmailDomain.validate_outgoing_server_conn",
+      "summary": "Opens SMTP connection to verify outgoing credentials.",
+      "tags": ["smtp", "validation"],
+      "complexity": "118-127"
+    },
+    {
+      "id": "func:handle_error",
+      "type": "function",
+      "name": "handle_error",
+      "summary": "Decorator that wraps server-connection methods to convert low-level errors into user-friendly frappe.throw messages.",
+      "tags": ["decorator", "error-handling"],
+      "complexity": "37-52"
+    },
+
+    {
+      "id": "class:TestEmailAccount",
+      "type": "class",
+      "name": "TestEmailAccount",
+      "summary": "IntegrationTestCase covering inbound, outbound, threading, auto-reply, IMAP folders, attachments and bad-email handling for Email Account.",
+      "tags": ["tests"],
+      "complexity": "19-469"
+    },
+    {
+      "id": "class:TestInboundMail",
+      "type": "function",
+      "name": "TestInboundMail",
+      "summary": "IntegrationTestCase covering InboundMail parent-lookup, self-reply detection, rfc2047 decoding and communication creation.",
+      "tags": ["tests", "inbound"],
+      "complexity": "471-725"
+    }
+  ],
+  "edges": [
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "class:EmailAccount", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "class:SentEmailInInbox", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:cache_email_account", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:notify_unreplied", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:pull", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:pull_emails", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:pull_from_email_account", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:get_max_email_uid", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:setup_user_email_inbox", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:remove_user_email_inbox", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:set_email_password", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "func:get_append_to", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.autoname", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.validate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.validate_imap_folders_exist", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.validate_smtp_conn", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.before_save", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.on_update", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.there_must_be_only_one_default", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_incoming_server", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.check_email_server_connection", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.find_outgoing", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.find_incoming", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_account_details_from_site_config", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_smtp_server", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_frappe_mail_client", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.receive", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_inbound_mails", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.handle_bad_emails", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.send_auto_reply", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.append_email_to_sent_folder", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "method:EmailAccount.get_oauth_token", "type": "contains", "direction": "forward", "weight": 1},
+
+    {"source": "class:EmailAccount", "target": "class:Document", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "class:SentEmailInInbox", "target": "class:Exception", "type": "inherits", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "file:frappe/email/doctype/email_domain/email_domain.py", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.email.frappemail", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.email.receive", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.email.smtp", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.model.document", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.utils.background_jobs", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "module:frappe.desk.doctype.notification_log.notification_log", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "method:EmailAccount.receive", "target": "method:EmailAccount.get_inbound_mails", "type": "calls", "direction": "forward", "weight": 3},
+    {"source": "method:EmailAccount.receive", "target": "method:EmailAccount.send_auto_reply", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.get_inbound_mails", "target": "method:EmailAccount.get_incoming_server", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.get_inbound_mails", "target": "method:EmailAccount.get_frappe_mail_client", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.get_inbound_mails", "target": "method:EmailAccount.handle_bad_emails", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.check_email_server_connection", "target": "method:EmailAccount._disable_broken_incoming_account", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.validate", "target": "method:EmailAccount.validate_smtp_conn", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.validate", "target": "method:EmailAccount.validate_imap_folders_exist", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.validate", "target": "method:EmailAccount.there_must_be_only_one_default", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.on_update", "target": "func:setup_user_email_inbox", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:pull", "target": "func:pull_emails", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:pull_emails", "target": "method:EmailAccount.receive", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "func:pull_from_email_account", "target": "method:EmailAccount.receive", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.find_outgoing", "target": "method:EmailAccount.find_default_outgoing", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailAccount.find_incoming", "target": "method:EmailAccount.find_default_incoming", "type": "calls", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "class:EmailDomain", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "func:handle_error", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailDomain", "target": "method:EmailDomain.validate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailDomain", "target": "method:EmailDomain.on_update", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailDomain", "target": "method:EmailDomain.validate_incoming_server_conn", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailDomain", "target": "method:EmailDomain.validate_outgoing_server_conn", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "class:EmailDomain", "target": "class:Document", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "method:EmailDomain.validate", "target": "method:EmailDomain.validate_incoming_server_conn", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "method:EmailDomain.validate", "target": "method:EmailDomain.validate_outgoing_server_conn", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "module:frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "module:frappe.model.document", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "module:frappe.email.utils", "type": "imports", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/email/doctype/email_account/test_email_account.py", "target": "class:TestEmailAccount", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/test_email_account.py", "target": "class:TestInboundMail", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/test_email_account.py", "target": "file:frappe/email/doctype/email_account/email_account.py", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_account/email_account.py", "target": "file:frappe/email/doctype/email_account/test_email_account.py", "type": "tested_by", "direction": "forward", "weight": 1},
+    {"source": "class:EmailAccount", "target": "class:TestEmailAccount", "type": "tested_by", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.py", "target": "file:frappe/email/doctype/email_domain/test_email_domain.py", "type": "tested_by", "direction": "forward", "weight": 1},
+
+    {"source": "file:frappe/email/doctype/email_account/email_account.js", "target": "file:frappe/email/doctype/email_account/email_account.py", "type": "calls", "direction": "forward", "weight": 1},
+    {"source": "file:frappe/email/doctype/email_domain/email_domain.js", "target": "file:frappe/email/doctype/email_domain/email_domain.py", "type": "calls", "direction": "forward", "weight": 1}
+  ]
+}

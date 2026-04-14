@@ -29,19 +29,27 @@ Each batch = 10 files. Each batch dispatched as a background subagent with a pro
 | 1 | `frappe/` root + `core/` + `model/` | 456 | 0–45 | ✅ Done |
 | 2 | `frappe/utils/`, `frappe/database/` | 94 | 46–55 | ✅ Done |
 | 3 | `frappe/public/js/` (JS + Vue) | 351 | 56–91 | ✅ Done |
-| 4 | `frappe/email/`, `workflow/`, `printing/`, `website/` | ~300 | 92+ | ⏳ Pending |
+| 4 | `frappe/email/`, `workflow/`, `printing/`, `website/` | 346 | 92–126 | 🟡 **13/35** (92–104 done) — rate limit hit at 105, resume after reset |
 | 5 | `frappe/integrations/`, `automation/`, `desk/` | ~250 | TBD | ⏳ Pending |
 | 6 | Remaining + Phases 3–7 (merge, layers, tour, save) | ~700 | TBD | ⏳ Pending |
 
-## Cumulative Results (through Session 3)
+## Cumulative Results (through Session 4 partial)
 
-| Metric | Session 1 | Session 2 | Session 3 | **Total** |
-|--------|-----------|-----------|-----------|-----------|
-| Batches | 46 | 10 | 36 | **92** |
-| Files | 456 | 94 | 351 | **901 / 2,160** |
-| Nodes | 1,301 | 412 | 1,868 | **3,581** |
-| Edges | 1,587 | 582 | 2,180 | **4,349** |
-| Coverage | 21.1% | 4.4% | 16.3% | **41.7%** |
+| Metric | Session 1 | Session 2 | Session 3 | Session 4 (partial) | **Total** |
+|--------|-----------|-----------|-----------|---------------------|-----------|
+| Batches | 46 | 10 | 36 | 13 / 35 | **105** |
+| Files | 456 | 94 | 351 | ~130 | **~1,031 / 2,160** |
+| Nodes | 1,301 | 412 | 1,868 | 443 | **4,024** |
+| Edges | 1,587 | 582 | 2,180 | 1,028 | **5,377** |
+| Coverage | 21.1% | 4.4% | 16.3% | ~6.0% | **~47.7%** |
+
+### Session 4 Resume Point
+
+- **Remaining batches**: 105–126 (22 batches, ~216 files)
+- **Covers**: rest of `frappe/website/` (doctypes, pages, templates, web_page, web_form, etc.)
+- **Next batch to dispatch**: 105 (starts at `frappe/website/doctype/about_us_settings/test_about_us_settings.py`)
+- **Batch definitions**: `intermediate/session4-batches.json` (batches[13] through batches[34])
+- **Rate limit**: Hit at 2026-04-13 during batch 105 dispatch; resets 10am Asia/Saigon
 
 ## Batch Definitions
 

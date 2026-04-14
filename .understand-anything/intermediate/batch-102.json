@@ -1,0 +1,39 @@
+{
+  "nodes": [
+    {"id": "frappe/printing/doctype/print_heading/test_print_heading.py", "type": "file", "name": "test_print_heading.py", "summary": "Unit test stub for Print Heading DocType.", "tags": ["test", "printing"], "complexity": "frappe/printing/doctype/print_heading/test_print_heading.py"},
+    {"id": "frappe/printing/doctype/print_settings/print_settings.js", "type": "file", "name": "print_settings.js", "summary": "Client-side controller for Print Settings form.", "tags": ["js", "printing"], "complexity": "frappe/printing/doctype/print_settings/print_settings.js"},
+    {"id": "frappe/printing/doctype/print_settings/print_settings.py", "type": "file", "name": "print_settings.py", "summary": "Print Settings singleton DocType controller with validation and whitelisted helper.", "tags": ["doctype", "printing", "singleton"], "complexity": "frappe/printing/doctype/print_settings/print_settings.py"},
+    {"id": "frappe/printing/doctype/print_settings/test_print_settings.py", "type": "file", "name": "test_print_settings.py", "summary": "Unit test for Print Settings DocType.", "tags": ["test", "printing"], "complexity": "frappe/printing/doctype/print_settings/test_print_settings.py"},
+    {"id": "frappe/printing/doctype/print_style/print_style.js", "type": "file", "name": "print_style.js", "summary": "Client-side controller for Print Style form.", "tags": ["js", "printing"], "complexity": "frappe/printing/doctype/print_style/print_style.js"},
+    {"id": "frappe/printing/doctype/print_style/print_style.py", "type": "file", "name": "print_style.py", "summary": "Print Style DocType controller: guards editing of standard styles and exports to module JSON.", "tags": ["doctype", "printing"], "complexity": "frappe/printing/doctype/print_style/print_style.py"},
+    {"id": "frappe/printing/doctype/print_style/test_print_style.py", "type": "file", "name": "test_print_style.py", "summary": "Unit test for Print Style DocType.", "tags": ["test", "printing"], "complexity": "frappe/printing/doctype/print_style/test_print_style.py"},
+    {"id": "PrintSettings", "type": "class", "name": "PrintSettings", "summary": "Singleton DocType controller managing global print/PDF configuration; validates custom page size and clears cache on update.", "tags": ["doctype", "singleton"], "complexity": "10-74"},
+    {"id": "PrintSettings.validate", "type": "func", "name": "validate", "summary": "Throws if Custom pdf_page_size has zero height/width.", "tags": ["validation"], "complexity": "69-71"},
+    {"id": "PrintSettings.on_update", "type": "func", "name": "on_update", "summary": "Clears frappe cache after settings change.", "tags": ["hook"], "complexity": "73-74"},
+    {"id": "print_settings.is_print_server_enabled", "type": "func", "name": "is_print_server_enabled", "summary": "Whitelisted helper returning the enable_print_server single value.", "tags": ["api", "whitelist"], "complexity": "77-79"},
+    {"id": "PrintStyle", "type": "class", "name": "PrintStyle", "summary": "DocType controller for Print Style CSS; blocks editing standard styles outside developer mode and exports to module JSON.", "tags": ["doctype"], "complexity": "8-40"},
+    {"id": "PrintStyle.validate", "type": "func", "name": "validate", "summary": "Prevents modification of standard print styles unless in developer/import/test context.", "tags": ["validation"], "complexity": "24-31"},
+    {"id": "PrintStyle.on_update", "type": "func", "name": "on_update", "summary": "Triggers export_doc after save.", "tags": ["hook"], "complexity": "33-34"},
+    {"id": "PrintStyle.export_doc", "type": "func", "name": "export_doc", "summary": "Exports style to module JSON via export_module_json under Printing module.", "tags": ["export"], "complexity": "36-40"}
+  ],
+  "edges": [
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "PrintSettings", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "print_settings.is_print_server_enabled", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "PrintSettings", "target": "PrintSettings.validate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "PrintSettings", "target": "PrintSettings.on_update", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "frappe.model.document.Document", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "frappe.utils.cint", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "PrintSettings", "target": "frappe.model.document.Document", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_settings/print_settings.py", "target": "frappe/printing/doctype/print_settings/test_print_settings.py", "type": "tested_by", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_style/print_style.py", "target": "PrintStyle", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "PrintStyle", "target": "PrintStyle.validate", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "PrintStyle", "target": "PrintStyle.on_update", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "PrintStyle", "target": "PrintStyle.export_doc", "type": "contains", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_style/print_style.py", "target": "frappe", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_style/print_style.py", "target": "frappe.model.document.Document", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_style/print_style.py", "target": "frappe.modules.utils.export_module_json", "type": "imports", "direction": "forward", "weight": 1},
+    {"source": "PrintStyle", "target": "frappe.model.document.Document", "type": "inherits", "direction": "forward", "weight": 1},
+    {"source": "frappe/printing/doctype/print_style/print_style.py", "target": "frappe/printing/doctype/print_style/test_print_style.py", "type": "tested_by", "direction": "forward", "weight": 1}
+  ]
+}
